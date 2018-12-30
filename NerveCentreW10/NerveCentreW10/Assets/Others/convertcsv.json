@@ -1,0 +1,29 @@
+[
+  {
+    "QText": "Q1. What is the function of a myelin sheath?",
+    "Q1A": "A. To decrease the speed of action potentials.",
+    "Q1B": "B. To increase the speed of action potentials.",
+    "Q1C": "C. To receive neurotransmitters from the synapse.",
+    "Q1D": "D. To release neurotransmitters into the synapse.",
+    "ANS": "B. To increase the speed of action potentials.",
+    "REASON": "Myelin is an insulating material, with gaps between its sections - called nodes of Ranvier. Action potentials jump along the neuron ('saltatory conduction') at these nodes, thereby speeding up action potential transmission."
+  },
+  {
+    "QText": ">Q2. Complete the sentence: 'Dendrites…'</TextBlock>",
+    "Q1A": "A. …are projections that help neurons move throughout the brain.",
+    "Q1B": "B. …are a type of ion pump.",
+    "Q1C": "C. …are neuronal projections that receive input from other neurons and their synapses.",
+    "Q1D": "D. …store large amounts of neurotransmitter.",
+    "ANS": "C. …are neuronal projections that receive input from other neurons and their synapses.",
+    "REASON": "Myelin is an insulating material, with gaps between its sections - called nodes of Ranvier. Action potentials jump along the neuron ('saltatory conduction') at these nodes, thereby speeding up action potential transmission."
+  },
+  {
+    "QText": ">Q3. Complete the sentence: 'Dendrites…'</TextBlock>",
+    "Q1A": "A. …are projections that help neurons move throughout the brain.",
+    "Q1B": "B. …are a type of ion pump.",
+    "Q1C": "C. …are neuronal projections that receive input from other neurons and their synapses.",
+    "Q1D": "D. …store large amounts of neurotransmitter.",
+    "ANS": "B. …are a type of ion pump.",
+    "REASON": "Myelin is an insulating material, with gaps between its sections - called nodes of Ranvier. Action potentials jump along the neuron ('saltatory conduction') at these nodes, thereby speeding up action potential transmission."
+  }
+]

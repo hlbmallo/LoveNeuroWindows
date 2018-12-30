@@ -4,14 +4,15 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
+  xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio"
+  IgnorableNamespaces="uap mp genTemplate">
 
   <Identity
-    Name="c13a0063-5513-4e77-b8ed-ecae45d2e2ab"
+    Name="F8D74C5C-23CA-478D-BC0F-4F18873F8F7C"
     Publisher="CN=benma"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="c13a0063-5513-4e77-b8ed-ecae45d2e2ab" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="F8D74C5C-23CA-478D-BC0F-4F18873F8F7C" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>NerveCentreW10</DisplayName>
@@ -32,18 +33,36 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="NerveCentreW10.App">
       <uap:VisualElements
-        DisplayName="NerveCentreW10"
+        DisplayName="ms-resource:AppDisplayName"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="NerveCentreW10"
+        Description="ms-resource:AppDescription"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
+
+      <Extensions>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="wtsapp">
+            <uap:Logo>Assets\Icon.png</uap:Logo>
+            <uap:DisplayName>NerveCentreW10</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
 
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
+
+  <genTemplate:Metadata>
+    <genTemplate:Item Name="generator" Value="Windows Template Studio"/>
+    <genTemplate:Item Name="wizardVersion" Version="v2.5.18319.1" />
+    <genTemplate:Item Name="templatesVersion" Version="v2.5.18334.1" />
+    <genTemplate:Item Name="projectType" Value="SplitView" />
+    <genTemplate:Item Name="framework" Value="CodeBehind" />
+    <genTemplate:Item Name="platform" Value="Uwp" />
+  </genTemplate:Metadata>
 </Package>

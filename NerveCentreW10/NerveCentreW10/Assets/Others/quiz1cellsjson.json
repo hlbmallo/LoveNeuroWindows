@@ -1,0 +1,110 @@
+[
+ {
+   "QTEXT": "Q1. What is the function of a myelin sheath?",
+   "QA": "A. To decrease the speed of action potentials.",
+   "QB": "B. To increase the speed of action potentials.",
+   "QC": "C. To receive neurotransmitters from the synapse.",
+   "QD": "D. To release neurotransmitters into the synapse.",
+   "ANS": "B. To increase the speed of action potentials.",
+   "REA": "Myelin is an insulating material, with gaps between its sections - called nodes of Ranvier. Action potentials jump along the neuron ('saltatory conduction') at these nodes, thereby speeding up action potential transmission."
+ },
+ {
+   "QTEXT": "Q2. Complete the sentence: 'Dendrites…'",
+   "QA": "A. …are projections that help neurons move throughout the brain.",
+   "QB": "B. …are a type of ion pump.",
+   "QC": "C. …are neuronal projections that receive input from other neurons and their synapses.",
+   "QD": "D. …store large amounts of neurotransmitter.",
+   "ANS": "C. …are neuronal projections that receive input from other neurons and their synapses.",
+   "REA": "Presynaptic terminals generally synapse with dendrites, or sometimes dendritic spines, on postsynaptic neurons, and generate what is known as a receptor potential (which will lead to the generation of action potentials)."
+ },
+ {
+   "QTEXT": "Q3. What feature is unique to bipolar neurons?",
+   "QA": "A. They have two axons; one entering and one leaving the cell body.",
+   "QB": "B. They are found in brain regions associated with bipolar disorder.",
+   "QC": "C. They have no ion channels or pumps.",
+   "QD": "D. They are the only neurons without a cell body.",
+   "ANS": "A. They have two axons; one entering and one leaving the cell body.",
+   "REA": "The term 'bipolar' refers to the two axons (poles) of the neuron, one entering and one leaving. Note that all neurons have ion channels to maintain their RMP and conduct action potentials. Bipolar neurons in the eye are so-called because of their two axons."
+ },
+ {
+   "QTEXT": "Q4. Which cellular structure is mainly responsible for maintaining the resting membrane potential (RMP)?",
+   "QA": "A. Na+/K+ ATPase pump.",
+   "QB": "B. Chloride ion channels.",
+   "QC": "C. Dendrites.",
+   "QD": "D. Vesicles in the presynaptic terminal.",
+   "ANS": "A. Na+/K+ ATPase pump.",
+   "REA": "The Na/K+ ATPase pump corrects the current leakage that occurs by Na+ and K+ ion channels, ensuring the RMP stays at -70mV (although the exact figure depends on the type of neuron)."
+ },
+ {
+   "QTEXT": "Q5. The resting membrane potential (RMP) is…?",
+   "QA": "A. -100mV",
+   "QB": "B. 0mV",
+   "QC": "C. +100mV",
+   "QD": "D. -70mV",
+   "ANS": "D. -70mV",
+   "REA": "In many neurons, the RMP is -70mV (or close to it). -100mV would be hyperpolarised, and +100mV is technically depolarised (although this would most likely be unachieveable in reality)."
+ },
+ {
+   "QTEXT": "Q6. Which stage comes first in the production of an action potential?",
+   "QA": "A. A sudden influx of Na+ ions.",
+   "QB": "B. A sudden influx of K+ ion.",
+   "QC": "C. A sudden influx of Cl- ions.",
+   "QD": "D. A sudden influx of negatively charged proteins.",
+   "ANS": "A. A sudden influx of Na+ ions.",
+   "REA": "In general, the steps are: a small, slow influx of Na+ ions, then a sudden large influx of Na+ ions, an influx of K+ ions and then repolarisation by the Na+/K+ ATPase pump."
+ },
+ {
+   "QTEXT": "Q7. During an action potential, the sudden influx of Na+ ions increases the membrane potential to…?",
+   "QA": "A. 0mV",
+   "QB": "B. +100mV",
+   "QC": "C. -90mV",
+   "QD": "D. +30mV",
+   "ANS": "D. +30mV",
+   "REA": "A value of +30mV indicates that the neuron is fully depolarised."
+ },
+ {
+   "QTEXT": "Q8. What feature of Na+ ion channels facilitates the phase of depolarisation?",
+   "QA": "A. They allow the entrance and exit of both Na+ and K+ ions.",
+   "QB": "B. They are voltage-gated, thereby facilitating the influx of Na+ ions when the threshold value is reached.",
+   "QC": "C. They only open when the membrane potential is at least 0mV.",
+   "QD": "D. They are not voltage-gated, and therefore do not respond to unwanted changes in the membrane potential.",
+   "ANS": "B. They are voltage-gated, thereby facilitating the influx of Na+ ions when the threshold value is reached.",
+   "REA": "The voltage-gated Na+ ion channels detect when the threshold value of -55mV is reached and open in response to this, allowing a sudden, large influx of Na+ ions."
+ },
+ {
+   "QTEXT": "Q9. During the process of synaptic communication, what directly stimulates the neurotransmitter-containing vesciles to migrate towards the presynaptic membrane?",
+   "QA": "A. The influx of Na+ ions into the presynaptic terminal.",
+   "QB": "B. The influx of serotonin into the presynaptic terminal.",
+   "QC": "C. The influx of Mg2+ ions into the presynaptic terminal.",
+   "QD": "D. The influx of Ca2+ ions into the presynaptic terminal.",
+   "ANS": "D. The influx of Ca2+ ions into the presynaptic terminal.",
+   "REA": "Voltage-gated Ca2+ ion channels open in response to the arrival of the action potential. Ca2+ ions rush in and stimulate vesicle migration and presynaptic membrane fusion."
+ },
+ {
+   "QTEXT": "Q10. What is the function of a neurotransmitter?",
+   "QA": "A. Neurotransmitters cross the axonal membrane to facilitate conduction of an action potential.",
+   "QB": "B. Neurotransmitters prevent the threshold value of a neuron from being reached, thereby preventing unwanted action potentials.",
+   "QC": "C. Neurotransmitters allow the communication of action potentials in both forward and reverse directions.",
+   "QD": "D. Neurotransmitters allow neurons to communicate with each other by converting the action potential to a chemical messenger.",
+   "ANS": "D. Neurotransmitters allow neurons to communicate with each other by converting the action potential to a chemical messenger.",
+   "REA": "Not all synapses are chemical in nature (some are electrical) but those that are convert the action potential into a chemical messenger and then back to an action potential."
+ },
+ {
+   "QTEXT": "Q11. Which neurotransmitter is used at the neuromuscular junction?",
+   "QA": "A. Serotonin.",
+   "QB": "B. Acetylcholine.",
+   "QC": "C. Glutamate.",
+   "QD": "D. Dopamine.",
+   "ANS": "B. Acetylcholine.",
+   "REA": "Acetylcholine is widespread in the body but at the skeletal muscular junction it is the neurotransmitter used. Specifically, it binds to nicotinic receptors in the postsynaptic membrane of the neuromuscular junction."
+ },
+ {
+   "QTEXT": "Q12. Which ions are released from the sarcoplasmic reticulum and enable muscle fibres to contract?",
+   "QA": "A. Ca2+ ions.",
+   "QB": "B. K+ ions.",
+   "QC": "C. Na+ ions.",
+   "QD": "D. Cl- ions.",
+   "ANS": "A. Ca2+ ions.",
+   "REA": "Ca2+ ions bind to troponin C, where it initiates muscle contraction."
+ }
+]

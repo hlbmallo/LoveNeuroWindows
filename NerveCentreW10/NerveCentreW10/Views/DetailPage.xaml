@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="NerveCentreW10.Views.DetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NerveCentreW10.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:controls2="using:AppStudio.Uwp.Controls"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:StringVisibilityConverter x:Key="StringVisibilityConverter" EmptyValue="Collapsed" NotEmptyValue="Visible"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer x:Name="MyScrollViewer" Grid.Row="0" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0,0,0,64">
+                <StackPanel>
+                    <TextBlock x:Name="Title" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Left"/>
+                    <Border Style="{StaticResource BorderLine1}"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock x:Name="Subtitle1" Style="{StaticResource TitleTextBlockStyle}"/>
+                    <Border Style="{StaticResource BorderLine1}"/>
+                    <controls2:HtmlBlock x:Name="Description1" Style="{StaticResource HTMLBlockTextStyle1}" Margin="0,0,0,10"/>
+                    <TextBlock x:Name="Subtitle2" Style="{StaticResource TitleTextBlockStyle}" Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}" />
+                    <Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}"/>
+                    <Border Background="White" x:Name="MyBorderForImage">
+                        <Grid>
+                            <controls:ImageEx x:Name="MyImage" Stretch="Uniform" Height="Auto" MaxHeight="700" MaxWidth="1000" HorizontalAlignment="Center" Tapped="MyImage_Tapped" Margin="5" PlaceholderSource="ms-appx:///Assets/Others/LoadingPlaceholder.png" PlaceholderStretch="Uniform" ImageExFailed="MyImage_ImageExFailed"/>
+                            <TextBlock Text="Click or tap to enable zooming" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="12" Margin="0,0,16,0" FontStyle="Italic"/>
+                        </Grid>
+                    </Border>
+                    <controls2:HtmlBlock x:Name="Description2" Style="{StaticResource HTMLBlockTextStyle1}" Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}"/>
+                    <TextBlock x:Name="Subtitle3" Style="{StaticResource TitleTextBlockStyle}" Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />
+                    <Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}"/>
+                    <Border Background="White" x:Name="MyBorderForImage2" Visibility="{x:Bind Path=MyImage2.Source, Converter={StaticResource StringVisibilityConverter}}">
+                        <Grid>
+                            <controls:ImageEx x:Name="MyImage2" Stretch="Uniform" Height="Auto" MaxHeight="700" MaxWidth="1000" HorizontalAlignment="Center" Tapped="MyImage2_Tapped" Margin="5" PlaceholderSource="ms-appx:///Assets/Others/LoadingPlaceholder.png" PlaceholderStretch="Uniform" ImageExFailed="MyImage2_ImageExFailed"/>
+                            <TextBlock Text="Click or tap to enable zooming" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="12" Margin="0,0,16,0" FontStyle="Italic"/>
+                        </Grid>
+                    </Border>
+                    <controls2:HtmlBlock x:Name="Description3" Style="{StaticResource HTMLBlockTextStyle1}" Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid Grid.Row="1" Height="48" Background="{ThemeResource DetailPageCommandbarAcrylic1}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="Share:" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="10,0,4,0"/>
+                <AppBarButton x:Name="ShareButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Content="Text" Click="ShareButton_Click"/>
+                <AppBarButton x:Name="ShareImageButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Content="Diagram" Click="ShareImageButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
