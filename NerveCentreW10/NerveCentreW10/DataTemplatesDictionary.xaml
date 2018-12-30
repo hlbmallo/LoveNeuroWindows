@@ -71,4 +71,25 @@
         </Grid>
     </DataTemplate>
 
+    <DataTemplate x:Key="InkingZoneDataTemplate" x:DataType="data:InkingZoneClass">
+        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
+            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
+                          OffsetX="0"
+                          OffsetY="0"
+                          BlurRadius="20"
+                          ShadowOpacity=".8"
+                          HorizontalContentAlignment="Stretch"
+                          VerticalContentAlignment="Stretch"
+                                      Opacity="0">
+                <Grid/>
+            </controls:DropShadowPanel>
+            <Grid x:Name="MyGrid2" Padding="10">
+                <controls:ImageEx x:Name="MyImage" Source="{x:Bind InkingZoneImage}" Stretch="UniformToFill"/>
+                <Border x:Name="MyBorder2" Background="{StaticResource GridViewAcrylic1}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Padding="10" MinHeight="80">
+                    <TextBlock x:Name="MyTextBlock" Text="{x:Bind InkingZoneTitle}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" TextWrapping="Wrap" FontSize="16"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
 </ResourceDictionary>

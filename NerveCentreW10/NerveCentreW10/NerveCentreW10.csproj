@@ -164,6 +164,7 @@
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\ImagesNavigationHelper.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
+    <Compile Include="Models\InkingZoneClass.cs" />
     <Compile Include="Models\NotesClass.cs" />
     <Compile Include="Models\QuizClass.cs" />
     <Compile Include="Models\QuizListClass.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="Services\UserActivityService.cs" />
     <Compile Include="Services\UserActivityService.Sample.cs" />
     <Compile Include="Services\WhatsNewDisplayService.cs" />
+    <Compile Include="ViewModels\InkingZoneViewModel.cs" />
     <Compile Include="ViewModels\Section1ViewModel.cs" />
     <Compile Include="ViewModels\Section2ViewModel.cs" />
     <Compile Include="ViewModels\Section3ViewModel.cs" />
@@ -224,12 +226,6 @@
     <Compile Include="Views\QuizList.xaml.cs">
       <DependentUpon>QuizList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuizMDDetailControl.xaml.cs">
-      <DependentUpon>QuizMDDetailControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\QuizMDPage.xaml.cs">
-      <DependentUpon>QuizMDPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SchemeActivationSamplePage.xaml.cs">
       <DependentUpon>SchemeActivationSamplePage.xaml</DependentUpon>
     </Compile>
@@ -247,6 +243,9 @@
     </Compile>
     <Compile Include="Views\Section5QuizMenu.xaml.cs">
       <DependentUpon>Section5QuizMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Section6InkingZoneMenu.xaml.cs">
+      <DependentUpon>Section6InkingZoneMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
@@ -342,14 +341,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\QuizMDDetailControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\QuizMDPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\SchemeActivationSamplePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -371,6 +362,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Section5QuizMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Section6InkingZoneMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -402,12 +397,12 @@
     <Content Include="Assets\Icons\FeedbackIcon2562.png" />
     <Content Include="Assets\Icons\IconHome.png" />
     <Content Include="Assets\Icons\InfoIconx256.png" />
-    <Content Include="Assets\Icons\InkingZone256.png" />
+    <Content Include="Assets\Icons\IconInk.png" />
     <Content Include="Assets\Icons\MoreIcon256.png" />
     <Content Include="Assets\Icons\PNSIcon256.png" />
     <Content Include="Assets\Icons\PrivacyIcon256.png" />
     <Content Include="Assets\Icons\QuestionIcon256.png" />
-    <Content Include="Assets\Icons\QuizIcon256.png" />
+    <Content Include="Assets\Icons\IconQuiz.png" />
     <Content Include="Assets\Icons\RateIcon256.png" />
     <Content Include="Assets\Icons\Read256.png" />
     <Content Include="Assets\Icons\RecommendedReadingIcon256.png" />

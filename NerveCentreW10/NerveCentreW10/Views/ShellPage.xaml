@@ -40,7 +40,12 @@
             </winui:NavigationViewItem>
             <winui:NavigationViewItem Content="5.0. Quizzes" helpers:NavHelper.NavigateTo="views:Section5QuizMenu">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconNotes.png"/>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconQuiz.png"/>
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+            <winui:NavigationViewItem Content="6.0. Inking Zone" helpers:NavHelper.NavigateTo="views:Section6InkingZoneMenu">
+                <winui:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconInk.png"/>
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
         </winui:NavigationView.MenuItems>
