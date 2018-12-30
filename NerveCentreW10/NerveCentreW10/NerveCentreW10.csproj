@@ -433,7 +433,7 @@
     <Content Include="Assets\Icons\IconNotes.png" />
     <Content Include="Assets\Icons\UpdateIcon256.png" />
     <Content Include="Assets\Icons\UpdateIcon3x256.png" />
-    <Content Include="Assets\Icons\VideoTutorial256.png" />
+    <Content Include="Assets\Icons\IconVideo.png" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\Others\ErrorPlaceholder.png" />
     <Content Include="Assets\Others\LoadingPlaceholder.png" />

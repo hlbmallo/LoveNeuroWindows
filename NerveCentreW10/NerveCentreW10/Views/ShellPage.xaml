@@ -50,7 +50,7 @@
             </winui:NavigationViewItem>
             <winui:NavigationViewItem Content="7.0. Video Tutorials" helpers:NavHelper.NavigateTo="views:Section7VideoTutorialsMenu">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconInk.png"/>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconVideo.png"/>
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
         </winui:NavigationView.MenuItems>
