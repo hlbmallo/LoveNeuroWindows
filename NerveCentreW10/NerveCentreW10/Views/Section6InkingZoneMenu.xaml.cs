@@ -37,7 +37,7 @@ namespace NerveCentreW10.Views
         private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
             var MyClickedItem = (InkingZoneClass)e.ClickedItem;
-            Frame.Navigate(typeof(DetailPage), MyClickedItem);
+            Frame.Navigate(typeof(InkingZoneDetail), MyClickedItem);
         }
     }
 }

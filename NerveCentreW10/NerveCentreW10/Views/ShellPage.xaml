@@ -48,6 +48,11 @@
                     <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconInk.png"/>
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
+            <winui:NavigationViewItem Content="7.0. Video Tutorials" helpers:NavHelper.NavigateTo="views:Section7VideoTutorialsMenu">
+                <winui:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconInk.png"/>
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior

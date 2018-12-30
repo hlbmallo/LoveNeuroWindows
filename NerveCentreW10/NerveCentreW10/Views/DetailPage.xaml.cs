@@ -49,7 +49,7 @@ namespace NerveCentreW10.Views
             //}
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             SubsectionModel MyClickedItem = (SubsectionModel)e.Parameter;
 

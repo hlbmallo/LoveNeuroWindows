@@ -171,6 +171,7 @@
     <Compile Include="Models\SampleImage.cs" />
     <Compile Include="Models\SampleOrder.cs" />
     <Compile Include="Models\SubsectionModel.cs" />
+    <Compile Include="Models\VideoTutorialsClass.cs" />
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Activation\DefaultLaunchActivationHandler.cs" />
     <Compile Include="Services\DevCenterNotificationsService.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="ViewModels\Section2ViewModel.cs" />
     <Compile Include="ViewModels\Section3ViewModel.cs" />
     <Compile Include="ViewModels\Section4ViewModel.cs" />
+    <Compile Include="ViewModels\VideoTutorialsViewModel.cs" />
     <Compile Include="Views\DetailImagePage.xaml.cs">
       <DependentUpon>DetailImagePage.xaml</DependentUpon>
     </Compile>
@@ -210,6 +212,9 @@
     </Compile>
     <Compile Include="Views\InkDrawPicturePage.xaml.cs">
       <DependentUpon>InkDrawPicturePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InkingZoneDetail.xaml.cs">
+      <DependentUpon>InkingZoneDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -247,8 +252,14 @@
     <Compile Include="Views\Section6InkingZoneMenu.xaml.cs">
       <DependentUpon>Section6InkingZoneMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Section7VideoTutorialsMenu.xaml.cs">
+      <DependentUpon>Section7VideoTutorialsMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VideoTutorialsDetail.xaml.cs">
+      <DependentUpon>VideoTutorialsDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WhatsNewDialog.xaml.cs">
       <DependentUpon>WhatsNewDialog.xaml</DependentUpon>
@@ -321,6 +332,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\InkingZoneDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -369,9 +384,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Section7VideoTutorialsMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\VideoTutorialsDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WhatsNewDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
