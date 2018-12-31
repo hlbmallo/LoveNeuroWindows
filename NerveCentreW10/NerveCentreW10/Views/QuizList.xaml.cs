@@ -92,7 +92,7 @@ namespace NerveCentreW10.Views
         private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
             var MyClickedItem = (QuizListClass)e.ClickedItem;
-            Frame.Navigate(typeof(QuizDetail), MyClickedItem);
+            Frame.Navigate(typeof(QuizDetail), MyClickedItem, new DrillInNavigationTransitionInfo());
         }
     }
 }

@@ -189,6 +189,7 @@
     <Compile Include="Services\WhatsNewDisplayService.cs" />
     <Compile Include="ViewModels\InkingZoneViewModel.cs" />
     <Compile Include="ViewModels\MoreResourcesViewModel.cs" />
+    <Compile Include="ViewModels\NotesViewModel.cs" />
     <Compile Include="ViewModels\Section1ViewModel.cs" />
     <Compile Include="ViewModels\Section2ViewModel.cs" />
     <Compile Include="ViewModels\Section3ViewModel.cs" />
@@ -221,6 +222,9 @@
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NeuroDictionary.xaml.cs">
+      <DependentUpon>NeuroDictionary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Notes.xaml.cs">
       <DependentUpon>Notes.xaml</DependentUpon>
     </Compile>
@@ -232,6 +236,9 @@
     </Compile>
     <Compile Include="Views\QuizList.xaml.cs">
       <DependentUpon>QuizList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecommendedReading.xaml.cs">
+      <DependentUpon>RecommendedReading.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SchemeActivationSamplePage.xaml.cs">
       <DependentUpon>SchemeActivationSamplePage.xaml</DependentUpon>
@@ -345,6 +352,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\NeuroDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Notes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -358,6 +369,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\QuizList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RecommendedReading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -421,10 +436,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Assets\Icons\CellsIcon256.png" />
-    <Content Include="Assets\Icons\CNSIcon256.png" />
-    <Content Include="Assets\Icons\DictionaryIcon256.png" />
-    <Content Include="Assets\Icons\DisordersIcon256.png" />
+    <Content Include="Assets\Icons\IconCells.png" />
+    <Content Include="Assets\Icons\IconCNS.png" />
+    <Content Include="Assets\Icons\IconNeuroDictionary.png" />
+    <Content Include="Assets\Icons\IconDisorders.png" />
     <Content Include="Assets\Icons\IconFB.png" />
     <Content Include="Assets\Icons\IconTGAWebsite.png" />
     <Content Include="Assets\Icons\FeedbackIcon256.png" />
@@ -434,13 +449,13 @@
     <Content Include="Assets\Icons\InfoIconx256.png" />
     <Content Include="Assets\Icons\IconInk.png" />
     <Content Include="Assets\Icons\IconMore.png" />
-    <Content Include="Assets\Icons\PNSIcon256.png" />
+    <Content Include="Assets\Icons\IconPNS.png" />
     <Content Include="Assets\Icons\PrivacyIcon256.png" />
     <Content Include="Assets\Icons\QuestionIcon256.png" />
     <Content Include="Assets\Icons\IconQuiz.png" />
     <Content Include="Assets\Icons\RateIcon256.png" />
     <Content Include="Assets\Icons\Read256.png" />
-    <Content Include="Assets\Icons\RecommendedReadingIcon256.png" />
+    <Content Include="Assets\Icons\IconRecommendedReading.png" />
     <Content Include="Assets\Icons\SettingsIcon256.png" />
     <Content Include="Assets\Icons\IconNotes.png" />
     <Content Include="Assets\Icons\IconTwitter.png" />
@@ -450,6 +465,7 @@
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\Others\ErrorPlaceholder.png" />
     <Content Include="Assets\Others\LoadingPlaceholder.png" />
+    <Content Include="Assets\Others\WelcomeImage.png" />
     <Content Include="Assets\PlaceholderImage.png" />
     <Content Include="Assets\SampleData\SamplePhoto1.png" />
     <Content Include="Assets\SampleData\SamplePhoto10.png" />

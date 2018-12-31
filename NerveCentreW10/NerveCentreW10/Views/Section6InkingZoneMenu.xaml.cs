@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -37,7 +38,7 @@ namespace NerveCentreW10.Views
         private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
             var MyClickedItem = (InkingZoneClass)e.ClickedItem;
-            Frame.Navigate(typeof(InkingZoneDetail), MyClickedItem);
+            Frame.Navigate(typeof(InkingZoneDetail), MyClickedItem, new DrillInNavigationTransitionInfo());
         }
     }
 }

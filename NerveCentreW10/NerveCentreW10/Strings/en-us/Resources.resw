@@ -254,7 +254,8 @@
     <comment>Navigation view item name for SchemeActivationSample</comment>
   </data>
   <data name="SchemeActivationSamplePage_Description.Text" xml:space="preserve">
-    <value>This is a sample page that will show activation parameters if the app is activated from Deep Linking.</value>
+    <value>This is a sample page that will show activation parameters if the app is activated from Deep 
+    ing.</value>
     <comment>Description text for SchemeActivationSamplePage</comment>
   </data>
   <data name="FirstRun_Body.Text" xml:space="preserve">

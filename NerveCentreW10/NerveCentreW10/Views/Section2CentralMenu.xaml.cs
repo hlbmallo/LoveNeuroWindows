@@ -2,6 +2,7 @@
 using NerveCentreW10.Models;
 using NerveCentreW10.ViewModels;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 
 namespace NerveCentreW10.Views
 {
@@ -19,7 +20,7 @@ namespace NerveCentreW10.Views
         private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
             var MyClickedItem = (SubsectionModel)e.ClickedItem;
-            Frame.Navigate(typeof(DetailPage), MyClickedItem);
+            Frame.Navigate(typeof(DetailPage), MyClickedItem, new DrillInNavigationTransitionInfo());
         }
     }
 }

@@ -2,6 +2,7 @@
 using NerveCentreW10.Models;
 using NerveCentreW10.ViewModels;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,7 +25,7 @@ namespace NerveCentreW10.Views
         private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
             var MyClickedItem = (VideoTutorialsClass)e.ClickedItem;
-            Frame.Navigate(typeof(VideoTutorialsDetail), MyClickedItem);
+            Frame.Navigate(typeof(VideoTutorialsDetail), MyClickedItem, new DrillInNavigationTransitionInfo());
         }
     }
 }
