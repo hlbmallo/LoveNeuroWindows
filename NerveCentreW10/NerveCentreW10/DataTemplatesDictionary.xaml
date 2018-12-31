@@ -113,4 +113,30 @@
         </Grid>
     </DataTemplate>
 
+    <DataTemplate x:Key="MoreResourcesDataTemplate" x:DataType="data:MoreResourcesClass">
+        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
+            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
+                          OffsetX="0"
+                          OffsetY="0"
+                          BlurRadius="20"
+                          ShadowOpacity=".8"
+                          HorizontalContentAlignment="Stretch"
+                          VerticalContentAlignment="Stretch"
+                                      Opacity="0">
+                <Grid/>
+            </controls:DropShadowPanel>
+            <Grid x:Name="MyGrid2" Background="White" Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="0.4*"/>
+                </Grid.RowDefinitions>
+
+                <controls:ImageEx x:Name="MyImage" Source="{x:Bind MoreResourcesImage}" Stretch="Uniform" Grid.Row="0" MaxHeight="90" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Border x:Name="MyBorder2" Grid.Row="1" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="10">
+                    <TextBlock x:Name="MyTextBlock" Text="{x:Bind MoreResourcesName}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" TextWrapping="Wrap" FontSize="16"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
 </ResourceDictionary>

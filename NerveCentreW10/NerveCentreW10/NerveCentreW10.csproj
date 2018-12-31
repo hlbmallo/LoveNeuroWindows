@@ -165,6 +165,7 @@
     <Compile Include="Helpers\ImagesNavigationHelper.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Models\InkingZoneClass.cs" />
+    <Compile Include="Models\MoreResourcesClass.cs" />
     <Compile Include="Models\NotesClass.cs" />
     <Compile Include="Models\QuizClass.cs" />
     <Compile Include="Models\QuizListClass.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="Services\UserActivityService.Sample.cs" />
     <Compile Include="Services\WhatsNewDisplayService.cs" />
     <Compile Include="ViewModels\InkingZoneViewModel.cs" />
+    <Compile Include="ViewModels\MoreResourcesViewModel.cs" />
     <Compile Include="ViewModels\Section1ViewModel.cs" />
     <Compile Include="ViewModels\Section2ViewModel.cs" />
     <Compile Include="ViewModels\Section3ViewModel.cs" />
@@ -254,6 +256,9 @@
     </Compile>
     <Compile Include="Views\Section7VideoTutorialsMenu.xaml.cs">
       <DependentUpon>Section7VideoTutorialsMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Section8MoreResources.xaml.cs">
+      <DependentUpon>Section8MoreResources.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
@@ -388,6 +393,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Section8MoreResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -416,12 +425,15 @@
     <Content Include="Assets\Icons\CNSIcon256.png" />
     <Content Include="Assets\Icons\DictionaryIcon256.png" />
     <Content Include="Assets\Icons\DisordersIcon256.png" />
+    <Content Include="Assets\Icons\IconFB.png" />
+    <Content Include="Assets\Icons\IconTGAWebsite.png" />
     <Content Include="Assets\Icons\FeedbackIcon256.png" />
     <Content Include="Assets\Icons\FeedbackIcon2562.png" />
+    <Content Include="Assets\Icons\IconHeartCentreIcon.png" />
     <Content Include="Assets\Icons\IconHome.png" />
     <Content Include="Assets\Icons\InfoIconx256.png" />
     <Content Include="Assets\Icons\IconInk.png" />
-    <Content Include="Assets\Icons\MoreIcon256.png" />
+    <Content Include="Assets\Icons\IconMore.png" />
     <Content Include="Assets\Icons\PNSIcon256.png" />
     <Content Include="Assets\Icons\PrivacyIcon256.png" />
     <Content Include="Assets\Icons\QuestionIcon256.png" />
@@ -431,6 +443,7 @@
     <Content Include="Assets\Icons\RecommendedReadingIcon256.png" />
     <Content Include="Assets\Icons\SettingsIcon256.png" />
     <Content Include="Assets\Icons\IconNotes.png" />
+    <Content Include="Assets\Icons\IconTwitter.png" />
     <Content Include="Assets\Icons\UpdateIcon256.png" />
     <Content Include="Assets\Icons\UpdateIcon3x256.png" />
     <Content Include="Assets\Icons\IconVideo.png" />

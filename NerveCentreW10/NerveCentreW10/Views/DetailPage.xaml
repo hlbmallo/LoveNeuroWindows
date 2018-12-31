@@ -54,7 +54,7 @@
 
         <Grid Grid.Row="1" Height="48" Background="{ThemeResource DetailPageCommandbarAcrylic1}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Text="Share:" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="10,0,4,0"/>
+                <TextBlock Text="Share:" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="10,0,4,8"/>
                 <AppBarButton x:Name="ShareButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Content="Text" Click="ShareButton_Click"/>
                 <AppBarButton x:Name="ShareImageButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Content="Diagram" Click="ShareImageButton_Click"/>
             </StackPanel>
