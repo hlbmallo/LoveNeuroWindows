@@ -7,12 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel>
+    <ScrollViewer>
+        
+        <StackPanel>
 
-        <GridView x:Name="GridView1" Grid.Row="0" Style="{StaticResource GridViewStyle1}" ItemTemplate="{StaticResource MoreResources1DataTemplate}" ItemClick="GridView1_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
+            <TextBlock x:Name="Subtitle1" Style="{StaticResource TitleTextBlockStyle}" Text="More In-App Resources"/>
+            <Border Style="{StaticResource BorderLine1}"/>
 
-        <GridView x:Name="GridView2" Grid.Row="1" Style="{StaticResource GridViewStyle1}" ItemTemplate="{StaticResource MoreResources2DataTemplate}" ItemClick="GridView2_ItemClick" ItemsSource="{x:Bind ViewModel.MoreResourcesList}" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
+            <GridView x:Name="GridView1" Grid.Row="0" Style="{StaticResource GridViewStyle1}" ItemTemplate="{StaticResource MoreResources1DataTemplate}" ItemClick="GridView1_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
 
-    </StackPanel>
-    
+            <TextBlock x:Name="Subtitle2" Style="{StaticResource TitleTextBlockStyle}" Text="More Resources By The Goofy Anatomist"/>
+            <Border Style="{StaticResource BorderLine1}"/>
+
+            <GridView x:Name="GridView2" Grid.Row="1" Style="{StaticResource GridViewStyle1}" ItemTemplate="{StaticResource MoreResources2DataTemplate}" ItemClick="GridView2_ItemClick" ItemsSource="{x:Bind ViewModel.MoreResourcesList}" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
+
+        </StackPanel>
+
+    </ScrollViewer>
+
 </Page>

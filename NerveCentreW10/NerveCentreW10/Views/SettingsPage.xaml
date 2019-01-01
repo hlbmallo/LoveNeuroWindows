@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="NerveCentreW10.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NerveCentreW10.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls2="using:AppStudio.Uwp.Controls"
+    mc:Ignorable="d">
+    
+    <ScrollViewer Grid.Row="1">
+
+        <StackPanel>
+
+            <StackPanel Padding="0,20,0,30">
+                <TextBlock Text="About" Style="{StaticResource TitleTextBlockStyle}"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="App Publisher: " FontSize="16" Padding="2" FontWeight="Bold"/>
+                    <TextBlock x:Name="AppName" FontSize="16" Padding="2"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="App Version: " FontSize="16" Padding="2" FontWeight="Bold"/>
+                    <TextBlock x:Name="AppVersion" FontSize="16" Padding="2"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="AppIconsBy" Text="App Icons By: " FontSize="16" Padding="2" FontWeight="Bold"/>
+                    <controls2:HtmlBlock x:Name="AppIconsList" FontSize="16" Padding="2"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Padding="0,20,0,30">
+                <TextBlock Text="Feedback" Style="{StaticResource TitleTextBlockStyle}"/>
+                <HyperlinkButton x:Name="RateButton" Click="RateButton_Click">
+                    <HyperlinkButton.Content>
+                        <TextBlock Text="Rate and review Heart Centre" FontSize="16" Padding="2" TextWrapping="Wrap" Foreground="#ff7201"/>
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
+            </StackPanel>
+
+            <StackPanel Padding="0,20,0,30">
+                <TextBlock Text="Support" Style="{StaticResource TitleTextBlockStyle}"/>
+                <HyperlinkButton x:Name="EmailSupport" Click="EmailSupport_Click">
+                    <HyperlinkButton.Content>
+                        <TextBlock Text="Email the app publisher" FontSize="16" Padding="2" TextWrapping="Wrap" Foreground="#ff7201"/>
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
+            </StackPanel>
+
+            <StackPanel Padding="0,20,0,30">
+                <TextBlock Text="Privacy Policy" Style="{StaticResource TitleTextBlockStyle}"/>
+                <controls2:HtmlBlock Source="{x:Bind PrivacyPolicy}" Style="{StaticResource HTMLBlockTextStyle1}"/>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>
