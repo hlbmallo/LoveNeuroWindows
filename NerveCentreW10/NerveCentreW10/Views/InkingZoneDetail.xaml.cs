@@ -290,11 +290,6 @@ namespace NerveCentreW10.Views
             }
         }
 
-        private void image_Loaded(object sender, RoutedEventArgs e)
-        {
-            zoomService?.FitToSize(MyImage.ActualWidth, MyImage.ActualHeight);
-        }
-
         private void TouchInking_Checked(object sender, RoutedEventArgs e) => pointerDeviceService.EnableTouch = true;
 
         private void TouchInking_Unchecked(object sender, RoutedEventArgs e) => pointerDeviceService.EnableTouch = false;
@@ -302,5 +297,10 @@ namespace NerveCentreW10.Views
         private void MouseInking_Checked(object sender, RoutedEventArgs e) => pointerDeviceService.EnableMouse = true;
 
         private void MouseInking_Unchecked(object sender, RoutedEventArgs e) => pointerDeviceService.EnableMouse = false;
+
+        private void MyImage_ImageOpened(object sender, RoutedEventArgs e)
+        {
+            zoomService?.FitToSize(MyImage.ActualWidth, MyImage.ActualHeight);
+        }
     }
 }

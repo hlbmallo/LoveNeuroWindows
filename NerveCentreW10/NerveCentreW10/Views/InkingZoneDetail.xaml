@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
     <Grid
@@ -74,7 +75,7 @@
             <Grid Background="{StaticResource InkCanvasBackground}"
                       Width="{Binding ElementName=MyInkCanvas, Path=Width}"
                       Height="{Binding ElementName=MyInkCanvas, Path=Height}">
-                <Image x:Name="MyImage" Stretch="None" Loaded="image_Loaded"/>
+                <Image x:Name="MyImage" Stretch="None" ImageOpened="MyImage_ImageOpened" />
                 <InkCanvas x:Name="MyInkCanvas"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"/>

@@ -49,14 +49,32 @@
                     </Border>
                     <controls2:HtmlBlock x:Name="Description3" Style="{StaticResource HTMLBlockTextStyle1}" Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}"/>
                 </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <controls:Expander x:Name="ClinicalExpander" Margin="5" HorizontalAlignment="Stretch" Background="#ff7201" Visibility="{x:Bind Path=ClinicalExpander.Header, Converter={StaticResource StringVisibilityConverter}}">
+                        <Grid Background="#ebebeb" Padding="5">
+                            <controls2:HtmlBlock x:Name="ClinicalExpanderContent" FontSize="16" Style="{StaticResource HTMLBlockTextStyle1}" />
+                        </Grid>
+                    </controls:Expander>
+                    <controls:Expander x:Name="ResearchExpander" Margin="5" HorizontalAlignment="Stretch" Background="#ff7201" Visibility="{x:Bind Path=ResearchExpander.Header, Converter={StaticResource StringVisibilityConverter}}">
+                        <Grid Background="#ebebeb" Padding="5">
+                            <controls2:HtmlBlock x:Name="ResearchExpanderContent" Background="#2b2b2b" FontSize="16" Style="{StaticResource HTMLBlockTextStyle1}"/>
+                        </Grid>
+                    </controls:Expander>
+                    <controls:Expander x:Name="RevisionExpander" Margin="5" HorizontalAlignment="Stretch" Background="#ff7201" Visibility="{x:Bind Path=RevisionExpander.Header, Converter={StaticResource StringVisibilityConverter}}">
+                        <Grid Background="#ebebeb" Padding="5">
+                            <controls2:HtmlBlock x:Name="RevisionExpanderContent" FontSize="16" Style="{StaticResource HTMLBlockTextStyle1}"/>
+                        </Grid>
+                    </controls:Expander>
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
 
         <Grid Grid.Row="1" Height="48" Background="{ThemeResource DetailPageCommandbarAcrylic1}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Text="Share:" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="10,0,4,8"/>
-                <AppBarButton x:Name="ShareButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Content="Text" Click="ShareButton_Click"/>
-                <AppBarButton x:Name="ShareImageButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Content="Diagram" Click="ShareImageButton_Click"/>
+                <TextBlock Text="Share:" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="10,0,4,4"/>
+                <AppBarButton x:Name="ShareTextButton" HorizontalAlignment="Stretch" Content="Text" Click="ShareTextButton_Click"/>
+                <AppBarButton x:Name="ShareImage1Button" HorizontalAlignment="Stretch" Content="Diagram 1" Click="ShareImage1Button_Click"/>
+                <AppBarButton x:Name="ShareImage2Button" HorizontalAlignment="Stretch" Content="Diagram 2" Click="ShareImage2Button_Click"/>
             </StackPanel>
         </Grid>
     </Grid>
