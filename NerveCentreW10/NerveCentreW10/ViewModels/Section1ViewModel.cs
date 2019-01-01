@@ -23,7 +23,7 @@ namespace NerveCentreW10.ViewModels
 
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section11",
+                PageId = "section11",
                 Title = "1.1. The Neuron",
                 Subtitle1 = "Introducing the 'Neuron'",
                 Description1 = "A neuron is the standard communicating and processing cell of the nervous system. To fulfil its role, it can conduct electrical impulses. A neuron can carry sensory information, motor information or other information. Neurons exist throughout the brain, spinal cord and all the nerves in the rest of the body. Neurons frequently communicate and work together. Take the following example. Imagine you are leaving for school or work one morning but as soon as you step outside you realise it's freezing cold. The sensory neurons in the skin of your body (particularly your hands) detect the temperature of the cold air and they carry this information to the sensory area of the brain. From here, interneurons carry information to other parts of the brain that allow you to remember times in the past when you were cold and help you to realise the importance of wrapping up warm. Neurons in the advanced brain centres enable you to make a decision to return indoors to put on a thicker coat and gloves. Motor neurons are then activated, and these carry electrical impulses to the muscles in your legs that will stimulate the muscles to contract and enable you to walk back inside to wrap up warm.",
@@ -43,7 +43,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section12",
+                PageId = "section12",
                 Title = "1.2. The Resting Membrane Potential",
                 Subtitle1 = "What is the Resting Membrane Potential?",
                 Description1 = "Every neuron has an essential feature called a resting membrane potential (RMP). The RMP ensures a neuron survives in normal healthy conditions and essentially prepares the neuron for conducting action potentials. The RMP arises because there is a difference in voltage (also called electrical potential) between the inside of a neuron and the outside of a neuron. A neuron, in its resting state, is much more negative inside compared to the outside. In fact, the inside is 70mV (millivolts) more negative than the outside, so we say that the difference in voltage (or electrical potential) is -70mV. So we simply say that the RMP has a value of -70mV. This is quite a tricky concept, so it’s explained step-by-step below with the help of Figure 1.2.1.",
@@ -62,7 +62,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section13",
+                PageId = "section13",
                 Title = "1.3. Action Potentials",
                 Subtitle1 = "Introducing the Action Potentional",
                 Description1 = "The action potential is vital to the daily functioning of the human body. When nerves are at rest, they have the RMP, but when they need to communicate or process information, they need to conduct action potentials.<br/><br/>When people talk about an 'electrical impulse' or 'nerve impulse', what they are really referring to is an action potential. Explanations and accompanying diagrams are used below to explain the formation and conduction of an action potential along a neuron. Essentially, an action potential is an ionic Mexican wave!",
@@ -86,7 +86,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section14",
+                PageId = "section14",
                 Title = "1.4. Synapses",
                 Subtitle1 = "Introducing the Synapse",
                 Description1 = "When the action potential arrives at the presynaptic terminal, it needs to communicate with another neuron (or, in some cases, muscles or glands). However, in most neurons the action potential doesn't jump electrically from one neuron to the other. Instead, these synapses are chemical. In summary, this means that the electrical action potential is converted into a chemical messenger, sent across a short gap to the next neuron, and then reconverted back into a second electrical action potential. This process of communication is vital throughout the body, including in the spinal cord and brain, and when it breaks down, medical problems, such as depression (see Section 4.2. Depression) can occur. Check out the explanations and accompanying diagrams below.",
@@ -110,7 +110,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section15",
+                PageId = "section15",
                 Title = "1.5. Reflex Arcs",
                 Subtitle1 = "What is a Reflex?",
                 Description1 = "A reflex arc provides a great example to combine everything we have learned so far, such as neurons, the RMP, action potentials and synapses. A reflex arc is also a vitally important event in its own right. It functions to quickly protect the body from immediately threatening stimuli. Reflex arcs pass through the spinal cord but not the brain, which means that our response is rapid and involuntary. It would take a long time to consult the brain and consciously decide how to respond all threatening stimuli, and all the while potentially life-threatening damage would be occurring. So, the brain is bypassed and the spinal cord acts as the processing centre. The reflex arc is explained in writing and in Figure 1.5.1. *This example of a reflex arc shows only three neurons. Some reflex arcs will use more than three neurons.",
@@ -130,7 +130,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section16",
+                PageId = "section16",
                 Title = "1.6. The Neuromuscular Junction",
                 Subtitle1 = "What is a Neuromuscular Junction?",
                 Description1 = "As you will have seen in Section 1.5. Reflex Arcs, a motor neuron running from the spinal cord must be able to stimulate, or excite, a skeletal muscle, so that it can contract and perform its function. A motor neuron communicates with a skeletal muscle using a particular combination of neurotransmitters, ions and a type of synapse called a ‘neuromuscular junction’. This process of communication is described below.",
@@ -150,7 +150,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section17",
+                PageId = "section17",
                 Title = "1.7. The Neuronal Cytoskeleton",
                 Subtitle1 = "Defining the Term ‘Neuronal Cytoskeleton’",
                 Description1 = "The cytoskeleton is a cellular structure made up of filament-like proteins that helps to maintain the shape and organisation of a cell and provides a secure location for cell organelles to attach to. Neurons have a specialised cytoskeleton that also allows them to grow in length and transport substances, such as nerve growth factors, to and from the cell body. Figure 1.7.1. shows the intracellular environment of a neuron, with the different types of proteins in their respective locations.",

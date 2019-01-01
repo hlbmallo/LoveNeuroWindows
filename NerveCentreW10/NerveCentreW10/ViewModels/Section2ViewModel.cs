@@ -23,7 +23,7 @@ namespace NerveCentreW10.ViewModels
 
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section21",
+                PageId = "section21",
                 Title = "2.1. Overview: Brain",
                 Subtitle1 = "Overview of the Brain",
                 Description1 = "The human nervous system can be classified in one of two ways: structurally or functionally.<br/><br/>Structurally, the nervous system can be divided into the central nervous system (CNS) and the peripheral nervous system (PNS). The CNS consists of the brain, spinal cord and retina, and it’s responsible for most of the ‘processing’ of the nervous system. The PNS consists of the twelve pairs of cranial nerves and the 31 pairs of spinal nerves. Sometimes, the enteric nervous system (i.e. the independent nerve network of the gastrointestinal tract) is also classified as part of the PNS.<br/><br/>Functionally, the nervous system can be divided into the somatic nervous system (SNS) and the autonomic nervous system (ANS). The SNS is under voluntary control and has sensory and motor components. For example, the motor nerves allow the muscles in the hands and fingers to contract when we want to type on a PC, and the sensory nerves allow us to feel the pressure and texture of the keys on the keyboard when we type. The ANS is involuntary and ensures that peripheral blood vessels constrict (‘vasoconstriction’) when we are cold, sweat is produced when we are hot, adrenaline is secreted in times of stress and our pupils constrict in bright light.<br/><br/>In this section, we will be focusing on the structural divisions of the nervous system, specifically the CNS.",
@@ -43,7 +43,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section22",
+                PageId = "section22",
                 Title = "2.2. Overview: Spinal Cord",
                 Subtitle1 = "Overview of the Spinal Cord",
                 Description1 = "The spinal cord is the second component of the CNS and is a highly organised tube protected by the bones of the vertebral column. The spinal cord is continuous with the medulla, the most inferior (or “caudal”) part of the brainstem. You can see this in Figure 2.2.1. The spinal cord role is to allow the brain to receive sensory information from and send motor information to almost every region of the body. However, the spinal cord is also responsible for some basic processing of action potentials – this is performed by interneurons (see Section 1.5. Reflex Arcs).",
@@ -63,7 +63,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section23",
+                PageId = "section23",
                 Title = "2.3. Blood Supply",
                 Subtitle1 = "Blood Supply to the CNS",
                 Description1 = "The brain and spinal cord require a constant supply of oxygen- and glucose-rich blood at a constant pressure in order to function properly. In the healthy human, the brain and spinal cord have certain protective features that ensure this is always the case. Without oxygen, irreversible brain damage can occur within five minutes.",
@@ -83,7 +83,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section24",
+                PageId = "section24",
                 Title = "2.4. The Meninges",
                 Subtitle1 = "Overview of the Meninges",
                 Description1 = "The meninges are three protective membranes that line the brain and spinal cord. The meninges, along with cerebrospinal fluid (CSF), act as shock absorbers in scenarios when the head is moved suddenly in a particular direction. They also provide a safe environment for the passage of blood vessels and space for CSF to move through.",
@@ -103,7 +103,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section25",
+                PageId = "section25",
                 Title = "2.5. Glial Cells",
                 Subtitle1 = "Overview of Glial Cells",
                 Description1 = "Glial cells are support cells in the nervous system. Glial cells are different from neurons because glial cells do not conduct action potentials and they do not synapse with other nearby cells. Instead, they provide structural and protective support for neurons. There are many more glial cells than neurons. In fact, it is estimated that for every 1 neuron there are 10 glial cells. There are five types of glial cell:<ol><li>Astrocytes</li><li>Oligodendrocytes</li><li>Ependymal cells</li><li>Microglia</li><li>Radial glia</li></ol>",
@@ -123,7 +123,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section26",
+                PageId = "section26",
                 Title = "2.6. CSF and the Ventricles",
                 Subtitle1 = "CSF and the Ventricles",
                 Description1 = "The ventricles are fluid-filled spaces within the brain. There are four ventricles in total. Beginning in the cerebrum and moving inferiorly, the ventricles are called:<ul><li>The two lateral ventricles (one on the left and one on the right)</li><li>The third ventricle</li><li>The fourth ventricle</li></ul>",
@@ -143,7 +143,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section27",
+                PageId = "section27",
                 Title = "2.7. Cerebral Cortex",
                 Subtitle1 = "The Cerebral Cortex",
                 Description1 = "The cerebral cortex is the outermost layer of the cerebrum, and it is composed of grey matter. Note that the nervous system is made up of two types of matter: white matter and grey matter. White matter is so-called because it is made up of the myelinated axons of neurons. Grey matter is so-called because it is made up of the non-myelinated cell bodies of neurons.<br/><br/>As already mentioned in Section 2.1. Overview of the Brain, the cerebral cortex is subdivided into hemispheres (right and left) and each hemisphere is then divided into four lobes (frontal lobe, parietal area, occipital lobe and temporal lobe). The cerebral cortex contains many important processing and communication centres. Out of all the primates, humans have the largest cerebral cortex, which reflects our unique cognitive abilities.<br/><br/>The brain has a noticeable appearance with prominent raised folds and grooves. In neuroscience, the raised folds are called gyri, the shallow grooves are called sulci and the deep grooves are called fissures. In some cases, functions of the brain are localised in particular gyri, and you will see this below. Note that, in Figure 2.7.1., the coloured areas represent functional areas (also called functional cortices) and the black lines represent sulci and fissures. Note also that the motor and sensory areas in the left cerebral hemisphere are largely responsible for the motor and sensory functions in the right side of the body and vice versa. This is because the fibres cross over (also called decussate) at various points on the way to the brain.<br/><br/>Now, let’s take a look at the various areas of cerebral cortex and their associated functions that have been identified by researchers, and then look briefly at the white matter tracts that lie beneath the cortex.",
@@ -163,7 +163,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section28",
+                PageId = "section28",
                 Title = "2.8. Limbic System",
                 Subtitle1 = "The Limbic System",
                 Description1 = "The limbic system is a group of cortical and subcortical structures in the brain that are interlinked and is responsible for the following functions:<ul><li>Linking memories to the motivations behind our behaviours</li><li>Linking behaviours to our body-wide homeostatic state</li><li>Adding emotional context to events in our lives</li></ul>",
@@ -183,7 +183,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section29",
+                PageId = "section29",
                 Title = "2.9. The HPA Axis",
                 Subtitle1 = "Overview of the HPA Axis",
                 Description1 = "The HPA axis is the abbreviation for the hypothalamic-pituitary-adrenal axis. It is a circuit than runs between the hypothalamus, the pituitary gland, and the adrenal glands on top of the kidneys. These structures communicate with each other using a variety of hormones. Overall, the HPA axis is vital to the regulation of the homeostatic state of the body. For example, the HPA in part regulates metabolism by affecting the action of the thyroid hormones and cortisol. Let’s take a look at the various parts of the HPA axis and see how they communicate with each other.",

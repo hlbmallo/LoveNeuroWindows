@@ -82,6 +82,12 @@ namespace NerveCentreW10.Views
 
         private void OnItemInvoked(WinUI.NavigationView sender, WinUI.NavigationViewItemInvokedEventArgs args)
         {
+            if (args.IsSettingsInvoked)
+            {
+                NavigationService.Navigate(typeof(SettingsPage));
+                return;
+            }
+
             var item = navigationView.MenuItems
                             .OfType<WinUI.NavigationViewItem>()
                             .First(menuItem => (string)menuItem.Content == (string)args.InvokedItem);

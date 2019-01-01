@@ -22,7 +22,7 @@ namespace NerveCentreW10.ViewModels
 
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section41",
+                PageId = "section41",
                 Title = "4.1. Alzheimer's Disease",
                 Subtitle1 = "Defining ‘Dementia’ and ‘Alzheimer’s Disease’",
                 Description1 = "Dementia is a syndrome (i.e. a set of symptoms that normally occur together) that is associated with cognitive decline, i.e. thinking problems. The symptoms are caused by progressive damage to particular areas of the brain. The main symptoms are:<ul><li>Memory loss (especially of short term, day-to-day memories);</li><li>Decrease in mental agility (for example, of concentration and planning);</li><li>Language problems (holding conversations and remembering certain words become more difficult);</li><li>Orientation (to date, place and time);</li><li>Personality changes, such as increased apathy, anxiety and frustration;</li><li>Behavioural changes, such as becoming less social and performing certain activities over and over again, e.g. pacing up and down;</li></ul>Alzheimer’s disease (AD), vascular dementia, dementia with Lewy bodies and frontotemporal dementia are all examples of neurodegenerative diseases that have dementia as their main symptom/syndrome. These neurodegenerative diseases are differentiated from each other by how the disease processes affect brain tissue. Let’s take a look at the development of Alzheimer’s disease below.",
@@ -42,7 +42,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section42",
+                PageId = "section42",
                 Title = "4.2. Depression",
                 Subtitle1 = "Defining 'Depression'",
                 Description1 = "In medicine, ‘depression’ can refer to one of two things:<ul><li><b>Major depressive episode (MDE)</b>, where a person experiences a persistent low mood and lack of interest in activities they used to find pleasurable, for two weeks or more.</li><li><b>Major depressive disorder (MDD)</b>, where a person has experienced two or more MDEs.</li></ul>Depression can have biological, psychological and social components. Here, we will mainly consider the biological component, but we will also see how all three components can be intricately linked by concepts such as epigenetics and neuronal plasticity.",
@@ -62,7 +62,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section43",
+                PageId = "section43",
                 Title = "4.3. Multiple Sclerosis",
                 Subtitle1 = "Biological Processes Underlying MS",
                 Description1 = "Multiple sclerosis (MS) is thought to be an autoimmune disease in which, over time, white blood cells (specifically T lymphocytes) attack and strip away the myelin sheaths of neurons in the brain and spinal cord (this process is called demyelination). This results in inflammation around the neuron. The inflammation can clear but often reoccurs, and this permanently damages the neuronal axons and prevents them from conducting action potentials effectively. Recurrent damage to the neurons results in the formation of many sclerotic plaques, or scars, in the brain and spinal cord (hence the terms “multiple” and “sclerosis”). Without myelinated axons, neurons conduct action potentials at a much slower speed, or stop altogether. Another hallmark of MS is oligodendrocyte death – remember from Section 2.5. Glial Cells that oligodendrocytes are responsible for myelinating neurons in the CNS.<br/><br/>The cause of MS is unknown. However, it is likely due to a combination of environmental and genetic factors. One theory suggests that people are more likely to develop MS if they live further from the equator - this is why MS is relatively common in the UK and USA. The important link here may be vitamin D, which has a role in immunity; if you live further from the equator, you are exposed to less sunlight and therefore produce less vitamin D, and less vitamin D may contribute to the development of MS. A second theory proposes that some people have DNA that codes for abnormal myelin – this abnormal myelin is ‘antigenic’, making it a target for T lymphocytes. A third theory suggests that a viral infection may lead to such a strong response by the body's immune system that it begins to damage its own nervous tissue in addition to the virus, leading to the development of MS. A fourth theory suggests that smoking increases a person's risk of developing MS, although the mechanism of this is currently unclear. Evidence also indicates that stopping smoking slows the progression of MS.<br/><br/>It is known that MS affects approximately 1 in 1000 people in the UK. The progressive condition generally develops between the ages of 20 and 40 years. It is also twice as common in women as it is in men.",
@@ -82,7 +82,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section44",
+                PageId = "section44",
                 Title = "4.4. Stroke",
                 Subtitle1 = "Defining a 'Stroke'",
                 Description1 = "A stroke (aka cerebrovascular accident, or CVA), is a reduction in the blood supply to an area of the brain due to a clot ('infarct') or bleed ('haemorrhage').",
@@ -102,7 +102,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section45",
+                PageId = "section45",
                 Title = "4.5. Parkinson's Disease",
                 Subtitle1 = "Defining Parkinson's Disease",
                 Description1 = "Parkinson’s disease is a neurodegenerative disease where dopamine neurons die, normally resulting in the symptoms of a tremor and slower movements. Diagnosis normally occurs around the age of 60, although a small number of people can be diagnosed when they are around the age of 40. Parkinson’s disease does not appear to have a strong inheritable component, so it is unlikely to be passed from parent to child. The exact cause is unknown, although it is suggested that ingesting pesticides and herbicides from food, along with some gene-altering factors, may be contributing factors.",
@@ -122,7 +122,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section46",
+                PageId = "section46",
                 Title = "4.6. Huntington's Disease",
                 Subtitle1 = "Defining Huntington's Disease",
                 Description1 = "Huntington’s disease is an inherited neurodegenerative disorder that involves progressive damage to the basal ganglia, resulting in symptoms such as dyskinesia (abnormal, involuntary movements), apparent clumsiness, lack of concentration and other cognitive problems. Although inherited, the symptoms of Huntington’s disease only become apparent in 30 – 50 year olds.<br/><br/>Huntington’s disease used to be called Huntington’s chorea due to the involuntary movements of the limbs and face (‘chorea’ is the Greek work for ‘dance’).",

@@ -22,7 +22,7 @@ namespace NerveCentreW10.ViewModels
 
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section31",
+                PageId = "section31",
                 Title = "3.1. Spinal Nerves",
                 Subtitle1 = "Spinal Nerves",
                 Description1 = "Let’s begin by looking at spinal nerves, and defining what they are. A spinal nerve is formed by the sensory and motor neurons that enter and leave the spinal cord. These neurons are part of the somatic nervous system, but neurons from the autonomic nervous system can also travel in spinal nerves (the autonomic nervous system is essentially made up of the sympathetic and parasympathetic divisions – more on this later). Every spinal nerve is associated with a dermatome and a myotome (see below for more info).<br/><br/>Consider the following example at the vertebral level of T3. There are sensory neurons coming from the upper chest, carrying information like touch, pressure and temperature, and eventually these neurons travel together in a close bundle called the ventral (or anterior) 'ramus'. The nerves coming from the back eventually travel together in the dorsal (or posterior) ramus. These two 'rami' eventually join together and are then called a 'spinal nerve'. The spinal nerve then divides again and the sensory neurons enter the spinal cord via the dorsal root. Processing occurs in the spinal cord/brain. Motor fibres then leave the spinal cord via the ventral root. They also enter the spinal nerve and are then distributed via the dorsal and ventral rami. Sound confusing? Put simply, a spinal nerve is formed shortly after neurons enter/leave the spinal, and a spinal nerve can have sensory, motor and autonomic neurons inside it. Take a look at the Figure 3.1.1 for more info.",
@@ -42,7 +42,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section32",
+                PageId = "section32",
                 Title = "3.2. Cranial Nerves",
                 Subtitle1 = "What is a Cranial Nerve?",
                 Description1 = "Welcome to the pinnacle of anatomy – the cranial nerves! The cranial nerves are peripheral nerves that largely supply the head and neck with various sensory and motor functions. These nerves have different characteristics; they can be sensory or motor in function, and general or special in nature. Many nerve fibres in the head and neck are autonomic – these regulate the vast number of glands, mucus membranes and smooth muscle fibres that are present there. The nerve fibres emerge directly from the brainstem and generally travel a very short distance to their targets. There are 12 cranial nerves. Their nerve fibre types and functions are listed below and you can see the 12 cranial nerves labelled on the brainstem in Figure 3.2.1.",
@@ -62,7 +62,7 @@ namespace NerveCentreW10.ViewModels
             });
             SubsectionList.Add(new SubsectionModel
             {
-                PageId = "Section33",
+                PageId = "section33",
                 Title = "3.3. Plexuses",
                 Subtitle1 = "What is a Plexus?",
                 Description1 = "Both spinal and cranial nerves form plexuses in the peripheral nervous system. A plexus is simply a network of somatic or autonomic nerves. Within this network, neurons are redistributed to create new peripheral nerves. Note that there are no synapses in peripheral plexuses. Plexuses are normally classified based on the type of neurons they contain, i.e. they are either somatic or autonomic. There a number of important plexuses in the different anatomical regions of the body; these are described below and shown in Figure 3.3.1.",

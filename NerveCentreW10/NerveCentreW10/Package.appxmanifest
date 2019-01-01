@@ -1,64 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
-<Package
-  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
-  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio"
-  IgnorableNamespaces="uap mp genTemplate">
-
-  <Identity
-    Name="F8D74C5C-23CA-478D-BC0F-4F18873F8F7C"
-    Publisher="CN=benma"
-    Version="1.0.0.0" />
-
-  <mp:PhoneIdentity PhoneProductId="F8D74C5C-23CA-478D-BC0F-4F18873F8F7C" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
-
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio" IgnorableNamespaces="uap mp genTemplate">
+  <Identity Name="F8D74C5C-23CA-478D-BC0F-4F18873F8F7C" Publisher="CN=benma" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="F8D74C5C-23CA-478D-BC0F-4F18873F8F7C" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>NerveCentreW10</DisplayName>
     <PublisherDisplayName>benma</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="NerveCentreW10.App">
-      <uap:VisualElements
-        DisplayName="ms-resource:AppDisplayName"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="ms-resource:AppDescription"
-        BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="NerveCentreW10.App">
+      <uap:VisualElements DisplayName="ms-resource:AppDisplayName" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="ms-resource:AppDescription" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+        </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="portrait" />
+          <uap:Rotation Preference="landscape" />
+          <uap:Rotation Preference="portraitFlipped" />
+          <uap:Rotation Preference="landscapeFlipped" />
+        </uap:InitialRotationPreference>
       </uap:VisualElements>
-
       <Extensions>
         <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="wtsapp">
+          <uap:Protocol Name="nervecentre">
             <uap:Logo>Assets\Icon.png</uap:Logo>
-            <uap:DisplayName>NerveCentreW10</uap:DisplayName>
+            <uap:DisplayName>Nerve Centre</uap:DisplayName>
           </uap:Protocol>
         </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
-
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
-
   <genTemplate:Metadata>
-    <genTemplate:Item Name="generator" Value="Windows Template Studio"/>
+    <genTemplate:Item Name="generator" Value="Windows Template Studio" />
     <genTemplate:Item Name="wizardVersion" Version="v2.5.18319.1" />
     <genTemplate:Item Name="templatesVersion" Version="v2.5.18334.1" />
     <genTemplate:Item Name="projectType" Value="SplitView" />

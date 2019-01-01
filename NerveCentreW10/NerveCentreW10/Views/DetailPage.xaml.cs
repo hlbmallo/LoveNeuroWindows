@@ -1,10 +1,11 @@
 ﻿using Microsoft.AppCenter.Analytics;
+using Microsoft.Toolkit.Uwp.Helpers;
 using NerveCentreW10.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Windows.ApplicationModel.DataTransfer;
-using Windows.Networking.Connectivity;
+using Windows.ApplicationModel.UserActivities;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
@@ -17,11 +18,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace NerveCentreW10.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class DetailPage : Page
     {
+        private UserActivitySession _currentSession;
         public Uri MyClickedImage1;
         public Uri MyClickedImage2;
 
@@ -30,7 +29,7 @@ namespace NerveCentreW10.Views
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             SubsectionModel MyClickedItem = (SubsectionModel)e.Parameter;
 
@@ -45,7 +44,7 @@ namespace NerveCentreW10.Views
             MyClickedImage1 = MyClickedItem.ImageUri1;
             MyClickedImage2 = MyClickedItem.ImageUri2;
 
-            MyImage.Source = MyClickedItem.ImageUri1;
+            MyImage.Source = MyClickedImage1;
             if (MyClickedImage2 == null)
             {
                 ShareImage2Button.Visibility = Visibility.Collapsed;
@@ -55,7 +54,7 @@ namespace NerveCentreW10.Views
                 ShareImage2Button.Visibility = Visibility.Visible;
             }
 
-            MyImage2.Source = MyClickedItem.ImageUri2;
+            MyImage2.Source = MyClickedImage2;
             ClinicalExpander.Header = MyClickedItem.Popup1Title;
             ClinicalExpanderContent.Source = MyClickedItem.Popup1Content;
             ResearchExpander.Header = MyClickedItem.Popup2Title;
@@ -64,6 +63,57 @@ namespace NerveCentreW10.Views
             RevisionExpanderContent.Source = MyClickedItem.Popup3Content;
 
             Analytics.TrackEvent(this.GetType().Name + " " + MyClickedItem.Title);
+
+            // Save complex/large objects 
+            var helper = new LocalObjectStorageHelper();
+            string keyLargeObject = MyClickedItem.PageId;
+
+            var o = new SubsectionModel
+            {
+                PageId = MyClickedItem.PageId,
+                Title = MyClickedItem.Title,
+                Subtitle1 = MyClickedItem.Subtitle1,
+                Description1 = MyClickedItem.Description1,
+                Subtitle2 = MyClickedItem.Subtitle2,
+                Description2 = MyClickedItem.Description2,
+                Subtitle3 = MyClickedItem.Subtitle3,
+                Description3 = MyClickedItem.Description3,
+                ImageUri1 = MyClickedItem.ImageUri1,
+                ImageUri2 = MyClickedItem.ImageUri2,
+                Popup1Title = MyClickedItem.Popup1Title,
+                Popup1Content = MyClickedItem.Popup1Content,
+                Popup2Title = MyClickedItem.Popup2Title,
+                Popup2Content = MyClickedItem.Popup2Content,
+                Popup3Title = MyClickedItem.Popup3Title,
+                Popup3Content = MyClickedItem.Popup3Content,
+            };
+
+            await helper.SaveFileAsync(keyLargeObject, o);
+
+            //this.RegisterElementForConnectedAnimation("key", MyImage);
+
+            // Get channel and create activity.
+            UserActivityChannel channel = UserActivityChannel.GetDefault();
+            UserActivity activity = await channel.GetOrCreateUserActivityAsync("nc" + MyClickedItem.PageId);
+
+            // Set deep-link and properties.
+            activity.ActivationUri = new Uri("nervecentre://" + MyClickedItem.PageId);
+            activity.VisualElements.DisplayText = MyClickedItem.Title;
+
+            // Create and set Adaptive Card.
+            //StorageFile cardFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Bones.json"));
+            //string cardText = await FileIO.ReadTextAsync(cardFile);
+            //activity.VisualElements.Content = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
+
+            // Save to activity feed.
+            await activity.SaveAsync();
+
+            // Create a session, which indicates that the user is engaged
+            // in the activity.
+            _currentSession?.Dispose();
+
+            _currentSession = activity.CreateSession();
+
         }
 
         private void MyImage_Tapped(object sender, TappedRoutedEventArgs e)

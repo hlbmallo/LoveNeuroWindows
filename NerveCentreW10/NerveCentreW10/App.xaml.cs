@@ -3,9 +3,10 @@
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-
+using Microsoft.Toolkit.Uwp.Helpers;
+using NerveCentreW10.Models;
 using NerveCentreW10.Services;
-
+using NerveCentreW10.Views;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
@@ -58,6 +59,44 @@ namespace NerveCentreW10
         protected override async void OnActivated(IActivatedEventArgs args)
         {
             await ActivationService.ActivateAsync(args);
+
+            CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+
+            ApplicationViewTitleBar titleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
+
+            //// Title Bar Content Area
+            titleBar.ForegroundColor = Colors.Black;
+            titleBar.BackgroundColor = Colors.White;
+
+            // Title Bar Button Area
+            titleBar.ButtonBackgroundColor = Color.FromArgb(1, 255, 114, 1);
+            titleBar.ButtonForegroundColor = Colors.Black;
+
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs uriArgs = args as ProtocolActivatedEventArgs;
+
+                if (uriArgs != null)
+                {
+                    var helper = new LocalObjectStorageHelper();
+                    string keyLargeObject = uriArgs.Uri.Host;
+
+                    if (await helper.FileExistsAsync(keyLargeObject))
+                    {
+                        var result = await helper.ReadFileAsync<SubsectionModel>(keyLargeObject);
+
+                        if (uriArgs.Uri.Host == result.PageId)
+                        {
+                            NavigationService.Navigate(typeof(DetailPage), result);
+                            Analytics.TrackEvent(this.GetType().Name + " (Timeline)");
+                        }
+                    }
+                }
+
+                Window.Current.Activate();
+                base.OnActivated(args);
+            }
         }
 
         private ActivationService CreateActivationService()
