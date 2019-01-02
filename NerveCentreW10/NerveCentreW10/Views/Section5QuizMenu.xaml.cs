@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -40,21 +41,21 @@ namespace NerveCentreW10.Views
             {
                 QuizNumber = "Quiz 1",
                 QuizName = "At The Cellular Level",
-                QuizFile = "ms-appx:///Assets/Others/quiz1cellsjson.Json",
+                QuizFile = "ms-appx:///Assets/Quizzes/quiz1cellsjson.Json",
                 QuizImage = null,
             });
             QuizListList.Add(new QuizListClass
             {
                 QuizNumber = "Quiz 2",
                 QuizName = "The Central Nervous System",
-                QuizFile = "ms-appx:///Assets/Others/quiz2cnsjson.Json",
+                QuizFile = "ms-appx:///Assets/Quizzes/quiz2centraljson.Json",
                 QuizImage = null,
             });
             QuizListList.Add(new QuizListClass
             {
                 QuizNumber = "Quiz 3",
                 QuizName = "The Peripheral Nervous System",
-                QuizFile = "ms-appx:///Assets/Others/quiz2cnsjson.Json",
+                QuizFile = "ms-appx:///Assets/Quizzes/quiz3peripheraljson.Json",
                 QuizImage = null,
             });
             QuizListList.Add(new QuizListClass
@@ -75,8 +76,8 @@ namespace NerveCentreW10.Views
             {
                 QuizNumber = "Quiz 6",
                 QuizName = "Structures of the Brain",
-                QuizFile = "ms-appx:///Assets/Others/quiz2cnsjson.Json",
-                QuizImage = null,
+                QuizFile = "ms-appx:///Assets/Quizzes/quiz2centraljson.Json",
+                QuizImage = new BitmapImage(new Uri("ms-appx:///Assets/Quizzes/quiz6image.png")),
             });
             QuizListList.Add(new QuizListClass
             {

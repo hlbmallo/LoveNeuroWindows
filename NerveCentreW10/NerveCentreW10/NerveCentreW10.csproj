@@ -234,9 +234,6 @@
     <Compile Include="Views\QuizDetail.xaml.cs">
       <DependentUpon>QuizDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuizList.xaml.cs">
-      <DependentUpon>QuizList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\RecommendedReading.xaml.cs">
       <DependentUpon>RecommendedReading.xaml</DependentUpon>
     </Compile>
@@ -371,10 +368,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\QuizList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\RecommendedReading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -474,6 +467,7 @@
     <Content Include="Assets\Others\LoadingPlaceholder.png" />
     <Content Include="Assets\Others\WelcomeImage.png" />
     <Content Include="Assets\PlaceholderImage.png" />
+    <Content Include="Assets\Quizzes\quiz6image.png" />
     <Content Include="Assets\SampleData\SamplePhoto1.png" />
     <Content Include="Assets\SampleData\SamplePhoto10.png" />
     <Content Include="Assets\SampleData\SamplePhoto2.png" />
@@ -495,10 +489,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
-    <Content Include="Assets\Others\convertcsv.json">
+    <Content Include="Assets\Quizzes\convertcsv.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Others\quiz1cellsjson.json">
+    <Content Include="Assets\Quizzes\quiz1cellsjson.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Quizzes\quiz2centraljson.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Quizzes\quiz3peripheraljson.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="NerveCentreW10_TemporaryKey.pfx" />

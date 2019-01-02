@@ -1,0 +1,110 @@
+[
+ {
+   "QTEXT": "Q1. The diencephalon consists of…?",
+   "QA": "A. The cerebral hemispheres and cerebellum.",
+   "QB": "B. The brainstem and cerebellum.",
+   "QC": "C. The thalamus and hypothalamus.",
+   "QD": "D. The hippocampus and amygdala.",
+   "ANS": "C. The thalamus and hypothalamus.",
+   "REA": "The diencephalon is a forebrain structure; the thalamus is a major relay centre between the cerebral cortex and the brainstem, while the hypothalamus is a major neuroendocrine centre."
+ },
+ {
+   "QTEXT": "Q2. The cerebellum has a major role in which of the following functions?",
+   "QA": "A. Repeated, stereotypical motor activities.",
+   "QB": "B. Olfaction.",
+   "QC": "C. Sensory activities (e.g. touch, pressure).",
+   "QD": "D. Managing emotional reactions.",
+   "ANS": "A. Repeated, stereotypical motor activities.",
+   "REA": "The cerebellum is a hindbrain structure that is concerned with movement (locomotion) and balance."
+ },
+ {
+   "QTEXT": "Q3. How many divisions of the spinal cord are there? (Bonus point if you can name them all!)",
+   "QA": "A. 3",
+   "QB": "B. 4",
+   "QC": "C. 5",
+   "QD": "D. 6",
+   "ANS": "C. 5",
+   "REA": "These are the cervical, thoracic, lumbar, sacral and coccygeal divisions."
+ },
+ {
+   "QTEXT": "Q4. At what level does the spinal cord proper terminate?",
+   "QA": "A. C3",
+   "QB": "B. T5",
+   "QC": "C. L1/L2",
+   "QD": "D. S5",
+   "ANS": "C. L1/L2",
+   "REA": "Specifically, the spinal cord proper terminates at the intervertebral disc (IVD) between L1 and L2. The spinal cord tapers off inferiorly as the filum terminale, but the spinal nerves continue as the cauda equina."
+ },
+ {
+   "QTEXT": "Q5. What type of sensory information does the spinothalamic tract mainly carry?",
+   "QA": "A. Pain and temperature",
+   "QB": "B. Fine touch",
+   "QC": "C. Proprioception",
+   "QD": "D. Pressure",
+   "ANS": "A. Pain and temperature",
+   "REA": "Primarily the spinothalamic tract (STT) is responsible for conveying pain and temperature information to the brain from the opposite side of the body."
+ },
+ {
+   "QTEXT": "Q6. What are the names of the four arteries that make up the brain’s dual blood supply?",
+   "QA": "A. 2x Common carotid arteries and 2x anterior cerebral arteries",
+   "QB": "B. 2x Vertebral arteries and 2x internal carotid arteries.",
+   "QC": "C. 2x Subclavian arteries and 2x external carotid arteries.",
+   "QD": "D. 2x External carotid arteries and 2x internal carotid arteries.",
+   "ANS": "B. 2x Vertebral arteries and 2x internal carotid arteries.",
+   "REA": "The common carotid artery divides into the internal carotid artery and external carotid artery - the external supplies the superficial head and neck, while the internal supplies the brain. The vertebral arteries, which branch off the subclavian arteries on each side, also supply the brain."
+ },
+ {
+   "QTEXT": "Q7. What is the name of the outermost layer of the meninges?",
+   "QA": "A. Dura mater",
+   "QB": "B. Arachnoid mater",
+   "QC": "C. Pia mater",
+   "QD": "D. None of the above",
+   "ANS": "A. Dura mater",
+   "REA": "From superficial to deep, the layers are the dura, arachnoid and pia mater."
+ },
+ {
+   "QTEXT": "Q8. Which of these statements about the subarachnoid space is false?",
+   "QA": "A. The subarachnoid is an actual space.",
+   "QB": "B. The subarachnoid space contains CSF.",
+   "QC": "C. The subarachnoid space is adhered to the cranium.",
+   "QD": "D. The subarachnoid space contains blood vessels.",
+   "ANS": "C. The subarachnoid space is adhered to the cranium.",
+   "REA": "The dura mater (endosteal layer) is adhered to the cranium. The pia mater is adhered to the surface of the brain."
+ },
+ {
+   "QTEXT": "Q9. Which of the following is not a glial cell?",
+   "QA": "A. Astrocyte",
+   "QB": "B. Oligodendrocyte",
+   "QC": "C. Ependymal cell",
+   "QD": "D. Neuron",
+   "ANS": "D. Neuron",
+   "REA": "The main types of cells in the brain are neuron and glia (oligodendrocytes, astrocytes, ependymal cells, radial glia and microglia)."
+ },
+ {
+   "QTEXT": "Q10. Where is CSF mainly produced?",
+   "QA": "A. The choroid plexuses of the lateral ventricles.",
+   "QB": "B. The astrocytes surrounding the cerebral blood vessels.",
+   "QC": "C. The central canal of the spinal cord.",
+   "QD": "D. The lumbar cistern.",
+   "ANS": "A. The choroid plexuses of the lateral ventricles.",
+   "REA": "The bulk of CSF is produced by the choroid plexuses of the lateral ventricles, although CSF does flow through the central canal of the spinal cord and lumbar cistern. Astrocytes do not produce CSF."
+ },
+ {
+   "QTEXT": "Q11. In which lobe of the cerebral cortex is the primary visual cortex located?",
+   "QA": "A. Frontal lobe",
+   "QB": "B. Parietal area",
+   "QC": "C. Occipital lobe",
+   "QD": "D. Temporal lobe",
+   "ANS": "C. Occipital lobe",
+   "REA": "The primary visual cortex is located at the most posterior point of the most posterior lobe (i.e. the occipital lobe). It receives images from the visual pathway (which begins with the retina)."
+ },
+ {
+   "QTEXT": "Q12. What is the main function of the hippocampus?",
+   "QA": "A. Forming memories.",
+   "QB": "B. Allowing coordinated movements.",
+   "QC": "C. Vision.",
+   "QD": "D. Responding to hot and cold environments.",
+   "ANS": "A. Forming memories.",
+   "REA": "The hippocampus is essential for the formation and consolidation of memory (in particular, episodic memory)."
+ }
+]

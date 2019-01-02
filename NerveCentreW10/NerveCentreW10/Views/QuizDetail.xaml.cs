@@ -42,6 +42,15 @@ namespace NerveCentreW10.Views
             List<QuizClass> lstSettingInfo = oFileHelper.ReadFromDefaultFile(MyClickedItem.QuizFile);
             List<QuizClass> oSettingsObserv = new List<QuizClass>(lstSettingInfo);
             MyListView.ItemsSource = oSettingsObserv;
+
+            if (MyClickedItem.QuizImage == null)
+            {
+                MyImage.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                MyImage.Source = MyClickedItem.QuizImage;
+            }
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
