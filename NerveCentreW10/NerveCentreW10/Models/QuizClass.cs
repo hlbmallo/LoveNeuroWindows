@@ -21,6 +21,7 @@ namespace NerveCentreW10.Models
         public bool QBIsActive { get; set; }
         public bool QCIsActive { get; set; }
         public bool QDIsActive { get; set; }
+        public bool ANSIsVisible { get; set; }
     }
 
     //public class RootObject

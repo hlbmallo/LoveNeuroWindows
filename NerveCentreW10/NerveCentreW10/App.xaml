@@ -49,7 +49,6 @@
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter Property="FontStyle" Value="Italic"/>
                 <Setter Property="Margin" Value="0,10,0,0" />
-                <Setter Property="Visibility" Value="Collapsed" />
                 <Setter Property="Foreground" Value="Green" />
                 <Setter Property="TextWrapping" Value="Wrap"/>
                 <Setter Property="Transitions">

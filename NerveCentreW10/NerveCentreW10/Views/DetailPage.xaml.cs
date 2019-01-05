@@ -31,6 +31,10 @@ namespace NerveCentreW10.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            MyProgressRing.IsActive = true;
+            MyProgressRing.Visibility = Visibility.Visible;
+
+
             SubsectionModel MyClickedItem = (SubsectionModel)e.Parameter;
 
             Title.Text = MyClickedItem.Title;
@@ -113,6 +117,10 @@ namespace NerveCentreW10.Views
             _currentSession?.Dispose();
 
             _currentSession = activity.CreateSession();
+
+            MyProgressRing.Visibility = Visibility.Collapsed;
+            MyProgressRing.IsActive = false;
+
 
         }
 

@@ -1,0 +1,128 @@
+[
+ {
+   "QTEXT": "Q1. Which of the following best describes Alzheimer’s disease?",
+   "QA": "A. A prion disease.",
+   "QB": "B. A disease of deficient neurotransmitters.",
+   "QC": "C. A neurodegenerative and metabolic disease.",
+   "QD": "D. A disease of myelin destruction.",
+   "ANS": "C. A neurodegenerative and metabolic disease.",
+   "REA": "Alzheimer's disease involves gradual decline in health due to the death of neurons in the hippocampus and cerebral cortex, so it is classed as a neurodegenerative disease. It is also thought to begin with 'diabetes of the brain' so is also classed as a metabolic disease."
+ },
+ {
+   "QTEXT": "Q2. Which immune cells destroy myelin in multiple sclerosis?",
+   "QA": "A. Ependymal cells.",
+   "QB": "B. Eosinphils.",
+   "QC": "C. T lymphocytes.",
+   "QD": "D. B lymphocytes.",
+   "ANS": "C. T lymphocytes.",
+   "REA": "T lymphocytes, normally responsible for the body's cell-mediated immune response, strip away myelin created by oligodendrocytes in the central nervous system."
+ },
+ {
+   "QTEXT": "Q3. What is the definition of an ‘ischaemic penumbra’ in the context of a stroke?",
+   "QA": "A. The site of the infarct or haemorrhage and the immediate surrounding brain tissue.",
+   "QB": "B. The nearby surrounding brain tissue that is mildly or moderately damaged and can survive for a number of hours after a stroke.",
+   "QC": "C. The brain tissue that is unaffected by a stroke.",
+   "QD": "D. The specific artery that ruptures and haemorrhages in a stroke.",
+   "ANS": "B. The nearby surrounding brain tissue that is mildly or moderately damaged and can survive for a number of hours after a stroke.",
+   "REA": "Here, answer A refers to the ischaemic core while answer B refers to the ischaemic penumbra."
+ },
+ {
+   "QTEXT": "Q4. Depression is often treated with SSRIs. Which of the following neurotransmitters do SSRIs try to increase in brain synapses?",
+   "QA": "A. Serotonin.",
+   "QB": "B. Noradrenalin.",
+   "QC": "C. Dopamine.",
+   "QD": "D. Substance P.",
+   "ANS": "A. Serotonin.",
+   "REA": "SSRI stands for Selective Serotonin Reuptake Inhibitor."
+ },
+ {
+   "QTEXT": "Q5. What is the name of the clot-busting drug administered to a patient who is having an infarct-type stroke?",
+   "QA": "A. FAST.",
+   "QB": "B. Fluoxetine.",
+   "QC": "C. Sertraline.",
+   "QD": "D. Alteplase.",
+   "ANS": "D. Alteplase.",
+   "REA": "Fluoxetine is an antidepressant, as is sertraline, and FAST is diagnosis guidance for a stroke."
+ },
+ {
+   "QTEXT": "Q6. During Alzheimer's disease, there is excessive aggregation of which protein?",
+   "QA": "A. Amyloid precursor protein.",
+   "QB": "B. Amyloid-beta protein.",
+   "QC": "C. Apolipoprotein.",
+   "QD": "D. Acetylcholine.",
+   "ANS": "B. Amyloid-beta protein.",
+   "REA": "Alzheimer's disease involves the chopping up of amyloid precursor protein (APP) into amyloid-beta fragments. Apolipoprotein E4 is a fat transporter that reportedly increases the risk of developing amyloid-beta plaques, while neurons that use acetylcholine die during the course of Alzheimer's disease."
+ },
+ {
+   "QTEXT": "Q7. The main pathological feature of MS is…",
+   "QA": "A. An unwanted increase in the conduction of action potentials in the brain.",
+   "QB": "B. Memory loss and jerk movements due to neuronal death in the substantia nigra.",
+   "QC": "C. Sclerotic plaques as a result of demyelination and repeated inflammation in the brain and spinal cord.",
+   "QD": "D. A persistent tremor due to basal ganglia damage.",
+   "ANS": "C. Sclerotic plaques as a result of demyelination and repeated inflammation in the brain and spinal cord.",
+   "REA": "Demyleination prevents action potentials from being conducted rapidly and without interruption; a repeated inflammatory response to this demyleination leads to sclerotic plaques forming. Note that cognitive (thinking) problems may be seen in MS."
+ },
+ {
+   "QTEXT": "Q8. Which of the following is a classic pathological feature of Alzheimer's disease?",
+   "QA": "A. Increased hippocampal mass.",
+   "QB": "B. Increased cerebellar mass.",
+   "QC": "C. Decreased ventricular volume.",
+   "QD": "D. Decreased cerebral cortex mass.",
+   "ANS": "D. Decreased cerebral cortex mass.",
+   "REA": "The hippocampus and cerebral cortex shrink in Alzheimer's disease as neurons there die. This leads to enlargement of the ventricles."
+ },
+ {
+   "QTEXT": "Q9. Which of the following is NOT a medical intervention for depression?",
+   "QA": "A. Anti-hypertensive medication.",
+   "QB": "B. Anti-depressant medication.",
+   "QC": "C. Cognitive behavioural therapy.",
+   "QD": "D. Electroconvulsive therapy.",
+   "ANS": "A. Anti-hypertensive medication.",
+   "REA": "Anti-hypertensive medication is used to treat high blood pressure, which is a risk factor for stroke."
+ },
+ {
+   "QTEXT": "Q10. What is the mnemonic for the test to quickly establish if a patient is having a stroke? Bonus points if you know what each letter stands for!",
+   "QA": "A. QUICK.",
+   "QB": "B. RAPID.",
+   "QC": "C. FAST.",
+   "QD": "D. SPEED.",
+   "ANS": "C. FAST.",
+   "REA": "FAST stands for Face Arm Speech Time to call the emergency services."
+ },
+ {
+   "QTEXT": "Q11. What type of neurons die in Parkinson's disease?",
+   "QA": "A. Serotonergic neurons.",
+   "QB": "B. Glutamatergic neurons.",
+   "QC": "C. Dopaminergic neurons.",
+   "QD": "D. Noradrenergic neurons.",
+   "ANS": "C. Dopaminergic neurons.",
+   "REA": "Dopamine neurons run between the substantia nigra of the midbrain and the basal ganglia, and the death of these neurons leads to a lack of control over movement."
+ },
+ {
+   "QTEXT": "Q12. Parkinson's disease begins with dying neurons in which part of the brain?",
+   "QA": "A. Basal ganglia.",
+   "QB": "B. Primary somatosensory cortex.",
+   "QC": "C. Cerebellum.",
+   "QD": "D. Occipital lobe.",
+   "ANS": "A. Basal ganglia.",
+   "REA": "The basal ganglia is required for controlling voluntary movement and inhibition of excess and unwanted movements. It is a collection of subcortical structures in the forebrain."
+ },
+ {
+   "QTEXT": "Q13. An excess of which triplet code leads to the formation of Huntingtin protein in Hunginton's disease?",
+   "QA": "A. TAC.",
+   "QB": "B. GAG.",
+   "QC": "C. GAC.",
+   "QD": "D. CAG.",
+   "ANS": "D. CAG.",
+   "REA": "CAG carries the instructions for making gluatmine. At least 36 repeats of CAG means malformed Huntingtin protein has an extra long glutamine chain."
+ },
+ {
+   "QTEXT": "Q14. Name the medication used to ease the symptoms of Huntington's disease.",
+   "QA": "A. L-dopa.",
+   "QB": "B. Tetrabenazine.",
+   "QC": "C. Fluoextine.",
+   "QD": "D. Lithium.",
+   "ANS": "B. Tetrabenazine.",
+   "REA": "Tetrabenazine is a new drug that is thought to work by reducing the amount of serotonin, noradrenalin and dopamine in certain brain circuits."
+ }
+]

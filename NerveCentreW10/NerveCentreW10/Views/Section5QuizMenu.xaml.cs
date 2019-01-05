@@ -62,7 +62,7 @@ namespace NerveCentreW10.Views
             {
                 QuizNumber = "Quiz 4",
                 QuizName = "Neurological Disorders",
-                QuizFile = "ms-appx:///Assets/Others/quiz2cnsjson.Json",
+                QuizFile = "ms-appx:///Assets/Quizzes/quiz4disordersjson.Json",
                 QuizImage = null,
             });
             QuizListList.Add(new QuizListClass

@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Toolkit.Uwp.UI.Extensions;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,9 +28,11 @@ namespace NerveCentreW10.Views
     {
         public int OverallScore;
 
+
         public QuizDetail()
         {
             this.InitializeComponent();
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -53,7 +56,7 @@ namespace NerveCentreW10.Views
             }
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (QuizClass item in MyListView.Items)
             {
@@ -82,6 +85,16 @@ namespace NerveCentreW10.Views
             await dialog.ShowAsync();
 
             OverallScore = 0;
+        }
+
+        private void RevealHideAnswersButton_Checked(object sender, RoutedEventArgs e)
+        {
+            RevealHideAnswersButton.Content = "Show Answers";
+        }
+
+        private void RevealHideAnswersButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            RevealHideAnswersButton.Content = "Hide Answers";
         }
     }
 }
