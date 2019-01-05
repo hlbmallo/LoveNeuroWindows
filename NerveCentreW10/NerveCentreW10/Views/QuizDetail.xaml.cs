@@ -54,6 +54,8 @@ namespace NerveCentreW10.Views
             {
                 MyImage.Source = MyClickedItem.QuizImage;
             }
+
+            Title.Text = MyClickedItem.QuizNumber + " " + MyClickedItem.QuizName;
         }
 
         private async void SubmitButton_Click(object sender, RoutedEventArgs e)

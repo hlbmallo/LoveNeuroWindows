@@ -504,6 +504,9 @@
     <Content Include="Assets\Quizzes\quiz4disordersjson.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Quizzes\quiz9cranialjson.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="NerveCentreW10_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

@@ -20,7 +20,9 @@
 
         <ScrollViewer Grid.Row="0" Grid.RowSpan="2" >
             <StackPanel>
-                <controls:ImageEx x:Name="MyImage"/>
+                <TextBlock x:Name="Title" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Left"/>
+                <Border Style="{StaticResource BorderLine1}"/>
+                    <controls:ImageEx x:Name="MyImage"/>
                 <ListView x:Name="MyListView" SelectionMode="None" Margin="0,0,0,64" Tag="">
                     <ListView.ItemTemplate>
                         <DataTemplate>
