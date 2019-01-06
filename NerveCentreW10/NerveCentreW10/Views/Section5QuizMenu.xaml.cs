@@ -72,14 +72,14 @@ namespace NerveCentreW10.Views
                 QuizNumber = "Quiz 7",
                 QuizName = "The Brachial Plexus",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz7brachialjson.Json",
-                QuizImage = null,
+                QuizImage = new BitmapImage(new Uri("ms-appx:///Assets/Quizzes/quiz7image.png")),
             });
             QuizListList.Add(new QuizListClass
             {
                 QuizNumber = "Quiz 8",
                 QuizName = "The Cerebral Cortex",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz8cortexjson.Json",
-                QuizImage = null,
+                QuizImage = new BitmapImage(new Uri("ms-appx:///Assets/Quizzes/quiz8image.png")),
             });
             QuizListList.Add(new QuizListClass
             {
