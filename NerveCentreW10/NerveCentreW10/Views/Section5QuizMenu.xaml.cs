@@ -57,28 +57,28 @@ namespace NerveCentreW10.Views
             {
                 QuizNumber = "Quiz 5",
                 QuizName = "Overall Quiz",
-                QuizFile = "ms-appx:///Assets/Others/quiz2cnsjson.Json",
+                QuizFile = "ms-appx:///Assets/Quizzes/quiz5overalljson.Json",
                 QuizImage = null,
             });
             QuizListList.Add(new QuizListClass
             {
                 QuizNumber = "Quiz 6",
                 QuizName = "Structures of the Brain",
-                QuizFile = "ms-appx:///Assets/Quizzes/quiz2centraljson.Json",
+                QuizFile = "ms-appx:///Assets/Quizzes/quiz6brainjson.Json",
                 QuizImage = new BitmapImage(new Uri("ms-appx:///Assets/Quizzes/quiz6image.png")),
             });
             QuizListList.Add(new QuizListClass
             {
                 QuizNumber = "Quiz 7",
                 QuizName = "The Brachial Plexus",
-                QuizFile = "ms-appx:///Assets/Others/quiz2cnsjson.Json",
+                QuizFile = "ms-appx:///Assets/Quizzes/quiz7brachialjson.Json",
                 QuizImage = null,
             });
             QuizListList.Add(new QuizListClass
             {
                 QuizNumber = "Quiz 8",
                 QuizName = "The Cerebral Cortex",
-                QuizFile = "ms-appx:///Assets/Others/quiz2cnsjson.Json",
+                QuizFile = "ms-appx:///Assets/Quizzes/quiz8cortexjson.Json",
                 QuizImage = null,
             });
             QuizListList.Add(new QuizListClass

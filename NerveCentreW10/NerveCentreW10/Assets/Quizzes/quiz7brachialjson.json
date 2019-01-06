@@ -1,0 +1,47 @@
+[
+ {
+   "QTEXT": "Q1. Structure A is the...",
+   "QA": "A. Musculocutaneous nerve.",
+   "QB": "B. Median nerve.",
+   "QC": "B. Phrenic nerve.",
+   "QD": "B. Brachial nerve.",
+   "ANS": "A. Musculocutaneous nerve.",
+   "REA": "This is the musculocutaneous nerve. It has nerve root from C5 - C7."
+ },
+ {
+   "QTEXT": "Q2. Structure B is the...",
+   "QA": "A. Radial nerve.",
+   "QB": "B. Median nerve.",
+   "QC": "C. Long thoracic nerve.",
+   "QD": "D. Ulnar nerve.",
+   "ANS": "B. Median nerve.",
+   "REA": "This is the median nerve. It has nerve roots from C6 - T1."
+ },
+ {
+   "QTEXT": "Q3. Structure C is the...",
+   "QA": "A. Median nerve.",
+   "QB": "B. Musculocutaneous nerve.",
+   "QC": "C. Radial nerve.",
+   "QD": "D. Ulnar nerve.",
+   "ANS": "D. Ulnar nerve.",
+   "REA": "This is the ulnar nerve. It has a nerve roots from C8 - T1."
+ },
+ {
+   "QTEXT": "Q4. Structure D is the...",
+   "QA": "A. Median nerve.",
+   "QB": "B. Musculocutaneous nerve.",
+   "QC": "C. Radial nerve.",
+   "QD": "D. Axillary nerve.",
+   "ANS": "C. Radial nerve.",
+   "REA": "This is the radial nerve. It has nerve roots from C5 - T1."
+ },
+ {
+   "QTEXT": "Q5. Which of the following nerve roots does not contribute to the brachial plexus?",
+   "QA": "A. T1.",
+   "QB": "B. C4.",
+   "QC": "C. C8.",
+   "QD": "D. C7.",
+   "ANS": "B. C4.",
+   "REA": "The brachial plexus has nerve roots from C5, C6, C7, C8 and T1."
+ }
+]

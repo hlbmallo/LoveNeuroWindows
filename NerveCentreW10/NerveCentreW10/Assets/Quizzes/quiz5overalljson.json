@@ -1,0 +1,137 @@
+[
+ {
+   "QTEXT": "Q1. Where might you find a bipolar neuron?",
+   "QA": "A. In the cerebellum.",
+   "QB": "B. In the retina of the eye.",
+   "QC": "C. In the heart.",
+   "QD": "D. In the cerebral cortex.",
+   "ANS": "B. In the retina of the eye.",
+   "REA": "Retinal bipolar cells connect photoreceptor to the rest of the neurons that carry and process visual information."
+ },
+ {
+   "QTEXT": "Q2. A neuron with a resting membrane potential (RMP) has…?",
+   "QA": "A. More Na+ ions outside the neuron than inside.",
+   "QB": "B. More K+ ions outside the neuron than inside.",
+   "QC": "C. More negatively charged proteins outside the neuron than inside.",
+   "QD": "D. More neurotransmitter outside the neuron than inside.",
+   "ANS": "A. More Na+ ions outside the neuron than inside.",
+   "REA": "Remember, at rest, there is more Na+ outside the neuron and more K+ inside the neuron."
+ },
+ {
+   "QTEXT": "Q3. What is the function of the Na+/K+ ATPase pump?",
+   "QA": "A. To help reach and maintain the resting membrane potential (RMP).",
+   "QB": "B. To help maintain the action potential above 0mV.",
+   "QC": "C. To move proteins in and out of the neuron.",
+   "QD": "D. To release neurotransmitters into the synaptic cleft.",
+   "ANS": "A. To help reach and maintain the resting membrane potential (RMP).",
+   "REA": "The Na+/K+ ATPase pump pumps out three Na+ ions for every two K+ ions pumped in."
+ },
+ {
+   "QTEXT": "Q4. During repolarisation, which ions leave the neuron in the highest concentration?",
+   "QA": "A. Na+ ions.",
+   "QB": "B. K+ ions.",
+   "QC": "C. Cl- ions.",
+   "QD": "D. Mg2+ ions.",
+   "ANS": "B. K+ ions.",
+   "REA": "Repolarisation is achieved by the efflux of K+ ions and the continual action of the Na+/K+ ATPase pump."
+ },
+ {
+   "QTEXT": "Q5. What structures make up the brainstem?",
+   "QA": "A. Pons, medulla and cerebellum.",
+   "QB": "B. Cerebellum and cerebrum.",
+   "QC": "C. Spinal cord, pons and midbrain.",
+   "QD": "D. Medulla, pons and midbrain.",
+   "ANS": "D. Medulla, pons and midbrain.",
+   "REA": "The hindbrain is made up of the medulla oblongata, pons and cerebellum (in evolutionary terms, very old parts of the brain). The midbrain, also part of the brainstem, is NOT part of the hindbrain. It is said to be a part of the midbrain (I know, a bit confusing!)"
+ },
+ {
+   "QTEXT": "Q6. What is the function of the amygdala?",
+   "QA": "A. Forming and consolidating memories.",
+   "QB": "B. Regulating instinctive behaviour such as hunger and fear.",
+   "QC": "C. Regulating neuroendocrine responses.",
+   "QD": "D. Receiving and interpreting visual stimuli.",
+   "ANS": "B. Regulating instinctive behaviour such as hunger and fear.",
+   "REA": "The amygdala is generally assoicated with processing instinctive behaviours such as fear, anger, hunger and sexual arousal, i.e. emotional context."
+ },
+ {
+   "QTEXT": "Q7. How many spinal segments are in the lumbar division of the spinal cord?",
+   "QA": "A. 1",
+   "QB": "B. 5",
+   "QC": "C. 8",
+   "QD": "D. 12",
+   "ANS": "B. 5",
+   "REA": "Remember, there are 8 cervical segments, 12 thoracic segments, 5 lumbar segments, 5 sacral segments and 1 coccygeal segment."
+ },
+ {
+   "QTEXT": "Q8. What type of signals does the DCML tract carry?",
+   "QA": "A. Proprioception and fine touch.",
+   "QB": "B. Pain.",
+   "QC": "C. Temperature.",
+   "QD": "D. Motor information to skeletal muscles.",
+   "ANS": "A. Proprioception and fine touch.",
+   "REA": "In terms of the main sensory/ascending tracts, the DCML carries touch and proprioceptive information, while the spinothalamic tract carries temperature and pain information."
+ },
+ {
+   "QTEXT": "Q9. Which of the following arteries DOES NOT directly contribute to the circle of Willis?",
+   "QA": "A. Anterior cerebral arteries.",
+   "QB": "B. Anterior communicating artery.",
+   "QC": "C. Internal carotid arteries.",
+   "QD": "D. Anterior spinal artery.",
+   "ANS": "D. Anterior spinal artery.",
+   "REA": "The anterior communicating artery, anterior cerebral arteries, internal carotid arteries, posterior cerebral arteries, posterior communicating arteries and the basilar artery contribute to the circle of Willis (also called the cerebral arterial circle)."
+ },
+ {
+   "QTEXT": "Q10. Which of the following dural layers is adhered directly to the brain matter?",
+   "QA": "A. Endosteal layer of dura mater.",
+   "QB": "B. Meningeal layer of dura mater.",
+   "QC": "C. Arachnoid mater.",
+   "QD": "D. Pia mater.",
+   "ANS": "D. Pia mater.",
+   "REA": "The pia mater is the innermost layer of the meninges, with the endosteal layer of the dura mater being the outermost layer."
+ },
+ {
+   "QTEXT": "Q11. What is the main function of oligodendrocytes?",
+   "QA": "A. They myelinate many neurons in the CNS.",
+   "QB": "B. They are the immune cells of the brain.",
+   "QC": "C. They contribute to brain blood flow by controlling brain capillary dilation.",
+   "QD": "D. They produce CSF in the ventricles.",
+   "ANS": "A. They myelinate many neurons in the CNS.",
+   "REA": "The correct answer is answer A. Answer B refers to microglia, answer C refers to astrocytes and answer D refers to ependymal cells."
+ },
+ {
+   "QTEXT": "Q12. CSF is mainly made up of _______ ?",
+   "QA": "A. Water.",
+   "QB": "B. Na+ ions.",
+   "QC": "C. Glucose.",
+   "QD": "D. Proteins.",
+   "ANS": "A. Water.",
+   "REA": "Water makes up 99% of CSF. Answers B - D are also present in CSF but in lower concentrations than are in blood."
+ },
+ {
+   "QTEXT": "Q13. What is a function of the 7th cranial nerve?",
+   "QA": "A. Moves one of the six muscles around the eyeball.",
+   "QB": "B. Moves four of the six muscles around the eyeball.",
+   "QC": "C. Moves the muscles of facial expression.",
+   "QD": "D. Moves the muscles of mastication (chewing).",
+   "ANS": "C. Moves the muscles of facial expression.",
+   "REA": "Cranial nerve 7 (also called CN7 and the facial nerve) is responsible for many functions, but one of its main functions is the motor control of the muscles of facial expression."
+ },
+ {
+   "QTEXT": "Q14. Which of the following brain regions profoundly shrink in Alzheimer's disease?",
+   "QA": "A. Hippocampus and cerebellum.",
+   "QB": "B. Hippocampus and ventricles.",
+   "QC": "C. Hippocampus and brainstem.",
+   "QD": "D. Hippocampus and cerebral cortex.",
+   "ANS": "D. Hippocampus and cerebral cortex.",
+   "REA": "The hippocampus and cerebral cortex shrink in Alzheimer's disease, which makes the ventricles enlarge."
+ },
+ {
+   "QTEXT": "Q15. What is the function of an SSRI in depression?",
+   "QA": "A. To increase the quantity of serotonin in the synapse.",
+   "QB": "B. To decrease the quantity of serotonin in the synapse.",
+   "QC": "C. To decrease the quantity of Substance P in the synapse.",
+   "QD": "D. To increase the quantity of Substance P in the synapse.",
+   "ANS": "A. To increase the quantity of serotonin in the synapse.",
+   "REA": "SSRIs block the serotonin reuptake channels, thereby increasing the quantity of serotonin remaining in the synpase and ensuring action potentials in the hippocampus, amygdala and thalamus continue to fire."
+ }
+]

@@ -467,6 +467,7 @@
     <Content Include="Assets\Others\LoadingPlaceholder.png" />
     <Content Include="Assets\Others\WelcomeImage.png" />
     <Content Include="Assets\PlaceholderImage.png" />
+    <Content Include="Assets\Quizzes\quiz7image.png" />
     <Content Include="Assets\Quizzes\quiz6image.png" />
     <Content Include="Assets\SampleData\SamplePhoto1.png" />
     <Content Include="Assets\SampleData\SamplePhoto10.png" />
@@ -505,6 +506,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Quizzes\quiz9cranialjson.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Quizzes\quiz5overalljson.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Quizzes\quiz6brainjson.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Quizzes\quiz7brachialjson.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Quizzes\quiz8cortexjson.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="NerveCentreW10_TemporaryKey.pfx" />
