@@ -29,8 +29,9 @@ namespace NerveCentreW10.Models
     }
 
 
-    //public class InkingZoneEdits
+    //public class InkingZoneClassCollection
     //{
-    //    public ObservableCollection<InkingZoneClassDetail> MyData { get; set; }
+    //    [JsonProperty("ModelList")]
+    //    public ObservableCollection<InkingZoneClassDetail> ModelList { get; set; }
     //}
 }

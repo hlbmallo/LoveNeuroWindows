@@ -13,7 +13,7 @@
             <GridView x:Name="GridView1" Style="{StaticResource GridViewStyle1}" ItemTemplate="{StaticResource InkingZoneDataTemplate}" ItemClick="GridView1_ItemClick" ItemsSource="{x:Bind InkingZoneList}" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
        </PivotItem>
         <PivotItem Header="My Custom Inking">
-            <GridView x:Name="GridViewInkingStrokes" Style="{StaticResource GridViewStyle1}" ItemClick="GridViewInkingStrokes_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
+            <GridView x:Name="GridViewInkingStrokes" Style="{StaticResource GridViewStyle1}" ItemClick="GridViewInkingStrokes_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}" ItemTemplate="{StaticResource InkingZoneEditsDataTemplate}"/>
         </PivotItem>
     </Pivot>
 

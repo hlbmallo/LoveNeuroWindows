@@ -139,14 +139,23 @@ namespace NerveCentreW10.Views
         private void GridViewInkingStrokes_ItemClick(object sender, ItemClickEventArgs e)
         {
             var MyClickedItem = e.ClickedItem as InkingZoneClassDetail;
-            Frame.Navigate(typeof(InkingZoneDetail), MyClickedItem);
+            string json = JsonConvert.SerializeObject(MyClickedItem);
+            string json2 = JsonConvert.SerializeObject(inkingZoneViewModel);
+
+            Dictionary<string, string> newDictionary = new Dictionary<string, string>();
+            newDictionary.Add("json", json);
+            newDictionary.Add("json2", json2);
+            Frame.Navigate(typeof(InkingZoneDetail), newDictionary);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            if (localSettings.Values["Scramble"] != null)
+            {
                 string id = localSettings.Values["Scramble"] as string;
-                inkingZoneViewModel.ModelList = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
+                inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(id);
                 GridViewInkingStrokes.ItemsSource = inkingZoneViewModel.ModelList;
+            }
         }
     }
 }

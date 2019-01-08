@@ -59,7 +59,7 @@ namespace NerveCentreW10.Views
             var json2 = myDictionary["json2"].ToString();
 
             inkingZoneClassDetail = JsonConvert.DeserializeObject<InkingZoneClassDetail>(json);
-            Title.Text = inkingZoneClassDetail.InkingZoneTitle;
+            Title.Text = inkingZoneClassDetail.InkingZoneRename;
             MyImage.Source = new BitmapImage(inkingZoneClassDetail.InkingZoneImage); ;
 
             inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(json2);
@@ -339,6 +339,7 @@ namespace NerveCentreW10.Views
                     inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
                     {
                         InkingZoneRename = InkRenameBox.Text,
+                        InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
                     });
 
                     string json = JsonConvert.SerializeObject(inkingZoneViewModel);
@@ -357,6 +358,7 @@ namespace NerveCentreW10.Views
                     inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
                     {
                         InkingZoneRename = InkRenameBox.Text,
+                        InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
                     });
 
                     string json = JsonConvert.SerializeObject(inkingZoneViewModel);
