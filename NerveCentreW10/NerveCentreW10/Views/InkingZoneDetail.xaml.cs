@@ -324,22 +324,74 @@ namespace NerveCentreW10.Views
         //    //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
         //}
 
-        private void InkRenameConfirm_Click(object sender, RoutedEventArgs e)
+        private async void InkRenameConfirm_Click(object sender, RoutedEventArgs e)
         {
             if (localSettings.Values["Scramble"] != null)
             {
                 var id = localSettings.Values["Scramble"] as string;
                 inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(id);
 
-                using (var stream = new MemoryStream())
+                // Get all strokes on the InkCanvas.
+                IReadOnlyList<InkStroke> currentStrokes = MyInkCanvas.InkPresenter.StrokeContainer.GetStrokes();
+
+                // Strokes present on ink canvas.
+                if (currentStrokes.Count > 0)
                 {
-                    var lol = inkingZoneClassDetail.InkingZoneRename;
-                    //MyIE.SaveEdits().CopyTo(stream);
-                    //var payload = stream.ToArray();
+                    // Let users choose their ink file using a file picker.
+                    // Initialize the picker.
+                    Windows.Storage.Pickers.FileSavePicker savePicker =
+                        new Windows.Storage.Pickers.FileSavePicker();
+                    savePicker.SuggestedStartLocation =
+                        Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+                    savePicker.FileTypeChoices.Add(
+                        "GIF with embedded ISF",
+                        new List<string>() { ".gif" });
+                    savePicker.DefaultFileExtension = ".gif";
+                    savePicker.SuggestedFileName = "InkSample";
+
+                    // Show the file picker.
+                    Windows.Storage.StorageFile file =
+                        await savePicker.PickSaveFileAsync();
+                    // When chosen, picker returns a reference to the selected file.
+                    if (file != null)
+                    {
+                        // Prevent updates to the file until updates are 
+                        // finalized with call to CompleteUpdatesAsync.
+                        Windows.Storage.CachedFileManager.DeferUpdates(file);
+                        // Open a file stream for writing.
+                        IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
+                        // Write the ink strokes to the output stream.
+                        using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
+                        {
+                            await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
+                            await outputStream.FlushAsync();
+                        }
+                        stream.Dispose();
+
+                        // Finalize write so other apps can update file.
+                        Windows.Storage.Provider.FileUpdateStatus status =
+                            await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+
+                        if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
+                        {
+                            // File saved.
+                        }
+                        else
+                        {
+                            // File couldn't be saved.
+                        }
+                    }
+                    // User selects Cancel and picker returns null.
+                    else
+                    {
+                        // Operation cancelled.
+                    }
+
                     inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
                     {
                         InkingZoneRename = InkRenameBox.Text,
                         InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
+                        InkingZoneStream = file,
                     });
 
                     string json = JsonConvert.SerializeObject(inkingZoneViewModel);
@@ -359,7 +411,8 @@ namespace NerveCentreW10.Views
                     {
                         InkingZoneRename = InkRenameBox.Text,
                         InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
-                    });
+                        InkingZoneStrokeList = MyInkCanvas.InkPresenter.StrokeContainer.GetStrokes(),
+                });
 
                     string json = JsonConvert.SerializeObject(inkingZoneViewModel);
 

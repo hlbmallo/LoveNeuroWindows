@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Input.Inking;
 
 namespace NerveCentreW10.Models
@@ -24,8 +26,17 @@ namespace NerveCentreW10.Models
         [JsonProperty("InkingZoneRename")]
         public string InkingZoneRename { get; set; }
 
-        //[JsonProperty("inkingzonestrokelist")]
+        //[JsonProperty("InkingZoneStrokeList")]
         //public IReadOnlyList<InkStroke> InkingZoneStrokeList { get; set; }
+
+        //[JsonProperty("InkingZoneStream")]
+        //public IRandomAccessStream InkingZoneStream { get; set; }
+
+        [JsonProperty("InkingZoneStorageFile")]
+        public StorageFile InkingZoneStorageFile { get; set; }
+
+
+
     }
 
 
