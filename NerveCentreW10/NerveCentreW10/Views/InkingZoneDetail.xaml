@@ -23,8 +23,19 @@
             <CommandBar DefaultLabelPosition="Right" Background="#ebebeb" HorizontalAlignment="Center">
                 <AppBarButton HorizontalAlignment="Right" Icon="Save" Label="Save as Image" Click="SaveButton_Click"/>
                 <AppBarButton HorizontalAlignment="Right" Icon="Print" Label="Print" Click="PrintButton_Click"/>
-                <AppBarButton HorizontalAlignment="Right" Icon="Upload" Label="Load Ink" Click="LoadInkStrokes_Click"/>
-                <AppBarButton HorizontalAlignment="Right" Icon="Download" Label="Save Ink" Click="SaveInkStrokes_Click"/>
+                <!--<AppBarButton HorizontalAlignment="Right" Icon="Upload" Label="Load Ink" Click="LoadInkStrokes_Click"/>-->
+                <!--<AppBarButton HorizontalAlignment="Right" Icon="Download" Label="Save Ink" Click="SaveInkStrokes_Click"/>-->
+                <AppBarButton x:Name="myAppBarButton" HorizontalAlignment="Right" Icon="Download" Label="Save Ink Strokes" >
+                    <AppBarButton.Flyout>
+                        <Flyout>
+                            <StackPanel>
+                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Give a name to your newly inked template." Margin="0,0,0,12" />
+                                <TextBox x:Name="InkRenameBox" AcceptsReturn="True" IsEnabled="True"/>
+                                <Button x:Name="InkRenameConfirm" Click="InkRenameConfirm_Click" Content="Confirm" />
+                            </StackPanel>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
             </CommandBar>
         </StackPanel>
 

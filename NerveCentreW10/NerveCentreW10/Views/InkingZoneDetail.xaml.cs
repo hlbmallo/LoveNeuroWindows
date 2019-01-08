@@ -3,8 +3,12 @@ using Microsoft.Graphics.Canvas;
 using Microsoft.Toolkit.Uwp.Helpers;
 using NerveCentreW10.Models;
 using NerveCentreW10.Services.Ink;
+using NerveCentreW10.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Foundation;
@@ -14,21 +18,22 @@ using Windows.UI.Input.Inking;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace NerveCentreW10.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class InkingZoneDetail : Page
     {
         private PrintHelper printHelper;
         private InkPointerDeviceService pointerDeviceService;
         private InkZoomService zoomService;
+
+        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+
+        private InkingZoneClassDetail inkingZoneClassDetail;
+        private InkingZoneViewModel inkingZoneViewModel;
 
         public InkingZoneDetail()
         {
@@ -39,15 +44,26 @@ namespace NerveCentreW10.Views
             pointerDeviceService = new InkPointerDeviceService(MyInkCanvas);
             touchInkingButton.IsChecked = true;
             mouseInkingButton.IsChecked = true;
+            if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.FrameworkElement", "AllowFocusOnInteraction"))
+                myAppBarButton.AllowFocusOnInteraction = true;
             Analytics.TrackEvent(this.GetType().Name);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Analytics.TrackEvent(this.GetType().Name);
-            var MyClickedItem = (InkingZoneClass)e.Parameter;
-            Title.Text = MyClickedItem.InkingZoneTitle;
-            MyImage.Source = new BitmapImage(MyClickedItem.InkingZoneImage);
+
+            Dictionary<string, string> myDictionary = new Dictionary<string, string>();
+            myDictionary = e.Parameter as Dictionary<string, string>;
+            var json = myDictionary["json"].ToString();
+            var json2 = myDictionary["json2"].ToString();
+
+            inkingZoneClassDetail = JsonConvert.DeserializeObject<InkingZoneClassDetail>(json);
+            Title.Text = inkingZoneClassDetail.InkingZoneTitle;
+            MyImage.Source = new BitmapImage(inkingZoneClassDetail.InkingZoneImage); ;
+
+            inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(json2);
+
         }
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -58,7 +74,7 @@ namespace NerveCentreW10.Views
             var savePicker = new Windows.Storage.Pickers.FileSavePicker();
             savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
             savePicker.FileTypeChoices.Add("Jpeg (*.jpg)", new List<string>() { ".jpg" });
-            savePicker.SuggestedFileName = "Heart Centre Diagram";
+            savePicker.SuggestedFileName = "Nerve Centre Diagram";
             Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
 
             if (file == null)
@@ -145,7 +161,7 @@ namespace NerveCentreW10.Views
             printHelper.AddFrameworkElementToPrint(PrintableContent);
             printHelper.OnPrintCanceled += PrintHelper_OnPrintCanceled;
             printHelper.OnPrintSucceeded += PrintHelper_OnPrintSucceeded;
-            await printHelper.ShowPrintUIAsync("Heart Centre Print");
+            await printHelper.ShowPrintUIAsync("Nerve Centre Print");
             await folder.DeleteAsync(StorageDeleteOption.PermanentDelete);
         }
 
@@ -302,5 +318,94 @@ namespace NerveCentreW10.Views
         {
             zoomService?.FitToSize(MyImage.ActualWidth, MyImage.ActualHeight);
         }
+
+        //private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+        //}
+
+        private void InkRenameConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            if (localSettings.Values["Scramble"] != null)
+            {
+                var id = localSettings.Values["Scramble"] as string;
+                inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(id);
+
+                using (var stream = new MemoryStream())
+                {
+                    var lol = inkingZoneClassDetail.InkingZoneRename;
+                    //MyIE.SaveEdits().CopyTo(stream);
+                    //var payload = stream.ToArray();
+                    inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
+                    {
+                        InkingZoneRename = InkRenameBox.Text,
+                    });
+
+                    string json = JsonConvert.SerializeObject(inkingZoneViewModel);
+
+                    localSettings.Values["Scramble"] = json;
+                }
+            }
+
+            else
+            {
+                using (var stream = new MemoryStream())
+                {
+                    var lol = inkingZoneClassDetail.InkingZoneRename;
+                    //MyIE.SaveEdits().CopyTo(stream);
+                    //var payload = stream.ToArray();
+                    inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
+                    {
+                        InkingZoneRename = InkRenameBox.Text,
+                    });
+
+                    string json = JsonConvert.SerializeObject(inkingZoneViewModel);
+
+                    localSettings.Values["Scramble"] = json;
+                }
+            }
+
+            //}
+            //var localObjectStorageHelper = new LocalObjectStorageHelper();
+
+            //string keyLargeObject = "Scramble";
+            //var result = localObjectStorageHelper.ReadFileAsync<InkingZoneClass>(keyLargeObject);
+            //IReadOnlyList<InkStroke> currentStrokes = MyInkCanvas.InkPresenter.StrokeContainer.GetStrokes();
+            //var o = new InkingZoneClass
+            //{
+            //    InkingZoneTitle = InkRenameBox.Text,
+            //    InkingZoneStrokeList = currentStrokes,
+            //};
+
+            //localObjectStorageHelper.SaveFileAsync(keyLargeObject, o);
+
+
+        }
+
+        //else
+        //{
+        //    // Access data in composite["intVal"] and composite["strVal"]
+
+        //    var id = composite["Scramble"] as string;
+        //    RememberedViewModel.ModelList = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClass>>(id);
+
+        //    using (var stream = new MemoryStream())
+        //    {
+        //        var lol = SelectedItem.TemplateUri;
+        //        MyIE.SaveEdits().CopyTo(stream);
+        //        var payload = stream.ToArray();
+        //        mainModel.ModelList.Add(new PrintableTemplatesModel
+        //        {
+        //            TemplateRename = args.Value,
+        //            TemplateByte = payload,
+        //            TemplateUri = lol,
+        //        });
+
+        //        string json = JsonConvert.SerializeObject(RememberedViewModel.ModelList);
+
+        //        //CrossSettings.Current.AddOrUpdateValue("Scrambled", json, null);
+        //        composite["Scramble"] = json;
+        //    }
+        //}
     }
 }
