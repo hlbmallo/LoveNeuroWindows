@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -148,14 +149,17 @@ namespace NerveCentreW10.Views
             Frame.Navigate(typeof(InkingZoneDetail), newDictionary);
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            if (localSettings.Values["Scramble"] != null)
-            {
-                string id = localSettings.Values["Scramble"] as string;
-                inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(id);
-                GridViewInkingStrokes.ItemsSource = inkingZoneViewModel.ModelList;
+            //    if (localSettings.Values["Scramble"] != null)
+            //    {
+            //        string id = localSettings.Values["Scramble"] as string;
+
+            var file = await ApplicationData.Current.LocalFolder.GetFileAsync("myconfig.json");
+            string id = await FileIO.ReadTextAsync(file);
+
+            inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(id);
+            GridViewInkingStrokes.ItemsSource = inkingZoneViewModel.ModelList;
             }
         }
     }
-}
