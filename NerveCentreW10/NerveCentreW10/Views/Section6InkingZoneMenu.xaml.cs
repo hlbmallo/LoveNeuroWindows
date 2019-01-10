@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -154,12 +155,35 @@ namespace NerveCentreW10.Views
             //    if (localSettings.Values["Scramble"] != null)
             //    {
             //        string id = localSettings.Values["Scramble"] as string;
+            if (await ApplicationData.Current.LocalFolder.FileExistsAsync("myconfig.json"))
+            {
+                var file = await ApplicationData.Current.LocalFolder.GetFileAsync("myconfig.json");
+                string id = await FileIO.ReadTextAsync(file);
 
-            var file = await ApplicationData.Current.LocalFolder.GetFileAsync("myconfig.json");
-            string id = await FileIO.ReadTextAsync(file);
+                inkingZoneViewModel.ModelList = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
+                GridViewInkingStrokes.ItemsSource = inkingZoneViewModel.ModelList;
+            }
 
-            inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(id);
-            GridViewInkingStrokes.ItemsSource = inkingZoneViewModel.ModelList;
+            else
+            {
+
             }
         }
+
+        private async void DeleteItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuFlyoutItem mfi = sender as MenuFlyoutItem;
+            InkingZoneClassDetail gvi = mfi.DataContext as InkingZoneClassDetail;
+            inkingZoneViewModel.ModelList.Remove(gvi);
+
+            string json = JsonConvert.SerializeObject(inkingZoneViewModel.ModelList);
+            var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, json);
+
+            string id = await FileIO.ReadTextAsync(file);
+            inkingZoneViewModel.ModelList = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
+
+            GridViewInkingStrokes.ItemsSource = inkingZoneViewModel.ModelList;
+        }
     }
+}

@@ -8,12 +8,18 @@
     mc:Ignorable="d"
     Loaded="Page_Loaded">
 
+    <Page.Resources>
+        <MenuFlyout x:Name="MenuFlyout1" x:Key="MyMenuFlyout">
+            <MenuFlyoutItem x:Name="DeleteItemButton" Text="Delete" Icon="Delete" Click="DeleteItemButton_Click"/>
+        </MenuFlyout>
+    </Page.Resources>
+
     <Pivot>
         <PivotItem Header="Templates">
             <GridView x:Name="GridView1" Style="{StaticResource GridViewStyle1}" ItemTemplate="{StaticResource InkingZoneDataTemplate}" ItemClick="GridView1_ItemClick" ItemsSource="{x:Bind InkingZoneList}" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
        </PivotItem>
         <PivotItem Header="My Custom Inking">
-            <GridView x:Name="GridViewInkingStrokes" Style="{StaticResource GridViewStyle1}" ItemClick="GridViewInkingStrokes_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}" ItemTemplate="{StaticResource InkingZoneEditsDataTemplate}"/>
+            <GridView x:Name="GridViewInkingStrokes" Style="{StaticResource GridViewStyle1}" ItemClick="GridViewInkingStrokes_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}" ItemTemplate="{StaticResource InkingZoneEditsDataTemplate}" ContextFlyout="{x:Bind MenuFlyout1}"/>
         </PivotItem>
     </Pivot>
 

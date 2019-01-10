@@ -26,15 +26,9 @@ namespace NerveCentreW10.Models
         [JsonProperty("InkingZoneRename")]
         public string InkingZoneRename { get; set; }
 
-        //[JsonProperty("InkingZoneStrokeList")]
-        //public IReadOnlyList<InkStroke> InkingZoneStrokeList { get; set; }
+        [JsonProperty("InkingZoneBytes")]
+        public byte[] InkingZoneBytes { get; set; }
 
-        [JsonProperty("InkingZoneStream")]
-        public IRandomAccessStream InkingZoneStream { get; set; }
-
-        [JsonProperty("InkingZoneBufferStream")]
-        public string InkingZoneBufferStream { get; set; }
-        
 
     }
 
