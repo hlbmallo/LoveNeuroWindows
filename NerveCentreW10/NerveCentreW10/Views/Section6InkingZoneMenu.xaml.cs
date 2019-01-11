@@ -9,7 +9,9 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Text;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -27,8 +29,6 @@ namespace NerveCentreW10.Views
         public ObservableCollection<InkingZoneClassDetail> InkingZoneList { get; } = new ObservableCollection<InkingZoneClassDetail>();
 
         InkingZoneViewModel inkingZoneViewModel;
-
-        Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public Section6InkingZoneMenu()
         {
@@ -150,40 +150,61 @@ namespace NerveCentreW10.Views
             Frame.Navigate(typeof(InkingZoneDetail), newDictionary);
         }
 
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        private async void DeleteItemButton_Click(object sender, RoutedEventArgs e)
         {
-            //    if (localSettings.Values["Scramble"] != null)
-            //    {
-            //        string id = localSettings.Values["Scramble"] as string;
-            if (await ApplicationData.Current.LocalFolder.FileExistsAsync("myconfig.json"))
+            //SelectedItem = (sender as MenuFlyoutItem).DataContext as InkingZoneClassDetail;
+            //inkingZoneViewModel.ModelList.Remove(SelectedItem);
+
+            var mi = ((MenuFlyoutItem)sender);
+            InkingZoneClassDetail item = (InkingZoneClassDetail)mi.CommandParameter;
+            inkingZoneViewModel.ModelList.Remove(item);
+
+            string json = JsonConvert.SerializeObject(inkingZoneViewModel.ModelList);
+            var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, json);
+
+            var file2 = await ApplicationData.Current.LocalFolder.GetFileAsync("myconfig.json");
+            string id = await FileIO.ReadTextAsync(file2);
+            var utah = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
+
+            GridViewInkingStrokes.ItemsSource = utah;
+
+            //var folder = ApplicationData.Current.LocalFolder;
+            //var file = await folder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
+            //using (var stream = await file.OpenStreamForWriteAsync())
+            //using (var writer = new StreamWriter(stream, Encoding.UTF8))
+            //{
+            //    string json = JsonConvert.SerializeObject(inkingZoneViewModel.ModelList);
+            //    await writer.WriteAsync(json);
+            //}
+
+            //var folder2 = ApplicationData.Current.RoamingFolder;
+            //var file2 = await folder.GetFileAsync("myconfig.json");
+            //using (var stream = await file.OpenStreamForReadAsync())
+            //using (var reader = new StreamReader(stream, Encoding.UTF8))
+            //{
+            //    string json = await reader.ReadToEndAsync();
+            //    var collection = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(json);
+            //    GridViewInkingStrokes.ItemsSource = collection;
+            //}
+
+        }
+
+        private async void GridViewInkingStrokes_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (await ApplicationData.Current.LocalFolder.FileExistsAsync("myconfig.json") == true)
             {
                 var file = await ApplicationData.Current.LocalFolder.GetFileAsync("myconfig.json");
                 string id = await FileIO.ReadTextAsync(file);
 
-                inkingZoneViewModel.ModelList = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
-                GridViewInkingStrokes.ItemsSource = inkingZoneViewModel.ModelList;
+                var dapper = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
+                GridViewInkingStrokes.ItemsSource = dapper;
             }
 
             else
             {
 
             }
-        }
-
-        private async void DeleteItemButton_Click(object sender, RoutedEventArgs e)
-        {
-            MenuFlyoutItem mfi = sender as MenuFlyoutItem;
-            InkingZoneClassDetail gvi = mfi.DataContext as InkingZoneClassDetail;
-            inkingZoneViewModel.ModelList.Remove(gvi);
-
-            string json = JsonConvert.SerializeObject(inkingZoneViewModel.ModelList);
-            var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(file, json);
-
-            string id = await FileIO.ReadTextAsync(file);
-            inkingZoneViewModel.ModelList = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
-
-            GridViewInkingStrokes.ItemsSource = inkingZoneViewModel.ModelList;
         }
     }
 }

@@ -374,7 +374,7 @@ namespace NerveCentreW10.Views
         //    //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
         //}
 
-       
+
         private async void InkRenameConfirm_Click(object sender, RoutedEventArgs e)
         {
             //if (localSettings.Values["Scramble"] != null)
@@ -429,12 +429,14 @@ namespace NerveCentreW10.Views
 
             var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(file, json);
-
+        }
+    }
+}
             // localSettings.Values["Scramble"] = json;
 
 
-            //StreamReader reader = new StreamReader(stream);
-            //string text = reader.ReadToEnd();
+//StreamReader reader = new StreamReader(stream);
+//string text = reader.ReadToEnd();
 
 
 
@@ -452,70 +454,70 @@ namespace NerveCentreW10.Views
 
 
 
-            //// Strokes present on ink canvas.
-            //if (currentStrokes.Count > 0)
-            //{
-            //    StorageFile file = await localFolder.CreateFileAsync("ink.gif", CreationCollisionOption.ReplaceExisting);
+//// Strokes present on ink canvas.
+//if (currentStrokes.Count > 0)
+//{
+//    StorageFile file = await localFolder.CreateFileAsync("ink.gif", CreationCollisionOption.ReplaceExisting);
 
-            //    if (file != null)
-            //    {
-            //        // Prevent updates to the file until updates are 
-            //        // finalized with call to CompleteUpdatesAsync.
-            //        Windows.Storage.CachedFileManager.DeferUpdates(file);
-            //        // Open a file stream for writing.
-            //        IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
-            //        // Write the ink strokes to the output stream.
-            //        using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
-            //        {
-            //            await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
-            //            await outputStream.FlushAsync();
-            //        }
-            //        stream.Dispose();
+//    if (file != null)
+//    {
+//        // Prevent updates to the file until updates are 
+//        // finalized with call to CompleteUpdatesAsync.
+//        Windows.Storage.CachedFileManager.DeferUpdates(file);
+//        // Open a file stream for writing.
+//        IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
+//        // Write the ink strokes to the output stream.
+//        using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
+//        {
+//            await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
+//            await outputStream.FlushAsync();
+//        }
+//        stream.Dispose();
 
-            //        // Finalize write so other apps can update file.
-            //        Windows.Storage.Provider.FileUpdateStatus status =
-            //            await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+//        // Finalize write so other apps can update file.
+//        Windows.Storage.Provider.FileUpdateStatus status =
+//            await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
 
-            //        if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
-            //        {
-            //            // File saved.
-            //        }
-            //        else
-            //        {
-            //            // File couldn't be saved.
-            //        }
-            //    }
-            //    // User selects Cancel and picker returns null.
-            //    else
-            //    {
-            //        // Operation cancelled.
+//        if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
+//        {
+//            // File saved.
+//        }
+//        else
+//        {
+//            // File couldn't be saved.
+//        }
+//    }
+//    // User selects Cancel and picker returns null.
+//    else
+//    {
+//        // Operation cancelled.
 
-            //inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
-            //{
-            //    InkingZoneRename = InkRenameBox.Text,
-            //    InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
-            //    InkingZoneStream = stream,
-            //});
+//inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
+//{
+//    InkingZoneRename = InkRenameBox.Text,
+//    InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
+//    InkingZoneStream = stream,
+//});
 
-            //string json = JsonConvert.SerializeObject(inkingZoneViewModel);
+//string json = JsonConvert.SerializeObject(inkingZoneViewModel);
 
-            //localSettings.Values["Scramble"] = json;
-            //}
+//localSettings.Values["Scramble"] = json;
+//}
 
-            //else
-            //{
+//else
+//{
 
-            //// Get all strokes on the InkCanvas.
-            //Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            //Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("sample.gif", Windows.Storage.CreationCollisionOption.ReplaceExisting);
-            //IRandomAccessStream stream = await sampleFile.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
-            //// Write the ink strokes to the output stream.
-            //using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
-            //{
-            //    await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
-            //    await outputStream.FlushAsync();
-            //}
-            ////stream.Dispose();
+//// Get all strokes on the InkCanvas.
+//Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+//Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("sample.gif", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+//IRandomAccessStream stream = await sampleFile.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
+//// Write the ink strokes to the output stream.
+//using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
+//{
+//    await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
+//    await outputStream.FlushAsync();
+//}
+////stream.Dispose();
 
 
 
@@ -532,123 +534,120 @@ namespace NerveCentreW10.Views
 
 
 
-            //// Strokes present on ink canvas.
-            //if (currentStrokes.Count > 0)
-            //{
-            //    StorageFile file = await localFolder.CreateFileAsync("ink.gif", CreationCollisionOption.ReplaceExisting);
-
-            //    if (file != null)
-            //    {
-            //        // Prevent updates to the file until updates are 
-            //        // finalized with call to CompleteUpdatesAsync.
-            //        Windows.Storage.CachedFileManager.DeferUpdates(file);
-            //        // Open a file stream for writing.
-            //        IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
-            //        // Write the ink strokes to the output stream.
-            //        using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
-            //        {
-            //            await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
-            //            await outputStream.FlushAsync();
-            //        }
-            //        stream.Dispose();
-
-            //        // Finalize write so other apps can update file.
-            //        Windows.Storage.Provider.FileUpdateStatus status =
-            //            await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-
-            //        if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
-            //        {
-            //            // File saved.
-            //        }
-            //        else
-            //        {
-            //            // File couldn't be saved.
-            //        }
-            //    }
-            //    // User selects Cancel and picker returns null.
-            //    else
-            //    {
-            //        // Operation cancelled.
-
-            //    Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            //    Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("texty.txt", Windows.Storage.CreationCollisionOption.GenerateUniqueName);
-
-            //    IRandomAccessStream stream = await sampleFile.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
-
-            //    //await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(stream);
-            //    //await stream.FlushAsync();
-
-            //    using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
-            //    {
-            //        await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
-            //        await outputStream.FlushAsync();
-            //    }
-
-            //    byte[] bytes = new byte[stream.Size];
-
-            //    //var buffer = new byte[stream.Size];
-            //    //await stream.AsStream().ReadAsync(buffer, 0, buffer.Length);
-            //    //string lol = Encoding.ASCII.GetString(buffer);
-
-            //    inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
-            //    {
-            //        InkingZoneRename = InkRenameBox.Text,
-            //        InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
-            //        //InkingZoneBufferStream = lol,
-            //        InkingZoneBytes = bytes,
-            //    });
-
-            //    string json = JsonConvert.SerializeObject(inkingZoneViewModel);
-
-            //    var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
-            //    await FileIO.WriteTextAsync(file, json);
-
-            //    //    localSettings.Values["Scramble"] = json;
-            //}
-            //}
-
-            //}
-            //var localObjectStorageHelper = new LocalObjectStorageHelper();
-
-            //string keyLargeObject = "Scramble";
-            //var result = localObjectStorageHelper.ReadFileAsync<InkingZoneClass>(keyLargeObject);
-            //IReadOnlyList<InkStroke> currentStrokes = MyInkCanvas.InkPresenter.StrokeContainer.GetStrokes();
-            //var o = new InkingZoneClass
-            //{
-            //    InkingZoneTitle = InkRenameBox.Text,
-            //    InkingZoneStrokeList = currentStrokes,
-            //};
-
-            //localObjectStorageHelper.SaveFileAsync(keyLargeObject, o);
-
-
-        }
-
-        //else
-        //{
-        //    // Access data in composite["intVal"] and composite["strVal"]
-
-        //    var id = composite["Scramble"] as string;
-        //    RememberedViewModel.ModelList = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClass>>(id);
-
-        //    using (var stream = new MemoryStream())
-        //    {
-        //        var lol = SelectedItem.TemplateUri;
-        //        MyIE.SaveEdits().CopyTo(stream);
-        //        var payload = stream.ToArray();
-        //        mainModel.ModelList.Add(new PrintableTemplatesModel
-        //        {
-        //            TemplateRename = args.Value,
-        //            TemplateByte = payload,
-        //            TemplateUri = lol,
-        //        });
-
-        //        string json = JsonConvert.SerializeObject(RememberedViewModel.ModelList);
-
-        //        //CrossSettings.Current.AddOrUpdateValue("Scrambled", json, null);
-        //        composite["Scramble"] = json;
-        //    }
-        //}
-    }
-}
-    
+//// Strokes present on ink canvas.
+//if (currentStrokes.Count > 0)
+//{
+//    StorageFile file = await localFolder.CreateFileAsync("ink.gif", CreationCollisionOption.ReplaceExisting);
+
+//    if (file != null)
+//    {
+//        // Prevent updates to the file until updates are 
+//        // finalized with call to CompleteUpdatesAsync.
+//        Windows.Storage.CachedFileManager.DeferUpdates(file);
+//        // Open a file stream for writing.
+//        IRandomAccessStream stream = await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
+//        // Write the ink strokes to the output stream.
+//        using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
+//        {
+//            await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
+//            await outputStream.FlushAsync();
+//        }
+//        stream.Dispose();
+
+//        // Finalize write so other apps can update file.
+//        Windows.Storage.Provider.FileUpdateStatus status =
+//            await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+
+//        if (status == Windows.Storage.Provider.FileUpdateStatus.Complete)
+//        {
+//            // File saved.
+//        }
+//        else
+//        {
+//            // File couldn't be saved.
+//        }
+//    }
+//    // User selects Cancel and picker returns null.
+//    else
+//    {
+//        // Operation cancelled.
+
+//    Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+//    Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("texty.txt", Windows.Storage.CreationCollisionOption.GenerateUniqueName);
+
+//    IRandomAccessStream stream = await sampleFile.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
+
+//    //await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(stream);
+//    //await stream.FlushAsync();
+
+//    using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
+//    {
+//        await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
+//        await outputStream.FlushAsync();
+//    }
+
+//    byte[] bytes = new byte[stream.Size];
+
+//    //var buffer = new byte[stream.Size];
+//    //await stream.AsStream().ReadAsync(buffer, 0, buffer.Length);
+//    //string lol = Encoding.ASCII.GetString(buffer);
+
+//    inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
+//    {
+//        InkingZoneRename = InkRenameBox.Text,
+//        InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
+//        //InkingZoneBufferStream = lol,
+//        InkingZoneBytes = bytes,
+//    });
+
+//    string json = JsonConvert.SerializeObject(inkingZoneViewModel);
+
+//    var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
+//    await FileIO.WriteTextAsync(file, json);
+
+//    //    localSettings.Values["Scramble"] = json;
+//}
+//}
+
+//}
+//var localObjectStorageHelper = new LocalObjectStorageHelper();
+
+//string keyLargeObject = "Scramble";
+//var result = localObjectStorageHelper.ReadFileAsync<InkingZoneClass>(keyLargeObject);
+//IReadOnlyList<InkStroke> currentStrokes = MyInkCanvas.InkPresenter.StrokeContainer.GetStrokes();
+//var o = new InkingZoneClass
+//{
+//    InkingZoneTitle = InkRenameBox.Text,
+//    InkingZoneStrokeList = currentStrokes,
+//};
+
+//localObjectStorageHelper.SaveFileAsync(keyLargeObject, o);
+
+
+
+
+//else
+//{
+//    // Access data in composite["intVal"] and composite["strVal"]
+
+//    var id = composite["Scramble"] as string;
+//    RememberedViewModel.ModelList = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClass>>(id);
+
+//    using (var stream = new MemoryStream())
+//    {
+//        var lol = SelectedItem.TemplateUri;
+//        MyIE.SaveEdits().CopyTo(stream);
+//        var payload = stream.ToArray();
+//        mainModel.ModelList.Add(new PrintableTemplatesModel
+//        {
+//            TemplateRename = args.Value,
+//            TemplateByte = payload,
+//            TemplateUri = lol,
+//        });
+
+//        string json = JsonConvert.SerializeObject(RememberedViewModel.ModelList);
+
+//        //CrossSettings.Current.AddOrUpdateValue("Scrambled", json, null);
+//        composite["Scramble"] = json;
+//    }
+//}

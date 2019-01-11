@@ -10,13 +10,9 @@ using System.Threading.Tasks;
 
 namespace NerveCentreW10.ViewModels
 {
-    public class InkingZoneViewModel
+    public class InkingZoneViewModel : INotifyPropertyChanged
     {
-        [JsonProperty("ModelList")]
-        public ObservableCollection<InkingZoneClassDetail> ModelList
-        {
-            get; set;
-        }
+        public ObservableCollection<InkingZoneClassDetail> ModelList { get; set; }
 
         public InkingZoneViewModel()
         {

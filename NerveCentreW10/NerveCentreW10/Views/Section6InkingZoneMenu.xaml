@@ -5,8 +5,7 @@
     xmlns:local="using:NerveCentreW10.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Loaded="Page_Loaded">
+    mc:Ignorable="d">
 
     <Page.Resources>
         <MenuFlyout x:Name="MenuFlyout1" x:Key="MyMenuFlyout">
@@ -19,7 +18,7 @@
             <GridView x:Name="GridView1" Style="{StaticResource GridViewStyle1}" ItemTemplate="{StaticResource InkingZoneDataTemplate}" ItemClick="GridView1_ItemClick" ItemsSource="{x:Bind InkingZoneList}" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
        </PivotItem>
         <PivotItem Header="My Custom Inking">
-            <GridView x:Name="GridViewInkingStrokes" Style="{StaticResource GridViewStyle1}" ItemClick="GridViewInkingStrokes_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}" ItemTemplate="{StaticResource InkingZoneEditsDataTemplate}" ContextFlyout="{x:Bind MenuFlyout1}"/>
+            <GridView x:Name="GridViewInkingStrokes" Style="{StaticResource GridViewStyle1}" ItemClick="GridViewInkingStrokes_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}" ItemTemplate="{StaticResource InkingZoneEditsDataTemplate}" ContextFlyout="{x:Bind MenuFlyout1}" Loaded="GridViewInkingStrokes_Loaded"/>
         </PivotItem>
     </Pivot>
 
