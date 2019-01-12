@@ -33,12 +33,15 @@ namespace NerveCentreW10.Views
         private InkPointerDeviceService pointerDeviceService;
         private InkZoomService zoomService;
 
+        public ObservableCollection<InkingZoneClassDetail> InkingZoneListEdits { get; } = new ObservableCollection<InkingZoneClassDetail>();
+
         ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
         Windows.Storage.StorageFolder localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-        private InkingZoneClassDetail inkingZoneClassDetail;
-        private InkingZoneViewModel inkingZoneViewModel;
+        public InkingZoneClassDetail myclickeditem;
+
+        public InkingZoneViewModel inkingZoneViewModel;
 
         public InkingZoneDetail()
         {
@@ -58,38 +61,66 @@ namespace NerveCentreW10.Views
         {
             Analytics.TrackEvent(this.GetType().Name);
 
-            Dictionary<string, string> myDictionary = new Dictionary<string, string>();
-            myDictionary = e.Parameter as Dictionary<string, string>;
-            var json = myDictionary["json"].ToString();
-            var json2 = myDictionary["json2"].ToString();
+            //Dictionary<string, string> myDictionary = new Dictionary<string, string>();
+            //myDictionary = e.Parameter as Dictionary<string, string>;
+            //var json = myDictionary["json"].ToString();
+            //var json2 = myDictionary["json2"].ToString();
 
-            inkingZoneClassDetail = JsonConvert.DeserializeObject<InkingZoneClassDetail>(json);
-            Title.Text = inkingZoneClassDetail.InkingZoneRename;
-            MyImage.Source = new BitmapImage(inkingZoneClassDetail.InkingZoneImage);
-            if (inkingZoneClassDetail.InkingZoneBytes == null)
+            //inkingZoneClassDetail = JsonConvert.DeserializeObject<InkingZoneClassDetail>(json);
+            //Title.Text = inkingZoneClassDetail.InkingZoneRename;
+
+
+            if (e.Parameter is InkingZoneClassDetail)
             {
-
+                var xenon = e.Parameter as InkingZoneClassDetail;
+                MyImage.Source = new BitmapImage(xenon.InkingZoneImage);
+                Title.Text = xenon.InkingZoneRename;
+                myclickeditem = xenon;
             }
+            //inkingZoneClassDetail = (InkingZoneClassDetail)e.Parameter;
+
+            //MyImage.Source = new BitmapImage(inkingZoneClassDetail.InkingZoneImage);
+            //if (inkingZoneClassDetail.InkingZoneBytes == null)
+            //{
+
+            //}
             else
             {
-                byte[] bytes = inkingZoneClassDetail.InkingZoneBytes;
-                //MemoryStream stream = new MemoryStream(bytes);
-                //var happy = await ConvertToRandomAccessStream(stream);
-                //var hoping = stream.AsRandomAccessStream();
-                //var crimson = ConvertTo(bytes);
-                //MemoryStream stream = new MemoryStream(bytes);
-                //var hoping = stream.AsRandomAccessStream();
-                var crumbs = ConvertTo(bytes).Result;
-                using (var inputStream = crumbs.GetInputStreamAt(0))
+                //byte[] bytes = inkingZoneClassDetail.InkingZoneBytes;
+                ////MemoryStream stream = new MemoryStream(bytes);
+                ////var happy = await ConvertToRandomAccessStream(stream);
+                ////var hoping = stream.AsRandomAccessStream();
+                ////var crimson = ConvertTo(bytes);
+                ////MemoryStream stream = new MemoryStream(bytes);
+                ////var hoping = stream.AsRandomAccessStream();
+                //var crumbs = ConvertTo(bytes).Result;
+                //using (var inputStream = crumbs.GetInputStreamAt(0))
+                //{
+                //    await MyInkCanvas.InkPresenter.StrokeContainer.LoadAsync(inputStream);
+                //}
+
+                //crumbs.Dispose();
+
+                var localObjectStorageHelper = new LocalObjectStorageHelper();
+
+
+                var storageFile = (StorageFile)e.Parameter;
+                var result = await localObjectStorageHelper.ReadFileAsync<InkingZoneClassDetail>(storageFile.Name);
+                
+                MyImage.Source = new BitmapImage(result.InkingZoneImage);
+                byte[] bytes = result.InkingZoneBytes;
+                var stream = ConvertTo(bytes).Result;
+                using (var inputStream = stream.GetInputStreamAt(0))
                 {
                     await MyInkCanvas.InkPresenter.StrokeContainer.LoadAsync(inputStream);
                 }
 
-                crumbs.Dispose();
+                stream.Dispose();
+
             }
 
 
-            inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(json2);
+            //inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(json2);
 
         }
 
@@ -383,7 +414,7 @@ namespace NerveCentreW10.Views
             //    inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(id);
 
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("abads.gif", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("serious.txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
 
             IRandomAccessStream stream = await sampleFile.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
 
@@ -402,6 +433,56 @@ namespace NerveCentreW10.Views
             var buffer = await stream.ReadAsync(bytes.AsBuffer(), (uint)stream.Size, InputStreamOptions.None);
             var bytes2 = buffer.ToArray();
 
+            stream.Dispose();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var localObjectStorageHelper = new LocalObjectStorageHelper();
+            string keyLargeObject = InkRenameBox.Text;
+
+            var o = new InkingZoneClassDetail
+            {
+                InkingZoneRename = InkRenameBox.Text,
+                InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource,
+                InkingZoneBytes = bytes2,
+            };
+            await localObjectStorageHelper.SaveFileAsync(keyLargeObject, o);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -417,21 +498,26 @@ namespace NerveCentreW10.Views
             //await stream.AsStream().ReadAsync(buffer, 0, buffer.Length);
             //string lol = Encoding.ASCII.GetString(buffer);
 
-            inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
-            {
-                InkingZoneRename = InkRenameBox.Text,
-                InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
-                //InkingZoneBufferStream = lol,
-                InkingZoneBytes = bytes2,
-            });
+            //inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
+            //{
+            //    InkingZoneRename = InkRenameBox.Text,
+            //    InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
+            //    InkingZoneBytes = bytes2,
+            //});
 
-            string json = JsonConvert.SerializeObject(inkingZoneViewModel.ModelList);
-
-            var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(file, json);
+            //string json = JsonConvert.SerializeObject(inkingZoneViewModel.ModelList);
+            //var file = await ApplicationData.Current.LocalFolder.CreateFileAsync(InkRenameBox.Text + ".json", CreationCollisionOption.GenerateUniqueName);
+            //await FileIO.WriteTextAsync(file, json);
         }
+
+
+        //string json = JsonConvert.SerializeObject(cramp);
+
+        //var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
+        //await FileIO.WriteTextAsync(file, json);
     }
 }
+
             // localSettings.Values["Scramble"] = json;
 
 

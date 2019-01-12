@@ -1,6 +1,8 @@
 ﻿using HeartCentreW104.Helpers;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.Toolkit.Uwp.Helpers;
+using Microsoft.Toolkit.Uwp.UI.Animations;
+using Microsoft.Toolkit.Uwp.UI.Extensions;
 using Microsoft.WindowsAzure.Storage.Blob;
 using NerveCentreW10.Models;
 using NerveCentreW10.Services;
@@ -15,6 +17,7 @@ using System.Text;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -33,9 +36,9 @@ namespace NerveCentreW10.Views
         public Section6InkingZoneMenu()
         {
             InitializeComponent();
-            Analytics.TrackEvent(this.GetType().Name);
             inkingZoneViewModel = new InkingZoneViewModel();
             InkingZoneData();
+            Analytics.TrackEvent(this.GetType().Name);
         }
 
 
@@ -120,14 +123,18 @@ namespace NerveCentreW10.Views
 
         private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var MyClickedItem = e.ClickedItem as InkingZoneClassDetail;
-            string json = JsonConvert.SerializeObject(MyClickedItem);
-            string json2 = JsonConvert.SerializeObject(inkingZoneViewModel);
+            //var MyClickedItem = e.ClickedItem as InkingZoneClassDetail;
+            //string json = JsonConvert.SerializeObject(MyClickedItem);
+            //string json2 = JsonConvert.SerializeObject(inkingZoneViewModel);
 
-            Dictionary<string, string> newDictionary = new Dictionary<string, string>();
-            newDictionary.Add("json", json);
-            newDictionary.Add("json2", json2);
-            Frame.Navigate(typeof(InkingZoneDetail), newDictionary);
+            //Dictionary<string, string> newDictionary = new Dictionary<string, string>();
+            //newDictionary.Add("json", json);
+            //newDictionary.Add("json2", json2);
+            //Frame.Navigate(typeof(InkingZoneDetail), newDictionary);
+
+            var MyClickedItem = (InkingZoneClassDetail)e.ClickedItem as InkingZoneClassDetail;
+
+            Frame.Navigate(typeof(InkingZoneDetail), MyClickedItem);
 
             //var myList = new List<string>()
             //{
@@ -140,14 +147,19 @@ namespace NerveCentreW10.Views
 
         private void GridViewInkingStrokes_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var MyClickedItem = e.ClickedItem as InkingZoneClassDetail;
-            string json = JsonConvert.SerializeObject(MyClickedItem);
-            string json2 = JsonConvert.SerializeObject(inkingZoneViewModel);
 
-            Dictionary<string, string> newDictionary = new Dictionary<string, string>();
-            newDictionary.Add("json", json);
-            newDictionary.Add("json2", json2);
-            Frame.Navigate(typeof(InkingZoneDetail), newDictionary);
+            //var MyClickedItem = e.ClickedItem as InkingZoneClassDetail;
+            //string json = JsonConvert.SerializeObject(MyClickedItem);
+            //string json2 = JsonConvert.SerializeObject(inkingZoneViewModel);
+
+            //Dictionary<string, string> newDictionary = new Dictionary<string, string>();
+            //newDictionary.Add("json", json);
+            //newDictionary.Add("json2", json2);
+            //Frame.Navigate(typeof(InkingZoneDetail), newDictionary);
+
+            var MyClickedItem = (StorageFile)e.ClickedItem;
+
+            Frame.Navigate(typeof(InkingZoneDetail), MyClickedItem);
         }
 
         private async void DeleteItemButton_Click(object sender, RoutedEventArgs e)
@@ -155,11 +167,25 @@ namespace NerveCentreW10.Views
             //SelectedItem = (sender as MenuFlyoutItem).DataContext as InkingZoneClassDetail;
             //inkingZoneViewModel.ModelList.Remove(SelectedItem);
 
-            var mi = ((MenuFlyoutItem)sender);
-            InkingZoneClassDetail item = (InkingZoneClassDetail)mi.CommandParameter;
-            inkingZoneViewModel.ModelList.Remove(item);
+            var mfi = (MenuFlyoutItem)sender;
+            var item = (InkingZoneClassDetail)mfi.CommandParameter as InkingZoneClassDetail;
+            if (item != null)
+            {
 
-            string json = JsonConvert.SerializeObject(inkingZoneViewModel.ModelList);
+                foreach (InkingZoneClassDetail del in GridViewInkingStrokes.Items)
+                {
+                    GridViewInkingStrokes.Items.Remove(del);
+
+                }
+            }
+
+
+
+            //    var mfi = (MenuFlyoutItem)sender;
+            //var item = (InkingZoneClassDetail)mfi.CommandParameter as InkingZoneClassDetail;
+            //inkingZoneViewModel.ModelList.Remove(item);
+
+            string json = JsonConvert.SerializeObject(GridViewInkingStrokes.Items);
             var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(file, json);
 
@@ -192,19 +218,149 @@ namespace NerveCentreW10.Views
 
         private async void GridViewInkingStrokes_Loaded(object sender, RoutedEventArgs e)
         {
-            if (await ApplicationData.Current.LocalFolder.FileExistsAsync("myconfig.json") == true)
-            {
-                var file = await ApplicationData.Current.LocalFolder.GetFileAsync("myconfig.json");
-                string id = await FileIO.ReadTextAsync(file);
+            //if (await ApplicationData.Current.LocalFolder.FileExistsAsync("myconfig.json") == true)
+            //{
+            //    var file = await ApplicationData.Current.LocalFolder.GetFileAsync("myconfig.json");
+            //    string id = await FileIO.ReadTextAsync(file);
+            //    var cramp = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
+            //    GridViewInkingStrokes.ItemsSource = cramp;
+            //}
 
-                var dapper = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
-                GridViewInkingStrokes.ItemsSource = dapper;
+            //else
+            //{
+            //    var file2 = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
+
+            //}
+
+
+            //var localObjectStorageHelper = new LocalObjectStorageHelper();
+            //string keyLargeObject = "large";
+            //var result = localObjectStorageHelper.ReadFileAsync<ObservableCollection<InkingZoneClassDetail>>(keyLargeObject);
+            //GridViewInkingStrokes.ItemsSource = result;
+
+
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+
+            IReadOnlyList<IStorageItem> itemsList = await storageFolder.GetItemsAsync();
+
+            foreach (var item in itemsList)
+            {
+                if (item == null)
+                {
+
+                }
+                else
+                {
+                    itemsList.Append(item);
+                }
             }
 
-            else
-            {
+            GridViewInkingStrokes.ItemsSource = itemsList;
 
-            }
         }
+
+        FrameworkElement preElement = null;
+
+        private void MyGrid_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+            var control = preElement.FindDescendantByName("MyGrid2");
+            control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.04f, scaleY: 1.04f,
+                        duration: 200, delay: 0, easingType: EasingType.Default).Start();
+
+            var control2 = preElement.FindDescendantByName("MyDropShadow");
+            control2.Fade(value: 0.4f, duration: 500, delay: 0).Start();
+        }
+
+        private void MyGrid_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+            var control = preElement.FindDescendantByName("MyGrid2");
+            control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.0f, scaleY: 1.0f,
+                        duration: 200, delay: 0, easingType: EasingType.Default).Start();
+
+            var control2 = preElement.FindDescendantByName("MyDropShadow");
+            control2.Fade(value: 0.0f, duration: 500, delay: 0).Start();
+        }
+
+        private void MyGrid_PointerCanceled(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+            var control = preElement.FindDescendantByName("MyGrid2");
+            control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.0f, scaleY: 1.0f,
+                        duration: 200, delay: 0, easingType: EasingType.Default).Start();
+
+            var control2 = preElement.FindDescendantByName("MyDropShadow");
+            control2.Fade(value: 0.0f, duration: 500, delay: 0).Start();
+        }
+
+        private void MyGrid_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+            var control = preElement.FindDescendantByName("MyGrid2");
+            control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.0f, scaleY: 1.0f,
+                        duration: 200, delay: 0, easingType: EasingType.Default).Start();
+
+            var control2 = preElement.FindDescendantByName("MyDropShadow");
+            control2.Fade(value: 0.0f, duration: 500, delay: 0).Start();
+        }
+
+        private void MyGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+            var control = preElement.FindDescendantByName("MyGrid2");
+            control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.02f, scaleY: 1.02f,
+            duration: 200, delay: 0, easingType: EasingType.Default).Start();
+        }
+
+        private void MyGrid_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+        }
+
+        private void MyGrid_RightTapped(object sender, Windows.UI.Xaml.Input.RightTappedRoutedEventArgs e)
+        {
+            // Right tapped item's data
+            var singleItem = (sender as FrameworkElement).DataContext as InkingZoneClassDetail;
+
+            // All selected items in the GridView
+            var selectedItems = GridViewInkingStrokes.SelectedItems.Cast<InkingZoneClassDetail>();
+
+            // If the right tapped data is not currently selected, select it. 
+            if (!selectedItems.Contains(singleItem))
+            {
+                GridViewInkingStrokes.SelectedItem = singleItem; // Select the right tapped item.
+            }
+
+            // Prepare MenuFlyout
+            MenuFlyout myFlyout = new MenuFlyout();
+            MenuFlyoutItem callItem = new MenuFlyoutItem { Text = "Call" };
+            MenuFlyoutItem sendItem = new MenuFlyoutItem { Text = "Send a message" };
+            MenuFlyoutItem deleteItem = new MenuFlyoutItem { Text = "Delete" };
+
+            myFlyout.Items.Add(callItem);
+            myFlyout.Items.Add(sendItem);
+            myFlyout.Items.Add(deleteItem);
+
+            myFlyout.ShowAt(sender as UIElement, e.GetPosition(sender as UIElement));
+
+            // Attach deleteItem click event handler
+            deleteItem.Click += (sender2, args) =>
+            {
+                var selectedItems2 = GridViewInkingStrokes.SelectedItems.Cast<InkingZoneClassDetail>().ToList();
+                foreach (var item in selectedItems2)
+                {
+                    GridViewInkingStrokes.Items.Remove(item); // Remove selected items
+                }
+            };
+        }
+
+
     }
 }
