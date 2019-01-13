@@ -9,44 +9,17 @@
     xmlns:data="using:NerveCentreW10.Models"
     mc:Ignorable="d">
 
-    <!--<Page.Resources>
-        <MenuFlyout x:Name="MenuFlyout1" x:Key="MyMenuFlyout">
-            <MenuFlyoutItem x:Name="DeleteItemButton" Text="Delete" Icon="Delete" Click="DeleteItemButton_Click"/>
-        </MenuFlyout>
-    </Page.Resources>-->
-
     <Pivot>
         <PivotItem Header="Templates">
             <GridView x:Name="GridView1" Style="{StaticResource GridViewStyle1}" ItemTemplate="{StaticResource InkingZoneDataTemplate}" ItemClick="GridView1_ItemClick" ItemsSource="{x:Bind InkingZoneList}" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
        </PivotItem>
         <PivotItem Header="My Custom Inking">
-            <GridView x:Name="GridViewInkingStrokes" Style="{StaticResource GridViewStyle1}" ItemClick="GridViewInkingStrokes_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}" Loaded="GridViewInkingStrokes_Loaded">
-                <GridView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300" RightTapped="MyGrid_RightTapped">
-                            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
-                          OffsetX="0"
-                          OffsetY="0"
-                          BlurRadius="20"
-                          ShadowOpacity=".8"
-                          HorizontalContentAlignment="Stretch"
-                          VerticalContentAlignment="Stretch"
-                                      Opacity="0">
-                                <Grid/>
-                            </controls:DropShadowPanel>
-                            <Grid x:Name="MyGrid2" Margin="10" BorderBrush="#ebebeb" BorderThickness="2">
-                                <controls:ImageEx x:Name="MyImage" Source="{Binding InkingZoneImage}" Stretch="UniformToFill"/>
-                                <Border x:Name="MyBorder2" Background="{StaticResource GridViewAcrylic1}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Padding="10" MinHeight="80">
-                                    <StackPanel>
-                                        <TextBlock x:Name="MyTextBlock" Text="{Binding Name}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
-                                        <TextBlock x:Name="MyTextBlock2" Text="{Binding InkingZoneRename}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
-                                    </StackPanel>
-                                </Border>
-                            </Grid>
-                        </Grid>
-                    </DataTemplate>
-
-                </GridView.ItemTemplate>
+            <GridView x:Name="GridViewInkingStrokes" Style="{StaticResource GridViewStyle1}" ItemClick="GridViewInkingStrokes_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}" Loaded="GridViewInkingStrokes_Loaded" ItemTemplate="{StaticResource InkingZoneEditsDataTemplate}" RightTapped="MyGrid_RightTapped">
+                <!--<GridView.Resources>
+                    <MenuFlyout x:Name="MenuFlyout1">
+                        <MenuFlyoutItem x:Name="DeleteItemButton" Text="Delete" Icon="Delete" Click="DeleteItemButton_Click"/>
+                    </MenuFlyout>
+                </GridView.Resources>-->
             </GridView>
         </PivotItem>
     </Pivot>

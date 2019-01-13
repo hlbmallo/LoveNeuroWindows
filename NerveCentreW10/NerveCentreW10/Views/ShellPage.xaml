@@ -10,9 +10,10 @@
     xmlns:helpers="using:NerveCentreW10.Helpers"
     xmlns:views="using:NerveCentreW10.Views"
     Loaded="OnLoaded"
-    mc:Ignorable="d">    
+    mc:Ignorable="d"
+    xmlns:titlebarextensions="using:Microsoft.Toolkit.Uwp.UI.Extensions">
 
-    <winui:NavigationView
+        <winui:NavigationView Grid.Row="1"
         x:Name="navigationView"
         IsBackButtonVisible="Visible"
         IsBackEnabled="{x:Bind IsBackEnabled, Mode=OneWay}"
@@ -21,38 +22,38 @@
         PaneTitle="Nerve Centre"
         IsSettingsVisible="True"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
-        <winui:NavigationView.MenuItems>
-            <winui:NavigationViewItem Content="Home" helpers:NavHelper.NavigateTo="views:MainPage">
-                <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconHome.png"/>
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem Content="1.0. - 4.0. Notes" helpers:NavHelper.NavigateTo="views:Notes">
-                <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconNotes.png"/>
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem Content="5.0. Quizzes" helpers:NavHelper.NavigateTo="views:Section5QuizMenu">
-                <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconQuiz.png"/>
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem Content="6.0. Inking Zone" helpers:NavHelper.NavigateTo="views:Section6InkingZoneMenu">
-                <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconInk.png"/>
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem Content="7.0. Video Tutorials" helpers:NavHelper.NavigateTo="views:Section7VideoTutorialsMenu">
-                <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconVideo.png"/>
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem Content="8.0. More Resources" helpers:NavHelper.NavigateTo="views:Section8MoreResources">
-                <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconMore.png"/>
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-        </winui:NavigationView.MenuItems>
+            <winui:NavigationView.MenuItems>
+                <winui:NavigationViewItem Content="Home" helpers:NavHelper.NavigateTo="views:MainPage">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconHome.png"/>
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+                <winui:NavigationViewItem Content="1.0. - 4.0. Notes" helpers:NavHelper.NavigateTo="views:Notes">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconNotes.png"/>
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+                <winui:NavigationViewItem Content="5.0. Quizzes" helpers:NavHelper.NavigateTo="views:Section5QuizMenu">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconQuiz.png"/>
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+                <winui:NavigationViewItem Content="6.0. Inking Zone" helpers:NavHelper.NavigateTo="views:Section6InkingZoneMenu">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconInk.png"/>
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+                <winui:NavigationViewItem Content="7.0. Video Tutorials" helpers:NavHelper.NavigateTo="views:Section7VideoTutorialsMenu">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconVideo.png"/>
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+                <winui:NavigationViewItem Content="8.0. More Resources" helpers:NavHelper.NavigateTo="views:Section8MoreResources">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconMore.png"/>
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+            </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior
                 DefaultHeader="{x:Bind Selected.Content, Mode=OneWay}">
@@ -69,7 +70,8 @@
             </behaviors:NavigationViewHeaderBehavior>
         </i:Interaction.Behaviors>
         <Grid>
-            <Frame x:Name="shellFrame" Margin="24,4,24,0"/>
-        </Grid>
-    </winui:NavigationView>
+                <Frame x:Name="shellFrame" Margin="24,4,24,0"/>
+            </Grid>
+        </winui:NavigationView>
+
 </Page>

@@ -45,16 +45,6 @@ namespace NerveCentreW10
 
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
-
-            ApplicationViewTitleBar titleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
-
-            //// Title Bar Content Area
-            titleBar.ForegroundColor = Colors.Black;
-            titleBar.BackgroundColor = Colors.White;
-
-            // Title Bar Button Area
-            titleBar.ButtonBackgroundColor = Color.FromArgb(1, 255, 114, 1);
-            titleBar.ButtonForegroundColor = Colors.Black;
         }
 
         protected override async void OnActivated(IActivatedEventArgs args)
@@ -63,16 +53,6 @@ namespace NerveCentreW10
 
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
-
-            ApplicationViewTitleBar titleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
-
-            //// Title Bar Content Area
-            titleBar.ForegroundColor = Colors.Black;
-            titleBar.BackgroundColor = Colors.White;
-
-            // Title Bar Button Area
-            titleBar.ButtonBackgroundColor = Color.FromArgb(1, 255, 114, 1);
-            titleBar.ButtonForegroundColor = Colors.Black;
 
             if (args.Kind == ActivationKind.Protocol)
             {

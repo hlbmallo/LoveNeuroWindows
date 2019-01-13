@@ -1,6 +1,7 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Toolkit.Uwp.Helpers;
+using NerveCentreW10.Helpers;
 using NerveCentreW10.Models;
 using NerveCentreW10.Services.Ink;
 using NerveCentreW10.ViewModels;
@@ -42,6 +43,8 @@ namespace NerveCentreW10.Views
         public InkingZoneClassDetail myclickeditem;
 
         public InkingZoneViewModel inkingZoneViewModel;
+
+        FrameworkElement preElement = null;
 
         public InkingZoneDetail()
         {
@@ -101,14 +104,32 @@ namespace NerveCentreW10.Views
 
                 //crumbs.Dispose();
 
-                var localObjectStorageHelper = new LocalObjectStorageHelper();
+
+
+
+
+
+
 
 
                 var storageFile = (StorageFile)e.Parameter;
-                var result = await localObjectStorageHelper.ReadFileAsync<InkingZoneClassDetail>(storageFile.Name);
-                
-                MyImage.Source = new BitmapImage(result.InkingZoneImage);
-                byte[] bytes = result.InkingZoneBytes;
+                string zoo = await FileIO.ReadTextAsync(storageFile);
+                var yell = JsonConvert.DeserializeObject<InkingZoneClassDetail>(zoo);
+
+
+
+
+
+                //var localObjectStorageHelper = new Helpers.LocalObjectStorageHelper();
+                //localObjectStorageHelper.Folder = ApplicationData.Current.LocalFolder;
+                //StorageFolder subFolder = await localObjectStorageHelper.Folder.GetFolderAsync("NerveCentreInk");
+                ////IReadOnlyList<IStorageItem> itemsList = await subFolder.GetItemsAsync();
+
+                //var result = await localObjectStorageHelper.ReadFileAsync<InkingZoneClassDetail>("/NerveCentreInk/" + storageFile.Name);
+
+                Title.Text = yell.InkingZoneRename;
+                MyImage.Source = new BitmapImage(yell.InkingZoneImage);
+                byte[] bytes = yell.InkingZoneBytes;
                 var stream = ConvertTo(bytes).Result;
                 using (var inputStream = stream.GetInputStreamAt(0))
                 {
@@ -405,7 +426,6 @@ namespace NerveCentreW10.Views
         //    //FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
         //}
 
-
         private async void InkRenameConfirm_Click(object sender, RoutedEventArgs e)
         {
             //if (localSettings.Values["Scramble"] != null)
@@ -449,18 +469,37 @@ namespace NerveCentreW10.Views
 
 
 
-            var localObjectStorageHelper = new LocalObjectStorageHelper();
-            string keyLargeObject = InkRenameBox.Text;
+            //var localObjectStorageHelper = new Microsoft.Toolkit.Uwp.Helpers.LocalObjectStorageHelper();
+            //string filePath = localObjectStorageHelper.FileExistsAsync().Path;
 
+            //string keyLargeObject = InkRenameBox.Text;
+
+            //var o = new InkingZoneClassDetail
+            //{
+            //    InkingZoneRename = InkRenameBox.Text,
+            //    InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource,
+            //    InkingZoneBytes = bytes2,
+            //};
+
+            //await localObjectStorageHelper.SaveFileAsync(filePath + keyLargeObject, o);
+
+
+
+
+            //
+
+            var appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("TestFolder", CreationCollisionOption.OpenIfExists);
             var o = new InkingZoneClassDetail
             {
                 InkingZoneRename = InkRenameBox.Text,
                 InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource,
                 InkingZoneBytes = bytes2,
             };
-            await localObjectStorageHelper.SaveFileAsync(keyLargeObject, o);
 
+            string json = JsonConvert.SerializeObject(o);
 
+            StorageFile shred = await appFolder.CreateFileAsync(InkRenameBox.Text);
+            await FileIO.WriteTextAsync(shred, json);
 
 
 

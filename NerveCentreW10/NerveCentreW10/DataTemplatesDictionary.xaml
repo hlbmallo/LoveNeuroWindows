@@ -95,7 +95,26 @@
             </Grid>
         </Grid>
     </DataTemplate>
-    
+
+    <DataTemplate x:Key="InkingZoneEditsDataTemplate">
+        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
+            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
+                          OffsetX="0"
+                          OffsetY="0"
+                          BlurRadius="20"
+                          ShadowOpacity=".8"
+                          HorizontalContentAlignment="Stretch"
+                          VerticalContentAlignment="Stretch"
+                                      Opacity="0">
+                <Grid/>
+            </controls:DropShadowPanel>
+            <Grid x:Name="MyGrid2" Margin="10" BorderBrush="#ebebeb" BorderThickness="2" Background="#ebebeb">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="{Binding Name}" Foreground="#01acff" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </DataTemplate>
 
     <DataTemplate x:Key="VideoTutorialsDataTemplate" x:DataType="data:VideoTutorialsClass">
         <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">

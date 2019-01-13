@@ -18,6 +18,7 @@ using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -32,6 +33,7 @@ namespace NerveCentreW10.Views
         public ObservableCollection<InkingZoneClassDetail> InkingZoneList { get; } = new ObservableCollection<InkingZoneClassDetail>();
 
         InkingZoneViewModel inkingZoneViewModel;
+        IReadOnlyList<StorageFile> itemsList;
 
         public Section6InkingZoneMenu()
         {
@@ -164,20 +166,31 @@ namespace NerveCentreW10.Views
 
         private async void DeleteItemButton_Click(object sender, RoutedEventArgs e)
         {
+            //GridView gridView = (GridView)sender;
+            //MenuFlyout1.ShowAt(gridView, e.GetPosition(gridView));
+            //var a = ((FrameworkElement)e.OriginalSource).DataContext as StorageFile;
+            //await a.DeleteAsync();
+
+            //var mfi = (MenuFlyoutItem)sender;
+            //var item = (StorageFile)mfi.CommandParameter as StorageFile;
+            //await item.DeleteAsync();
+
+
+
             //SelectedItem = (sender as MenuFlyoutItem).DataContext as InkingZoneClassDetail;
             //inkingZoneViewModel.ModelList.Remove(SelectedItem);
 
-            var mfi = (MenuFlyoutItem)sender;
-            var item = (InkingZoneClassDetail)mfi.CommandParameter as InkingZoneClassDetail;
-            if (item != null)
-            {
+            //var mfi = (MenuFlyoutItem)sender;
+            //var item = (StorageFile)mfi.CommandParameter as StorageFile;
+            //if (item != null)
+            //{
 
-                foreach (InkingZoneClassDetail del in GridViewInkingStrokes.Items)
-                {
-                    GridViewInkingStrokes.Items.Remove(del);
+            //    //foreach (StorageFile del in GridViewInkingStrokes.Items)
+            //    //{
+            //        GridViewInkingStrokes.Items.Remove(item);
 
-                }
-            }
+            //    //}
+            //}
 
 
 
@@ -185,15 +198,15 @@ namespace NerveCentreW10.Views
             //var item = (InkingZoneClassDetail)mfi.CommandParameter as InkingZoneClassDetail;
             //inkingZoneViewModel.ModelList.Remove(item);
 
-            string json = JsonConvert.SerializeObject(GridViewInkingStrokes.Items);
-            var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(file, json);
+            //string json = JsonConvert.SerializeObject(GridViewInkingStrokes.Items);
+            //var file = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
+            //await FileIO.WriteTextAsync(file, json);
 
-            var file2 = await ApplicationData.Current.LocalFolder.GetFileAsync("myconfig.json");
-            string id = await FileIO.ReadTextAsync(file2);
-            var utah = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
+            //var file2 = await ApplicationData.Current.LocalFolder.GetFileAsync("myconfig.json");
+            //string id = await FileIO.ReadTextAsync(file2);
+            //var utah = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
 
-            GridViewInkingStrokes.ItemsSource = utah;
+            //GridViewInkingStrokes.ItemsSource = utah;
 
             //var folder = ApplicationData.Current.LocalFolder;
             //var file = await folder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
@@ -239,104 +252,53 @@ namespace NerveCentreW10.Views
             //GridViewInkingStrokes.ItemsSource = result;
 
 
-            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
 
-            IReadOnlyList<IStorageItem> itemsList = await storageFolder.GetItemsAsync();
+            //var localObjectStorageHelper = new LocalObjectStorageHelper();
+            //localObjectStorageHelper. = ApplicationData.Current.LocalFolder;
+            //StorageFolder subFolder = await localObjectStorageHelper.Folder.CreateFolderAsync("NerveCentreInk", CreationCollisionOption.OpenIfExists);
+            //IReadOnlyList<IStorageItem> itemsList = await subFolder.GetItemsAsync();
 
-            foreach (var item in itemsList)
-            {
-                if (item == null)
-                {
 
-                }
-                else
-                {
-                    itemsList.Append(item);
-                }
-            }
+
+            StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("TestFolder", CreationCollisionOption.OpenIfExists);
+            itemsList = await appFolder.GetFilesAsync();
+
+            //itemsList = await appFolder.GetFilesAsync();
+            //foreach (StorageFile item in itemsList)
+            //{
+            //    if (item == null)
+            //    {
+
+            //    }
+
+            //    else
+            //    {
+            //        string zoo = await FileIO.ReadTextAsync(item);
+            //        var yell = JsonConvert.DeserializeObject<InkingZoneClassDetail>(zoo);
+            //    }
+
+
+
+            //}
 
             GridViewInkingStrokes.ItemsSource = itemsList;
 
-        }
-
-        FrameworkElement preElement = null;
-
-        private void MyGrid_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            preElement = sender as FrameworkElement;
-
-            var control = preElement.FindDescendantByName("MyGrid2");
-            control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.04f, scaleY: 1.04f,
-                        duration: 200, delay: 0, easingType: EasingType.Default).Start();
-
-            var control2 = preElement.FindDescendantByName("MyDropShadow");
-            control2.Fade(value: 0.4f, duration: 500, delay: 0).Start();
-        }
-
-        private void MyGrid_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            preElement = sender as FrameworkElement;
-
-            var control = preElement.FindDescendantByName("MyGrid2");
-            control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.0f, scaleY: 1.0f,
-                        duration: 200, delay: 0, easingType: EasingType.Default).Start();
-
-            var control2 = preElement.FindDescendantByName("MyDropShadow");
-            control2.Fade(value: 0.0f, duration: 500, delay: 0).Start();
-        }
-
-        private void MyGrid_PointerCanceled(object sender, PointerRoutedEventArgs e)
-        {
-            preElement = sender as FrameworkElement;
-
-            var control = preElement.FindDescendantByName("MyGrid2");
-            control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.0f, scaleY: 1.0f,
-                        duration: 200, delay: 0, easingType: EasingType.Default).Start();
-
-            var control2 = preElement.FindDescendantByName("MyDropShadow");
-            control2.Fade(value: 0.0f, duration: 500, delay: 0).Start();
-        }
-
-        private void MyGrid_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
-        {
-            preElement = sender as FrameworkElement;
-
-            var control = preElement.FindDescendantByName("MyGrid2");
-            control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.0f, scaleY: 1.0f,
-                        duration: 200, delay: 0, easingType: EasingType.Default).Start();
-
-            var control2 = preElement.FindDescendantByName("MyDropShadow");
-            control2.Fade(value: 0.0f, duration: 500, delay: 0).Start();
-        }
-
-        private void MyGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            preElement = sender as FrameworkElement;
-
-            var control = preElement.FindDescendantByName("MyGrid2");
-            control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.02f, scaleY: 1.02f,
-            duration: 200, delay: 0, easingType: EasingType.Default).Start();
-        }
-
-        private void MyGrid_PointerReleased(object sender, PointerRoutedEventArgs e)
-        {
-            preElement = sender as FrameworkElement;
 
         }
 
         private void MyGrid_RightTapped(object sender, Windows.UI.Xaml.Input.RightTappedRoutedEventArgs e)
         {
-            // Right tapped item's data
-            var singleItem = (sender as FrameworkElement).DataContext as InkingZoneClassDetail;
+            //// Right tapped item's data
+            //var singleItem = (sender as FrameworkElement).DataContext as InkingZoneClassDetail;
 
-            // All selected items in the GridView
-            var selectedItems = GridViewInkingStrokes.SelectedItems.Cast<InkingZoneClassDetail>();
+            //// All selected items in the GridView
+            //var selectedItems = GridViewInkingStrokes.SelectedItems.Cast<InkingZoneClassDetail>();
 
-            // If the right tapped data is not currently selected, select it. 
-            if (!selectedItems.Contains(singleItem))
-            {
-                GridViewInkingStrokes.SelectedItem = singleItem; // Select the right tapped item.
-            }
+            //// If the right tapped data is not currently selected, select it. 
+            //if (!selectedItems.Contains(singleItem))
+            //{
+            //    GridViewInkingStrokes.SelectedItem = singleItem; // Select the right tapped item.
+            //}
 
             // Prepare MenuFlyout
             MenuFlyout myFlyout = new MenuFlyout();
@@ -351,16 +313,16 @@ namespace NerveCentreW10.Views
             myFlyout.ShowAt(sender as UIElement, e.GetPosition(sender as UIElement));
 
             // Attach deleteItem click event handler
-            deleteItem.Click += (sender2, args) =>
+            deleteItem.Click += async (sender2, args) =>
             {
-                var selectedItems2 = GridViewInkingStrokes.SelectedItems.Cast<InkingZoneClassDetail>().ToList();
-                foreach (var item in selectedItems2)
-                {
-                    GridViewInkingStrokes.Items.Remove(item); // Remove selected items
-                }
+                GridView gridView = (GridView)sender;
+                myFlyout.ShowAt(gridView, e.GetPosition(gridView));
+                var a = ((FrameworkElement)e.OriginalSource).DataContext as StorageFile;
+                await a.DeleteAsync();
+                GridViewInkingStrokes_Loaded(sender, e);
             };
         }
-
-
     }
 }
+
+

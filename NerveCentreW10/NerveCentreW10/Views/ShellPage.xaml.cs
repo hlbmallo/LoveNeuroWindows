@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 using NerveCentreW10.Helpers;
 using NerveCentreW10.Services;
-
+using Windows.ApplicationModel.Core;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;

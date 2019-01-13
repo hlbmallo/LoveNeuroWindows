@@ -163,6 +163,7 @@
     <Compile Include="Helpers\FileIOHelper.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\ImagesNavigationHelper.cs" />
+    <Compile Include="Helpers\LocalObjectStorageHelper.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Models\InkingZoneClassDetail.cs" />
     <Compile Include="Models\MoreResourcesClass.cs" />
