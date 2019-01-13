@@ -22,10 +22,10 @@
             <TextBlock x:Name="Title" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Style="{StaticResource TitleTextBlockStyle}" Margin="2" HorizontalAlignment="Center" HorizontalTextAlignment="Center"/>
             <CommandBar DefaultLabelPosition="Right" Background="#ebebeb" HorizontalAlignment="Center">
                 <AppBarButton HorizontalAlignment="Right" Icon="Save" Label="Save as Image" Click="SaveButton_Click"/>
-                <AppBarButton HorizontalAlignment="Right" Icon="Print" Label="Print" Click="PrintButton_Click"/>
+                <!--<AppBarButton HorizontalAlignment="Right" Icon="Print" Label="Print" Click="PrintButton_Click"/>-->
                 <!--<AppBarButton HorizontalAlignment="Right" Icon="Upload" Label="Load Ink" Click="LoadInkStrokes_Click"/>-->
                 <!--<AppBarButton HorizontalAlignment="Right" Icon="Download" Label="Save Ink" Click="SaveInkStrokes_Click"/>-->
-                <AppBarButton x:Name="myAppBarButton" HorizontalAlignment="Right" Icon="Download" Label="Save Ink Strokes" >
+                <AppBarButton x:Name="myAppBarButton" HorizontalAlignment="Right" Icon="SaveLocal" Label="Save as Ink Strokes">
                     <AppBarButton.Flyout>
                         <Flyout>
                             <StackPanel>

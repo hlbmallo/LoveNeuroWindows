@@ -44,8 +44,6 @@ namespace NerveCentreW10.Views
 
         public InkingZoneViewModel inkingZoneViewModel;
 
-        FrameworkElement preElement = null;
-
         public InkingZoneDetail()
         {
             InitializeComponent();
@@ -209,7 +207,7 @@ namespace NerveCentreW10.Views
 
         private async Task Save_InkedImagetoStream(IRandomAccessStream stream)
         {
-            var file = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(((BitmapImage)MyImage.Source).UriSource);
+            var file = await StorageFile.GetFileFromPathAsync(((BitmapImage)MyImage.Source).UriSource.ToString());
             CanvasDevice device = CanvasDevice.GetSharedDevice();
             CanvasRenderTarget renderTarget = new CanvasRenderTarget(device, (int)MyInkCanvas.ActualWidth, (int)MyInkCanvas.ActualHeight, 200);
 

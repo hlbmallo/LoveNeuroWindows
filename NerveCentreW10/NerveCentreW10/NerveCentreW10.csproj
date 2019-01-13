@@ -167,6 +167,7 @@
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Models\InkingZoneClassDetail.cs" />
     <Compile Include="Models\MoreResourcesClass.cs" />
+    <Compile Include="Models\NeuroDictionaryModel.cs" />
     <Compile Include="Models\NotesClass.cs" />
     <Compile Include="Models\QuizClass.cs" />
     <Compile Include="Models\QuizListClass.cs" />

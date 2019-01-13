@@ -74,8 +74,8 @@ namespace NerveCentreW10.ViewModels
                 "<b>Stage 5</b><br/>These ion movements begin at receptors in a sensory neuron and once the first set of Na+ ion channels open, a chain reaction is set off. Neighbouring Na+ ion channels open and, as mentioned before, the ion movements occur like a wave along the length of the axon until it reaches the presynaptic terminal.",
                 Subtitle3 = "",
                 Description3 = "",
-                ImageUri1 = container.GetBlockBlobReference("ap1.png").Uri,
-                ImageUri2 = container.GetBlockBlobReference("ap4.png").Uri,
+                ImageUri1 = container.GetBlockBlobReference("actionpotentials1to4.png").Uri,
+                ImageUri2 = container.GetBlockBlobReference("ap5.png").Uri,
 
                 Popup1Title = "",
                 Popup1Content = "",
@@ -98,8 +98,8 @@ namespace NerveCentreW10.ViewModels
                 "<b>Stage 5</b><br/>…this Na+ influx generates an action potential in the postsynaptic neuron that continues along the entire length of the postsynaptic neuron. At this stage, the neurotransmitter molecules will be recycled and used again in the presynaptic terminal.",
                 Subtitle3 = "More Info",
                 Description3 = "It is worth noting that there are a few electrical synapses (not chemical), an example being found between the secretory neurons in the hypothalamus (see Section 2.1. Overview of the Brain). These electrical synapses are essentially gap junctions, and they transmit action potentials at a faster rate compared to the chemical synapses described above. The distance between the neurons connected by electrical synapses is much smaller too, meaning a faster transmission speed. It should also be noted that some neurotransmitters are not 'excitatory' but instead they are 'inhibitory'. When these inhibitory neurotransmitters bind to their receptors in the postsynaptic membrane, they stimulate the opening of K+ or Cl- ion channels. When K+ or Cl- ions flood into the postsynaptic neuron, they induce a state of hyperpolarisation and no action potential is generated.",
-                ImageUri1 = container.GetBlockBlobReference("syn1.png").Uri,
-                ImageUri2 = container.GetBlockBlobReference("syn4.png").Uri,
+                ImageUri1 = container.GetBlockBlobReference("synapses1to4.png").Uri,
+                ImageUri2 = container.GetBlockBlobReference("syn5.png").Uri,
 
                 Popup1Title = "",
                 Popup1Content = "",
