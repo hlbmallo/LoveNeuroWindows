@@ -15,7 +15,7 @@
             <StackPanel Padding="0,20,0,30">
                 <TextBlock Text="About" Style="{StaticResource TitleTextBlockStyle}"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="App Publisher: " FontSize="16" Padding="2" FontWeight="Bold"/>
+                    <TextBlock Text="App Name: " FontSize="16" Padding="2" FontWeight="Bold"/>
                     <TextBlock x:Name="AppName" FontSize="16" Padding="2"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
