@@ -1,4 +1,5 @@
-﻿using Microsoft.AppCenter.Analytics;
+﻿using AdaptiveCards;
+using Microsoft.AppCenter.Analytics;
 using Microsoft.Toolkit.Uwp.Helpers;
 using NerveCentreW10.Models;
 using System;
@@ -8,9 +9,12 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.UserActivities;
 using Windows.Storage;
 using Windows.Storage.Streams;
+using Windows.UI;
+using Windows.UI.Shell;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
@@ -31,10 +35,6 @@ namespace NerveCentreW10.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            MyProgressRing.IsActive = true;
-            MyProgressRing.Visibility = Visibility.Visible;
-
-
             SubsectionModel MyClickedItem = (SubsectionModel)e.Parameter;
 
             Title.Text = MyClickedItem.Title;
@@ -98,16 +98,18 @@ namespace NerveCentreW10.Views
 
             // Get channel and create activity.
             UserActivityChannel channel = UserActivityChannel.GetDefault();
-            UserActivity activity = await channel.GetOrCreateUserActivityAsync("nc" + MyClickedItem.PageId);
+            UserActivity activity = await channel.GetOrCreateUserActivityAsync("nc" + o.PageId);
 
             // Set deep-link and properties.
-            activity.ActivationUri = new Uri("nervecentre://" + MyClickedItem.PageId);
-            activity.VisualElements.DisplayText = MyClickedItem.Title;
+            activity.ActivationUri = new Uri("nervecentre://" + o.PageId);
+            activity.VisualElements.DisplayText = o.Title;
 
             // Create and set Adaptive Card.
             //StorageFile cardFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Bones.json"));
             //string cardText = await FileIO.ReadTextAsync(cardFile);
             //activity.VisualElements.Content = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
+            activity.VisualElements.Content = CreateAdaptiveCardSample(MyClickedItem.Title, MyClickedItem.Description1, MyClickedItem.ImageUri1.ToString());
+            activity.VisualElements.BackgroundColor = Colors.DarkOrange;
 
             // Save to activity feed.
             await activity.SaveAsync();
@@ -118,10 +120,41 @@ namespace NerveCentreW10.Views
 
             _currentSession = activity.CreateSession();
 
-            MyProgressRing.Visibility = Visibility.Collapsed;
-            MyProgressRing.IsActive = false;
+        }
 
+        public static IAdaptiveCard CreateAdaptiveCardSample(string displayText, string description, string imageUrl)
+        {
+            var adaptiveCard = new AdaptiveCard("1.1.2");
+            var columns = new AdaptiveColumnSet();
+            var firstColumn = new AdaptiveColumn() { Width = "auto" };
+            var secondColumn = new AdaptiveColumn() { Width = "*" };
 
+            firstColumn.Items.Add(new AdaptiveImage()
+            {
+                Url = new Uri(imageUrl),
+                Size = AdaptiveImageSize.Medium
+            });
+
+            secondColumn.Items.Add(new AdaptiveTextBlock()
+            {
+                Text = displayText,
+                Weight = AdaptiveTextWeight.Bolder,
+                Size = AdaptiveTextSize.Large
+            });
+
+            secondColumn.Items.Add(new AdaptiveTextBlock()
+            {
+                Text = description,
+                Size = AdaptiveTextSize.Medium,
+                Weight = AdaptiveTextWeight.Lighter,
+                Wrap = true
+            });
+
+            columns.Columns.Add(firstColumn);
+            columns.Columns.Add(secondColumn);
+            adaptiveCard.Body.Add(columns);
+
+            return AdaptiveCardBuilder.CreateAdaptiveCardFromJson(adaptiveCard.ToJson());
         }
 
         private void MyImage_Tapped(object sender, TappedRoutedEventArgs e)

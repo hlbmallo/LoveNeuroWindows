@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AdaptiveCards;
 
 using NerveCentreW10.Activation;
+using NerveCentreW10.Models;
 using NerveCentreW10.Views;
 
 using Windows.ApplicationModel;
@@ -17,8 +18,8 @@ namespace NerveCentreW10.Services
     {
         public static async Task AddSampleUserActivity()
         {
-            var activityId = nameof(SchemeActivationSamplePage);
-            var displayText = "Sample Activity";
+            var activityId = "ActivityId";
+            var displayText = "Display Text";
             var description = $"Sample UserActivity added from Application '{Package.Current.DisplayName}' at {DateTime.Now.ToShortTimeString()}";
             var imageUrl = "http://adaptivecards.io/content/cats/2.png";
 
@@ -28,21 +29,28 @@ namespace NerveCentreW10.Services
             await UserActivityService.CreateUserActivityAsync(activityData, adaptiveCard);
         }
 
-        private static SchemeActivationData CreateActivationDataSample()
+        public static SchemeActivationData CreateActivationDataSample()
         {
-            var parameters = new Dictionary<string, string>()
+            //var parameters = new Dictionary<string, string>()
+            //{
+            //    { "paramName1", "paramValue1" },
+            //    { "ticks", DateTime.Now.Ticks.ToString() }
+            //};
+            //return new SchemeActivationData(typeof(SchemeActivationSamplePage), parameters);
+
+            var parameters = new SubsectionModel()
             {
-                { "paramName1", "paramValue1" },
-                { "ticks", DateTime.Now.Ticks.ToString() }
+                Title = "hello2",
             };
-            return new SchemeActivationData(typeof(SchemeActivationSamplePage), parameters);
+            return new SchemeActivationData(typeof(DetailPage), parameters);
+
         }
 
         // TODO WTS: Change this to configure your own adaptive card
         // For more info about adaptive cards see http://adaptivecards.io/
-        private static IAdaptiveCard CreateAdaptiveCardSample(string displayText, string description, string imageUrl)
+        public static IAdaptiveCard CreateAdaptiveCardSample(string displayText, string description, string imageUrl)
         {
-            var adaptiveCard = new AdaptiveCard();
+            var adaptiveCard = new AdaptiveCard("1.1.2");
             var columns = new AdaptiveColumnSet();
             var firstColumn = new AdaptiveColumn() { Width = "auto" };
             var secondColumn = new AdaptiveColumn() { Width = "*" };

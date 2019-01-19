@@ -13,6 +13,7 @@ using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace NerveCentreW10
 {
@@ -71,12 +72,13 @@ namespace NerveCentreW10
                         {
                             NavigationService.Navigate(typeof(DetailPage), result);
                             Analytics.TrackEvent(this.GetType().Name + " (Timeline)");
+
                         }
                     }
                 }
 
-                Window.Current.Activate();
-                base.OnActivated(args);
+                //Window.Current.Activate();
+                //base.OnActivated(args);
             }
         }
 

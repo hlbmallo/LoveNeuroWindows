@@ -32,6 +32,8 @@ namespace NerveCentreW10.Services
             {
                 // Initialize things like registering background task before the app is loaded
                 await InitializeAsync();
+                await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
+
 
                 // Do not repeat app initialization when the Window already has content,
                 // just ensure that the window is active
@@ -74,8 +76,8 @@ namespace NerveCentreW10.Services
         private async Task StartupAsync()
         {
             // TODO WTS: This is a sample to demonstrate how to add a UserActivity. Please adapt and move this method call to where you consider convenient in your app.
-            await UserActivityService.AddSampleUserActivity();
-            await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
+            //await UserActivityService.AddSampleUserActivity();
+            //await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
             await FirstRunDisplayService.ShowIfAppropriateAsync();
             await WhatsNewDisplayService.ShowIfAppropriateAsync();
         }

@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace NerveCentreW10.Views
 {
@@ -28,5 +29,10 @@ namespace NerveCentreW10.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+        }
     }
 }
