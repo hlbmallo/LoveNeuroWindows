@@ -34,8 +34,8 @@ namespace NerveCentreW10.ViewModels
                 ImageUri1 = container.GetBlockBlobReference("structure.png").Uri,
                 ImageUri2 = container.GetBlockBlobReference("unipolar.png").Uri,
 
-                Popup1Title = "Pseudounipolar neurons...",
-                Popup1Content = "Note",
+                Popup1Title = "",
+                Popup1Content = "",
                 Popup2Title = "",
                 Popup2Content = "",
                 Popup3Title = "",

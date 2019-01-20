@@ -14,7 +14,6 @@ namespace NerveCentreW10.Views
     /// </summary>
     public sealed partial class Section5QuizMenu : Page
     {
-
         public ObservableCollection<QuizListClass> QuizListList { get; } = new ObservableCollection<QuizListClass>();
 
         public Section5QuizMenu()
@@ -27,6 +26,7 @@ namespace NerveCentreW10.Views
         {
             QuizListList.Add(new QuizListClass
             {
+                QuizId = "section51",
                 QuizNumber = "Quiz 1",
                 QuizName = "At The Cellular Level",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz1cellsjson.Json",
@@ -34,6 +34,7 @@ namespace NerveCentreW10.Views
             });
             QuizListList.Add(new QuizListClass
             {
+                QuizId = "section52",
                 QuizNumber = "Quiz 2",
                 QuizName = "The Central Nervous System",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz2centraljson.Json",
@@ -41,6 +42,7 @@ namespace NerveCentreW10.Views
             });
             QuizListList.Add(new QuizListClass
             {
+                QuizId = "section53",
                 QuizNumber = "Quiz 3",
                 QuizName = "The Peripheral Nervous System",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz3peripheraljson.Json",
@@ -48,6 +50,7 @@ namespace NerveCentreW10.Views
             });
             QuizListList.Add(new QuizListClass
             {
+                QuizId = "section54",
                 QuizNumber = "Quiz 4",
                 QuizName = "Neurological Disorders",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz4disordersjson.Json",
@@ -55,6 +58,7 @@ namespace NerveCentreW10.Views
             });
             QuizListList.Add(new QuizListClass
             {
+                QuizId = "section55",
                 QuizNumber = "Quiz 5",
                 QuizName = "Overall Quiz",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz5overalljson.Json",
@@ -62,6 +66,7 @@ namespace NerveCentreW10.Views
             });
             QuizListList.Add(new QuizListClass
             {
+                QuizId = "section56",
                 QuizNumber = "Quiz 6",
                 QuizName = "Structures of the Brain",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz6brainjson.Json",
@@ -69,6 +74,7 @@ namespace NerveCentreW10.Views
             });
             QuizListList.Add(new QuizListClass
             {
+                QuizId = "section57",
                 QuizNumber = "Quiz 7",
                 QuizName = "The Brachial Plexus",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz7brachialjson.Json",
@@ -76,6 +82,7 @@ namespace NerveCentreW10.Views
             });
             QuizListList.Add(new QuizListClass
             {
+                QuizId = "section58",
                 QuizNumber = "Quiz 8",
                 QuizName = "The Cerebral Cortex",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz8cortexjson.Json",
@@ -83,6 +90,7 @@ namespace NerveCentreW10.Views
             });
             QuizListList.Add(new QuizListClass
             {
+                QuizId = "section59",
                 QuizNumber = "Quiz 9",
                 QuizName = "The Cranial Nerves",
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz9cranialjson.Json",

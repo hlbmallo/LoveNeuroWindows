@@ -108,8 +108,9 @@ namespace NerveCentreW10.Views
             //StorageFile cardFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Bones.json"));
             //string cardText = await FileIO.ReadTextAsync(cardFile);
             //activity.VisualElements.Content = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
-            activity.VisualElements.Content = CreateAdaptiveCardSample(MyClickedItem.Title, MyClickedItem.Description1, MyClickedItem.ImageUri1.ToString());
-            activity.VisualElements.BackgroundColor = Colors.DarkOrange;
+            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithImage(MyClickedItem.Title, MyClickedItem.Description1, MyClickedItem.ImageUri1.ToString());
+            Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+            activity.VisualElements.BackgroundColor = color;
 
             // Save to activity feed.
             await activity.SaveAsync();
@@ -120,41 +121,6 @@ namespace NerveCentreW10.Views
 
             _currentSession = activity.CreateSession();
 
-        }
-
-        public static IAdaptiveCard CreateAdaptiveCardSample(string displayText, string description, string imageUrl)
-        {
-            var adaptiveCard = new AdaptiveCard("1.1.2");
-            var columns = new AdaptiveColumnSet();
-            var firstColumn = new AdaptiveColumn() { Width = "auto" };
-            var secondColumn = new AdaptiveColumn() { Width = "*" };
-
-            firstColumn.Items.Add(new AdaptiveImage()
-            {
-                Url = new Uri(imageUrl),
-                Size = AdaptiveImageSize.Medium
-            });
-
-            secondColumn.Items.Add(new AdaptiveTextBlock()
-            {
-                Text = displayText,
-                Weight = AdaptiveTextWeight.Bolder,
-                Size = AdaptiveTextSize.Large
-            });
-
-            secondColumn.Items.Add(new AdaptiveTextBlock()
-            {
-                Text = description,
-                Size = AdaptiveTextSize.Medium,
-                Weight = AdaptiveTextWeight.Lighter,
-                Wrap = true
-            });
-
-            columns.Columns.Add(firstColumn);
-            columns.Columns.Add(secondColumn);
-            adaptiveCard.Body.Add(columns);
-
-            return AdaptiveCardBuilder.CreateAdaptiveCardFromJson(adaptiveCard.ToJson());
         }
 
         private void MyImage_Tapped(object sender, TappedRoutedEventArgs e)

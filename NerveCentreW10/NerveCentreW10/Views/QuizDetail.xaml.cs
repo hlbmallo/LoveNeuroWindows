@@ -1,21 +1,13 @@
-﻿using NerveCentreW10.Helpers;
-using NerveCentreW10.Models;
+﻿using NerveCentreW10.Models;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.Toolkit.Uwp.UI.Extensions;
+using Microsoft.Toolkit.Uwp.Helpers;
+using Windows.ApplicationModel.UserActivities;
+using NerveCentreW10.Helpers;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,18 +20,18 @@ namespace NerveCentreW10.Views
     {
         public int OverallScore;
 
+        private UserActivitySession _currentSession;
 
         public QuizDetail()
         {
             this.InitializeComponent();
-
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            var MyClickedItem = (QuizListClass)e.Parameter;
+            QuizListClass MyClickedItem = (QuizListClass)e.Parameter;
 
             FileIOHelper oFileHelper = new FileIOHelper();
             List<QuizClass> lstSettingInfo = oFileHelper.ReadFromDefaultFile(MyClickedItem.QuizFile);
@@ -56,6 +48,49 @@ namespace NerveCentreW10.Views
             }
 
             Title.Text = MyClickedItem.QuizNumber + " " + MyClickedItem.QuizName;
+
+            // Save complex/large objects 
+            var helper = new LocalObjectStorageHelper();
+            string keyLargeObject = MyClickedItem.QuizId;
+
+            var o = new QuizListClass
+            {
+                QuizId = MyClickedItem.QuizId,
+                QuizName = MyClickedItem.QuizName,
+                QuizNumber = MyClickedItem.QuizNumber,
+                QuizImage = MyClickedItem.QuizImage,
+                QuizFile = MyClickedItem.QuizFile,
+            };
+
+            await helper.SaveFileAsync(keyLargeObject, o);
+
+            //this.RegisterElementForConnectedAnimation("key", MyImage);
+
+            // Get channel and create activity.
+            UserActivityChannel channel = UserActivityChannel.GetDefault();
+            UserActivity activity = await channel.GetOrCreateUserActivityAsync("nc" + o.QuizId);
+
+            // Set deep-link and properties.
+            activity.ActivationUri = new Uri("nervecentre://" + o.QuizId);
+            activity.VisualElements.DisplayText = o.QuizNumber + " " + o.QuizName;
+
+            // Create and set Adaptive Card.
+            //StorageFile cardFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Bones.json"));
+            //string cardText = await FileIO.ReadTextAsync(cardFile);
+            //activity.VisualElements.Content = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
+            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage(MyClickedItem.QuizNumber + " " + MyClickedItem.QuizName);
+            Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+            activity.VisualElements.BackgroundColor = color;
+
+            // Save to activity feed.
+            await activity.SaveAsync();
+
+            // Create a session, which indicates that the user is engaged
+            // in the activity.
+            _currentSession?.Dispose();
+
+            _currentSession = activity.CreateSession();
+
         }
 
         private async void SubmitButton_Click(object sender, RoutedEventArgs e)
@@ -91,12 +126,12 @@ namespace NerveCentreW10.Views
 
         private void RevealHideAnswersButton_Checked(object sender, RoutedEventArgs e)
         {
-            RevealHideAnswersButton.Content = "Show Answers";
+            RevealHideAnswersButton.Content = "Hide Answers";
         }
 
         private void RevealHideAnswersButton_Unchecked(object sender, RoutedEventArgs e)
         {
-            RevealHideAnswersButton.Content = "Hide Answers";
+            RevealHideAnswersButton.Content = "Show Answers";
         }
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.Toolkit.Uwp.Helpers;
+using NerveCentreW10.Helpers;
 using NerveCentreW10.Models;
 using NerveCentreW10.Services;
 using NerveCentreW10.Views;
@@ -46,6 +47,9 @@ namespace NerveCentreW10
 
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
+
+            await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
+
         }
 
         protected override async void OnActivated(IActivatedEventArgs args)
@@ -66,16 +70,26 @@ namespace NerveCentreW10
 
                     if (await helper.FileExistsAsync(keyLargeObject))
                     {
-                        var result = await helper.ReadFileAsync<SubsectionModel>(keyLargeObject);
+                        var subsectionContent = await helper.ReadFileAsync<SubsectionModel>(keyLargeObject);
+                        var quizContent = await helper.ReadFileAsync<QuizListClass>(keyLargeObject);
 
-                        if (uriArgs.Uri.Host == result.PageId)
+                        if (uriArgs.Uri.Host == subsectionContent.PageId)
                         {
-                            NavigationService.Navigate(typeof(DetailPage), result);
-                            Analytics.TrackEvent(this.GetType().Name + " (Timeline)");
+                            NavigationService.Navigate(typeof(DetailPage), subsectionContent);
+                            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + subsectionContent.Title);
+
+                        }
+                        else if (uriArgs.Uri.Host == quizContent.QuizId)
+                        {
+                            NavigationService.Navigate(typeof(QuizDetail), quizContent);
+                            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + quizContent.QuizName);
 
                         }
                     }
                 }
+
+                await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
+
 
                 //Window.Current.Activate();
                 //base.OnActivated(args);

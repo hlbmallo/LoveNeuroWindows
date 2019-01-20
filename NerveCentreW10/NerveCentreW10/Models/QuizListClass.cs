@@ -9,6 +9,7 @@ namespace NerveCentreW10.Models
 {
     public class QuizListClass
     {
+        public string QuizId { get; set; }
         public string QuizNumber { get; set; }
         public string QuizName { get; set; }
         public string QuizFile { get; set; }
