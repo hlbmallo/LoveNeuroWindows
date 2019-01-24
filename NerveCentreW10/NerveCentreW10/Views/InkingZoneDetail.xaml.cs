@@ -1,6 +1,7 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Toolkit.Uwp.Helpers;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 using NerveCentreW10.Helpers;
 using NerveCentreW10.Models;
 using NerveCentreW10.Services.Ink;
@@ -44,6 +45,8 @@ namespace NerveCentreW10.Views
 
         public InkingZoneViewModel inkingZoneViewModel;
 
+        public static string InkingZoneRenameUpdate;
+
         public InkingZoneDetail()
         {
             InitializeComponent();
@@ -53,8 +56,8 @@ namespace NerveCentreW10.Views
             pointerDeviceService = new InkPointerDeviceService(MyInkCanvas);
             touchInkingButton.IsChecked = true;
             mouseInkingButton.IsChecked = true;
-            if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.FrameworkElement", "AllowFocusOnInteraction"))
-                myAppBarButton.AllowFocusOnInteraction = true;
+            //if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.FrameworkElement", "AllowFocusOnInteraction"))
+            //    myAppBarButton.AllowFocusOnInteraction = true;
             Analytics.TrackEvent(this.GetType().Name);
         }
 
@@ -499,53 +502,93 @@ namespace NerveCentreW10.Views
             StorageFile shred = await appFolder.CreateFileAsync(InkRenameBox.Text);
             await FileIO.WriteTextAsync(shred, json);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // This is where the byteArray to be stored.
-            //byte[] bytes = new byte[stream.Size];
-
-            // This returns IAsyncOperationWithProgess, so you can add additional progress handling
-
-            //byte[] bytes = new byte[stream.Size];
-
-            //var buffer = new byte[stream.Size];
-            //await stream.AsStream().ReadAsync(buffer, 0, buffer.Length);
-            //string lol = Encoding.ASCII.GetString(buffer);
-
-            //inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
-            //{
-            //    InkingZoneRename = InkRenameBox.Text,
-            //    InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
-            //    InkingZoneBytes = bytes2,
-            //});
-
-            //string json = JsonConvert.SerializeObject(inkingZoneViewModel.ModelList);
-            //var file = await ApplicationData.Current.LocalFolder.CreateFileAsync(InkRenameBox.Text + ".json", CreationCollisionOption.GenerateUniqueName);
-            //await FileIO.WriteTextAsync(file, json);
+            if (StandardPopup.Visibility == Visibility.Visible) { StandardPopup.Visibility = Visibility.Collapsed; }
+            ImFinishedPopup.Visibility = Visibility.Visible;
         }
+
+        // Handles the Click event on the Button inside the Popup control and 
+        // closes the Popup. 
+        //private async void ClosePopupClicked(object sender, RoutedEventArgs e)
+        //{
+        //    // if the Popup is open, then close it 
+        //    if (StandardPopup.IsOpen) { StandardPopup.IsOpen = false; }
+
+        //    await MajorContentArea.Blur(0, 1500, 0).StartAsync();
+        //}
+
+        // Handles the Click event on the Button on the page and opens the Popup. 
+        private async void ShowPopupOffsetClicked(object sender, RoutedEventArgs e)
+        {
+            await MajorContentArea.Blur(7, 500, 0).StartAsync();
+            // open the Popup if it isn't open already 
+            if (StandardPopup.Visibility == Visibility.Collapsed) { StandardPopup.Visibility = Visibility.Visible; }
+        }
+
+        private async void CloseSavedDialog_Click(object sender, RoutedEventArgs e)
+        {
+            if (ImFinishedPopup.Visibility == Visibility.Visible) { ImFinishedPopup.Visibility = Visibility.Collapsed; }
+            await MajorContentArea.Blur(0, 500, 0).StartAsync();
+        }
+
+        //private void StandardPopup_SizeChanged(object sender, SizeChangedEventArgs e)
+        //{
+        //    var transform = Window.Current.Content.TransformToVisual(StandardPopup);
+        //    Point point = transform.TransformPoint(new Point(0, 0)); // gets the window's (0,0) coordinate relative to the popup
+
+        //    double hOffset = (Window.Current.Bounds.Width - this.ActualWidth) / 2;
+        //    double vOffset = (Window.Current.Bounds.Height - this.ActualHeight) / 2;
+
+        //    StandardPopup.HorizontalOffset = point.X + hOffset;
+        //    StandardPopup.VerticalOffset = point.Y + vOffset;
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // This is where the byteArray to be stored.
+        //byte[] bytes = new byte[stream.Size];
+
+        // This returns IAsyncOperationWithProgess, so you can add additional progress handling
+
+        //byte[] bytes = new byte[stream.Size];
+
+        //var buffer = new byte[stream.Size];
+        //await stream.AsStream().ReadAsync(buffer, 0, buffer.Length);
+        //string lol = Encoding.ASCII.GetString(buffer);
+
+        //inkingZoneViewModel.ModelList.Add(new InkingZoneClassDetail
+        //{
+        //    InkingZoneRename = InkRenameBox.Text,
+        //    InkingZoneImage = inkingZoneClassDetail.InkingZoneImage,
+        //    InkingZoneBytes = bytes2,
+        //});
+
+        //string json = JsonConvert.SerializeObject(inkingZoneViewModel.ModelList);
+        //var file = await ApplicationData.Current.LocalFolder.CreateFileAsync(InkRenameBox.Text + ".json", CreationCollisionOption.GenerateUniqueName);
+        //await FileIO.WriteTextAsync(file, json);
 
 
         //string json = JsonConvert.SerializeObject(cramp);
