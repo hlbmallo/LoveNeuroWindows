@@ -96,7 +96,7 @@
             <Border x:Name="PopupBorder" BorderThickness="2" Padding="20" Background="#ebebeb" BorderBrush="#ebebeb">
                 <StackPanel>
                     <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Give a name to your newly inked template:" Margin="0,0,0,12" />
-                    <TextBox x:Name="InkRenameBox" AcceptsReturn="True" IsEnabled="True"/>
+                    <TextBox x:Name="InkRenameBox" IsEnabled="True" />
                     <Button x:Name="InkRenameConfirm" Click="InkRenameConfirm_Click" Content="Confirm"/>
                 </StackPanel>
             </Border>

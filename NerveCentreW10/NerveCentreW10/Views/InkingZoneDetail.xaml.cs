@@ -56,8 +56,8 @@ namespace NerveCentreW10.Views
             pointerDeviceService = new InkPointerDeviceService(MyInkCanvas);
             touchInkingButton.IsChecked = true;
             mouseInkingButton.IsChecked = true;
-            //if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.FrameworkElement", "AllowFocusOnInteraction"))
-            //    myAppBarButton.AllowFocusOnInteraction = true;
+            if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.FrameworkElement", "AllowFocususeracOnInteraction"))
+                InkRenameBox.AllowFocusOnInteraction = true;
             Analytics.TrackEvent(this.GetType().Name);
         }
 

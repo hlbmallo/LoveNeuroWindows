@@ -14,12 +14,15 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.UserActivities;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,6 +37,7 @@ namespace NerveCentreW10.Views
 
         InkingZoneViewModel inkingZoneViewModel;
         IReadOnlyList<StorageFile> itemsList;
+        UserActivitySession _currentSession;
 
         public Section6InkingZoneMenu()
         {
@@ -41,6 +45,33 @@ namespace NerveCentreW10.Views
             inkingZoneViewModel = new InkingZoneViewModel();
             InkingZoneData();
             Analytics.TrackEvent(this.GetType().Name);
+            GenerateUserActivityOverArching();
+        }
+
+        async void GenerateUserActivityOverArching()
+        {
+            await GenerateActivityAsync();
+        }
+
+        private async Task GenerateActivityAsync()
+        {
+
+            // Get channel and create activity.
+            UserActivityChannel channel = UserActivityChannel.GetDefault();
+            UserActivity activity = await channel.GetOrCreateUserActivityAsync("nc" + "section6");
+
+            activity.ActivationUri = new Uri("nervecentre://" + "section6");
+            activity.VisualElements.DisplayText = "6.0. Inking Zone";
+            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage("6.0. Inking Zone");
+            Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+            activity.VisualElements.BackgroundColor = color;
+
+            await activity.SaveAsync();
+
+            _currentSession?.Dispose();
+
+            _currentSession = activity.CreateSession();
+
         }
 
 
