@@ -22,6 +22,7 @@ namespace NerveCentreW10.ViewModels
 
             VideoTutorialsList.Add(new VideoTutorialsClass
             {
+                VideoTutorialsPageId = "section71",
                 VideoTutorialsName = "Alzheimer's Disease",
                 VideoTutorialsDescription = "A video tutorial that focuses on the anatomy of the healthy brain, the pathology of Alzheimer's disease and current treatments.",
                 VideoTutorialsThumbnail = container.GetBlockBlobReference("alzheimers.png").Uri,
@@ -29,6 +30,7 @@ namespace NerveCentreW10.ViewModels
             });
             VideoTutorialsList.Add(new VideoTutorialsClass
             {
+                VideoTutorialsPageId = "section72",
                 VideoTutorialsName = "HPA Axis",
                 VideoTutorialsDescription = "A video tutorial that explains the anatomy and physiology of the hypothalamic-pituitary-adrenal (HPA) axis, using the CRH/ACTH/cortisol system as an example.",
                 VideoTutorialsThumbnail = container.GetBlockBlobReference("hpaaxis.png").Uri,

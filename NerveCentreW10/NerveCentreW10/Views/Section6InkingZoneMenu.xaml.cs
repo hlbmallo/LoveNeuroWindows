@@ -1,28 +1,16 @@
 ﻿using HeartCentreW104.Helpers;
 using Microsoft.AppCenter.Analytics;
-using Microsoft.Toolkit.Uwp.Helpers;
-using Microsoft.Toolkit.Uwp.UI.Animations;
-using Microsoft.Toolkit.Uwp.UI.Extensions;
 using Microsoft.WindowsAzure.Storage.Blob;
 using NerveCentreW10.Models;
-using NerveCentreW10.Services;
 using NerveCentreW10.ViewModels;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.UserActivities;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -58,9 +46,9 @@ namespace NerveCentreW10.Views
 
             // Get channel and create activity.
             UserActivityChannel channel = UserActivityChannel.GetDefault();
-            UserActivity activity = await channel.GetOrCreateUserActivityAsync("nc" + "section6");
+            UserActivity activity = await channel.GetOrCreateUserActivityAsync("nc" + "section60");
 
-            activity.ActivationUri = new Uri("nervecentre://" + "section6");
+            activity.ActivationUri = new Uri("nervecentre://" + "section60");
             activity.VisualElements.DisplayText = "6.0. Inking Zone";
             activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage("6.0. Inking Zone");
             Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");

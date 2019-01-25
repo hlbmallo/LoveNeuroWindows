@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.UserActivities;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.System;
@@ -28,6 +30,7 @@ namespace NerveCentreW10.Views
     {
         public ObservableCollection<NotesClass> NotesList { get; } = new ObservableCollection<NotesClass>();
         public MoreResourcesViewModel ViewModel { get; set; }
+        UserActivitySession _currentSession;
 
         public Section8MoreResources()
         {
@@ -35,6 +38,33 @@ namespace NerveCentreW10.Views
             Analytics.TrackEvent(this.GetType().Name);
             ViewModel = new MoreResourcesViewModel();
             NotesData();
+            GenerateUserActivityOverArching();
+        }
+
+        async void GenerateUserActivityOverArching()
+        {
+            await GenerateActivityAsync();
+        }
+
+        private async Task GenerateActivityAsync()
+        {
+
+            // Get channel and create activity.
+            UserActivityChannel channel = UserActivityChannel.GetDefault();
+            UserActivity activity = await channel.GetOrCreateUserActivityAsync("nc" + "section80");
+
+            activity.ActivationUri = new Uri("nervecentre://" + "section80");
+            activity.VisualElements.DisplayText = "8.0. More Resources";
+            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage("8.0. More Resources");
+            Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+            activity.VisualElements.BackgroundColor = color;
+
+            await activity.SaveAsync();
+
+            _currentSession?.Dispose();
+
+            _currentSession = activity.CreateSession();
+
         }
 
         void NotesData()
