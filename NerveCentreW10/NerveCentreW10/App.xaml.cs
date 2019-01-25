@@ -91,7 +91,7 @@ namespace NerveCentreW10
                         }
                         else if (uriArgs.Uri.Host == videoTutorialsContent.VideoTutorialsPageId)
                         {
-                            NavigationService.Navigate(typeof(Section7VideoTutorialsMenu), videoTutorialsContent);
+                            NavigationService.Navigate(typeof(VideoTutorialsDetail), videoTutorialsContent);
                             Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + videoTutorialsContent.VideoTutorialsName);
                         }
                         else if (uriArgs.Uri.Host == "section80")

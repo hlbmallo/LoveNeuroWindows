@@ -9,7 +9,7 @@
 
     <Grid>
         <WebView x:Name="MyWebView" Margin="10" ContentLoading="MyWebView_ContentLoading" LoadCompleted="MyWebView_LoadCompleted"/>
-        <ProgressRing x:Name="MyProgressRing" Width="70" Height="70" Foreground="#00a41d" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ProgressRing x:Name="MyProgressRing" Width="70" Height="70" Foreground="#01acff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
     
 </Page>
