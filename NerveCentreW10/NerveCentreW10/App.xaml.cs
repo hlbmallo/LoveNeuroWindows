@@ -84,27 +84,29 @@ namespace NerveCentreW10
                             NavigationService.Navigate(typeof(QuizDetail), quizContent);
                             Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + quizContent.QuizName);
                         }
-                        else if (uriArgs.Uri.Host == "section60")
-                        {
-                            NavigationService.Navigate(typeof(Section6InkingZoneMenu));
-                            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "Quizzes Section");
-                        }
                         else if (uriArgs.Uri.Host == videoTutorialsContent.VideoTutorialsPageId)
                         {
                             NavigationService.Navigate(typeof(VideoTutorialsDetail), videoTutorialsContent);
                             Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + videoTutorialsContent.VideoTutorialsName);
                         }
-                        else if (uriArgs.Uri.Host == "section80")
-                        {
-                            NavigationService.Navigate(typeof(Section8MoreResources));
-                            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "More Resources Section");
-                        }
-                        else
-                        {
-                            NavigationService.Navigate(typeof(MainPage));
-                            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "Default");
-                        }
                     }
+
+                    else if (uriArgs.Uri.Host == "section60")
+                    {
+                        NavigationService.Navigate(typeof(Section6InkingZoneMenu));
+                        Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "Quizzes Section");
+                    }
+                    else if (uriArgs.Uri.Host == "section80")
+                    {
+                        NavigationService.Navigate(typeof(Section8MoreResources));
+                        Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "More Resources Section");
+                    }
+                    else
+                    {
+                        NavigationService.Navigate(typeof(MainPage));
+                        Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "Default");
+                    }
+
                 }
 
                 await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
