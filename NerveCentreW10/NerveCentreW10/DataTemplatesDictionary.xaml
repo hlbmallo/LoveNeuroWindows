@@ -110,7 +110,7 @@
             </controls:DropShadowPanel>
             <Grid x:Name="MyGrid2" Margin="10" BorderBrush="#ebebeb" BorderThickness="2" Background="#ebebeb">
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock Text="{Binding Name}" Foreground="#01acff" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+                    <TextBlock Text="{Binding Name}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
                 </StackPanel>
             </Grid>
         </Grid>

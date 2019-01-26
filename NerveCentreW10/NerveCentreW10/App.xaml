@@ -74,7 +74,6 @@
             <AcrylicBrush x:Key="NavigationViewDefaultPaneBackground" BackgroundSource="Backdrop" TintColor="#ff7201" TintOpacity=".7" FallbackColor="#ff7201"/>
             <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground" BackgroundSource="HostBackdrop" TintColor="#ff7201" TintOpacity=".8" FallbackColor="#ff7201"/>
 
-
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
 

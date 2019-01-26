@@ -19,9 +19,10 @@
     <ScrollViewer>
         <StackPanel>
             <TextBlock x:Uid="AfterUpdate_Body" TextWrapping="WrapWholeWords">
-                <Run>Replace the content of this dialog with whatever content is appropriate to your app.</Run><LineBreak/>
-                <Run>You might want to consider lists of bug fixes and new features.</Run><LineBreak/>
-                <Run>Don't feel restricted to just text. You can also include images and animations if you wish too.</Run><LineBreak/>
+                <Run>Nerve Centre has undergone a massive overhaul!The app has been redesigned from the ground up to make it more responsive, fluid and useful to use.</Run><LineBreak/>
+                <Run>Section 6.0. Inking Zone has been revamped too. If you wish, you can start inking a diagram, save it within the app, then return to it later for editing.</Run><LineBreak/>
+                <Run>Also, Nerve Centre is now supported by the cloud, making the overall size of the app on your device a lot smaller.</Run><LineBreak/>
+                <Run>And one more thing - there are now explanations for all of the answers to the quiz questions!</Run><LineBreak/>
             </TextBlock>
         </StackPanel>
     </ScrollViewer>

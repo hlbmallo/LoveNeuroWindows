@@ -15,11 +15,6 @@
        </PivotItem>
         <PivotItem Header="My Custom Inking">
             <GridView x:Name="GridViewInkingStrokes" Style="{StaticResource GridViewStyle1}" ItemClick="GridViewInkingStrokes_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}" Loaded="GridViewInkingStrokes_Loaded" ItemTemplate="{StaticResource InkingZoneEditsDataTemplate}" RightTapped="MyGrid_RightTapped">
-                <!--<GridView.Resources>
-                    <MenuFlyout x:Name="MenuFlyout1">
-                        <MenuFlyoutItem x:Name="DeleteItemButton" Text="Delete" Icon="Delete" Click="DeleteItemButton_Click"/>
-                    </MenuFlyout>
-                </GridView.Resources>-->
             </GridView>
         </PivotItem>
     </Pivot>

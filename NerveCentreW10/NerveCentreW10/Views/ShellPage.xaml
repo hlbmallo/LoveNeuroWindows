@@ -13,6 +13,10 @@
     mc:Ignorable="d"
     xmlns:titlebarextensions="using:Microsoft.Toolkit.Uwp.UI.Extensions">
 
+    <Page.Resources>
+        <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="#01acff" />
+    </Page.Resources>
+    
         <winui:NavigationView Grid.Row="1"
         x:Name="navigationView"
         IsBackButtonVisible="Visible"

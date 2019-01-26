@@ -48,6 +48,12 @@ namespace NerveCentreW10
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
 
+            Windows.UI.Color NCBlue = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#01acff");
+            Windows.UI.Color NCOrange = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+            App.Current.Resources["SystemControlHighlightListAccentLowBrush"] = new SolidColorBrush(NCOrange);
+            App.Current.Resources["SystemControlHighlightListAccentMediumBrush"] = new SolidColorBrush(NCBlue);
+            App.Current.Resources["SystemControlHighlightAltAccentBrush"] = new SolidColorBrush(NCBlue);
+
             await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
 
         }
@@ -58,6 +64,14 @@ namespace NerveCentreW10
 
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
+
+            Windows.UI.Color NCBlue = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#01acff");
+            Windows.UI.Color NCOrange = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+            App.Current.Resources["SystemControlHighlightListAccentLowBrush"] = new SolidColorBrush(NCOrange);
+            App.Current.Resources["SystemControlHighlightListAccentMediumBrush"] = new SolidColorBrush(NCBlue);
+            App.Current.Resources["SystemControlHighlightAltAccentBrush"] = new SolidColorBrush(NCBlue);
+
+            
 
             if (args.Kind == ActivationKind.Protocol)
             {
