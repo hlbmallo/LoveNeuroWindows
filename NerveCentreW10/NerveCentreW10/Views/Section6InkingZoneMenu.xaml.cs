@@ -321,12 +321,8 @@ namespace NerveCentreW10.Views
 
             // Prepare MenuFlyout
             MenuFlyout myFlyout = new MenuFlyout();
-            MenuFlyoutItem callItem = new MenuFlyoutItem { Text = "Call" };
-            MenuFlyoutItem sendItem = new MenuFlyoutItem { Text = "Send a message" };
             MenuFlyoutItem deleteItem = new MenuFlyoutItem { Text = "Delete" };
 
-            myFlyout.Items.Add(callItem);
-            myFlyout.Items.Add(sendItem);
             myFlyout.Items.Add(deleteItem);
 
             myFlyout.ShowAt(sender as UIElement, e.GetPosition(sender as UIElement));

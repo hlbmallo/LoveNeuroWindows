@@ -97,7 +97,10 @@
                 <StackPanel>
                     <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Give a name to your newly inked template:" Margin="0,0,0,12" />
                     <TextBox x:Name="InkRenameBox" IsEnabled="True" />
-                    <Button x:Name="InkRenameConfirm" Click="InkRenameConfirm_Click" Content="Confirm"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="InkRenameConfirm" Click="InkRenameConfirm_Click" Content="Confirm" Background="Transparent" Style="{StaticResource ButtonRevealStyle}"/>
+                        <Button x:Name="CancelButton" Click="CancelButton_Click" Content="Cancel" Background="Transparent" Style="{StaticResource ButtonRevealStyle}"/>
+                    </StackPanel>
                 </StackPanel>
             </Border>
         </Grid>

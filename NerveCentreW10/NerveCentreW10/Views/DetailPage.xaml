@@ -71,10 +71,10 @@
 
         <Grid Grid.Row="1" Height="48" Background="{ThemeResource DetailPageCommandbarAcrylic1}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock Text="Share:" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="10,0,4,4"/>
-                <AppBarButton x:Name="ShareTextButton" HorizontalAlignment="Stretch" Content="Text" Click="ShareTextButton_Click"/>
-                <AppBarButton x:Name="ShareImage1Button" HorizontalAlignment="Stretch" Content="Diagram 1" Click="ShareImage1Button_Click"/>
-                <AppBarButton x:Name="ShareImage2Button" HorizontalAlignment="Stretch" Content="Diagram 2" Click="ShareImage2Button_Click"/>
+                <TextBlock Text="Share:" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="10,0,10,0"/>
+                <Button x:Name="ShareTextButton" Content="Text" Click="ShareTextButton_Click" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource ButtonRevealStyle}"/>
+                <Button x:Name="ShareImage1Button" Content="Diagram 1" Click="ShareImage1Button_Click" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource ButtonRevealStyle}"/>
+                <Button x:Name="ShareImage2Button" Content="Diagram 2" Click="ShareImage2Button_Click" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource ButtonRevealStyle}"/>
             </StackPanel>
         </Grid>
     </Grid>

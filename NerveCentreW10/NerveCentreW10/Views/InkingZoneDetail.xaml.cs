@@ -530,6 +530,12 @@ namespace NerveCentreW10.Views
             await MajorContentArea.Blur(0, 500, 0).StartAsync();
         }
 
+        private async void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            StandardPopup.Visibility = Visibility.Collapsed;
+            await MajorContentArea.Blur(0, 500, 0).StartAsync();
+        }
+
         //private void StandardPopup_SizeChanged(object sender, SizeChangedEventArgs e)
         //{
         //    var transform = Window.Current.Content.TransformToVisual(StandardPopup);
