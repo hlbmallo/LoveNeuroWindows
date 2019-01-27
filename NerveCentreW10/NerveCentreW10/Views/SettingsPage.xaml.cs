@@ -58,7 +58,13 @@ namespace NerveCentreW10.Views
 
         private async void EmailSupport_Click(object sender, RoutedEventArgs e)
         {
-            var mailto = new Uri("mailto:?to=goofyanatomist@outlook.com&subject=Question/Feedback on Nerve Centre");
+            var mailto = new Uri("mailto:?to=goofyanatomist@outlook.com&subject=Neuroscience Question (Nerve Centre on Windows)");
+            await Windows.System.Launcher.LaunchUriAsync(mailto);
+        }
+
+        private async void EmailCorrection_Click(object sender, RoutedEventArgs e)
+        {
+            var mailto = new Uri("mailto:?to=goofyanatomist@outlook.com&subject=Neuroscience Correction/Idea (Nerve Centre on Windows)");
             await Windows.System.Launcher.LaunchUriAsync(mailto);
         }
 
@@ -76,5 +82,6 @@ namespace NerveCentreW10.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
     }
 }

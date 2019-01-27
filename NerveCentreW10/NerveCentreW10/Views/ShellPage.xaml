@@ -11,10 +11,11 @@
     xmlns:views="using:NerveCentreW10.Views"
     Loaded="OnLoaded"
     mc:Ignorable="d"
-    xmlns:titlebarextensions="using:Microsoft.Toolkit.Uwp.UI.Extensions">
+    xmlns:titlebarextensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls">
 
     <Page.Resources>
-        <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="#01acff" />
+        <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="Black" />
     </Page.Resources>
     
         <winui:NavigationView Grid.Row="1"
@@ -23,7 +24,6 @@
         IsBackEnabled="{x:Bind IsBackEnabled, Mode=OneWay}"
         SelectedItem="{x:Bind Selected, Mode=OneWay}"
         ItemInvoked="OnItemInvoked"
-        PaneTitle="Nerve Centre"
         IsSettingsVisible="True"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
             <winui:NavigationView.MenuItems>
@@ -73,6 +73,12 @@
                 </behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
             </behaviors:NavigationViewHeaderBehavior>
         </i:Interaction.Behaviors>
+        <winui:NavigationView.PaneHeader>
+            <StackPanel Orientation="Horizontal">
+                <controls:ImageEx Source="ms-appx:///Assets/Others/HeaderLogo.png" Height="30" Width="30" Padding="14,0,14,0"/>
+                <TextBlock Text="LoveNeuro" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Padding="14,0,0,0"/>
+            </StackPanel>
+        </winui:NavigationView.PaneHeader>
         <Grid>
                 <Frame x:Name="shellFrame" Margin="24,4,24,0"/>
             </Grid>

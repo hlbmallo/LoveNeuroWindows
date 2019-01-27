@@ -460,6 +460,8 @@
     <Content Include="Assets\Others\ErrorPlaceholder.png" />
     <Content Include="Assets\Others\FirstRunDialogTheGoofyAnatomistNerveCentre.png" />
     <Content Include="Assets\Others\LoadingPlaceholder.png" />
+    <Content Include="Assets\Others\HeaderLogo.png" />
+    <Content Include="Assets\Others\Welcome7.png" />
     <Content Include="Assets\Others\WelcomeImage.png" />
     <Content Include="Assets\PlaceholderImage.png" />
     <Content Include="Assets\Quizzes\quiz8image.png" />

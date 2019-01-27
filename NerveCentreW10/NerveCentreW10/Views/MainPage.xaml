@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid
-        x:Name="ContentArea" Background="#2b2b2b">
-        <controls:ImageEx Source="ms-appx:///Assets/Others/WelcomeImage.png"/>
+        x:Name="ContentArea" Background="Black">
+        <controls:ImageEx Source="ms-appx:///Assets/Others/Welcome7.png"/>
     </Grid>
 </Page>

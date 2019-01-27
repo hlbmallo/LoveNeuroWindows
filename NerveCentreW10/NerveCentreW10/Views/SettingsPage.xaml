@@ -41,7 +41,12 @@
                 <TextBlock Text="Support" Style="{StaticResource TitleTextBlockStyle}"/>
                 <HyperlinkButton x:Name="EmailSupport" Click="EmailSupport_Click">
                     <HyperlinkButton.Content>
-                        <TextBlock Text="Email the app publisher" FontSize="16" Padding="2" TextWrapping="Wrap" Foreground="#ff7201"/>
+                        <TextBlock Text="Email A Neuroscience Question" FontSize="16" Padding="2" TextWrapping="Wrap" Foreground="#ff7201"/>
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
+                <HyperlinkButton x:Name="EmailCorrection" Click="EmailCorrection_Click">
+                    <HyperlinkButton.Content>
+                        <TextBlock Text="Email a Correction/Idea" FontSize="16" Padding="2" TextWrapping="Wrap" Foreground="#ff7201"/>
                     </HyperlinkButton.Content>
                 </HyperlinkButton>
             </StackPanel>
