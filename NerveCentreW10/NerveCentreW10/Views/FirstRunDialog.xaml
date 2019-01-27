@@ -13,14 +13,14 @@
         <DataTemplate>
             <StackPanel Orientation="Horizontal">
                 <Image Source="ms-appx:///Assets/StoreLogo.png" Width="40" Height="40" Margin="0"/>
-                <TextBlock Text="Welcome to Nerve Centre!" Margin="10,5,0,0"/>
+                <TextBlock Text="Welcome to LoveNeuro!" Margin="10,5,0,0"/>
             </StackPanel>
         </DataTemplate>
     </ContentDialog.TitleTemplate>
     <ScrollViewer>
         <StackPanel>
             <controls2:HtmlBlock Source="{x:Bind HelloMessage}"/>
-            <controls2:ImageEx Source="ms-appx:///Assets/Others/FirstRunDialogTheGoofyAnatomistNerveCentre.png"/>
+            <controls2:ImageEx Source="ms-appx:///Assets/Others/FirstRunDialogLoveNeuroNo1.png"/>
         </StackPanel>
     </ScrollViewer>
 </ContentDialog>

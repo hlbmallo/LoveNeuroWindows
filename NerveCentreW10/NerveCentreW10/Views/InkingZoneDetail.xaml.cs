@@ -177,7 +177,7 @@ namespace NerveCentreW10.Views
             var savePicker = new Windows.Storage.Pickers.FileSavePicker();
             savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
             savePicker.FileTypeChoices.Add("Jpeg (*.jpg)", new List<string>() { ".jpg" });
-            savePicker.SuggestedFileName = "Nerve Centre Diagram";
+            savePicker.SuggestedFileName = "LoveNeuro Diagram";
             Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
 
             if (file == null)
@@ -264,7 +264,7 @@ namespace NerveCentreW10.Views
             printHelper.AddFrameworkElementToPrint(PrintableContent);
             printHelper.OnPrintCanceled += PrintHelper_OnPrintCanceled;
             printHelper.OnPrintSucceeded += PrintHelper_OnPrintSucceeded;
-            await printHelper.ShowPrintUIAsync("Nerve Centre Print");
+            await printHelper.ShowPrintUIAsync("LoveNeuro Print");
             await folder.DeleteAsync(StorageDeleteOption.PermanentDelete);
         }
 

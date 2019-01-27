@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="NerveCentreW10.App">
-      <uap:VisualElements DisplayName="Nerve Centre" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="The Nerve Centre app is a learning, revision and teaching tool for neuroscience students and lecturers. It focuses on providing accurate yet easy-to-read information with interesting clinical connections and revision tips throughout." BackgroundColor="#ff7201">
+      <uap:VisualElements DisplayName="LoveNeuro" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="The LoveNeuro app is a learning, revision and teaching tool for neuroscience students and lecturers. It focuses on providing accurate yet easy-to-read information with interesting clinical connections and revision tips throughout." BackgroundColor="#ff7201">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="Nerve Centre" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />

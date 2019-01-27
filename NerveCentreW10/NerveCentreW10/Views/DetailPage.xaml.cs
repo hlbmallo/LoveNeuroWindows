@@ -171,7 +171,7 @@ namespace NerveCentreW10.Views
                 args.Request.Data.Properties.Thumbnail = imageStreamRef;
                 args.Request.Data.SetBitmap(imageStreamRef);
 
-                args.Request.Data.Properties.Title = "Diagram 1 from Nerve Centre";
+                args.Request.Data.Properties.Title = "Diagram 1 from LoveNeuro";
             }
 
             finally
@@ -202,7 +202,7 @@ namespace NerveCentreW10.Views
                 args.Request.Data.Properties.Thumbnail = imageStreamRef;
                 args.Request.Data.SetBitmap(imageStreamRef);
 
-                args.Request.Data.Properties.Title = "Diagram 2 from Nerve Centre";
+                args.Request.Data.Properties.Title = "Diagram 2 from LoveNeuro";
             }
 
             finally
@@ -227,7 +227,7 @@ namespace NerveCentreW10.Views
                 var htmlFormat = HtmlFormatHelper.CreateHtmlFormat(htmlExample);
                 args.Request.Data.SetHtmlFormat(htmlFormat);
 
-                args.Request.Data.Properties.Title = "Notes from Nerve Centre";
+                args.Request.Data.Properties.Title = "Notes from LoveNeuro";
             }
 
             finally
