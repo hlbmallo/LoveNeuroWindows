@@ -49,11 +49,11 @@
                         <TextBlock Text="Email a Correction/Idea" FontSize="16" Padding="2" TextWrapping="Wrap" Foreground="#ff7201"/>
                     </HyperlinkButton.Content>
                 </HyperlinkButton>
-            </StackPanel>
-
-            <StackPanel Padding="0,20,0,30">
-                <TextBlock Text="Privacy Policy" Style="{StaticResource TitleTextBlockStyle}"/>
-                <controls2:HtmlBlock Source="{x:Bind PrivacyPolicy}" Style="{StaticResource HTMLBlockTextStyle1}"/>
+                <HyperlinkButton x:Name="PrivacyPolicyLink" Click="PrivacyPolicyLink_Click">
+                    <HyperlinkButton.Content>
+                        <TextBlock Text="Privacy Policy" FontSize="16" Padding="2" TextWrapping="Wrap" Foreground="#ff7201"/>
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
             </StackPanel>
 
         </StackPanel>
