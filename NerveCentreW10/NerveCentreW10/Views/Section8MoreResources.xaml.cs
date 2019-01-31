@@ -51,9 +51,9 @@ namespace NerveCentreW10.Views
 
             // Get channel and create activity.
             UserActivityChannel channel = UserActivityChannel.GetDefault();
-            UserActivity activity = await channel.GetOrCreateUserActivityAsync("nc" + "section80");
+            UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + "section80");
 
-            activity.ActivationUri = new Uri("nervecentre://" + "section80");
+            activity.ActivationUri = new Uri("loveneuro://" + "section80");
             activity.VisualElements.DisplayText = "8.0. More Resources";
             activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage("8.0. More Resources");
             Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");

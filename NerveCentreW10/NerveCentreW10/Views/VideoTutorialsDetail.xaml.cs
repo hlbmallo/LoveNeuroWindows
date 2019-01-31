@@ -58,10 +58,10 @@ namespace NerveCentreW10.Views
 
             // Get channel and create activity.
             UserActivityChannel channel = UserActivityChannel.GetDefault();
-            UserActivity activity = await channel.GetOrCreateUserActivityAsync("nc" + o.VideoTutorialsPageId);
+            UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + o.VideoTutorialsPageId);
 
             // Set deep-link and properties.
-            activity.ActivationUri = new Uri("nervecentre://" + o.VideoTutorialsPageId);
+            activity.ActivationUri = new Uri("loveneuro://" + o.VideoTutorialsPageId);
             activity.VisualElements.DisplayText = o.VideoTutorialsName;
 
             // Create and set Adaptive Card.
