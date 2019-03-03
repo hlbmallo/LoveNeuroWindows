@@ -75,6 +75,7 @@
                 <Button x:Name="ShareTextButton" Content="Text" Click="ShareTextButton_Click" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource ButtonRevealStyle}"/>
                 <Button x:Name="ShareImage1Button" Content="Diagram 1" Click="ShareImage1Button_Click" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource ButtonRevealStyle}"/>
                 <Button x:Name="ShareImage2Button" Content="Diagram 2" Click="ShareImage2Button_Click" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource ButtonRevealStyle}"/>
+                <ToggleButton x:Name="FavouritesButton" Content="Add Favourite" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource ToggleButtonRevealStyle}" Click="FavouritesButton_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

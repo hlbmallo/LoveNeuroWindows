@@ -2,9 +2,13 @@
 using Microsoft.AppCenter.Analytics;
 using Microsoft.Toolkit.Uwp.Helpers;
 using NerveCentreW10.Models;
+using NerveCentreW10.ViewModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.UserActivities;
 using Windows.Storage;
@@ -25,6 +29,7 @@ namespace NerveCentreW10.Views
     public sealed partial class DetailPage : Page
     {
         private UserActivitySession _currentSession;
+        public SubsectionModel overall;
         public Uri MyClickedImage1;
         public Uri MyClickedImage2;
 
@@ -36,7 +41,7 @@ namespace NerveCentreW10.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             SubsectionModel MyClickedItem = (SubsectionModel)e.Parameter;
-
+            overall = MyClickedItem;
             Title.Text = MyClickedItem.Title;
             Subtitle1.Text = MyClickedItem.Subtitle1;
             Description1.Source = MyClickedItem.Description1;
@@ -233,6 +238,70 @@ namespace NerveCentreW10.Views
             finally
             {
                 deferral.Complete();
+            }
+        }
+
+        private async void FavouritesButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (FavouritesButton.IsChecked == true)
+            {
+                //var helper = new LocalObjectStorageHelper();
+                //string keyLargeObject = overall.PageId;
+
+                //var o = new SubsectionModel
+                //FavouritesViewModel.FavouritesList.Add(new SubsectionModel
+                //{
+                //    PageId = overall.PageId,
+                //    Title = overall.Title,
+                //    Subtitle1 = overall.Subtitle1,
+                //    Description1 = overall.Description1,
+                //    Subtitle2 = overall.Subtitle2,
+                //    Description2 = overall.Description2,
+                //    Subtitle3 = overall.Subtitle3,
+                //    Description3 = overall.Description3,
+                //    ImageUri1 = overall.ImageUri1,
+                //    ImageUri2 = overall.ImageUri2,
+                //    Popup1Title = overall.Popup1Title,
+                //    Popup1Content = overall.Popup1Content,
+                //    Popup2Title = overall.Popup2Title,
+                //    Popup2Content = overall.Popup2Content,
+                //    Popup3Title = overall.Popup3Title,
+                //    Popup3Content = overall.Popup3Content,
+                //};
+                //await helper.SaveFileAsync(keyLargeObject, o);
+
+                var appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("Test2Folder", CreationCollisionOption.OpenIfExists);
+                var o = new SubsectionModel
+                {
+                    PageId = overall.PageId,
+                    Title = overall.Title,
+                    Subtitle1 = overall.Subtitle1,
+                    Description1 = overall.Description1,
+                    Subtitle2 = overall.Subtitle2,
+                    Description2 = overall.Description2,
+                    Subtitle3 = overall.Subtitle3,
+                    Description3 = overall.Description3,
+                    ImageUri1 = overall.ImageUri1,
+                    ImageUri2 = overall.ImageUri2,
+                    Popup1Title = overall.Popup1Title,
+                    Popup1Content = overall.Popup1Content,
+                    Popup2Title = overall.Popup2Title,
+                    Popup2Content = overall.Popup2Content,
+                    Popup3Title = overall.Popup3Title,
+                    Popup3Content = overall.Popup3Content,
+                };
+
+                string json = JsonConvert.SerializeObject(o);
+
+                StorageFile storageFile = await appFolder.CreateFileAsync(overall.Title, CreationCollisionOption.ReplaceExisting);
+                await FileIO.WriteTextAsync(storageFile, json);
+
+                FavouritesButton.Content = "Remove Favourite";
+            }
+
+            else
+            {
+
             }
         }
     }

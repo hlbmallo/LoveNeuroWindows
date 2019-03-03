@@ -57,7 +57,13 @@
                         <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconMore.png"/>
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-            </winui:NavigationView.MenuItems>
+            <winui:NavigationViewItemSeparator/>
+            <winui:NavigationViewItem Content="Favourites" helpers:NavHelper.NavigateTo="views:FavouritesPage">
+                <winui:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconMore.png"/>
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+        </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior
                 DefaultHeader="{x:Bind Selected.Content, Mode=OneWay}">
