@@ -40,7 +40,7 @@ namespace NerveCentreW10.Views
 
             AppName.Text = ApplicationName;
             AppVersion.Text = ApplicationVersion;
-            AppIconsList.Source = @"• <a href=""http://www.freepik.com"">Freepik (CC 3.0 BY)</a><br/>• <a href=""http://www.flaticon.com"">Flaticon (CC 3.0 BY)</a><br/>• <a href=""http://www.icons8.com"">Icons8 (CC 3.0 BY)</a><br/>• <a href=""http://www.flaticon.com/authors/chris-veigt"">Chris Veigt (CC 3.0 BY)</a><br/>• <a href=""http://www.flaticon.com/authors/icon-works"">Icon Works (CC 3.0 BY)</a><br/>• <a href=""http://www.flaticon.com/authors/madebyoliver"">Madebyoliver (CC 3.0 BY)</a><br/>• <a href=""https://www.flaticon.com/authors/smashicons"">Smashicons (CC 3.0 BY)</a>";
+            AppIconsList.Source = @"• <a href=""http://www.freepik.com"">Freepik (CC 3.0 BY)</a><br/>• <a href=""http://www.flaticon.com"">Flaticon (CC 3.0 BY)</a><br/>• <a href=""http://www.icons8.com"">Icons8 (CC 3.0 BY)</a><br/>• <a href=""http://www.flaticon.com/authors/chris-veigt"">Chris Veigt (CC 3.0 BY)</a><br/>• <a href=""http://www.flaticon.com/authors/icon-works"">Icon Works (CC 3.0 BY)</a><br/>• <a href=""http://www.flaticon.com/authors/madebyoliver"">Madebyoliver (CC 3.0 BY)</a><br/>• <a href=""https://www.flaticon.com/authors/smashicons"">Smashicons (CC 3.0 BY)</a><br/>• <a href=""https://www.flaticon.com/authors/dave-gandy"">Dave Gandy (CC 3.0 BY)</a>";
         }
 
         private async void RateButton_Click(object sender, RoutedEventArgs e)

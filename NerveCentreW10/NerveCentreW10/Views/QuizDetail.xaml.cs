@@ -75,9 +75,6 @@ namespace NerveCentreW10.Views
             activity.VisualElements.DisplayText = o.QuizNumber + " " + o.QuizName;
 
             // Create and set Adaptive Card.
-            //StorageFile cardFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Bones.json"));
-            //string cardText = await FileIO.ReadTextAsync(cardFile);
-            //activity.VisualElements.Content = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
             activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage(MyClickedItem.QuizNumber + " " + MyClickedItem.QuizName);
             Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
             activity.VisualElements.BackgroundColor = color;

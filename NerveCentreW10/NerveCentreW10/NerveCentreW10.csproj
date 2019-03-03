@@ -440,6 +440,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\Icons\IconFavourites.png" />
     <Content Include="Assets\Icons\IconCells.png" />
     <Content Include="Assets\Icons\IconCNS.png" />
     <Content Include="Assets\Icons\IconNeuroDictionary.png" />

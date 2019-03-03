@@ -60,7 +60,7 @@
             <winui:NavigationViewItemSeparator/>
             <winui:NavigationViewItem Content="Favourites" helpers:NavHelper.NavigateTo="views:FavouritesPage">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconMore.png"/>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconFavourites.png"/>
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
         </winui:NavigationView.MenuItems>
