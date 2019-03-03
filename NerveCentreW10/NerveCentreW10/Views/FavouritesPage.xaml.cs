@@ -39,21 +39,29 @@ namespace NerveCentreW10.Views
 
         private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            var MyClickedItem = (SubsectionModel)e.ClickedItem;
+            Frame.Navigate(typeof(DetailPage), MyClickedItem);
         }
 
         async void LoadAsync()
         {
 
-            StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("Test2Folder", CreationCollisionOption.OpenIfExists);
+            StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("FavouritesFolder", CreationCollisionOption.OpenIfExists);
             var favouritesList = await appFolder.GetFilesAsync();
-            foreach (StorageFile f in favouritesList)
+            if (favouritesList == null)
             {
-                string zoo = await FileIO.ReadTextAsync(f);
-                var yell = JsonConvert.DeserializeObject<SubsectionModel>(zoo);
 
-                GridView1.Items.Add(yell);
-                //GridView1.ItemsSource = favouritesList;
+            }
+            else
+            {
+                foreach (StorageFile f in favouritesList)
+                {
+                    string zoo = await FileIO.ReadTextAsync(f);
+                    var yell = JsonConvert.DeserializeObject<SubsectionModel>(zoo);
+
+                    GridView1.Items.Add(yell);
+                    //GridView1.ItemsSource = favouritesList;
+                }
             }
         }
     }

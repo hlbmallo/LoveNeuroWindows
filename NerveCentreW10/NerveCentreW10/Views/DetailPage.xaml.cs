@@ -1,24 +1,17 @@
-﻿using AdaptiveCards;
-using Microsoft.AppCenter.Analytics;
+﻿using Microsoft.AppCenter.Analytics;
 using Microsoft.Toolkit.Uwp.Helpers;
 using NerveCentreW10.Models;
-using NerveCentreW10.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.UserActivities;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Windows.UI;
-using Windows.UI.Shell;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
@@ -110,9 +103,6 @@ namespace NerveCentreW10.Views
             activity.VisualElements.DisplayText = o.Title;
 
             // Create and set Adaptive Card.
-            //StorageFile cardFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Bones.json"));
-            //string cardText = await FileIO.ReadTextAsync(cardFile);
-            //activity.VisualElements.Content = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
             activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithImage(MyClickedItem.Title, MyClickedItem.Description1, MyClickedItem.ImageUri1.ToString());
             Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
             activity.VisualElements.BackgroundColor = color;
@@ -243,34 +233,10 @@ namespace NerveCentreW10.Views
 
         private async void FavouritesButton_Click(object sender, RoutedEventArgs e)
         {
+            var appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("FavouritesFolder", CreationCollisionOption.OpenIfExists);
+
             if (FavouritesButton.IsChecked == true)
             {
-                //var helper = new LocalObjectStorageHelper();
-                //string keyLargeObject = overall.PageId;
-
-                //var o = new SubsectionModel
-                //FavouritesViewModel.FavouritesList.Add(new SubsectionModel
-                //{
-                //    PageId = overall.PageId,
-                //    Title = overall.Title,
-                //    Subtitle1 = overall.Subtitle1,
-                //    Description1 = overall.Description1,
-                //    Subtitle2 = overall.Subtitle2,
-                //    Description2 = overall.Description2,
-                //    Subtitle3 = overall.Subtitle3,
-                //    Description3 = overall.Description3,
-                //    ImageUri1 = overall.ImageUri1,
-                //    ImageUri2 = overall.ImageUri2,
-                //    Popup1Title = overall.Popup1Title,
-                //    Popup1Content = overall.Popup1Content,
-                //    Popup2Title = overall.Popup2Title,
-                //    Popup2Content = overall.Popup2Content,
-                //    Popup3Title = overall.Popup3Title,
-                //    Popup3Content = overall.Popup3Content,
-                //};
-                //await helper.SaveFileAsync(keyLargeObject, o);
-
-                var appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("Test2Folder", CreationCollisionOption.OpenIfExists);
                 var o = new SubsectionModel
                 {
                     PageId = overall.PageId,
@@ -301,7 +267,30 @@ namespace NerveCentreW10.Views
 
             else
             {
+                StorageFile storageFile = await appFolder.CreateFileAsync(overall.Title, CreationCollisionOption.OpenIfExists);
+                await storageFile.DeleteAsync();
+                FavouritesButton.Content = "Add Favourite";
 
+            }
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("FavouritesFolder", CreationCollisionOption.OpenIfExists);
+
+            if (await appFolder.FileExistsAsync(overall.Title))
+            {
+                StorageFile filed = await appFolder.GetFileAsync(overall.Title);
+                if (filed != null)
+                {
+                    FavouritesButton.IsChecked = true;
+                    FavouritesButton.Content = "Remove Favourite";
+                }
+                else
+                {
+                    FavouritesButton.IsChecked = false;
+                    FavouritesButton.Content = "Add Favourite";
+                }
             }
         }
     }
