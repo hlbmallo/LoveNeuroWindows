@@ -10,5 +10,6 @@
     <Grid
         x:Name="ContentArea" Background="Black">
         <controls:ImageEx Source="ms-appx:///Assets/Others/Welcome7.png"/>
+        <!--<WebView x:Name="WV"/>-->
     </Grid>
 </Page>

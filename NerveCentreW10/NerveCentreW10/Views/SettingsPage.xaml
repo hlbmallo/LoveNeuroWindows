@@ -32,7 +32,7 @@
                 <TextBlock Text="Feedback" Style="{StaticResource TitleTextBlockStyle}"/>
                 <HyperlinkButton x:Name="RateButton" Click="RateButton_Click">
                     <HyperlinkButton.Content>
-                        <TextBlock Text="Rate and review Heart Centre" FontSize="16" Padding="2" TextWrapping="Wrap" Foreground="#ff7201"/>
+                        <TextBlock Text="Rate and review LoveNeuro" FontSize="16" Padding="2" TextWrapping="Wrap" Foreground="#ff7201"/>
                     </HyperlinkButton.Content>
                 </HyperlinkButton>
             </StackPanel>

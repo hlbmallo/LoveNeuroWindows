@@ -19,11 +19,10 @@
     <ScrollViewer>
         <StackPanel>
             <TextBlock TextWrapping="WrapWholeWords">
-                <Run>Nerve Centre has undergone a massive overhaul and is now...drum roll...LoveNeuro! The app has been redesigned from the ground up to make it more responsive, fluid and useful.</Run><LineBreak/><LineBreak/>
-                <Run>Section 6.0. Inking Zone has been revamped too. If you wish, you can start inking a diagram, save it within the app, then return to it later for editing.</Run><LineBreak/><LineBreak/>
-                <Run>Also, LoveNeuro is now supported by the cloud, making the overall size of the app on your device a lot smaller.</Run><LineBreak/><LineBreak/>
-                <Run>And one more thing - there are now explanations for all of the answers to the quiz questions!</Run><LineBreak/><LineBreak/>
+                <Run>Section 1.0. - 4.0. Notes now supports in-app favourites. You can easily save a page to your favourites and access it again in the main menu of the app. Give it a go and let me know what you think.</Run><LineBreak/><LineBreak/>
+                <Run>Also, if you have a moment, I'd really love to hear your thoughts on LoveNeuro. Just click or tap below to leave a review in the Microsoft Store. Thanks very much!</Run><LineBreak/>
             </TextBlock>
+            <HyperlinkButton x:Name="RateAndReviewButtonWhatsNewDialog" Content="Review LoveNeuro on the Microsoft Store" Click="RateAndReviewButtonWhatsNewDialog_Click"/>
         </StackPanel>
     </ScrollViewer>
 </ContentDialog>

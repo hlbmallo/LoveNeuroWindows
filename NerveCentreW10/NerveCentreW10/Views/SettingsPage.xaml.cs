@@ -45,7 +45,7 @@ namespace NerveCentreW10.Views
 
         private async void RateButton_Click(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://review/?ProductId=9wzdncrcs92r"));
+            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://review/?ProductId=9NBLGGGZLR7B"));
         }
 
         private async void EmailSupport_Click(object sender, RoutedEventArgs e)
