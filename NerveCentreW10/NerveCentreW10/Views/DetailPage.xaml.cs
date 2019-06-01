@@ -67,7 +67,7 @@ namespace NerveCentreW10.Views
             Analytics.TrackEvent(this.GetType().Name + " " + MyClickedItem.Title);
 
             // Save complex/large objects 
-            var helper = new LocalObjectStorageHelper();
+            var helper = new RoamingObjectStorageHelper();
             string keyLargeObject = MyClickedItem.PageId;
 
             var o = new SubsectionModel

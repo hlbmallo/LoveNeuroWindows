@@ -79,7 +79,7 @@ namespace NerveCentreW10
 
                 if (uriArgs != null)
                 {
-                    var helper = new LocalObjectStorageHelper();
+                    var helper = new RoamingObjectStorageHelper();
                     string keyLargeObject = uriArgs.Uri.Host;
 
                     if (await helper.FileExistsAsync(keyLargeObject))
