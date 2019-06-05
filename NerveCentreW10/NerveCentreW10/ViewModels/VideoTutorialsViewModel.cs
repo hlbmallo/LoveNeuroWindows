@@ -36,6 +36,14 @@ namespace NerveCentreW10.ViewModels
                 VideoTutorialsThumbnail = container.GetBlockBlobReference("hpaaxis.png").Uri,
                 VideoTutorialsUrl = new Uri("https://www.youtube.com/embed/g9iGI5o_U-Y?rel=0"),
             });
+            VideoTutorialsList.Add(new VideoTutorialsClass
+            {
+                VideoTutorialsPageId = "section73",
+                VideoTutorialsName = "Spinal Cord (Revised Version)",
+                VideoTutorialsDescription = "A video tutorial that focuses on the anatomy of the spinal cord. Cord transections are discussed as relevant clinical connections.",
+                VideoTutorialsThumbnail = container.GetBlockBlobReference("spinalnerves.png").Uri,
+                VideoTutorialsUrl = new Uri("https://www.youtube.com/embed/5CTesOmOC58?rel=0"),
+            });
         }
     }
 }
