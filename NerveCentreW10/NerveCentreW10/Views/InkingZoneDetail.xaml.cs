@@ -117,12 +117,12 @@ namespace NerveCentreW10.Views
 
 
 
-                //var localObjectStorageHelper = new Helpers.LocalObjectStorageHelper();
-                //localObjectStorageHelper.Folder = ApplicationData.Current.LocalFolder;
-                //StorageFolder subFolder = await localObjectStorageHelper.Folder.GetFolderAsync("NerveCentreInk");
+                //var RoamingObjectStorageHelper = new Helpers.RoamingObjectStorageHelper();
+                //RoamingObjectStorageHelper.Folder = ApplicationData.Current.LocalFolder;
+                //StorageFolder subFolder = await RoamingObjectStorageHelper.Folder.GetFolderAsync("NerveCentreInk");
                 ////IReadOnlyList<IStorageItem> itemsList = await subFolder.GetItemsAsync();
 
-                //var result = await localObjectStorageHelper.ReadFileAsync<InkingZoneClassDetail>("/NerveCentreInk/" + storageFile.Name);
+                //var result = await RoamingObjectStorageHelper.ReadFileAsync<InkingZoneClassDetail>("/NerveCentreInk/" + storageFile.Name);
 
                 Title.Text = yell.InkingZoneRename;
                 MyImage.Source = new BitmapImage(yell.InkingZoneImage);
@@ -466,8 +466,8 @@ namespace NerveCentreW10.Views
 
 
 
-            //var localObjectStorageHelper = new Microsoft.Toolkit.Uwp.Helpers.LocalObjectStorageHelper();
-            //string filePath = localObjectStorageHelper.FileExistsAsync().Path;
+            //var RoamingObjectStorageHelper = new Microsoft.Toolkit.Uwp.Helpers.RoamingObjectStorageHelper();
+            //string filePath = RoamingObjectStorageHelper.FileExistsAsync().Path;
 
             //string keyLargeObject = InkRenameBox.Text;
 
@@ -478,7 +478,7 @@ namespace NerveCentreW10.Views
             //    InkingZoneBytes = bytes2,
             //};
 
-            //await localObjectStorageHelper.SaveFileAsync(filePath + keyLargeObject, o);
+            //await RoamingObjectStorageHelper.SaveFileAsync(filePath + keyLargeObject, o);
 
 
 
@@ -778,10 +778,10 @@ namespace NerveCentreW10.Views
 //}
 
 //}
-//var localObjectStorageHelper = new LocalObjectStorageHelper();
+//var RoamingObjectStorageHelper = new RoamingObjectStorageHelper();
 
 //string keyLargeObject = "Scramble";
-//var result = localObjectStorageHelper.ReadFileAsync<InkingZoneClass>(keyLargeObject);
+//var result = RoamingObjectStorageHelper.ReadFileAsync<InkingZoneClass>(keyLargeObject);
 //IReadOnlyList<InkStroke> currentStrokes = MyInkCanvas.InkPresenter.StrokeContainer.GetStrokes();
 //var o = new InkingZoneClass
 //{
@@ -789,7 +789,7 @@ namespace NerveCentreW10.Views
 //    InkingZoneStrokeList = currentStrokes,
 //};
 
-//localObjectStorageHelper.SaveFileAsync(keyLargeObject, o);
+//RoamingObjectStorageHelper.SaveFileAsync(keyLargeObject, o);
 
 
 

@@ -50,7 +50,7 @@ namespace NerveCentreW10.Views
             Title.Text = MyClickedItem.QuizNumber + " " + MyClickedItem.QuizName;
 
             // Save complex/large objects 
-            var helper = new LocalObjectStorageHelper();
+            var helper = new RoamingObjectStorageHelper();
             string keyLargeObject = MyClickedItem.QuizId;
 
             var o = new QuizListClass

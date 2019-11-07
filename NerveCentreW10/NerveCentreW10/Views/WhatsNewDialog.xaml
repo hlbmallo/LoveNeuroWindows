@@ -12,14 +12,14 @@
         <DataTemplate>
             <StackPanel Orientation="Horizontal">
                 <Image Source="ms-appx:///Assets/StoreLogo.png" Width="40" Height="40"/>
-                <TextBlock x:Uid="AfterUpdate_Title" Text="What's new in this version" Margin="{StaticResource SmallLeftMargin}" VerticalAlignment="Center"/>
+                <TextBlock x:Uid="AfterUpdate_Title" Text="What's new in this version" Margin="5" VerticalAlignment="Center"/>
             </StackPanel>
         </DataTemplate>
     </ContentDialog.TitleTemplate>
     <ScrollViewer>
         <StackPanel>
             <TextBlock TextWrapping="WrapWholeWords">
-                <Run>Section 1.0. - 4.0. Notes now supports in-app favourites. You can easily save a page to your favourites and access it again in the main menu of the app. Give it a go and let me know what you think.</Run><LineBreak/><LineBreak/>
+                <Run>This update brings a new video tutorial on the action potential. It also brings a new section to LoveNeuro called 'Deeper Dives' - it exams certain concepts in more anatomical detail than before, starting with the brachial plexus and </Run><LineBreak/><LineBreak/>
                 <Run>Also, if you have a moment, I'd really love to hear your thoughts on LoveNeuro. Just click or tap below to leave a review in the Microsoft Store. Thanks very much!</Run><LineBreak/>
             </TextBlock>
             <HyperlinkButton x:Name="RateAndReviewButtonWhatsNewDialog" Content="Review LoveNeuro on the Microsoft Store" Click="RateAndReviewButtonWhatsNewDialog_Click"/>

@@ -40,7 +40,7 @@ namespace NerveCentreW10.Views
             Analytics.TrackEvent(this.GetType().Name + " " + MyClickedItem.VideoTutorialsName);
 
             // Save complex/large objects 
-            var helper = new LocalObjectStorageHelper();
+            var helper = new RoamingObjectStorageHelper();
             string keyLargeObject = MyClickedItem.VideoTutorialsPageId;
 
             var o = new VideoTutorialsClass

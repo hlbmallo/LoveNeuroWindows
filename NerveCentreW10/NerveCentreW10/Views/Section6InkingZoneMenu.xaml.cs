@@ -265,16 +265,16 @@ namespace NerveCentreW10.Views
             //}
 
 
-            //var localObjectStorageHelper = new LocalObjectStorageHelper();
+            //var RoamingObjectStorageHelper = new RoamingObjectStorageHelper();
             //string keyLargeObject = "large";
-            //var result = localObjectStorageHelper.ReadFileAsync<ObservableCollection<InkingZoneClassDetail>>(keyLargeObject);
+            //var result = RoamingObjectStorageHelper.ReadFileAsync<ObservableCollection<InkingZoneClassDetail>>(keyLargeObject);
             //GridViewInkingStrokes.ItemsSource = result;
 
 
 
-            //var localObjectStorageHelper = new LocalObjectStorageHelper();
-            //localObjectStorageHelper. = ApplicationData.Current.LocalFolder;
-            //StorageFolder subFolder = await localObjectStorageHelper.Folder.CreateFolderAsync("NerveCentreInk", CreationCollisionOption.OpenIfExists);
+            //var RoamingObjectStorageHelper = new RoamingObjectStorageHelper();
+            //RoamingObjectStorageHelper. = ApplicationData.Current.LocalFolder;
+            //StorageFolder subFolder = await RoamingObjectStorageHelper.Folder.CreateFolderAsync("NerveCentreInk", CreationCollisionOption.OpenIfExists);
             //IReadOnlyList<IStorageItem> itemsList = await subFolder.GetItemsAsync();
 
 
