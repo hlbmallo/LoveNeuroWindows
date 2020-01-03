@@ -35,7 +35,7 @@ namespace NerveCentreW10.Views
             base.OnNavigatedTo(e);
 
             var parameters = (SubsectionModel)e.Parameter;
-            DetailImage.Source = parameters.ImageUri2;
+            DetailImage.Source = new Uri(parameters.ImageUri2);
         }
 
         private void DetailImage_ImageExFailed(object sender, Microsoft.Toolkit.Uwp.UI.Controls.ImageExFailedEventArgs e)

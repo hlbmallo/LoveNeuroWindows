@@ -11,7 +11,7 @@ namespace NerveCentreW10.Models
         public string VideoTutorialsPageId { get; set; }
         public string VideoTutorialsName { get; set; }
         public string VideoTutorialsDescription { get; set; }
-        public Uri VideoTutorialsThumbnail { get; set; }
+        public string VideoTutorialsThumbnail { get; set; }
         public Uri VideoTutorialsUrl { get; set; }
     }
 }

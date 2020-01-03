@@ -18,7 +18,7 @@ namespace NerveCentreW10.Models
         public string InkingZoneTitle { get; set; }
 
         [JsonProperty("InkingZoneImage")]
-        public Uri InkingZoneImage { get; set; }
+        public string InkingZoneImage { get; set; }
 
         [JsonProperty("InkingZoneDescription")]
         public string InkingZoneDescription { get; set; }

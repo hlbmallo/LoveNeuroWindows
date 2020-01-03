@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
@@ -73,7 +74,7 @@ namespace NerveCentreW10.Views
             if (e.Parameter is InkingZoneClassDetail)
             {
                 var xenon = e.Parameter as InkingZoneClassDetail;
-                MyImage.Source = new BitmapImage(xenon.InkingZoneImage);
+                MyImage.Source = new BitmapImage(new Uri(xenon.InkingZoneImage));
                 Title.Text = xenon.InkingZoneRename;
                 myclickeditem = xenon;
             }
@@ -125,7 +126,7 @@ namespace NerveCentreW10.Views
                 //var result = await RoamingObjectStorageHelper.ReadFileAsync<InkingZoneClassDetail>("/NerveCentreInk/" + storageFile.Name);
 
                 Title.Text = yell.InkingZoneRename;
-                MyImage.Source = new BitmapImage(yell.InkingZoneImage);
+                MyImage.Source = new BitmapImage(new Uri(yell.InkingZoneImage));
                 byte[] bytes = yell.InkingZoneBytes;
                 var stream = ConvertTo(bytes).Result;
                 using (var inputStream = stream.GetInputStreamAt(0))
@@ -206,7 +207,7 @@ namespace NerveCentreW10.Views
 
         private async Task Save_InkedImagetoStream(IRandomAccessStream stream)
         {
-            var file = await StorageFile.GetFileFromPathAsync(((BitmapImage)MyImage.Source).UriSource.ToString());
+            var file = await StorageFile.GetFileFromPathAsync(((BitmapImage)MyImage.Source).ToString());
             CanvasDevice device = CanvasDevice.GetSharedDevice();
             CanvasRenderTarget renderTarget = new CanvasRenderTarget(device, (int)MyInkCanvas.ActualWidth, (int)MyInkCanvas.ActualHeight, 200);
 
@@ -486,10 +487,11 @@ namespace NerveCentreW10.Views
             //
 
             var appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("TestFolder", CreationCollisionOption.OpenIfExists);
+
             var o = new InkingZoneClassDetail
             {
                 InkingZoneRename = InkRenameBox.Text,
-                InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource,
+                InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource.ToString(),
                 InkingZoneBytes = bytes2,
             };
 

@@ -8,6 +8,9 @@ using Windows.UI.Xaml.Navigation;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.ApplicationModel.UserActivities;
 using NerveCentreW10.Helpers;
+using System.Drawing;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -19,8 +22,56 @@ namespace NerveCentreW10.Views
     public sealed partial class QuizDetail : Page
     {
         public int OverallScore;
-
         private UserActivitySession _currentSession;
+
+        private Color colorSwatch1;
+        private Color colorSwatch2;
+        private Color colorSwatch3;
+        private Color colorSwatch4;
+
+        public Color ColorSwatch1
+        {
+            get { return this.colorSwatch1; }
+            set
+            {
+                this.colorSwatch1 = value;
+                this.OnPropertyChanged();
+            }
+        }
+        public Color ColorSwatch2
+        {
+            get { return this.colorSwatch2; }
+            set
+            {
+                this.colorSwatch2 = value;
+                this.OnPropertyChanged();
+            }
+        }
+        public Color ColorSwatch3
+        {
+            get { return this.colorSwatch3; }
+            set
+            {
+                this.colorSwatch3 = value;
+                this.OnPropertyChanged();
+            }
+        }
+        public Color ColorSwatch4
+        {
+            get { return this.colorSwatch4; }
+            set
+            {
+                this.colorSwatch4 = value;
+                this.OnPropertyChanged();
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            // Raise the PropertyChanged event, passing the name of the property whose value has changed.
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public QuizDetail()
         {
@@ -123,6 +174,34 @@ namespace NerveCentreW10.Views
 
         private void RevealHideAnswersButton_Checked(object sender, RoutedEventArgs e)
         {
+
+            foreach (QuizClass item in MyListView.Items)
+            {
+                if (item.QA == item.ANS && item.QAIsActive == true)
+                {
+                    item.QCorrect = "Correct";
+                }
+
+                else if (item.QB == item.ANS && item.QBIsActive == true)
+                {
+                    item.QCorrect = "Correct";
+                }
+
+                else if (item.QC == item.ANS && item.QCIsActive == true)
+                {
+                    item.QCorrect = "Correct";
+                }
+
+                else if (item.QD == item.ANS && item.QDIsActive == true)
+                {
+                    item.QCorrect = "Correct";
+                }
+                //else
+                //{
+                //    item.QCorrect = "Incorrect";
+                //}
+            }
+
             RevealHideAnswersButton.Content = "Hide Answers";
         }
 

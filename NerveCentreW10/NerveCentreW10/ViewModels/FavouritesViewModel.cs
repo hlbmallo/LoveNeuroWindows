@@ -17,8 +17,6 @@ namespace NerveCentreW10.ViewModels
         public FavouritesViewModel()
         {
             CloudClass cloudclass = new CloudClass();
-
-            CloudBlobContainer container = new CloudBlobContainer(new Uri(cloudclass.GetContainerSasUri(cloudclass.MyCloudClass())));
         }
     }
 }

@@ -4,7 +4,6 @@
     xmlns:data="using:NerveCentreW10.Models"
     x:Class="NerveCentreW10.DataTemplatesDictionary"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:data2="using:NerveCentreW10.ViewModels">
 
     <DataTemplate x:Key="NotesDataTemplate" x:DataType="data:NotesClass">

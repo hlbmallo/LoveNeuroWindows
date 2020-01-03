@@ -6,7 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:data="using:NerveCentreW10.Models">
 
     <Page.Resources>
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" FalseValue="Collapsed" TrueValue="Visible"/>
@@ -23,17 +24,23 @@
                 <TextBlock x:Name="Title" Style="{StaticResource TitleTextBlockStyle}" HorizontalAlignment="Left"/>
                 <Border Style="{StaticResource BorderLine1}"/>
                     <controls:ImageEx x:Name="MyImage"/>
-                <ListView x:Name="MyListView" SelectionMode="None" Margin="0,0,0,64" Tag="">
+                <ListView x:Name="MyListView" SelectionMode="None" Margin="0,0,0,64">
                     <ListView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="data:QuizClass">
                             <StackPanel Style="{StaticResource StackPanelForQuestions}">
-                                <TextBlock x:Name="QQ" Style="{StaticResource QuestionTextStyle}" Text="{Binding QTEXT}"/>
-                                <RadioButton x:Name="QA" Content="{Binding QA}" IsChecked="{Binding QAIsActive, Mode=TwoWay}"/>
-                                <RadioButton x:Name="QB" Content="{Binding QB}" IsChecked="{Binding QBIsActive, Mode=TwoWay}"/>
-                                <RadioButton x:Name="QC" Content="{Binding QC}" IsChecked="{Binding QCIsActive, Mode=TwoWay}"/>
-                                <RadioButton x:Name="QD" Content="{Binding QD}" IsChecked="{Binding QDIsActive, Mode=TwoWay}"/>
-                                <TextBlock Style="{StaticResource TextBlockForCorrect}" x:Name="ANS" Text="{Binding ANS}" Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                                <TextBlock Style="{StaticResource TextBlockForCorrect}" x:Name="REA" Text="{Binding REA}" Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                <TextBlock x:Name="QQ" Style="{StaticResource QuestionTextStyle}" Text="{Binding QTEXT}" Foreground="{Binding QColor}"/>
+                                <RadioButton x:Name="QA" Content="{Binding QA}" IsChecked="{Binding QAIsActive, Mode=TwoWay}" />
+                                <RadioButton x:Name="QB" Content="{Binding QB}" IsChecked="{Binding QBIsActive, Mode=TwoWay}" />
+                                    <RadioButton x:Name="QC" Content="{Binding QC}" IsChecked="{Binding QCIsActive, Mode=TwoWay}" />
+                                    <RadioButton x:Name="QD" Content="{Binding QD}" IsChecked="{Binding QDIsActive, Mode=TwoWay}"/>
+                                    <!--<TextBlock Style="{StaticResource TextBlockForCorrect}" x:Name="ANS" Text="{Binding ANS}" Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}"/>-->
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Style="{StaticResource TextBlockForCorrect}" x:Name="ANS" Text="{Binding ANS}" Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource TextBlockForCorrect}" x:Name="REASTATEMENT" Text="Reasoning: " Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}" TextWrapping="Wrap"/>
+                                    <TextBlock Style="{StaticResource TextBlockForCorrect}" x:Name="REA" Text="{x:Bind REA}" Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}" TextWrapping="Wrap"/>
+                                </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

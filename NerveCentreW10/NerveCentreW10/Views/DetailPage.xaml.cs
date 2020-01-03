@@ -23,8 +23,8 @@ namespace NerveCentreW10.Views
     {
         private UserActivitySession _currentSession;
         public SubsectionModel overall;
-        public Uri MyClickedImage1;
-        public Uri MyClickedImage2;
+        public string MyClickedImage1;
+        public string MyClickedImage2;
 
         public DetailPage()
         {
@@ -121,14 +121,14 @@ namespace NerveCentreW10.Views
         private void MyImage_Tapped(object sender, TappedRoutedEventArgs e)
         {
             var parameters = new SubsectionModel();
-            parameters.ImageUri1 = ((Uri)MyImage.Source);
+            parameters.ImageUri1 = MyClickedImage1;
             Frame.Navigate(typeof(DetailImagePage), parameters, new DrillInNavigationTransitionInfo());
         }
 
         private void MyImage2_Tapped(object sender, TappedRoutedEventArgs e)
         {
             var parameters = new SubsectionModel();
-            parameters.ImageUri2 = ((Uri)MyImage2.Source);
+            parameters.ImageUri2 = MyClickedImage2;
             Frame.Navigate(typeof(DetailImagePage2), parameters, new DrillInNavigationTransitionInfo());
         }
 
@@ -162,7 +162,7 @@ namespace NerveCentreW10.Views
                 imageItems.Add(file);
                 args.Request.Data.SetStorageItems(imageItems);
 
-                RandomAccessStreamReference imageStreamRef = RandomAccessStreamReference.CreateFromUri(MyClickedImage1);
+                RandomAccessStreamReference imageStreamRef = RandomAccessStreamReference.CreateFromUri(new Uri(MyClickedImage1));
                 args.Request.Data.Properties.Thumbnail = imageStreamRef;
                 args.Request.Data.SetBitmap(imageStreamRef);
 
@@ -193,7 +193,7 @@ namespace NerveCentreW10.Views
                 imageItems.Add(file);
                 args.Request.Data.SetStorageItems(imageItems);
 
-                RandomAccessStreamReference imageStreamRef = RandomAccessStreamReference.CreateFromUri(MyClickedImage2);
+                RandomAccessStreamReference imageStreamRef = RandomAccessStreamReference.CreateFromUri(new Uri(MyClickedImage2));
                 args.Request.Data.Properties.Thumbnail = imageStreamRef;
                 args.Request.Data.SetBitmap(imageStreamRef);
 
