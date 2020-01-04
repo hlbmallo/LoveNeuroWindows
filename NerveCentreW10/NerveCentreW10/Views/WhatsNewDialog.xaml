@@ -19,7 +19,7 @@
     <ScrollViewer>
         <StackPanel>
             <TextBlock TextWrapping="WrapWholeWords">
-                <Run>This update brings a new video tutorial on the action potential. It also brings a new section to LoveNeuro called 'Deeper Dives' - it exams certain concepts in more anatomical detail than before, starting with the brachial plexus and </Run><LineBreak/><LineBreak/>
+                <Run>This update brings new subsections to LoveNeuro called 'Deeper Dives' - it exams certain concepts in more anatomical detail than before, starting with the brachial plexus and dural venous sinuses. Enjoy!</Run><LineBreak/><LineBreak/>
                 <Run>Also, if you have a moment, I'd really love to hear your thoughts on LoveNeuro. Just click or tap below to leave a review in the Microsoft Store. Thanks very much!</Run><LineBreak/>
             </TextBlock>
             <HyperlinkButton x:Name="RateAndReviewButtonWhatsNewDialog" Content="Review LoveNeuro on the Microsoft Store" Click="RateAndReviewButtonWhatsNewDialog_Click"/>

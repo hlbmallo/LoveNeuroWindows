@@ -259,7 +259,7 @@ namespace NerveCentreW10.Views
 
                 string json = JsonConvert.SerializeObject(o);
 
-                StorageFile storageFile = await appFolder.CreateFileAsync(overall.Title, CreationCollisionOption.ReplaceExisting);
+                StorageFile storageFile = await appFolder.CreateFileAsync(overall.PageId, CreationCollisionOption.ReplaceExisting);
                 await FileIO.WriteTextAsync(storageFile, json);
 
                 FavouritesButton.Content = "Remove Favourite";

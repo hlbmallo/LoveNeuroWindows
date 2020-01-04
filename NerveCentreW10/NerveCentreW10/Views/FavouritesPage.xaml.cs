@@ -52,6 +52,7 @@ namespace NerveCentreW10.Views
             {
 
             }
+
             else
             {
                 foreach (StorageFile f in favouritesList)

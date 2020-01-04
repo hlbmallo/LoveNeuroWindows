@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp.Helpers;
 
 using NerveCentreW10.Views;
+using Windows.Storage;
 
 namespace NerveCentreW10.Services
 {
@@ -19,6 +20,10 @@ namespace NerveCentreW10.Services
                 shown = true;
                 var dialog = new WhatsNewDialog();
                 await dialog.ShowAsync();
+
+                StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("FavouritesFolder", CreationCollisionOption.OpenIfExists);
+                await appFolder.DeleteAsync();
+
             }
         }
     }
