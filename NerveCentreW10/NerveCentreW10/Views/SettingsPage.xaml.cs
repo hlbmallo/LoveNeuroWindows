@@ -77,7 +77,7 @@ namespace NerveCentreW10.Views
 
         private async void PrivacyPolicyLink_Click(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("https://thegoofyanatomist.weebly.com/privacy-policy-loveneuro.html"));
+            await Launcher.LaunchUriAsync(new Uri("https://www.thegoofyanatomist.com/privacy-policies"));
         }
     }
 }

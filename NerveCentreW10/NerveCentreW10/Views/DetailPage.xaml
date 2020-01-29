@@ -42,7 +42,7 @@
                     <controls2:HtmlBlock x:Name="Description2" Style="{StaticResource HTMLBlockTextStyle1}" Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}"/>
                     <TextBlock x:Name="Subtitle3" Style="{StaticResource TitleTextBlockStyle}" Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />
                     <Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}"/>
-                    <Border Background="White" x:Name="MyBorderForImage2" Visibility="{x:Bind Path=MyImage2.Source, Converter={StaticResource StringVisibilityConverter}}">
+                    <Border Background="White" x:Name="MyBorderForImage2" Visibility="{x:Bind Path=MyClickedImage2, Converter={StaticResource StringVisibilityConverter}}">
                         <Grid>
                             <controls:ImageEx x:Name="MyImage2" Stretch="Uniform" Height="Auto" MaxHeight="700" MaxWidth="1000" HorizontalAlignment="Center" Tapped="MyImage2_Tapped" Margin="5" PlaceholderSource="ms-appx:///Assets/Others/LoadingPlaceholder.png" PlaceholderStretch="Uniform" ImageExFailed="MyImage2_ImageExFailed"/>
                             <TextBlock Text="Click or tap to enable zooming" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="12" Margin="0,0,16,0" FontStyle="Italic"/>

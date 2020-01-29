@@ -1,4 +1,5 @@
-﻿using Microsoft.AppCenter.Analytics;
+﻿using HeartCentreW104.Helpers;
+using Microsoft.AppCenter.Analytics;
 using NerveCentreW10.Models;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace NerveCentreW10.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            CloudClass cloudClass = new CloudClass();
 
             var parameters = (SubsectionModel)e.Parameter;
             DetailImage.Source = new Uri(parameters.ImageUri1);

@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="White">
+    Background="White"
+    CacheMode="BitmapCache" NavigationCacheMode="Enabled">
 
     <GridView x:Name="GridView1" Style="{StaticResource GridViewStyle1}" ItemTemplate="{StaticResource SectionDataTemplate}" ItemClick="GridView1_ItemClick" ItemsSource="{x:Bind ViewModel.SubsectionList}" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
 

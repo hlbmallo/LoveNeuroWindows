@@ -1,10 +1,12 @@
-﻿using Microsoft.AppCenter.Analytics;
+﻿using HeartCentreW104.Helpers;
+using Microsoft.AppCenter.Analytics;
 using Microsoft.Toolkit.Uwp.Helpers;
 using NerveCentreW10.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.UserActivities;
 using Windows.Storage;
@@ -12,7 +14,9 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -33,6 +37,8 @@ namespace NerveCentreW10.Views
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            CloudClass cloudClass = new CloudClass();
+
             SubsectionModel MyClickedItem = (SubsectionModel)e.Parameter;
             overall = MyClickedItem;
             Title.Text = MyClickedItem.Title;
@@ -43,20 +49,21 @@ namespace NerveCentreW10.Views
             Subtitle3.Text = MyClickedItem.Subtitle3;
             Description3.Source = MyClickedItem.Description3;
 
-            MyClickedImage1 = MyClickedItem.ImageUri1;
-            MyClickedImage2 = MyClickedItem.ImageUri2;
+            MyClickedImage1 = cloudClass.GetBlobSasUri(MyClickedItem.ImageUri1);
+            MyImage.Source = new BitmapImage(new Uri(MyClickedImage1, UriKind.Absolute));
 
-            MyImage.Source = MyClickedImage1;
-            if (MyClickedImage2 == null)
+            if (MyClickedItem.ImageUri2 == null)
             {
                 ShareImage2Button.Visibility = Visibility.Collapsed;
+
             }
             else
             {
+                MyClickedImage2 = cloudClass.GetBlobSasUri(MyClickedItem.ImageUri2);
+                MyImage2.Source = new BitmapImage(new Uri(MyClickedImage2, UriKind.Absolute));
                 ShareImage2Button.Visibility = Visibility.Visible;
             }
 
-            MyImage2.Source = MyClickedImage2;
             ClinicalExpander.Header = MyClickedItem.Popup1Title;
             ClinicalExpanderContent.Source = MyClickedItem.Popup1Content;
             ResearchExpander.Header = MyClickedItem.Popup2Title;
@@ -103,7 +110,7 @@ namespace NerveCentreW10.Views
             activity.VisualElements.DisplayText = o.Title;
 
             // Create and set Adaptive Card.
-            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithImage(MyClickedItem.Title, MyClickedItem.Description1, MyClickedItem.ImageUri1.ToString());
+            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithImage(MyClickedItem.Title, MyClickedItem.Description1, cloudClass.GetBlobSasUri(MyClickedItem.ImageUri1));
             Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
             activity.VisualElements.BackgroundColor = color;
 
@@ -156,7 +163,11 @@ namespace NerveCentreW10.Views
 
             try
             {
-                var file = await StorageFile.CreateStreamedFileFromUriAsync(Path.GetFileName(MyClickedImage1.ToString()), new Uri(MyClickedImage1.ToString()), null);
+                //var temporaryFolder = ApplicationData.Current.LocalCacheFolder;
+
+                //var coverpic_file = await temporaryFolder.CreateFileAsync("lol.png");
+
+                var file = await StorageFile.CreateStreamedFileFromUriAsync("loveneuro1.png", new Uri(MyClickedImage1), null);
 
                 List<IStorageItem> imageItems = new List<IStorageItem>();
                 imageItems.Add(file);
@@ -187,7 +198,8 @@ namespace NerveCentreW10.Views
 
             try
             {
-                var file = await StorageFile.CreateStreamedFileFromUriAsync(Path.GetFileName(MyClickedImage2.ToString()), new Uri(MyClickedImage2.ToString()), null);
+                //var file = await StorageFile.CreateStreamedFileFromUriAsync(Path.GetFileName(MyClickedImage2.ToString()), new Uri(MyClickedImage2), null);
+                var file = await StorageFile.CreateStreamedFileFromUriAsync("loveneuro2.png", new Uri(MyClickedImage2), null);
 
                 List<IStorageItem> imageItems = new List<IStorageItem>();
                 imageItems.Add(file);
