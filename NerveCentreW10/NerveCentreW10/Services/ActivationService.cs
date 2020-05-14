@@ -83,7 +83,6 @@ namespace NerveCentreW10.Services
         private IEnumerable<ActivationHandler> GetActivationHandlers()
         {
             yield return Singleton<DevCenterNotificationsService>.Instance;
-            yield return Singleton<SchemeActivationHandler>.Instance;
         }
 
         private bool IsInteractive(object args)

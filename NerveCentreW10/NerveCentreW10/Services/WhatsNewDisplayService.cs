@@ -15,14 +15,14 @@ namespace NerveCentreW10.Services
 
         internal static async Task ShowIfAppropriateAsync()
         {
-            if (SystemInformation.IsAppUpdated && !shown)
+            if (SystemInformation.Instance.IsAppUpdated && !shown)
             {
                 shown = true;
                 var dialog = new WhatsNewDialog();
                 await dialog.ShowAsync();
 
-                //StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("FavouritesFolder", CreationCollisionOption.OpenIfExists);
-                //await appFolder.DeleteAsync();
+                StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("FavouritesFolder", CreationCollisionOption.OpenIfExists);
+                await appFolder.DeleteAsync();
 
             }
         }

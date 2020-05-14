@@ -15,6 +15,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using Xamarin.Essentials;
 
 namespace NerveCentreW10
 {
@@ -34,6 +35,7 @@ namespace NerveCentreW10
             // TODO WTS: Add your app in the app center and set your secret here. More at https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/uwp
             AppCenter.Start("68857c49-67e3-412d-a031-d3e447111cce", typeof(Analytics), typeof(Crashes));
 
+            //VersionTracking.Track();
             // Deferred execution until used. Check https://msdn.microsoft.com/library/dd642331(v=vs.110).aspx for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);
         }

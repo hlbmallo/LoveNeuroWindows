@@ -13,15 +13,15 @@ namespace NerveCentreW10.ViewModels
         {
             MoreResourcesList.Add(new MoreResourcesClass
             {
-                MoreResourcesName = "Heart Centre App",
-                MoreResourcesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconHeartCentreIcon.png")),
+                MoreResourcesName = "Thorax Anatomy App",
+                MoreResourcesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconTGA.png")),
                 MoreResourcesLinkOut1 = new Uri("ms-windows-store://pdp/?ProductId=9wzdncrcs92r"),
                 MoreResourcesLinkOut2 = new Uri("ms-windows-store://pdp/?ProductId=9wzdncrcs92r"),
             });
             MoreResourcesList.Add(new MoreResourcesClass
             {
                 MoreResourcesName = "The Goofy Anatomist Website",
-                MoreResourcesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconTGAWebsite.png")),
+                MoreResourcesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconTGA.png")),
                 MoreResourcesLinkOut1 = new Uri("https://thegoofyanatomist.weebly.com/"),
                 MoreResourcesLinkOut2 = new Uri("https://thegoofyanatomist.weebly.com/"),
             });

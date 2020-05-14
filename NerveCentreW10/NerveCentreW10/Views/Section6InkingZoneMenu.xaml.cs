@@ -138,6 +138,13 @@ namespace NerveCentreW10.Views
                 InkingZoneImage = "ms-appx:///Assets/Inking/MatchingExercise.png",
                 InkingZoneDescription = "This diagram shows the spinal tracts. Try matching the tract names with their functions.",
             });
+            InkingZoneList.Add(new InkingZoneClassDetail
+            {
+                InkingZoneTitle = "Coronal Section with Basal Ganglia",
+                InkingZoneRename = " Coronal Section with Basal Ganglia",
+                InkingZoneImage = "ms-appx:///Assets/Inking/CoronalSection.png",
+                InkingZoneDescription = "This diagram shows a coronal section of the human brain with the basal ganglia, lateral and third ventricles and thalamus shown.",
+            });
         }
 
         private void GridView1_ItemClick(object sender, ItemClickEventArgs e)

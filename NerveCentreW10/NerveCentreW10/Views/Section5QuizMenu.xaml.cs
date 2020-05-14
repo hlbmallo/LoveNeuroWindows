@@ -96,6 +96,15 @@ namespace NerveCentreW10.Views
                 QuizFile = "ms-appx:///Assets/Quizzes/quiz9cranialjson.Json",
                 QuizImage = null,
             });
+            QuizListList.Add(new QuizListClass
+            {
+                QuizId = "section510",
+                QuizNumber = "Quiz 10",
+                QuizName = "Outside the Box",
+                QuizFile = "ms-appx:///Assets/Quizzes/quiz10boxjson.json",
+                QuizImage = null,
+            });
+
 
             GridView1.ItemsSource = QuizListList;
         }
