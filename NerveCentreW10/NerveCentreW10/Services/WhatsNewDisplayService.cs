@@ -21,8 +21,8 @@ namespace NerveCentreW10.Services
                 var dialog = new WhatsNewDialog();
                 await dialog.ShowAsync();
 
-                StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("FavouritesFolder", CreationCollisionOption.OpenIfExists);
-                await appFolder.DeleteAsync();
+                //StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("FavouritesFolder", CreationCollisionOption.OpenIfExists);
+                //await appFolder.DeleteAsync();
 
             }
         }

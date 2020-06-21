@@ -1,165 +1,412 @@
 ﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:data="using:NerveCentreW10.Models"
     x:Class="NerveCentreW10.DataTemplatesDictionary"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:data="using:NerveCentreW10.Models"
     xmlns:data2="using:NerveCentreW10.ViewModels"
     xmlns:helpers="using:NerveCentreW10.Helpers">
 
-    <helpers:CloudClasssVisibilityConverter x:Key="cloudHelper"/>
+    <helpers:CloudClasssVisibilityConverter x:Key="cloudHelper" />
 
     <DataTemplate x:Key="NotesDataTemplate" x:DataType="data:NotesClass">
-        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
-            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
-                          OffsetX="0"
-                          OffsetY="0"
-                          BlurRadius="20"
-                          ShadowOpacity=".8"
-                          HorizontalContentAlignment="Stretch"
-                          VerticalContentAlignment="Stretch"
-                                      Opacity="0">
-                <Grid/>
+        <Grid
+            x:Name="MyGrid"
+            Width="300"
+            Height="200"
+            Padding="10"
+            PointerCanceled="MyGrid_PointerCanceled"
+            PointerCaptureLost="MyGrid_PointerCaptureLost"
+            PointerEntered="MyGrid_PointerEntered"
+            PointerExited="MyGrid_PointerExited"
+            PointerPressed="MyGrid_PointerPressed"
+            PointerReleased="MyGrid_PointerReleased">
+            <controls:DropShadowPanel
+                x:Name="MyDropShadow"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                BlurRadius="20"
+                OffsetX="0"
+                OffsetY="0"
+                Opacity="0"
+                ShadowOpacity=".8"
+                Color="Black">
+                <Grid />
             </controls:DropShadowPanel>
-            <Grid x:Name="MyGrid2" Background="White" Margin="10" BorderBrush="#ebebeb" BorderThickness="2">
+            <Grid
+                x:Name="MyGrid2"
+                Margin="10"
+                Background="White"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.6*"/>
-                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition Height="0.6*" />
+                    <RowDefinition Height="0.4*" />
                 </Grid.RowDefinitions>
 
-                <controls:ImageEx x:Name="MyImage" Source="{x:Bind NotesImage}" Stretch="Uniform" Grid.Row="0" MaxHeight="80" HorizontalAlignment="Center" VerticalAlignment="Center" CacheMode="BitmapCache" CachingStrategy="Internal" IsCacheEnabled="True"/>
-                <Border x:Name="MyBorder2" Grid.Row="1" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="10">
-                    <TextBlock x:Name="MyTextBlock" Text="{x:Bind NotesTitle}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+                <controls:ImageEx
+                    x:Name="MyImage"
+                    Grid.Row="0"
+                    MaxHeight="80"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CacheMode="BitmapCache"
+                    CachingStrategy="Internal"
+                    IsCacheEnabled="True"
+                    Source="{x:Bind NotesImage}"
+                    Stretch="Uniform" />
+                <Border
+                    x:Name="MyBorder2"
+                    Grid.Row="1"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="Transparent">
+                    <TextBlock
+                        x:Name="MyTextBlock"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#2b2b2b"
+                        Text="{x:Bind NotesTitle}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
                 </Border>
             </Grid>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="SectionDataTemplate" x:DataType="data:SubsectionModel">
-        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
-            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
-                          OffsetX="0"
-                          OffsetY="0"
-                          BlurRadius="20"
-                          ShadowOpacity=".8"
-                          HorizontalContentAlignment="Stretch"
-                          VerticalContentAlignment="Stretch"
-                                      Opacity="0">
-                <Grid/>
+        <Grid
+            x:Name="MyGrid"
+            Width="300"
+            Height="200"
+            Padding="10"
+            PointerCanceled="MyGrid_PointerCanceled"
+            PointerCaptureLost="MyGrid_PointerCaptureLost"
+            PointerEntered="MyGrid_PointerEntered"
+            PointerExited="MyGrid_PointerExited"
+            PointerPressed="MyGrid_PointerPressed"
+            PointerReleased="MyGrid_PointerReleased">
+            <controls:DropShadowPanel
+                x:Name="MyDropShadow"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                BlurRadius="20"
+                OffsetX="0"
+                OffsetY="0"
+                Opacity="0"
+                ShadowOpacity=".8"
+                Color="Black">
+                <Grid />
             </controls:DropShadowPanel>
-            <Grid x:Name="MyGrid2" Margin="10" BorderBrush="#ebebeb" BorderThickness="2">
-                <controls:ImageEx x:Name="MyImage" Source="{Binding ImageUri1, Converter={StaticResource cloudHelper}}" HorizontalAlignment="Stretch" Padding="10" MinHeight="80" CacheMode="BitmapCache" CachingStrategy="Internal" IsCacheEnabled="True"/>
-                <Border x:Name="MyBorder2" Background="{StaticResource GridViewAcrylic1}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Padding="10" MinHeight="80">
-                    <TextBlock x:Name="MyTextBlock" Text="{x:Bind Title}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+            <Grid
+                x:Name="MyGrid2"
+                Margin="10"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
+                <controls:ImageEx
+                    x:Name="MyImage"
+                    MinHeight="80"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    CacheMode="BitmapCache"
+                    CachingStrategy="Internal"
+                    IsCacheEnabled="True"
+                    Source="{Binding ImageUri1, Converter={StaticResource cloudHelper}}"
+                    Stretch="UniformToFill" />
+                <Border
+                    x:Name="MyBorder2"
+                    MinHeight="80"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    Background="{StaticResource GridViewAcrylic1}">
+                    <TextBlock
+                        x:Name="MyTextBlock"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#2b2b2b"
+                        Text="{x:Bind Title}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
                 </Border>
             </Grid>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="QuizListDataTemplate" x:DataType="data:QuizListClass">
-        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
-            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
-                          OffsetX="0"
-                          OffsetY="0"
-                          BlurRadius="20"
-                          ShadowOpacity=".8"
-                          HorizontalContentAlignment="Stretch"
-                          VerticalContentAlignment="Stretch"
-                                      Opacity="0">
-                <Grid/>
+        <Grid
+            x:Name="MyGrid"
+            Width="300"
+            Height="200"
+            Padding="10"
+            PointerCanceled="MyGrid_PointerCanceled"
+            PointerCaptureLost="MyGrid_PointerCaptureLost"
+            PointerEntered="MyGrid_PointerEntered"
+            PointerExited="MyGrid_PointerExited"
+            PointerPressed="MyGrid_PointerPressed"
+            PointerReleased="MyGrid_PointerReleased">
+            <controls:DropShadowPanel
+                x:Name="MyDropShadow"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                BlurRadius="20"
+                OffsetX="0"
+                OffsetY="0"
+                Opacity="0"
+                ShadowOpacity=".8"
+                Color="Black">
+                <Grid />
             </controls:DropShadowPanel>
-            <Grid x:Name="MyGrid2" Margin="10" BorderBrush="#ebebeb" BorderThickness="2" Background="#ebebeb">
+            <Grid
+                x:Name="MyGrid2"
+                Margin="10"
+                Background="#ebebeb"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock Text="{x:Bind QuizNumber}" Foreground="#01acff" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
-                    <TextBlock Text="{x:Bind QuizName}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#01acff"
+                        Text="{x:Bind QuizNumber}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#2b2b2b"
+                        Text="{x:Bind QuizName}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
                 </StackPanel>
             </Grid>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="InkingZoneDataTemplate">
-        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
-            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
-                          OffsetX="0"
-                          OffsetY="0"
-                          BlurRadius="20"
-                          ShadowOpacity=".8"
-                          HorizontalContentAlignment="Stretch"
-                          VerticalContentAlignment="Stretch"
-                                      Opacity="0">
-                <Grid/>
+        <Grid
+            x:Name="MyGrid"
+            Width="300"
+            Height="200"
+            Padding="10"
+            PointerCanceled="MyGrid_PointerCanceled"
+            PointerCaptureLost="MyGrid_PointerCaptureLost"
+            PointerEntered="MyGrid_PointerEntered"
+            PointerExited="MyGrid_PointerExited"
+            PointerPressed="MyGrid_PointerPressed"
+            PointerReleased="MyGrid_PointerReleased">
+            <controls:DropShadowPanel
+                x:Name="MyDropShadow"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                BlurRadius="20"
+                OffsetX="0"
+                OffsetY="0"
+                Opacity="0"
+                ShadowOpacity=".8"
+                Color="Black">
+                <Grid />
             </controls:DropShadowPanel>
-            <Grid x:Name="MyGrid2" Margin="10" BorderBrush="#ebebeb" BorderThickness="2">
-                <controls:ImageEx x:Name="MyImage" Source="{Binding InkingZoneImage}" Stretch="UniformToFill"/>
-                <Border x:Name="MyBorder2" Background="{StaticResource GridViewAcrylic1}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Padding="10" MinHeight="80">
-                    <TextBlock x:Name="MyTextBlock" Text="{Binding InkingZoneRename}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+            <Grid
+                x:Name="MyGrid2"
+                Margin="10"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
+                <controls:ImageEx
+                    x:Name="MyImage"
+                    Source="{Binding InkingZoneImage}"
+                    Stretch="UniformToFill" />
+                <Border
+                    x:Name="MyBorder2"
+                    MinHeight="80"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    Background="{StaticResource GridViewAcrylic1}">
+                    <TextBlock
+                        x:Name="MyTextBlock"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#2b2b2b"
+                        Text="{Binding InkingZoneRename}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
                 </Border>
             </Grid>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="InkingZoneEditsDataTemplate">
-        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
-            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
-                          OffsetX="0"
-                          OffsetY="0"
-                          BlurRadius="20"
-                          ShadowOpacity=".8"
-                          HorizontalContentAlignment="Stretch"
-                          VerticalContentAlignment="Stretch"
-                                      Opacity="0">
-                <Grid/>
+        <Grid
+            x:Name="MyGrid"
+            Width="300"
+            Height="200"
+            Padding="10"
+            PointerCanceled="MyGrid_PointerCanceled"
+            PointerCaptureLost="MyGrid_PointerCaptureLost"
+            PointerEntered="MyGrid_PointerEntered"
+            PointerExited="MyGrid_PointerExited"
+            PointerPressed="MyGrid_PointerPressed"
+            PointerReleased="MyGrid_PointerReleased">
+            <controls:DropShadowPanel
+                x:Name="MyDropShadow"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                BlurRadius="20"
+                OffsetX="0"
+                OffsetY="0"
+                Opacity="0"
+                ShadowOpacity=".8"
+                Color="Black">
+                <Grid />
             </controls:DropShadowPanel>
-            <Grid x:Name="MyGrid2" Margin="10" BorderBrush="#ebebeb" BorderThickness="2" Background="#ebebeb">
+            <Grid
+                x:Name="MyGrid2"
+                Margin="10"
+                Background="#ebebeb"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock Text="{Binding Name}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#2b2b2b"
+                        Text="{Binding Name}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
                 </StackPanel>
             </Grid>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="VideoTutorialsDataTemplate" x:DataType="data:VideoTutorialsClass">
-        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
-            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
-                          OffsetX="0"
-                          OffsetY="0"
-                          BlurRadius="20"
-                          ShadowOpacity=".8"
-                          HorizontalContentAlignment="Stretch"
-                          VerticalContentAlignment="Stretch"
-                                      Opacity="0">
-                <Grid/>
+        <Grid
+            x:Name="MyGrid"
+            Width="300"
+            Height="200"
+            Padding="10"
+            PointerCanceled="MyGrid_PointerCanceled"
+            PointerCaptureLost="MyGrid_PointerCaptureLost"
+            PointerEntered="MyGrid_PointerEntered"
+            PointerExited="MyGrid_PointerExited"
+            PointerPressed="MyGrid_PointerPressed"
+            PointerReleased="MyGrid_PointerReleased">
+            <controls:DropShadowPanel
+                x:Name="MyDropShadow"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                BlurRadius="20"
+                OffsetX="0"
+                OffsetY="0"
+                Opacity="0"
+                ShadowOpacity=".8"
+                Color="Black">
+                <Grid />
             </controls:DropShadowPanel>
-            <Grid x:Name="MyGrid2" Margin="10" BorderBrush="#ebebeb" BorderThickness="2">
-                <controls:ImageEx x:Name="MyImage" Source="{Binding VideoTutorialsThumbnail}" Stretch="UniformToFill"/>
-                <Border x:Name="MyBorder2" Background="{StaticResource GridViewAcrylic1}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Padding="10" MinHeight="80">
-                    <TextBlock x:Name="MyTextBlock" Text="{x:Bind VideoTutorialsName}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+            <Grid
+                x:Name="MyGrid2"
+                Margin="10"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
+                <controls:ImageEx
+                    x:Name="MyImage"
+                    Source="{Binding VideoTutorialsThumbnail}"
+                    Stretch="UniformToFill" />
+                <Border
+                    x:Name="MyBorder2"
+                    MinHeight="80"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    Background="{StaticResource GridViewAcrylic1}">
+                    <TextBlock
+                        x:Name="MyTextBlock"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#2b2b2b"
+                        Text="{x:Bind VideoTutorialsName}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
                 </Border>
             </Grid>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="MoreResources1DataTemplate" x:DataType="data:NotesClass">
-        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
-            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
-                          OffsetX="0"
-                          OffsetY="0"
-                          BlurRadius="20"
-                          ShadowOpacity=".8"
-                          HorizontalContentAlignment="Stretch"
-                          VerticalContentAlignment="Stretch"
-                                      Opacity="0">
-                <Grid/>
+        <Grid
+            x:Name="MyGrid"
+            Width="300"
+            Height="200"
+            Padding="10"
+            PointerCanceled="MyGrid_PointerCanceled"
+            PointerCaptureLost="MyGrid_PointerCaptureLost"
+            PointerEntered="MyGrid_PointerEntered"
+            PointerExited="MyGrid_PointerExited"
+            PointerPressed="MyGrid_PointerPressed"
+            PointerReleased="MyGrid_PointerReleased">
+            <controls:DropShadowPanel
+                x:Name="MyDropShadow"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                BlurRadius="20"
+                OffsetX="0"
+                OffsetY="0"
+                Opacity="0"
+                ShadowOpacity=".8"
+                Color="Black">
+                <Grid />
             </controls:DropShadowPanel>
-            <Grid x:Name="MyGrid2" Background="White" Margin="10" BorderBrush="#ebebeb" BorderThickness="2">
+            <Grid
+                x:Name="MyGrid2"
+                Margin="10"
+                Background="White"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.6*"/>
-                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition Height="0.6*" />
+                    <RowDefinition Height="0.4*" />
                 </Grid.RowDefinitions>
 
-                <controls:ImageEx x:Name="MyImage" Source="{x:Bind NotesImage}" Stretch="Uniform" Grid.Row="0" MaxHeight="80" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Border x:Name="MyBorder2" Grid.Row="1" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="10">
-                    <TextBlock x:Name="MyTextBlock" Text="{x:Bind NotesTitle}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+                <controls:ImageEx
+                    x:Name="MyImage"
+                    Grid.Row="0"
+                    MaxHeight="80"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="{x:Bind NotesImage}"
+                    Stretch="Uniform" />
+                <Border
+                    x:Name="MyBorder2"
+                    Grid.Row="1"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="Transparent">
+                    <TextBlock
+                        x:Name="MyTextBlock"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#2b2b2b"
+                        Text="{x:Bind NotesTitle}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
                 </Border>
             </Grid>
         </Grid>
@@ -167,47 +414,123 @@
 
 
     <DataTemplate x:Key="MoreResources2DataTemplate" x:DataType="data:MoreResourcesClass">
-        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
-            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
-                          OffsetX="0"
-                          OffsetY="0"
-                          BlurRadius="20"
-                          ShadowOpacity=".8"
-                          HorizontalContentAlignment="Stretch"
-                          VerticalContentAlignment="Stretch"
-                                      Opacity="0">
-                <Grid/>
+        <Grid
+            x:Name="MyGrid"
+            Width="300"
+            Height="200"
+            Padding="10"
+            PointerCanceled="MyGrid_PointerCanceled"
+            PointerCaptureLost="MyGrid_PointerCaptureLost"
+            PointerEntered="MyGrid_PointerEntered"
+            PointerExited="MyGrid_PointerExited"
+            PointerPressed="MyGrid_PointerPressed"
+            PointerReleased="MyGrid_PointerReleased">
+            <controls:DropShadowPanel
+                x:Name="MyDropShadow"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                BlurRadius="20"
+                OffsetX="0"
+                OffsetY="0"
+                Opacity="0"
+                ShadowOpacity=".8"
+                Color="Black">
+                <Grid />
             </controls:DropShadowPanel>
-            <Grid x:Name="MyGrid2" Background="White" Margin="10" BorderBrush="#ebebeb" BorderThickness="2">
+            <Grid
+                x:Name="MyGrid2"
+                Margin="10"
+                Background="White"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.6*"/>
-                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition Height="0.6*" />
+                    <RowDefinition Height="0.4*" />
                 </Grid.RowDefinitions>
 
-                <controls:ImageEx x:Name="MyImage" Source="{x:Bind MoreResourcesImage}" Stretch="Uniform" Grid.Row="0" MaxHeight="80" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Border x:Name="MyBorder2" Grid.Row="1" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Padding="10">
-                    <TextBlock x:Name="MyTextBlock" Text="{x:Bind MoreResourcesName}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+                <controls:ImageEx
+                    x:Name="MyImage"
+                    Grid.Row="0"
+                    MaxHeight="80"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="{x:Bind MoreResourcesImage}"
+                    Stretch="Uniform" />
+                <Border
+                    x:Name="MyBorder2"
+                    Grid.Row="1"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="Transparent">
+                    <TextBlock
+                        x:Name="MyTextBlock"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#2b2b2b"
+                        Text="{x:Bind MoreResourcesName}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
                 </Border>
             </Grid>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="FavouritesTemplate" x:DataType="data:SubsectionModel">
-        <Grid x:Name="MyGrid" Padding="10" PointerEntered="MyGrid_PointerEntered" PointerExited="MyGrid_PointerExited" PointerCanceled="MyGrid_PointerCanceled" PointerCaptureLost="MyGrid_PointerCaptureLost" PointerPressed="MyGrid_PointerPressed" PointerReleased="MyGrid_PointerReleased" Height="200" Width="300">
-            <controls:DropShadowPanel x:Name="MyDropShadow" Color="Black"
-                          OffsetX="0"
-                          OffsetY="0"
-                          BlurRadius="20"
-                          ShadowOpacity=".8"
-                          HorizontalContentAlignment="Stretch"
-                          VerticalContentAlignment="Stretch"
-                                      Opacity="0">
-                <Grid/>
+        <Grid
+            x:Name="MyGrid"
+            Width="300"
+            Height="200"
+            Padding="10"
+            PointerCanceled="MyGrid_PointerCanceled"
+            PointerCaptureLost="MyGrid_PointerCaptureLost"
+            PointerEntered="MyGrid_PointerEntered"
+            PointerExited="MyGrid_PointerExited"
+            PointerPressed="MyGrid_PointerPressed"
+            PointerReleased="MyGrid_PointerReleased">
+            <controls:DropShadowPanel
+                x:Name="MyDropShadow"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                BlurRadius="20"
+                OffsetX="0"
+                OffsetY="0"
+                Opacity="0"
+                ShadowOpacity=".8"
+                Color="Black">
+                <Grid />
             </controls:DropShadowPanel>
-            <Grid x:Name="MyGrid2" Margin="10" BorderBrush="#ebebeb" BorderThickness="2">
-                <controls:ImageEx x:Name="MyImage" Source="{Binding ImageUri1, Converter={StaticResource cloudHelper}}" HorizontalAlignment="Stretch" Padding="10" MinHeight="80"/>
-                <Border x:Name="MyBorder2" Background="{StaticResource GridViewAcrylic1}" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Padding="10" MinHeight="80">
-                    <TextBlock x:Name="MyTextBlock" Text="{x:Bind Title}" Foreground="#2b2b2b" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="16"/>
+            <Grid
+                x:Name="MyGrid2"
+                Margin="10"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
+                <controls:ImageEx
+                    x:Name="MyImage"
+                    MinHeight="80"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Source="{Binding ImageUri1, Converter={StaticResource cloudHelper}}"
+                    Stretch="UniformToFill" />
+                <Border
+                    x:Name="MyBorder2"
+                    MinHeight="80"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    Background="{StaticResource GridViewAcrylic1}">
+                    <TextBlock
+                        x:Name="MyTextBlock"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#2b2b2b"
+                        Text="{x:Bind Title}"
+                        TextAlignment="Center"
+                        TextWrapping="Wrap" />
                 </Border>
             </Grid>
         </Grid>
