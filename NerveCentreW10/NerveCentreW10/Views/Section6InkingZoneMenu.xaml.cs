@@ -70,9 +70,30 @@ namespace NerveCentreW10.Views
 
             InkingZoneList.Add(new InkingZoneClassDetail
             {
+                InkingZoneTitle = "Basic Neuron",
+                InkingZoneRename = "Basic Neuron",
+                InkingZoneImage = "ms-appx:///Assets/Inking/Neuron.png",
+                InkingZoneDescription = "This diagram shows a typical multipolar neuron. Features of note include:<ul><li>Cell body</li><li>Axon</li><li>Nucleus</li><li>Dendrites</li><li>K+ and Na+ ion channels</li><li>Na+/K+ ATPase pump</li><li>Presynaptic terminal</li><li>Vesicles containing neurotransmitter</li></ul>",
+            });
+            InkingZoneList.Add(new InkingZoneClassDetail
+            {
+                InkingZoneTitle = "Resting Membrane Potential",
+                InkingZoneRename = " Resting Membrane Potential",
+                InkingZoneImage = "ms-appx:///Assets/Inking/rmp.png",
+                InkingZoneDescription = "Resting Membrane Potential",
+            });
+            InkingZoneList.Add(new InkingZoneClassDetail
+            {
+                InkingZoneTitle = "Synapse",
+                InkingZoneRename = "Synapse",
+                InkingZoneImage = "ms-appx:///Assets/Inking/Synapse.png",
+                InkingZoneDescription = "This diagram shows a typical synapse. Features of note include:<ul><li>Presynaptic neuron</li><li>Postsynaptic neuron</li><li>Presynaptic terminal</li><li>Vesicles (containing neurotransmitter molecules)</li><li>Calcium ion channels and calcium ions</li><li>Synaptic cleft</li><li>Neurotransmitter receptors</li><li>Sodium ion channels and sodium ions</li></ul>",
+            });
+            InkingZoneList.Add(new InkingZoneClassDetail
+            {
                 InkingZoneTitle = "Lateral Aspect of the Brain",
                 InkingZoneRename = "Lateral Aspect of the Brain",
-                InkingZoneImage = "ms-appx:///Assets/Inking/LateralBrain4.png",
+                InkingZoneImage = "ms-appx:///Assets/Inking/LateralBrain5.png",
                 InkingZoneDescription = "This diagram shows the lateral aspect of the brain. Features of note include:<ul><li>The four lobes of the cerebral cortex (frontal, parietal, occipital, temporal)</li><li>Cerebellum</li><li>Pons</li><li>Medulla oblongata</li></ul>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
@@ -81,13 +102,6 @@ namespace NerveCentreW10.Views
                 InkingZoneRename = "Medial Aspect of the Brain",
                 InkingZoneImage = "ms-appx:///Assets/Inking/MedialBrain.png",
                 InkingZoneDescription = "This diagram shows the medial aspect of the brain. Features of note include:<ul><li>The four lobes of the cerebral cortex (frontal, parietal, occipital, temporal)</li><li>Cerebellum</li><li>Brainstem (midbrain, pons, medulla oblongata)</li><li>Thalamus</li><li>Hypothalamus</li><li>Corpus callosum</li><li>Pituitary gland</li>",
-            });
-            InkingZoneList.Add(new InkingZoneClassDetail
-            {
-                InkingZoneTitle = "Basic Neuron",
-                InkingZoneRename = "Basic Neuron",
-                InkingZoneImage = "ms-appx:///Assets/Inking/Neuron.png",
-                InkingZoneDescription = "This diagram shows a typical multipolar neuron. Features of note include:<ul><li>Cell body</li><li>Axon</li><li>Nucleus</li><li>Dendrites</li><li>K+ and Na+ ion channels</li><li>Na+/K+ ATPase pump</li><li>Presynaptic terminal</li><li>Vesicles containing neurotransmitter</li></ul>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
@@ -119,17 +133,31 @@ namespace NerveCentreW10.Views
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
-                InkingZoneTitle = "Synapse",
-                InkingZoneRename = "Synapse",
-                InkingZoneImage = "ms-appx:///Assets/Inking/Synapse.png",
-                InkingZoneDescription = "This diagram shows a typical synapse. Features of note include:<ul><li>Presynaptic neuron</li><li>Postsynaptic neuron</li><li>Presynaptic terminal</li><li>Vesicles (containing neurotransmitter molecules)</li><li>Calcium ion channels and calcium ions</li><li>Synaptic cleft</li><li>Neurotransmitter receptors</li><li>Sodium ion channels and sodium ions</li></ul>",
-            });
-            InkingZoneList.Add(new InkingZoneClassDetail
-            {
                 InkingZoneTitle = "Ventricles of the Brain",
                 InkingZoneRename = "Ventricles of the Brain",
                 InkingZoneImage = "ms-appx:///Assets/Inking/Ventricles.png",
                 InkingZoneDescription = "This diagram shows the ventricles of the brain. Features of note include:<ul><li>Lateral ventricles (left and right)</li><li>Interventricular foramen</li><li>Third ventricle</li><li>Cerebral aqueduct</li><li>Fourth ventricle</li><li>Central canal of the spinal cord</li><li>Lateral apertures (left and right)</li><li>Median aperture</li></ul>",
+            });
+            InkingZoneList.Add(new InkingZoneClassDetail
+            {
+                InkingZoneTitle = "Coronal Section with Basal Ganglia",
+                InkingZoneRename = " Coronal Section with Basal Ganglia",
+                InkingZoneImage = "ms-appx:///Assets/Inking/CoronalSection.png",
+                InkingZoneDescription = "This diagram shows a coronal section of the human brain with the basal ganglia, lateral and third ventricles and thalamus shown.",
+            });
+            InkingZoneList.Add(new InkingZoneClassDetail
+            {
+                InkingZoneTitle = "Brainstem",
+                InkingZoneRename = " Brainstem",
+                InkingZoneImage = "ms-appx:///Assets/Inking/brainstem.png",
+                InkingZoneDescription = "brainstem",
+            });
+            InkingZoneList.Add(new InkingZoneClassDetail
+            {
+                InkingZoneTitle = "Spinal Cord Cross-Section",
+                InkingZoneRename = " Spinal Cord Cross-Section",
+                InkingZoneImage = "ms-appx:///Assets/Inking/spinalcrosssection.png",
+                InkingZoneDescription = "Spinal Cord Cross-Section",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
@@ -140,10 +168,10 @@ namespace NerveCentreW10.Views
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
-                InkingZoneTitle = "Coronal Section with Basal Ganglia",
-                InkingZoneRename = " Coronal Section with Basal Ganglia",
-                InkingZoneImage = "ms-appx:///Assets/Inking/CoronalSection.png",
-                InkingZoneDescription = "This diagram shows a coronal section of the human brain with the basal ganglia, lateral and third ventricles and thalamus shown.",
+                InkingZoneTitle = "Ventricles Matching Exercise",
+                InkingZoneRename = " Ventricles Matching Exercise",
+                InkingZoneImage = "ms-appx:///Assets/Inking/definitionmatch.png",
+                InkingZoneDescription = "Ventricles Matching Exercise",
             });
         }
 
