@@ -26,7 +26,8 @@
     <ScrollViewer>
         <StackPanel>
             <TextBlock TextWrapping="WrapWholeWords">
-                <Run>This update features a brand new section on the cerebellum - check it out in Section 2.11.</Run><LineBreak /><LineBreak />
+                <Run>This updated brings new templates to the Inking Zone (there are now 15 in total).</Run><LineBreak /><LineBreak />
+                <!--<Run>This update features a brand new section on the cerebellum - check it out in Section 2.11.</Run><LineBreak /><LineBreak />-->
                 <Run>Also, if you have a moment, I'd really love to hear your thoughts on LoveNeuro. Just click or tap below to leave a review in the Microsoft Store. Thanks very much!</Run><LineBreak />
             </TextBlock>
             <HyperlinkButton

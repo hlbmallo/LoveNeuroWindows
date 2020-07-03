@@ -10,55 +10,91 @@
         <Grid x:Name="MajorContentArea">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="52"/>
-                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="52" />
+                <ColumnDefinition Width="0.5*" />
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1">
-                <TextBlock x:Name="Title" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Style="{StaticResource TitleTextBlockStyle}" Margin="2" HorizontalAlignment="Center" HorizontalTextAlignment="Center"/>
-                <CommandBar DefaultLabelPosition="Right" Background="#ebebeb" HorizontalAlignment="Center">
-                    <AppBarButton HorizontalAlignment="Right" Icon="Save" Label="Save as Image" Click="SaveButton_Click"/>
+            <StackPanel
+                Grid.Row="0"
+                Grid.RowSpan="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="1">
+                <TextBlock
+                    x:Name="Title"
+                    Grid.Row="0"
+                    Grid.RowSpan="1"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="1"
+                    Margin="2"
+                    HorizontalAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource TitleTextBlockStyle}"
+                    TextTrimming="WordEllipsis" />
+                <CommandBar
+                    HorizontalAlignment="Center"
+                    Background="#ebebeb"
+                    DefaultLabelPosition="Right">
+                    <AppBarButton
+                        HorizontalAlignment="Right"
+                        Click="SaveButton_Click"
+                        Icon="Save"
+                        Label="Save as Image" />
                     <!--<AppBarButton HorizontalAlignment="Right" Icon="Print" Label="Print" Click="PrintButton_Click"/>-->
                     <!--<AppBarButton HorizontalAlignment="Right" Icon="Upload" Label="Load Ink" Click="LoadInkStrokes_Click"/>-->
                     <!--<AppBarButton HorizontalAlignment="Right" Icon="Download" Label="Save Ink" Click="SaveInkStrokes_Click"/>-->
-                    <AppBarButton Content="Show Popup (using Offset)" Click="ShowPopupOffsetClicked" Icon="SaveLocal" Label="Save as Ink Strokes"/>
+                    <AppBarButton
+                        Click="ShowPopupOffsetClicked"
+                        Content="Show Popup (using Offset)"
+                        Icon="SaveLocal"
+                        Label="Save as Ink Strokes" />
                 </CommandBar>
             </StackPanel>
 
 
-            <Grid Grid.Row="1" Grid.RowSpan="1" Grid.ColumnSpan="1" Grid.Column="0">
-                <InkToolbar x:Name="MyInkToolbar" Orientation="Vertical" TargetInkCanvas="{x:Bind MyInkCanvas}" VerticalAlignment="Center" Background="#ebebeb">
-                    <InkToolbarCustomToolButton x:Name="ZoomIn" Click="ZoomIn_Click" ToolTipService.ToolTip="Zoom In" >
+            <Grid
+                Grid.Row="1"
+                Grid.RowSpan="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="1">
+                <InkToolbar
+                    x:Name="MyInkToolbar"
+                    VerticalAlignment="Center"
+                    Background="#ebebeb"
+                    Orientation="Vertical"
+                    TargetInkCanvas="{x:Bind MyInkCanvas}">
+                    <InkToolbarCustomToolButton
+                        x:Name="ZoomIn"
+                        Click="ZoomIn_Click"
+                        ToolTipService.ToolTip="Zoom In">
                         <InkToolbarCustomToolButton.Content>
-                            <SymbolIcon Symbol="ZoomIn"/>
+                            <SymbolIcon Symbol="ZoomIn" />
                         </InkToolbarCustomToolButton.Content>
                     </InkToolbarCustomToolButton>
-                    <InkToolbarCustomToolButton x:Name="ZoomOut" Click="ZoomOut_Click" ToolTipService.ToolTip="Zoom Out" >
+                    <InkToolbarCustomToolButton
+                        x:Name="ZoomOut"
+                        Click="ZoomOut_Click"
+                        ToolTipService.ToolTip="Zoom Out">
                         <InkToolbarCustomToolButton.Content>
-                            <SymbolIcon Symbol="ZoomOut"/>
+                            <SymbolIcon Symbol="ZoomOut" />
                         </InkToolbarCustomToolButton.Content>
                     </InkToolbarCustomToolButton>
                     <InkToolbarCustomToggleButton
-                            Name="touchInkingButton"
-                            Checked="TouchInking_Checked"
-                            Unchecked="TouchInking_Unchecked"
-                            ToolTipService.ToolTip="Ink with Touch">
-                        <FontIcon
-                                FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                                Glyph="&#xED5F;"/>
+                        Name="touchInkingButton"
+                        Checked="TouchInking_Checked"
+                        ToolTipService.ToolTip="Ink with Touch"
+                        Unchecked="TouchInking_Unchecked">
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xED5F;" />
                     </InkToolbarCustomToggleButton>
                     <InkToolbarCustomToggleButton
-                            Name="mouseInkingButton"
-                            Checked="MouseInking_Checked"
-                            Unchecked="MouseInking_Unchecked"
-                            ToolTipService.ToolTip="Ink with Mouse">
-                        <FontIcon
-                            FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                            Glyph="&#xE962;" />
+                        Name="mouseInkingButton"
+                        Checked="MouseInking_Checked"
+                        ToolTipService.ToolTip="Ink with Mouse"
+                        Unchecked="MouseInking_Unchecked">
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE962;" />
                     </InkToolbarCustomToggleButton>
 
                 </InkToolbar>
@@ -66,21 +102,26 @@
 
             <ScrollViewer
                 Name="canvasScroll"
-                Grid.Column="1"
-                Grid.ColumnSpan="1"
                 Grid.Row="1"
                 Grid.RowSpan="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
                 Margin="8,0,8,0"
-                ScrollViewer.VerticalScrollBarVisibility="Auto"
                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
                 ZoomMode="Enabled">
-                <Grid Background="{StaticResource InkCanvasBackground}"
-                      Width="{Binding ElementName=MyInkCanvas, Path=Width}"
-                      Height="{Binding ElementName=MyInkCanvas, Path=Height}">
-                    <Image x:Name="MyImage" Stretch="None" ImageOpened="MyImage_ImageOpened" />
-                    <InkCanvas x:Name="MyInkCanvas"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"/>
+                <Grid
+                    Width="{Binding ElementName=MyInkCanvas, Path=Width}"
+                    Height="{Binding ElementName=MyInkCanvas, Path=Height}"
+                    Background="{StaticResource InkCanvasBackground}">
+                    <Image
+                        x:Name="MyImage"
+                        ImageOpened="MyImage_ImageOpened"
+                        Stretch="None" />
+                    <InkCanvas
+                        x:Name="MyInkCanvas"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch" />
                 </Grid>
             </ScrollViewer>
 
@@ -89,31 +130,67 @@
                     <Image x:Name="MyImagePreview" Grid.Row="2" />
                 </StackPanel>
             </Grid>
-            <Grid x:Name="Container"/>
+            <Grid x:Name="Container" />
         </Grid>
-        
-        <Grid x:Name="StandardPopup" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-            <Border x:Name="PopupBorder" BorderThickness="2" Padding="20" Background="#ebebeb" BorderBrush="#ebebeb">
+
+        <Grid
+            x:Name="StandardPopup"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="Collapsed">
+            <Border
+                x:Name="PopupBorder"
+                Padding="20"
+                Background="#ebebeb"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
                 <StackPanel>
-                    <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Give a name to your newly inked template:" Margin="0,0,0,12" />
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Style="{ThemeResource BaseTextBlockStyle}"
+                        Text="Give a name to your newly inked template:" />
                     <TextBox x:Name="InkRenameBox" IsEnabled="True" />
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="InkRenameConfirm" Click="InkRenameConfirm_Click" Content="Confirm" Background="Transparent" Style="{StaticResource ButtonRevealStyle}"/>
-                        <Button x:Name="CancelButton" Click="CancelButton_Click" Content="Cancel" Background="Transparent" Style="{StaticResource ButtonRevealStyle}"/>
+                        <Button
+                            x:Name="InkRenameConfirm"
+                            Background="Transparent"
+                            Click="InkRenameConfirm_Click"
+                            Content="Confirm"
+                            Style="{StaticResource ButtonRevealStyle}" />
+                        <Button
+                            x:Name="CancelButton"
+                            Background="Transparent"
+                            Click="CancelButton_Click"
+                            Content="Cancel"
+                            Style="{StaticResource ButtonRevealStyle}" />
                     </StackPanel>
                 </StackPanel>
             </Border>
         </Grid>
 
-        <Grid x:Name="ImFinishedPopup" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-            <Border BorderThickness="2" Padding="20" Background="#ebebeb" BorderBrush="#ebebeb">
+        <Grid
+            x:Name="ImFinishedPopup"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="Collapsed">
+            <Border
+                Padding="20"
+                Background="#ebebeb"
+                BorderBrush="#ebebeb"
+                BorderThickness="2">
                 <StackPanel>
-                    <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Saved. Find it again in the My Custom Inking tab on the previous page." Margin="0,0,0,12" />
-                    <Button x:Name="CloseSavedDialog" Click="CloseSavedDialog_Click" Content="I'm finished"/>
+                    <TextBlock
+                        Margin="0,0,0,12"
+                        Style="{ThemeResource BaseTextBlockStyle}"
+                        Text="Saved. Find it again in the My Custom Inking tab on the previous page." />
+                    <Button
+                        x:Name="CloseSavedDialog"
+                        Click="CloseSavedDialog_Click"
+                        Content="I'm finished" />
                 </StackPanel>
             </Border>
         </Grid>
 
     </Grid>
-    
+
 </Page>

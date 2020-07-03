@@ -140,15 +140,15 @@ namespace NerveCentreW10.Views
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
-                InkingZoneTitle = "Coronal Section with Basal Ganglia",
+                InkingZoneTitle = "Coronal Section with Basal Ganglia and Corpus Callosum",
                 InkingZoneRename = " Coronal Section with Basal Ganglia",
                 InkingZoneImage = "ms-appx:///Assets/Inking/CoronalSection.png",
                 InkingZoneDescription = "This diagram shows a coronal section of the human brain with the basal ganglia, lateral and third ventricles and thalamus shown.",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
-                InkingZoneTitle = "Brainstem",
-                InkingZoneRename = " Brainstem",
+                InkingZoneTitle = "Brainstem (Anterior)",
+                InkingZoneRename = " Brainstem (Anterior)",
                 InkingZoneImage = "ms-appx:///Assets/Inking/brainstem.png",
                 InkingZoneDescription = "brainstem",
             });
