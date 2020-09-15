@@ -184,6 +184,7 @@
     <Compile Include="Models\NotesClass.cs" />
     <Compile Include="Models\QuizClass.cs" />
     <Compile Include="Models\QuizListClass.cs" />
+    <Compile Include="Models\QuizScore.cs" />
     <Compile Include="Models\SampleImage.cs" />
     <Compile Include="Models\SampleOrder.cs" />
     <Compile Include="Models\SubsectionModel.cs" />
@@ -274,6 +275,9 @@
     </Compile>
     <Compile Include="Views\VideoTutorialsDetail.xaml.cs">
       <DependentUpon>VideoTutorialsDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewScores.xaml.cs">
+      <DependentUpon>ViewScores.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WhatsNewDialog.xaml.cs">
       <DependentUpon>WhatsNewDialog.xaml</DependentUpon>
@@ -403,6 +407,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\VideoTutorialsDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ViewScores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

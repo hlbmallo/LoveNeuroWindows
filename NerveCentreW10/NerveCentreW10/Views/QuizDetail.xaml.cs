@@ -11,6 +11,11 @@ using NerveCentreW10.Helpers;
 using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
+using Windows.Storage;
+using Newtonsoft.Json;
+using Xamarin.Essentials;
+using System.Collections.ObjectModel;
+using System.IO;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,7 +28,7 @@ namespace NerveCentreW10.Views
     {
         public int OverallScore;
         private UserActivitySession _currentSession;
-
+        public ObservableCollection<QuizScore> quizScores { get; set; }
         private Color colorSwatch1;
         private Color colorSwatch2;
         private Color colorSwatch3;
@@ -166,9 +171,38 @@ namespace NerveCentreW10.Views
                 }
             }
 
-            var dialog = new MessageDialog("Overall Score: " + OverallScore);
+            var dialog = new ContentDialog();
+            dialog.Content = "Your overall score is: " + OverallScore;
+                dialog.PrimaryButtonText = "Ok";
+            dialog.SecondaryButtonText = "Save score";
+            dialog.PrimaryButtonClick += Dialog_PrimaryButtonClick;
+            dialog.SecondaryButtonClick += Dialog_SecondaryButtonClick;
             await dialog.ShowAsync();
 
+        }
+
+        private async void Dialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            var helper = new RoamingObjectStorageHelper();
+            var temp1 = await helper.ReadFileAsync<ObservableCollection<QuizScore>>("obsCollection.txt");
+
+            var contentToDeserialise = new QuizScore()
+            {
+                MyScore = OverallScore,
+                MyDateForThatScore = DateTime.Now,
+                QuizName = Title.Text,
+            };
+
+            temp1.Add(contentToDeserialise);
+
+
+
+            await helper.SaveFileAsync("obsCollection.txt", temp1);
+            OverallScore = 0;
+        }
+
+        private void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
             OverallScore = 0;
         }
 
@@ -208,6 +242,38 @@ namespace NerveCentreW10.Views
         private void RevealHideAnswersButton_Unchecked(object sender, RoutedEventArgs e)
         {
             RevealHideAnswersButton.Content = "Show Answers";
+        }
+
+        private void ViewScoresButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ViewScores));
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            var helper = new RoamingObjectStorageHelper();
+
+            var checkIfExistsFile = await helper.FileExistsAsync("obsCollection.txt");
+            if (checkIfExistsFile == true)
+            {
+
+            }
+            else
+            {
+
+
+                //var file = File.Create(FileSystem.AppDataDirectory + "/obsCollection.txt");
+                var obsCollection = new ObservableCollection<QuizScore>();
+                //var json = JsonConvert.SerializeObject(obsCollection);
+                var temp1 = new QuizScore()
+                {
+                    MyDateForThatScore = DateTime.Now,
+                    MyScore = 1,
+                    QuizName = Title.Text,
+                };
+                obsCollection.Add(temp1);
+                var contentToSaveToFile = await helper.SaveFileAsync("obsCollection.txt", obsCollection);
+            }
         }
     }
 }
