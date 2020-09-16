@@ -12,5 +12,6 @@ namespace NerveCentreW10.Models
         public DateTime MyDateForThatScore { get; set; }
         public string QuizName { get; set; }
 
+        public double MyScoreInPercent { get; set; }
     }
 }

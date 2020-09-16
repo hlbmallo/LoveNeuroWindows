@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using Xamarin.Essentials;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Globalization;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -191,7 +192,9 @@ namespace NerveCentreW10.Views
                 MyScore = OverallScore,
                 MyDateForThatScore = DateTime.Now,
                 QuizName = Title.Text,
-            };
+                MyScoreInPercent = MyListView.Items.Count,
+      
+        };
 
             temp1.Add(contentToDeserialise);
 
@@ -270,6 +273,7 @@ namespace NerveCentreW10.Views
                     MyDateForThatScore = DateTime.Now,
                     MyScore = 1,
                     QuizName = Title.Text,
+                    MyScoreInPercent = 10,
                 };
                 obsCollection.Add(temp1);
                 var contentToSaveToFile = await helper.SaveFileAsync("obsCollection.txt", obsCollection);

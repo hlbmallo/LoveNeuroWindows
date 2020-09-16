@@ -114,6 +114,11 @@ namespace NerveCentreW10.Views
             var MyClickedItem = (QuizListClass)e.ClickedItem;
             Frame.Navigate(typeof(QuizDetail), MyClickedItem, new DrillInNavigationTransitionInfo());
         }
+
+        private void ViewScoresButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ViewScores));
+        }
     }
 }
 

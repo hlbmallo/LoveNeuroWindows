@@ -4,9 +4,36 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
-    <GridView x:Name="GridView1" Style="{StaticResource GridViewStyle1}" ItemTemplate="{StaticResource QuizListDataTemplate}" ItemClick="GridView1_ItemClick" ItemContainerStyle="{StaticResource GridViewItemStyle1}"/>
-
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="48" />
+        </Grid.RowDefinitions>
+        <GridView
+            x:Name="GridView1"
+            Grid.Row="0"
+            ItemClick="GridView1_ItemClick"
+            ItemContainerStyle="{StaticResource GridViewItemStyle1}"
+            ItemTemplate="{StaticResource QuizListDataTemplate}"
+            Style="{StaticResource GridViewStyle1}" />
+        <Grid
+            Grid.Row="1"
+            Height="48"
+            Background="{ThemeResource DetailPageCommandbarAcrylic1}">
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Button
+                    x:Name="ViewScoresButton"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="Transparent"
+                    Click="ViewScoresButton_Click"
+                    Content="View Scores"
+                    Style="{StaticResource ButtonRevealStyle}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
 </Page>
 
