@@ -1,79 +1,93 @@
 ﻿<Page
     x:Class="NerveCentreW10.Views.ShellPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:i="using:Microsoft.Xaml.Interactivity"
-    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:behaviors="using:NerveCentreW10.Behaviors"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:helpers="using:NerveCentreW10.Helpers"
-    xmlns:views="using:NerveCentreW10.Views"
-    Loaded="OnLoaded"
-    mc:Ignorable="d"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:titlebarextensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls">
+    xmlns:views="using:NerveCentreW10.Views"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    Loaded="OnLoaded"
+    mc:Ignorable="d">
 
     <Page.Resources>
         <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="Black" />
     </Page.Resources>
-    
-        <winui:NavigationView Grid.Row="1"
+
+    <winui:NavigationView
         x:Name="navigationView"
+        Grid.Row="1"
+        Background="{ThemeResource SystemControlBackgroundAltHighBrush}"
         IsBackButtonVisible="Visible"
         IsBackEnabled="{x:Bind IsBackEnabled, Mode=OneWay}"
-        SelectedItem="{x:Bind Selected, Mode=OneWay}"
-        ItemInvoked="OnItemInvoked"
         IsSettingsVisible="True"
-        Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
-            <winui:NavigationView.MenuItems>
-                <winui:NavigationViewItem Content="Home" helpers:NavHelper.NavigateTo="views:MainPage">
-                    <winui:NavigationViewItem.Icon>
-                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconHome.png"/>
-                    </winui:NavigationViewItem.Icon>
-                </winui:NavigationViewItem>
-                <winui:NavigationViewItem Content="1.0. - 4.0. Notes" helpers:NavHelper.NavigateTo="views:Notes">
-                    <winui:NavigationViewItem.Icon>
-                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconNotes.png"/>
-                    </winui:NavigationViewItem.Icon>
-                </winui:NavigationViewItem>
-                <winui:NavigationViewItem Content="5.0. Quizzes" helpers:NavHelper.NavigateTo="views:Section5QuizMenu">
-                    <winui:NavigationViewItem.Icon>
-                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconQuiz.png"/>
-                    </winui:NavigationViewItem.Icon>
-                </winui:NavigationViewItem>
-                <winui:NavigationViewItem Content="6.0. Inking Zone" helpers:NavHelper.NavigateTo="views:Section6InkingZoneMenu">
-                    <winui:NavigationViewItem.Icon>
-                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconInk.png"/>
-                    </winui:NavigationViewItem.Icon>
-                </winui:NavigationViewItem>
-                <winui:NavigationViewItem Content="7.0. Video Tutorials" helpers:NavHelper.NavigateTo="views:Section7VideoTutorialsMenu">
-                    <winui:NavigationViewItem.Icon>
-                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconVideo.png"/>
-                    </winui:NavigationViewItem.Icon>
-                </winui:NavigationViewItem>
-                <winui:NavigationViewItem Content="8.0. More Resources" helpers:NavHelper.NavigateTo="views:Section8MoreResources">
-                    <winui:NavigationViewItem.Icon>
-                        <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconMore.png"/>
-                    </winui:NavigationViewItem.Icon>
-                </winui:NavigationViewItem>
-            <winui:NavigationViewItemSeparator/>
-            <winui:NavigationViewItem Content="Favourites" helpers:NavHelper.NavigateTo="views:FavouritesPage">
+        ItemInvoked="OnItemInvoked"
+        SelectedItem="{x:Bind Selected, Mode=OneWay}">
+        <winui:NavigationView.MenuItems>
+            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:MainPage" Content="Home">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconFavourites.png"/>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconHome.png" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+            <winui:NavigationViewItem
+                x:Name="Notes"
+                helpers:NavHelper.NavigateTo="views:Notes"
+                Content="1.0. - 4.0. Notes">
+                <winui:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconNotes.png" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section5QuizMenu" Content="5.0. Quizzes">
+                <winui:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconQuiz.png" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section6InkingZoneMenu" Content="6.0. Inking Zone">
+                <winui:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconInk.png" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section7VideoTutorialsMenu" Content="7.0. Video Tutorials">
+                <winui:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconVideo.png" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section8MoreResources" Content="8.0. More Resources">
+                <winui:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconMore.png" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+            <winui:NavigationViewItemSeparator />
+            <winui:NavigationViewItem
+                x:Name="Favourites"
+                helpers:NavHelper.NavigateTo="views:FavouritesPage"
+                Content="Favourites">
+                <winui:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconFavourites.png" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+            <winui:NavigationViewItem
+                x:Name="QuizScores"
+                helpers:NavHelper.NavigateTo="views:ViewScores"
+                Content="Quiz Scores">
+                <winui:NavigationViewItem.Icon>
+                    <SymbolIcon Symbol="List" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
-            <behaviors:NavigationViewHeaderBehavior
-                DefaultHeader="{x:Bind Selected.Content, Mode=OneWay}">
+            <behaviors:NavigationViewHeaderBehavior DefaultHeader="{x:Bind Selected.Content, Mode=OneWay}">
                 <behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
                     <DataTemplate>
                         <Grid>
                             <TextBlock
-                                Text="{Binding}"
+                                Margin="{StaticResource SmallLeftRightMargin}"
                                 Style="{ThemeResource TitleTextBlockStyle}"
-                                Margin="{StaticResource SmallLeftRightMargin}" />
+                                Text="{Binding}" />
                         </Grid>
                     </DataTemplate>
                 </behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
@@ -81,13 +95,55 @@
         </i:Interaction.Behaviors>
         <winui:NavigationView.PaneHeader>
             <StackPanel Orientation="Horizontal">
-                <controls:ImageEx Source="ms-appx:///Assets/Others/HeaderLogo.png" Height="30" Width="30" Padding="14,0,14,0"/>
-                <TextBlock Text="LoveNeuro" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Padding="14,0,0,0"/>
+                <controls:ImageEx
+                    Width="30"
+                    Height="30"
+                    Padding="14,0,14,0"
+                    Source="ms-appx:///Assets/Others/HeaderLogo.png" />
+                <TextBlock
+                    Padding="14,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    Text="LoveNeuro" />
             </StackPanel>
         </winui:NavigationView.PaneHeader>
         <Grid>
-                <Frame x:Name="shellFrame" Margin="24,4,24,0"/>
-            </Grid>
-        </winui:NavigationView>
+            <Frame x:Name="shellFrame" Margin="24,4,24,0" />
+            <winui:TeachingTip
+                x:Name="TeachTip1"
+                Title="Sections (1/3)"
+                CloseButtonClick="TeachTip1_CloseButtonClick"
+                IsLightDismissEnabled="False"
+                PreferredPlacement="Right"
+                Target="{x:Bind Notes}">
+                <winui:TeachingTip.Content>
+                    <StackPanel>
+                        <TextBlock Text="Access notes, quizzes, the Inking Zone and video tutorials using the menu on the left." TextWrapping="Wrap" />
+                    </StackPanel>
+                </winui:TeachingTip.Content>
+            </winui:TeachingTip>
+            <winui:TeachingTip
+                x:Name="TeachTip2"
+                Title="Favourites (2/3)"
+                CloseButtonClick="TeachTip2_CloseButtonClick"
+                Content="Your favourite notes are stored here."
+                IsLightDismissEnabled="False"
+                PreferredPlacement="Right"
+                Target="{x:Bind Favourites}" />
+            <winui:TeachingTip
+                x:Name="TeachTip3"
+                Title="Scores Galore (3/3)"
+                IsLightDismissEnabled="False"
+                PreferredPlacement="Right"
+                Target="{x:Bind QuizScores}">
+                <winui:TeachingTip.Content>
+                    <StackPanel>
+                        <TextBlock Text="You can now view your saved quiz scores anytime." TextWrapping="Wrap" />
+                    </StackPanel>
+                </winui:TeachingTip.Content>
+            </winui:TeachingTip>
+        </Grid>
+    </winui:NavigationView>
 
 </Page>

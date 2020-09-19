@@ -72,7 +72,7 @@
                                 <MenuFlyoutItem
                                     x:Name="DeleteItemFlyout"
                                     Click="DeleteItemFlyout_Click"
-                                    Text="Do Things" />
+                                    Text="Delete" />
                             </MenuFlyout>
                         </Setter.Value>
                     </Setter>

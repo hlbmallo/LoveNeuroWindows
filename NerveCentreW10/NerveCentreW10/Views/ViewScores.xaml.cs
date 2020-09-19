@@ -35,8 +35,17 @@ namespace NerveCentreW10.Views
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             var helper = new RoamingObjectStorageHelper();
-            saved = await helper.ReadFileAsync<ObservableCollection<QuizScore>>("obsCollection.txt");
-            dataGrid.ItemsSource = saved;
+            if (await helper.FileExistsAsync("obsCollection.txt") == true)
+            {
+                saved = await helper.ReadFileAsync<ObservableCollection<QuizScore>>("obsCollection.txt");
+                dataGrid.ItemsSource = saved;
+            }
+            else
+            {
+                var obsCollection = new ObservableCollection<QuizScore>();
+                var contentToSaveToFile = await helper.SaveFileAsync("obsCollection.txt", obsCollection);
+            }
+
         }
 
         private async void DeleteItemFlyout_Click(object sender, RoutedEventArgs e)

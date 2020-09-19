@@ -268,14 +268,14 @@ namespace NerveCentreW10.Views
                 //var file = File.Create(FileSystem.AppDataDirectory + "/obsCollection.txt");
                 var obsCollection = new ObservableCollection<QuizScore>();
                 //var json = JsonConvert.SerializeObject(obsCollection);
-                var temp1 = new QuizScore()
-                {
-                    MyDateForThatScore = DateTime.Now,
-                    MyScore = 1,
-                    QuizName = Title.Text,
-                    MyScoreInPercent = 10,
-                };
-                obsCollection.Add(temp1);
+                //var temp1 = new QuizScore()
+                //{
+                //    //MyDateForThatScore = DateTime.Now,
+                //    //MyScore = 1,
+                //    //QuizName = Title.Text,
+                //    //MyScoreInPercent = 10,
+                //};
+                //obsCollection.Add(temp1);
                 var contentToSaveToFile = await helper.SaveFileAsync("obsCollection.txt", obsCollection);
             }
         }

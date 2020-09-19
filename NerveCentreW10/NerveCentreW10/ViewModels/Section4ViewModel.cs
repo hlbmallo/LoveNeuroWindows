@@ -1,5 +1,5 @@
 ﻿using HeartCentreW104.Helpers;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.Storage.Blob;
 using NerveCentreW10.Models;
 using System;
 using System.Collections.Generic;

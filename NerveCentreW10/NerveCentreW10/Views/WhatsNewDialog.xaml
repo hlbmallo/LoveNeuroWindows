@@ -26,8 +26,8 @@
     <ScrollViewer>
         <StackPanel>
             <TextBlock TextWrapping="WrapWholeWords">
-                <Run>This updated brings a new section on the cerebellum!</Run><LineBreak /><LineBreak />
-                <!--<Run>This update features a brand new section on the cerebellum - check it out in Section 2.11.</Run><LineBreak /><LineBreak />-->
+                <Run>Save, view and track your quiz scores</Run><LineBreak />
+                <Run>All the quizzes are now scored out of ten, and you can save, track and view your scores anytime!</Run><LineBreak /><LineBreak />
                 <Run>Also, if you have a moment, I'd really love to hear your thoughts on LoveNeuro. Just click or tap below to leave a review in the Microsoft Store. Thanks very much!</Run><LineBreak />
             </TextBlock>
             <HyperlinkButton

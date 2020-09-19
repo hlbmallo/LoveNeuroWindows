@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-
+using Microsoft.Toolkit.Uwp.Helpers;
 using NerveCentreW10.Helpers;
 using NerveCentreW10.Services;
 using Windows.ApplicationModel.Core;
@@ -11,7 +11,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
-
+using Xamarin.Essentials;
 using WinUI = Microsoft.UI.Xaml.Controls;
 
 namespace NerveCentreW10.Views
@@ -49,6 +49,29 @@ namespace NerveCentreW10.Views
             NavigationService.Frame = shellFrame;
             NavigationService.Navigated += Frame_Navigated;
             navigationView.BackRequested += OnBackRequested;
+            TeachingTipsMethods();
+        }
+
+        private async void TeachingTipsMethods()
+        {
+            //var helper = new RoamingObjectStorageHelper();
+            //if (await helper.FileExistsAsync("obsCollection.txt") == true)
+            //{
+            //    QuizScores.IsEnabled = true;
+            //}
+            //else
+            //{
+            //    QuizScores.IsEnabled = false;
+            //}
+
+            if (VersionTracking.IsFirstLaunchEver == true)
+            {
+                TeachTip1.IsOpen = true;
+            }
+            else
+            {
+                TeachTip1.IsOpen = false;
+            }
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -132,5 +155,17 @@ namespace NerveCentreW10.Views
         }
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        private void TeachTip1_CloseButtonClick(WinUI.TeachingTip sender, object args)
+        {
+            TeachTip2.IsOpen = true;
+        }
+
+        private void TeachTip2_CloseButtonClick(WinUI.TeachingTip sender, object args)
+        {
+            TeachTip3.IsOpen = true;
+        }
+
+
     }
 }

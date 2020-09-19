@@ -58,6 +58,7 @@ namespace NerveCentreW10
 
             await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
 
+            VersionTracking.Track();
         }
 
         protected override async void OnActivated(IActivatedEventArgs args)

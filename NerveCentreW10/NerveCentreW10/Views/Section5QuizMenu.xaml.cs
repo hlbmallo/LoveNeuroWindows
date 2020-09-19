@@ -1,9 +1,11 @@
-﻿using NerveCentreW10.Models;
+﻿using Microsoft.Toolkit.Uwp.Helpers;
+using NerveCentreW10.Models;
 using System;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
+using Xamarin.Essentials;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
