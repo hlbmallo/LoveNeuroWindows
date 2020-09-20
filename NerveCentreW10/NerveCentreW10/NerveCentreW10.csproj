@@ -110,6 +110,9 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.1.0.454</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Azure.Storage.Blob">
       <Version>11.2.2</Version>
     </PackageReference>
@@ -201,6 +204,7 @@
     <Compile Include="Models\SubsectionModel.cs" />
     <Compile Include="Models\SubsectionModelManager.cs" />
     <Compile Include="Models\VideoTutorialsClass.cs" />
+    <Compile Include="MyData\QuizzesObsCollectionClass.cs" />
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Activation\DefaultLaunchActivationHandler.cs" />
     <Compile Include="Services\DevCenterNotificationsService.cs" />

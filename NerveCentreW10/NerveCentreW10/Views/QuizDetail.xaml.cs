@@ -17,6 +17,10 @@ using Xamarin.Essentials;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Globalization;
+using HeartCentreW104.Helpers;
+using Microsoft.Azure.Storage.Blob;
+using NerveCentreW10.MyData;
+using System.Linq;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,6 +33,8 @@ namespace NerveCentreW10.Views
     {
         public int OverallScore;
         private UserActivitySession _currentSession;
+        public QuizListClass mySubsection { get; set; }
+
         public ObservableCollection<QuizScore> quizScores { get; set; }
         private Color colorSwatch1;
         private Color colorSwatch2;
@@ -84,67 +90,90 @@ namespace NerveCentreW10.Views
             this.InitializeComponent();
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            QuizListClass MyClickedItem = (QuizListClass)e.Parameter;
+            CloudClass cloudClass = new CloudClass();
 
-            FileIOHelper oFileHelper = new FileIOHelper();
-            List<QuizClass> lstSettingInfo = oFileHelper.ReadFromDefaultFile(MyClickedItem.QuizFile);
-            List<QuizClass> oSettingsObserv = new List<QuizClass>(lstSettingInfo);
-            MyListView.ItemsSource = oSettingsObserv;
+            var MyClickedItem = (QuizListClass)e.Parameter;
+            Title.Text = MyClickedItem.QuizNumber + " " + MyClickedItem.QuizName;
+            mySubsection = QuizzesObsCollectionClass.QuizListList.FirstOrDefault(m => m.QuizId == Uri.UnescapeDataString(MyClickedItem.QuizId));
 
-            if (MyClickedItem.QuizImage == null)
+            if (mySubsection.QuizImage == null)
             {
-                MyImage.Visibility = Visibility.Collapsed;
             }
             else
             {
-                MyImage.Source = MyClickedItem.QuizImage;
+                MyImage.Source = cloudClass.GetBlobSasUri(mySubsection.QuizImage);
             }
 
-            Title.Text = MyClickedItem.QuizNumber + " " + MyClickedItem.QuizName;
+            var jsonFromCloud = ReadFully(mySubsection.QuizFile);
+            var rootobject = JsonConvert.DeserializeObject<List<QuizClass>>(jsonFromCloud);
+            MyListView.ItemsSource = rootobject;
+
+            //FileIOHelper oFileHelper = new FileIOHelper();
+            //List<QuizClass> lstSettingInfo = oFileHelper.ReadFromDefaultFile(MyClickedItem.QuizFile);
+            //List<QuizClass> oSettingsObserv = new List<QuizClass>(lstSettingInfo);
+            //MyListView.ItemsSource = oSettingsObserv;
+
+            //if (MyClickedItem.QuizImage == null)
+            //{
+            //    MyImage.Visibility = Visibility.Collapsed;
+            //}
+            //else
+            //{
+            //    MyImage.Source = MyClickedItem.QuizImage;
+            //}
+
+            //Title.Text = MyClickedItem.QuizNumber + " " + MyClickedItem.QuizName;
 
             // Save complex/large objects 
-            var helper = new RoamingObjectStorageHelper();
-            string keyLargeObject = MyClickedItem.QuizId;
+            //var helper = new RoamingObjectStorageHelper();
+            //string keyLargeObject = MyClickedItem.QuizId;
 
-            var o = new QuizListClass
+            //var o = new QuizListClass
+            //{
+            //    QuizId = MyClickedItem.QuizId,
+            //    QuizName = MyClickedItem.QuizName,
+            //    QuizNumber = MyClickedItem.QuizNumber,
+            //    QuizImage = MyClickedItem.QuizImage,
+            //    QuizFile = MyClickedItem.QuizFile,
+            //};
+
+            //await helper.SaveFileAsync(keyLargeObject, o);
+
+
+            //UserActivityChannel channel = UserActivityChannel.GetDefault();
+            //UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + o.QuizId);
+
+            //activity.ActivationUri = new Uri("loveneuro://" + o.QuizId);
+            //activity.VisualElements.DisplayText = o.QuizNumber + " " + o.QuizName;
+
+            //activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage(MyClickedItem.QuizNumber + " " + MyClickedItem.QuizName);
+            //Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+            //activity.VisualElements.BackgroundColor = color;
+
+            //await activity.SaveAsync();
+
+            //_currentSession?.Dispose();
+
+            //_currentSession = activity.CreateSession();
+
+        }
+
+        public static string ReadFully(string blobUriAndSasToken)
+        {
+            var cloudClass = new CloudClass();
+            CloudBlockBlob cloudBlockBlob = new CloudBlockBlob(new Uri(cloudClass.GetBlobSasUri(blobUriAndSasToken)));
+
+            using (var stream = cloudBlockBlob.OpenReadAsync().Result)
             {
-                QuizId = MyClickedItem.QuizId,
-                QuizName = MyClickedItem.QuizName,
-                QuizNumber = MyClickedItem.QuizNumber,
-                QuizImage = MyClickedItem.QuizImage,
-                QuizFile = MyClickedItem.QuizFile,
-            };
-
-            await helper.SaveFileAsync(keyLargeObject, o);
-
-            //this.RegisterElementForConnectedAnimation("key", MyImage);
-
-            // Get channel and create activity.
-            UserActivityChannel channel = UserActivityChannel.GetDefault();
-            UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + o.QuizId);
-
-            // Set deep-link and properties.
-            activity.ActivationUri = new Uri("loveneuro://" + o.QuizId);
-            activity.VisualElements.DisplayText = o.QuizNumber + " " + o.QuizName;
-
-            // Create and set Adaptive Card.
-            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage(MyClickedItem.QuizNumber + " " + MyClickedItem.QuizName);
-            Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
-            activity.VisualElements.BackgroundColor = color;
-
-            // Save to activity feed.
-            await activity.SaveAsync();
-
-            // Create a session, which indicates that the user is engaged
-            // in the activity.
-            _currentSession?.Dispose();
-
-            _currentSession = activity.CreateSession();
-
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
         }
 
         private async void SubmitButton_Click(object sender, RoutedEventArgs e)
@@ -254,6 +283,8 @@ namespace NerveCentreW10.Views
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
+
+
             var helper = new RoamingObjectStorageHelper();
 
             var checkIfExistsFile = await helper.FileExistsAsync("obsCollection.txt");
@@ -263,21 +294,11 @@ namespace NerveCentreW10.Views
             }
             else
             {
-
-
-                //var file = File.Create(FileSystem.AppDataDirectory + "/obsCollection.txt");
                 var obsCollection = new ObservableCollection<QuizScore>();
-                //var json = JsonConvert.SerializeObject(obsCollection);
-                //var temp1 = new QuizScore()
-                //{
-                //    //MyDateForThatScore = DateTime.Now,
-                //    //MyScore = 1,
-                //    //QuizName = Title.Text,
-                //    //MyScoreInPercent = 10,
-                //};
-                //obsCollection.Add(temp1);
                 var contentToSaveToFile = await helper.SaveFileAsync("obsCollection.txt", obsCollection);
             }
+
+
         }
     }
 }

@@ -13,6 +13,6 @@ namespace NerveCentreW10.Models
         public string QuizNumber { get; set; }
         public string QuizName { get; set; }
         public string QuizFile { get; set; }
-        public ImageSource QuizImage { get; set; }
+        public string QuizImage { get; set; }
     }
 }

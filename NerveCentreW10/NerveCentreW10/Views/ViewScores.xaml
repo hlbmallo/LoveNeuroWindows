@@ -50,15 +50,12 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="48" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Your Scores for Quiz ABC:" />
-
         <controls:DataGrid
             x:Name="dataGrid"
-            Grid.Row="1"
+            Grid.Row="0"
             Margin="12"
             AutoGenerateColumns="False"
             CanUserSortColumns="True"
