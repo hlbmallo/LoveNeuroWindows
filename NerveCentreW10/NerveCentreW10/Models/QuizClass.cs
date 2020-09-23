@@ -23,7 +23,8 @@ namespace NerveCentreW10.Models
         public bool QCIsActive { get; set; }
         public bool QDIsActive { get; set; }
         public bool ANSIsVisible { get; set; }
-        public string QCorrect { get; set; }
+        public string QCORRECT { get; set; }
+        public SolidColorBrush QCOLOR { get; set; }
 
     }
 

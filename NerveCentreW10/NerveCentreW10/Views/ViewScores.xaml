@@ -59,7 +59,8 @@
             Margin="12"
             AutoGenerateColumns="False"
             CanUserSortColumns="True"
-            IsReadOnly="True">
+            IsReadOnly="True"
+            Sorting="dataGrid_Sorting">
             <controls:DataGrid.RowStyle>
                 <Style TargetType="controls:DataGridRow">
                     <Setter Property="Margin" Value="5" />
@@ -78,20 +79,26 @@
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn
                     Binding="{Binding QuizName}"
+                    CanUserSort="True"
                     FontSize="16"
-                    Header="Quiz Name" />
+                    Header="Quiz Name"
+                    Tag="QuizName" />
                 <controls:DataGridTextColumn
                     Binding="{Binding MyScore}"
+                    CanUserSort="True"
                     FontSize="16"
-                    Header="Score (Raw)" />
+                    Header="Score (Raw)"
+                    Tag="MyScore" />
                 <controls:DataGridTextColumn
                     Binding="{Binding MyScore, Converter={StaticResource PercentageConverter}}"
                     FontSize="16"
-                    Header="Score (Percentage)" />
+                    Header="Score (Percentage)"
+                    Tag="MyPercentage" />
                 <controls:DataGridTextColumn
                     Binding="{Binding MyDateForThatScore, Converter={StaticResource DateToStringFormatConverter}}"
                     FontSize="16"
-                    Header="Date Achieved" />
+                    Header="Date Achieved"
+                    Tag="MyDateForThatScore" />
             </controls:DataGrid.Columns>
         </controls:DataGrid>
 

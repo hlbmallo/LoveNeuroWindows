@@ -1,26 +1,19 @@
 ﻿using NerveCentreW10.Models;
 using System;
-using System.Collections.Generic;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Toolkit.Uwp.Helpers;
-using Windows.ApplicationModel.UserActivities;
-using NerveCentreW10.Helpers;
-using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
-using Windows.Storage;
 using Newtonsoft.Json;
-using Xamarin.Essentials;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Globalization;
 using HeartCentreW104.Helpers;
 using Microsoft.Azure.Storage.Blob;
 using NerveCentreW10.MyData;
 using System.Linq;
+using Windows.UI;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -32,49 +25,19 @@ namespace NerveCentreW10.Views
     public sealed partial class QuizDetail : Page
     {
         public int OverallScore;
-        private UserActivitySession _currentSession;
         public QuizListClass mySubsection { get; set; }
-
         public ObservableCollection<QuizScore> quizScores { get; set; }
-        private Color colorSwatch1;
-        private Color colorSwatch2;
-        private Color colorSwatch3;
-        private Color colorSwatch4;
-
-        public Color ColorSwatch1
+        private ObservableCollection<QuizClass> _rootobject;
+        public ObservableCollection<QuizClass> rootobject
         {
-            get { return this.colorSwatch1; }
+            get { return this._rootobject; }
             set
             {
-                this.colorSwatch1 = value;
-                this.OnPropertyChanged();
-            }
-        }
-        public Color ColorSwatch2
-        {
-            get { return this.colorSwatch2; }
-            set
-            {
-                this.colorSwatch2 = value;
-                this.OnPropertyChanged();
-            }
-        }
-        public Color ColorSwatch3
-        {
-            get { return this.colorSwatch3; }
-            set
-            {
-                this.colorSwatch3 = value;
-                this.OnPropertyChanged();
-            }
-        }
-        public Color ColorSwatch4
-        {
-            get { return this.colorSwatch4; }
-            set
-            {
-                this.colorSwatch4 = value;
-                this.OnPropertyChanged();
+                if (this._rootobject != value)
+                {
+                    this._rootobject = value;
+                    this.OnPropertyChanged("rootobject");
+                }
             }
         }
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
@@ -109,9 +72,8 @@ namespace NerveCentreW10.Views
             }
 
             var jsonFromCloud = ReadFully(mySubsection.QuizFile);
-            var rootobject = JsonConvert.DeserializeObject<List<QuizClass>>(jsonFromCloud);
-            MyListView.ItemsSource = rootobject;
-
+            var temp1 = JsonConvert.DeserializeObject<ObservableCollection<QuizClass>>(jsonFromCloud);
+            rootobject = temp1;
             //FileIOHelper oFileHelper = new FileIOHelper();
             //List<QuizClass> lstSettingInfo = oFileHelper.ReadFromDefaultFile(MyClickedItem.QuizFile);
             //List<QuizClass> oSettingsObserv = new List<QuizClass>(lstSettingInfo);
@@ -176,13 +138,14 @@ namespace NerveCentreW10.Views
             }
         }
 
+
         private async void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (QuizClass item in MyListView.Items)
+            foreach (QuizClass item in rootobject)
             {
                 if (item.QA == item.ANS && item.QAIsActive == true)
                 {
-                    OverallScore += 1;
+                    OverallScore += 1;                    
                 }
 
                 else if (item.QB == item.ANS && item.QBIsActive == true)
@@ -221,7 +184,7 @@ namespace NerveCentreW10.Views
                 MyScore = OverallScore,
                 MyDateForThatScore = DateTime.Now,
                 QuizName = Title.Text,
-                MyScoreInPercent = MyListView.Items.Count,
+                MyScoreInPercent = rootobject.Count,
       
         };
 
@@ -238,37 +201,62 @@ namespace NerveCentreW10.Views
             OverallScore = 0;
         }
 
+
+        private string astring;
+        public string Astring
+        {
+            get { return this.astring; }
+            set
+            {
+                if (this.astring != value)
+                {
+                    this.astring = value;
+                    this.OnPropertyChanged("Astring");
+                }
+            }
+        }
+
+
         private void RevealHideAnswersButton_Checked(object sender, RoutedEventArgs e)
         {
+            MyListView.SelectedIndex = 0;
 
-            foreach (QuizClass item in MyListView.Items)
+            foreach (var item in rootobject)
             {
                 if (item.QA == item.ANS && item.QAIsActive == true)
                 {
-                    item.QCorrect = "Correct";
+                    item.QCORRECT = "Correct";
+                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
                 }
 
                 else if (item.QB == item.ANS && item.QBIsActive == true)
                 {
-                    item.QCorrect = "Correct";
+                    item.QCORRECT = "Correct";
+                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
                 }
 
                 else if (item.QC == item.ANS && item.QCIsActive == true)
                 {
-                    item.QCorrect = "Correct";
+                    item.QCORRECT = "Correct";
+                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
                 }
 
                 else if (item.QD == item.ANS && item.QDIsActive == true)
                 {
-                    item.QCorrect = "Correct";
+                    item.QCORRECT = "Correct";
+                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
                 }
-                //else
-                //{
-                //    item.QCorrect = "Incorrect";
-                //}
+
+                else
+                {
+                    item.QCORRECT = "Incorrect";
+                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Red);
+                }
             }
 
             RevealHideAnswersButton.Content = "Hide Answers";
+            MyListView.SelectedIndex = 0;
+
         }
 
         private void RevealHideAnswersButton_Unchecked(object sender, RoutedEventArgs e)
@@ -299,6 +287,31 @@ namespace NerveCentreW10.Views
             }
 
 
+        }
+
+        private void PreviousButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MyListView.SelectedIndex == 0)
+            {
+
+            }
+            else
+            {
+                MyListView.SelectedIndex -= 1;
+            }
+        }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (MyListView.SelectedIndex == 9)
+            {
+
+            }
+            else
+            {
+                MyListView.SelectedIndex += 1;
+            }
         }
     }
 }

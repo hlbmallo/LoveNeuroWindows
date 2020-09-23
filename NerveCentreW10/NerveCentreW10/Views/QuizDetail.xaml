@@ -24,24 +24,33 @@
             <RowDefinition Height="48" />
         </Grid.RowDefinitions>
 
-        <ScrollViewer Grid.Row="0" Grid.RowSpan="2">
-            <StackPanel Grid.Column="0">
-                <TextBlock
-                    x:Name="Title"
-                    HorizontalAlignment="Left"
-                    Style="{StaticResource TitleTextBlockStyle}" />
-                <Border Style="{StaticResource BorderLine1}" />
-                <controls:ImageEx x:Name="MyImage" Grid.Column="1" />
-                <ListView
-                    x:Name="MyListView"
-                    Margin="0,0,0,64"
-                    SelectionMode="None">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="data:QuizClass">
-                            <StackPanel Style="{StaticResource StackPanelForQuestions}">
+        <StackPanel Grid.Row="0" Grid.RowSpan="2">
+            <TextBlock
+                x:Name="Title"
+                HorizontalAlignment="Left"
+                Style="{StaticResource TitleTextBlockStyle}" />
+            <Border Style="{StaticResource BorderLine1}" />
+            <controls:ImageEx x:Name="MyImage" Grid.Column="1" />
+
+
+
+
+            <FlipView
+                x:Name="MyListView"
+                Margin="0,0,0,64"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Stretch"
+                ItemsSource="{x:Bind rootobject}">
+                <FlipView.ItemTemplate>
+                    <DataTemplate x:DataType="data:QuizClass">
+                        <Border
+                            Margin="20"
+                            HorizontalAlignment="Stretch"
+                            Background="White"
+                            CornerRadius="10">
+                            <StackPanel CornerRadius="10" Style="{StaticResource StackPanelForQuestions}">
                                 <TextBlock
                                     x:Name="QQ"
-                                    Foreground="{Binding QColor}"
                                     Style="{StaticResource QuestionTextStyle}"
                                     Text="{Binding QTEXT}" />
                                 <RadioButton
@@ -61,6 +70,12 @@
                                     Content="{Binding QD}"
                                     IsChecked="{Binding QDIsActive, Mode=TwoWay}" />
                                 <TextBlock
+                                    x:Name="QCORRECT"
+                                    Foreground="{Binding QCOLOR}"
+                                    Style="{StaticResource TextBlockForCorrect}"
+                                    Text="{Binding QCORRECT, Mode=TwoWay}"
+                                    Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                <TextBlock
                                     x:Name="ANS"
                                     Style="{StaticResource TextBlockForCorrect}"
                                     Text="{Binding ANS}"
@@ -68,17 +83,14 @@
                                 <TextBlock
                                     x:Name="REA"
                                     Style="{StaticResource TextBlockForCorrect}"
-                                    Text="{x:Bind REA}"
-                                    TextWrapping="Wrap"
+                                    Text="{Binding REA}"
                                     Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}" />
                             </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
-
-        </ScrollViewer>
-
+                        </Border>
+                    </DataTemplate>
+                </FlipView.ItemTemplate>
+            </FlipView>
+        </StackPanel>
         <Grid
             Grid.Row="1"
             Height="48"
@@ -109,6 +121,15 @@
                     Click="ViewScoresButton_Click"
                     Content="View Scores"
                     Style="{StaticResource ButtonRevealStyle}" />
+                <AppBarSeparator />
+                <Button
+                    x:Name="PreviousButton"
+                    Click="PreviousButton_Click"
+                    Content="Previous" />
+                <Button
+                    x:Name="NextButton"
+                    Click="NextButton_Click"
+                    Content="Next" />
             </StackPanel>
         </Grid>
     </Grid>

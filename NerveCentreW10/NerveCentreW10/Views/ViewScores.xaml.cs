@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
+using Microsoft.Toolkit.Uwp.UI.Controls;
 using NerveCentreW10.Models;
 using System;
 using System.Collections.Generic;
@@ -54,9 +55,132 @@ namespace NerveCentreW10.Views
             saved.Remove(item);
 
             var helper = new RoamingObjectStorageHelper();
-            await helper.SaveFileAsync("obsCollection.txt",saved);
+            await helper.SaveFileAsync("obsCollection.txt", saved);
             dataGrid.ItemsSource = saved;
 
         }
+
+        private void dataGrid_Sorting(object sender, Microsoft.Toolkit.Uwp.UI.Controls.DataGridColumnEventArgs e)
+        {
+            //Use the Tag property to pass the bound column name for the sorting implementation 
+            if (e.Column.Tag.ToString() == "QuizName")
+            {
+                //Implement sort on the column "Range" using LINQ
+                if (e.Column.SortDirection == null || e.Column.SortDirection == DataGridSortDirection.Descending)
+                {
+                    dataGrid.ItemsSource = new ObservableCollection<QuizScore>(from item in saved
+                                                                        orderby item.QuizName ascending
+                                                                        select item);
+                    e.Column.SortDirection = DataGridSortDirection.Ascending;
+                }
+                else
+                {
+                    dataGrid.ItemsSource = new ObservableCollection<QuizScore>(from item in saved
+                                                                        orderby item.QuizName descending
+                                                                        select item);
+                    e.Column.SortDirection = DataGridSortDirection.Descending;
+                }
+            }
+            // add code to handle sorting by other columns as required
+
+            // Remove sorting indicators from other columns
+            foreach (var dgColumn in dataGrid.Columns)
+            {
+                if (dgColumn.Tag.ToString() != e.Column.Tag.ToString())
+                {
+                    dgColumn.SortDirection = null;
+                }
+            }
+
+            //Use the Tag property to pass the bound column name for the sorting implementation 
+            if (e.Column.Tag.ToString() == "MyScore")
+            {
+                //Implement sort on the column "Range" using LINQ
+                if (e.Column.SortDirection == null || e.Column.SortDirection == DataGridSortDirection.Descending)
+                {
+                    dataGrid.ItemsSource = new ObservableCollection<QuizScore>(from item in saved
+                                                                               orderby item.MyScore ascending
+                                                                               select item);
+                    e.Column.SortDirection = DataGridSortDirection.Ascending;
+                }
+                else
+                {
+                    dataGrid.ItemsSource = new ObservableCollection<QuizScore>(from item in saved
+                                                                               orderby item.MyScore descending
+                                                                               select item);
+                    e.Column.SortDirection = DataGridSortDirection.Descending;
+                }
+            }
+            // add code to handle sorting by other columns as required
+
+            // Remove sorting indicators from other columns
+            foreach (var dgColumn in dataGrid.Columns)
+            {
+                if (dgColumn.Tag.ToString() != e.Column.Tag.ToString())
+                {
+                    dgColumn.SortDirection = null;
+                }
+            }
+
+            //Use the Tag property to pass the bound column name for the sorting implementation 
+            if (e.Column.Tag.ToString() == "MyPercentage")
+            {
+                //Implement sort on the column "Range" using LINQ
+                if (e.Column.SortDirection == null || e.Column.SortDirection == DataGridSortDirection.Descending)
+                {
+                    dataGrid.ItemsSource = new ObservableCollection<QuizScore>(from item in saved
+                                                                               orderby item.MyScore ascending
+                                                                               select item);
+                    e.Column.SortDirection = DataGridSortDirection.Ascending;
+                }
+                else
+                {
+                    dataGrid.ItemsSource = new ObservableCollection<QuizScore>(from item in saved
+                                                                               orderby item.MyScore descending
+                                                                               select item);
+                    e.Column.SortDirection = DataGridSortDirection.Descending;
+                }
+            }
+            // add code to handle sorting by other columns as required
+
+            // Remove sorting indicators from other columns
+            foreach (var dgColumn in dataGrid.Columns)
+            {
+                if (dgColumn.Tag.ToString() != e.Column.Tag.ToString())
+                {
+                    dgColumn.SortDirection = null;
+                }
+            }
+
+            //Use the Tag property to pass the bound column name for the sorting implementation 
+            if (e.Column.Tag.ToString() == "MyDateForThatScore")
+            {
+                //Implement sort on the column "Range" using LINQ
+                if (e.Column.SortDirection == null || e.Column.SortDirection == DataGridSortDirection.Descending)
+                {
+                    dataGrid.ItemsSource = new ObservableCollection<QuizScore>(from item in saved
+                                                                               orderby item.MyDateForThatScore ascending
+                                                                               select item);
+                    e.Column.SortDirection = DataGridSortDirection.Ascending;
+                }
+                else
+                {
+                    dataGrid.ItemsSource = new ObservableCollection<QuizScore>(from item in saved
+                                                                               orderby item.MyDateForThatScore descending
+                                                                               select item);
+                    e.Column.SortDirection = DataGridSortDirection.Descending;
+                }
+            }
+            // add code to handle sorting by other columns as required
+
+            // Remove sorting indicators from other columns
+            foreach (var dgColumn in dataGrid.Columns)
+            {
+                if (dgColumn.Tag.ToString() != e.Column.Tag.ToString())
+                {
+                    dgColumn.SortDirection = null;
+                }
+            }
+        }
     }
-}
+    }

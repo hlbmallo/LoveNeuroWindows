@@ -54,13 +54,6 @@
                 <Setter Property="Margin" Value="0,10,0,0" />
                 <Setter Property="Foreground" Value="Blue" />
                 <Setter Property="TextWrapping" Value="Wrap" />
-                <Setter Property="Transitions">
-                    <Setter.Value>
-                        <TransitionCollection>
-                            <EntranceThemeTransition />
-                        </TransitionCollection>
-                    </Setter.Value>
-                </Setter>
             </Style>
 
             <Style x:Key="StackPanelForQuestions" TargetType="StackPanel">
