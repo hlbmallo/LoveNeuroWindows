@@ -65,6 +65,7 @@ namespace NerveCentreW10.Views
 
             if (mySubsection.QuizImage == null)
             {
+                Grid.SetColumnSpan(MyListView, 2);
             }
             else
             {
@@ -201,22 +202,6 @@ namespace NerveCentreW10.Views
             OverallScore = 0;
         }
 
-
-        private string astring;
-        public string Astring
-        {
-            get { return this.astring; }
-            set
-            {
-                if (this.astring != value)
-                {
-                    this.astring = value;
-                    this.OnPropertyChanged("Astring");
-                }
-            }
-        }
-
-
         private void RevealHideAnswersButton_Checked(object sender, RoutedEventArgs e)
         {
             MyListView.SelectedIndex = 0;
@@ -286,6 +271,7 @@ namespace NerveCentreW10.Views
                 var contentToSaveToFile = await helper.SaveFileAsync("obsCollection.txt", obsCollection);
             }
 
+            
 
         }
 
