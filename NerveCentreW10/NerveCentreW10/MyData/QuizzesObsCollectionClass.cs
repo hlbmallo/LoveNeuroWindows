@@ -107,6 +107,14 @@ namespace NerveCentreW10.MyData
                 QuizFile = "Quiz11.json",
                 QuizImage = null,
             });
+            QuizListList.Add(new QuizListClass
+            {
+                QuizId = "section512",
+                QuizNumber = "Quiz 12",
+                QuizName = "Mix Up (4)",
+                QuizFile = "Quiz12.json",
+                QuizImage = null,
+            });
         }
     }
 }
