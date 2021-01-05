@@ -14,6 +14,7 @@ using Microsoft.Azure.Storage.Blob;
 using NerveCentreW10.MyData;
 using System.Linq;
 using Windows.UI;
+using NerveCentreW10.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -36,17 +37,18 @@ namespace NerveCentreW10.Views
                 if (this._rootobject != value)
                 {
                     this._rootobject = value;
-                    this.OnPropertyChanged("rootobject");
+                    this.NotifyPropertyChanged("rootobject");
                 }
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
-        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void NotifyPropertyChanged(string propertyName)
         {
-            // Raise the PropertyChanged event, passing the name of the property whose value has changed.
-            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+
 
         public QuizDetail()
         {
@@ -142,28 +144,46 @@ namespace NerveCentreW10.Views
 
         private async void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
+            MyListView.SelectedIndex = 9;
+
             foreach (QuizClass item in rootobject)
             {
+                item.ANSIsVisible = true;
+
                 if (item.QA == item.ANS && item.QAIsActive == true)
                 {
-                    OverallScore += 1;                    
+                    OverallScore += 1;
+                    item.QCORRECT = "Correct";
+                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
                 }
 
                 else if (item.QB == item.ANS && item.QBIsActive == true)
                 {
                     OverallScore += 1;
+                    item.QCORRECT = "Correct";
+                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
                 }
 
                 else if (item.QC == item.ANS && item.QCIsActive == true)
                 {
                     OverallScore += 1;
+                    item.QCORRECT = "Correct";
+                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
                 }
 
                 else if (item.QD == item.ANS && item.QDIsActive == true)
                 {
                     OverallScore += 1;
+                    item.QCORRECT = "Correct";
+                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
+                }
+                else
+                {
+                    item.QCORRECT = "Incorrect";
+                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Red);
                 }
             }
+
 
             var dialog = new ContentDialog();
             dialog.Content = "Your overall score is: " + OverallScore;
@@ -202,52 +222,50 @@ namespace NerveCentreW10.Views
             OverallScore = 0;
         }
 
-        private void RevealHideAnswersButton_Checked(object sender, RoutedEventArgs e)
-        {
-            MyListView.SelectedIndex = 0;
+        //private void RevealHideAnswersButton_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    MyListView.SelectedIndex = 0;
 
-            foreach (var item in rootobject)
-            {
-                if (item.QA == item.ANS && item.QAIsActive == true)
-                {
-                    item.QCORRECT = "Correct";
-                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
-                }
+        //    foreach (var item in rootobject)
+        //    {
+        //        if (item.QA == item.ANS && item.QAIsActive == true)
+        //        {
+        //        }
 
-                else if (item.QB == item.ANS && item.QBIsActive == true)
-                {
-                    item.QCORRECT = "Correct";
-                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
-                }
+        //        else if (item.QB == item.ANS && item.QBIsActive == true)
+        //        {
+        //            item.QCORRECT = "Correct";
+        //            item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
+        //        }
 
-                else if (item.QC == item.ANS && item.QCIsActive == true)
-                {
-                    item.QCORRECT = "Correct";
-                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
-                }
+        //        else if (item.QC == item.ANS && item.QCIsActive == true)
+        //        {
+        //            item.QCORRECT = "Correct";
+        //            item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
+        //        }
 
-                else if (item.QD == item.ANS && item.QDIsActive == true)
-                {
-                    item.QCORRECT = "Correct";
-                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
-                }
+        //        else if (item.QD == item.ANS && item.QDIsActive == true)
+        //        {
+        //            item.QCORRECT = "Correct";
+        //            item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
+        //        }
 
-                else
-                {
-                    item.QCORRECT = "Incorrect";
-                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Red);
-                }
-            }
+        //        else
+        //        {
+        //            item.QCORRECT = "Incorrect";
+        //            item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Red);
+        //        }
+        //    }
 
-            RevealHideAnswersButton.Content = "Hide Answers";
-            MyListView.SelectedIndex = 0;
+        //    RevealHideAnswersButton.Content = "Hide Answers";
+        //    MyListView.SelectedIndex = 0;
 
-        }
+        //}
 
-        private void RevealHideAnswersButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            RevealHideAnswersButton.Content = "Show Answers";
-        }
+        //private void RevealHideAnswersButton_Unchecked(object sender, RoutedEventArgs e)
+        //{
+        //    RevealHideAnswersButton.Content = "Show Answers";
+        //}
 
         private void ViewScoresButton_Click(object sender, RoutedEventArgs e)
         {
