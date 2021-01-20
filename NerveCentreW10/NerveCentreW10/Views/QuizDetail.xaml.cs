@@ -144,7 +144,7 @@ namespace NerveCentreW10.Views
 
         private async void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            MyListView.SelectedIndex = 9;
+            MyListView.SelectedIndex = 0;
 
             foreach (QuizClass item in rootobject)
             {

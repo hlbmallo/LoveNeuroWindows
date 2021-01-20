@@ -74,7 +74,8 @@
                             <TextBlock
                                 x:Name="QQ"
                                 Style="{StaticResource QuestionTextStyle}"
-                                Text="{Binding QTEXT, Mode=TwoWay}" />
+                                Text="{Binding QTEXT, Mode=TwoWay}"
+                                TextWrapping="WrapWholeWords" />
                             <RadioButton
                                 x:Name="QA"
                                 Content="{Binding QA, Mode=TwoWay}"
