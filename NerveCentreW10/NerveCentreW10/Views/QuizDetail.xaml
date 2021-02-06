@@ -96,7 +96,7 @@
                                 Height="1"
                                 HorizontalAlignment="Stretch"
                                 Background="Black"
-                                Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}" />
+                                Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
                             <TextBlock
                                 x:Name="QCORRECT"
                                 FontSize="40"
@@ -104,7 +104,7 @@
                                 Foreground="{x:Bind QCOLOR, Mode=TwoWay}"
                                 Style="{StaticResource TextBlockForCorrect}"
                                 Text="{Binding QCORRECT, Mode=TwoWay}"
-                                Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}" />
+                                Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
 
                             <!--<TextBlock
                                 x:Name="ANSANDREA"

@@ -26,8 +26,8 @@
     <ScrollViewer>
         <StackPanel>
             <TextBlock TextWrapping="WrapWholeWords">
-                <Run FontWeight="Bold">Save, view and track your quiz scores</Run><LineBreak />
-                <Run>All the quizzes are now scored out of ten, and you can save, track and view your scores anytime!</Run><LineBreak /><LineBreak />
+                <Run FontWeight="Bold">New Inking Templates</Run><LineBreak />
+                <Run>I've added two new inking templates: the reflex arc and HPA axis. I've also included a link to an interesting review on ablative surgery of the limbic system. There's a bug fix for the Favourites feature too.</Run><LineBreak /><LineBreak />
                 <Run>Also, if you have a moment, I'd really love to hear your thoughts on LoveNeuro. Just click or tap below to leave a review in the Microsoft Store. Thanks very much!</Run><LineBreak />
             </TextBlock>
             <HyperlinkButton

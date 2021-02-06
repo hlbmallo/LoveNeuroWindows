@@ -1,7 +1,9 @@
-﻿using System;
+﻿using HeartCentreW104.Helpers;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Windows.ApplicationModel.Core;
+using Windows.Media.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -13,7 +15,6 @@ namespace NerveCentreW10.Views
         public MainPage()
         {
             InitializeComponent();
-            //WV.Source = new Uri("https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__rTcn3FUQUZQMEdQNVpPMlhRMUNaU0dVMk9KMDRXMy4u&embed=true");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -34,6 +35,12 @@ namespace NerveCentreW10.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var videoIntro = new VideoIntro();
+            await videoIntro.ShowAsync();
         }
     }
 }

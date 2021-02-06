@@ -279,7 +279,7 @@ namespace NerveCentreW10.Views
 
             else
             {
-                StorageFile storageFile = await appFolder.CreateFileAsync(overall.Title, CreationCollisionOption.OpenIfExists);
+                StorageFile storageFile = await appFolder.CreateFileAsync(overall.PageId, CreationCollisionOption.OpenIfExists);
                 await storageFile.DeleteAsync();
                 FavouritesButton.Content = "Add Favourite";
 
@@ -290,9 +290,9 @@ namespace NerveCentreW10.Views
         {
             StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("FavouritesFolder", CreationCollisionOption.OpenIfExists);
 
-            if (await appFolder.FileExistsAsync(overall.Title))
+            if (await appFolder.FileExistsAsync(overall.PageId))
             {
-                StorageFile filed = await appFolder.GetFileAsync(overall.Title);
+                StorageFile filed = await appFolder.GetFileAsync(overall.PageId);
                 if (filed != null)
                 {
                     FavouritesButton.IsChecked = true;

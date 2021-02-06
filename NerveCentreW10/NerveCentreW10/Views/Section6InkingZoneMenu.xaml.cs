@@ -79,7 +79,7 @@ namespace NerveCentreW10.Views
             {
                 InkingZoneTitle = "Resting Membrane Potential",
                 InkingZoneRename = " Resting Membrane Potential",
-                InkingZoneImage = "ms-appx:///Assets/Inking/rmp.png",
+                InkingZoneImage = "ms-appx:///Assets/Inking/rmpforink.png",
                 InkingZoneDescription = "Resting Membrane Potential",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
@@ -88,6 +88,13 @@ namespace NerveCentreW10.Views
                 InkingZoneRename = "Synapse",
                 InkingZoneImage = "ms-appx:///Assets/Inking/Synapse.png",
                 InkingZoneDescription = "This diagram shows a typical synapse. Features of note include:<ul><li>Presynaptic neuron</li><li>Postsynaptic neuron</li><li>Presynaptic terminal</li><li>Vesicles (containing neurotransmitter molecules)</li><li>Calcium ion channels and calcium ions</li><li>Synaptic cleft</li><li>Neurotransmitter receptors</li><li>Sodium ion channels and sodium ions</li></ul>",
+            });
+            InkingZoneList.Add(new InkingZoneClassDetail
+            {
+                InkingZoneTitle = "Reflex Arc",
+                InkingZoneRename = "Reflex Arc",
+                InkingZoneImage = "ms-appx:///Assets/Inking/ReflexArc.png",
+                InkingZoneDescription = "Reflex Arc",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
@@ -171,6 +178,13 @@ namespace NerveCentreW10.Views
                 InkingZoneTitle = "Ventricles Matching Exercise",
                 InkingZoneRename = " Ventricles Matching Exercise",
                 InkingZoneImage = "ms-appx:///Assets/Inking/definitionmatch.png",
+                InkingZoneDescription = "Ventricles Matching Exercise",
+            });
+            InkingZoneList.Add(new InkingZoneClassDetail
+            {
+                InkingZoneTitle = "HPA Axis",
+                InkingZoneRename = " HPA Axis",
+                InkingZoneImage = "ms-appx:///Assets/Inking/CortisolDiagram.png",
                 InkingZoneDescription = "Ventricles Matching Exercise",
             });
         }

@@ -111,7 +111,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs">
-      <Version>7.1.0.470</Version>
+      <Version>7.1.0.475</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Azure.Storage.Blob">
       <Version>11.2.2</Version>
@@ -145,13 +145,13 @@
       <Version>1.5.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
-      <Version>1.6.1-preview1</Version>
+      <Version>1.6.1</Version>
     </PackageReference>
     <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
       <Name>Microsoft Engagement Framework</Name>
     </SDKReference>
     <PackageReference Include="AdaptiveCards">
-      <Version>2.4.0</Version>
+      <Version>2.5.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>4.1.0</Version>
@@ -289,6 +289,9 @@
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\VideoIntro.xaml.cs">
+      <DependentUpon>VideoIntro.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\VideoTutorialsDetail.xaml.cs">
       <DependentUpon>VideoTutorialsDetail.xaml</DependentUpon>
     </Compile>
@@ -422,6 +425,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\VideoIntro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\VideoTutorialsDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -477,13 +484,14 @@
     <Content Include="Assets\Inking\CerebralCortex.png" />
     <Content Include="Assets\Inking\CircleOfWillis.png" />
     <Content Include="Assets\Inking\CoronalSection.png" />
+    <Content Include="Assets\Inking\CortisolDiagram.png" />
     <Content Include="Assets\Inking\definitionmatch.png" />
     <Content Include="Assets\Inking\LateralBrain5.png" />
     <Content Include="Assets\Inking\MatchingExercise.png" />
     <Content Include="Assets\Inking\MedialBrain.png" />
     <Content Include="Assets\Inking\Neuron.png" />
     <Content Include="Assets\Inking\ReflexArc.png" />
-    <Content Include="Assets\Inking\rmp.png" />
+    <Content Include="Assets\Inking\rmpforink.png" />
     <Content Include="Assets\Inking\SpinalCordDivisions.png" />
     <Content Include="Assets\Inking\spinalcrosssection.png" />
     <Content Include="Assets\Inking\Synapse.png" />

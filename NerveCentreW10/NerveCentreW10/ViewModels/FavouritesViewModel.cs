@@ -16,7 +16,7 @@ namespace NerveCentreW10.ViewModels
 
         public FavouritesViewModel()
         {
-            CloudClass cloudclass = new CloudClass();
+
         }
     }
 }
