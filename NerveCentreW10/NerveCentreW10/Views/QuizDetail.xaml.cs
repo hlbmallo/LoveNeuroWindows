@@ -10,11 +10,12 @@ using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.IO;
 using HeartCentreW104.Helpers;
-using Microsoft.Azure.Storage.Blob;
+
 using NerveCentreW10.MyData;
 using System.Linq;
 using Windows.UI;
 using NerveCentreW10.ViewModels;
+using Azure.Storage.Blobs;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -130,7 +131,8 @@ namespace NerveCentreW10.Views
         public static string ReadFully(string blobUriAndSasToken)
         {
             var cloudClass = new CloudClass();
-            CloudBlockBlob cloudBlockBlob = new CloudBlockBlob(new Uri(cloudClass.GetBlobSasUri(blobUriAndSasToken)));
+
+            BlobClient cloudBlockBlob = new BlobClient(new Uri(cloudClass.GetBlobSasUri(blobUriAndSasToken)));
 
             using (var stream = cloudBlockBlob.OpenReadAsync().Result)
             {

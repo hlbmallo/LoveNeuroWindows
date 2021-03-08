@@ -73,55 +73,55 @@ namespace NerveCentreW10.Views
 
             Analytics.TrackEvent(this.GetType().Name + " " + MyClickedItem.Title);
 
-            // Save complex/large objects 
-            var helper = new RoamingObjectStorageHelper();
-            string keyLargeObject = MyClickedItem.PageId;
+            //// Save complex/large objects 
+            //var helper = new RoamingObjectStorageHelper();
+            //string keyLargeObject = MyClickedItem.PageId;
 
-            var o = new SubsectionModel
-            {
-                PageId = MyClickedItem.PageId,
-                Title = MyClickedItem.Title,
-                Subtitle1 = MyClickedItem.Subtitle1,
-                Description1 = MyClickedItem.Description1,
-                Subtitle2 = MyClickedItem.Subtitle2,
-                Description2 = MyClickedItem.Description2,
-                Subtitle3 = MyClickedItem.Subtitle3,
-                Description3 = MyClickedItem.Description3,
-                ImageUri1 = MyClickedItem.ImageUri1,
-                ImageUri2 = MyClickedItem.ImageUri2,
-                Popup1Title = MyClickedItem.Popup1Title,
-                Popup1Content = MyClickedItem.Popup1Content,
-                Popup2Title = MyClickedItem.Popup2Title,
-                Popup2Content = MyClickedItem.Popup2Content,
-                Popup3Title = MyClickedItem.Popup3Title,
-                Popup3Content = MyClickedItem.Popup3Content,
-            };
+            //var o = new SubsectionModel
+            //{
+            //    PageId = MyClickedItem.PageId,
+            //    Title = MyClickedItem.Title,
+            //    Subtitle1 = MyClickedItem.Subtitle1,
+            //    Description1 = MyClickedItem.Description1,
+            //    Subtitle2 = MyClickedItem.Subtitle2,
+            //    Description2 = MyClickedItem.Description2,
+            //    Subtitle3 = MyClickedItem.Subtitle3,
+            //    Description3 = MyClickedItem.Description3,
+            //    ImageUri1 = MyClickedItem.ImageUri1,
+            //    ImageUri2 = MyClickedItem.ImageUri2,
+            //    Popup1Title = MyClickedItem.Popup1Title,
+            //    Popup1Content = MyClickedItem.Popup1Content,
+            //    Popup2Title = MyClickedItem.Popup2Title,
+            //    Popup2Content = MyClickedItem.Popup2Content,
+            //    Popup3Title = MyClickedItem.Popup3Title,
+            //    Popup3Content = MyClickedItem.Popup3Content,
+            //};
 
-            await helper.SaveFileAsync(keyLargeObject, o);
+            //await helper.SaveFileAsync(keyLargeObject, o);
 
-            //this.RegisterElementForConnectedAnimation("key", MyImage);
+            ////this.RegisterElementForConnectedAnimation("key", MyImage);
 
-            // Get channel and create activity.
-            UserActivityChannel channel = UserActivityChannel.GetDefault();
-            UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + o.PageId);
+            //// Get channel and create activity.
+            //UserActivityChannel channel = UserActivityChannel.GetDefault();
+            //UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + o.PageId);
 
-            // Set deep-link and properties.
-            activity.ActivationUri = new Uri("loveneuro://" + o.PageId);
-            activity.VisualElements.DisplayText = o.Title;
+            //// Set deep-link and properties.
+            //activity.ActivationUri = new Uri("loveneuro://" + o.PageId);
+            //activity.VisualElements.DisplayText = o.Title;
 
-            // Create and set Adaptive Card.
-            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithImage(MyClickedItem.Title, MyClickedItem.Description1, cloudClass.GetBlobSasUri(MyClickedItem.ImageUri1));
-            Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
-            activity.VisualElements.BackgroundColor = color;
+            //// Create and set Adaptive Card.
+            //activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithImage(MyClickedItem.Title, MyClickedItem.Description1, cloudClass.GetBlobSasUri(MyClickedItem.ImageUri1));
+            //Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+            //activity.VisualElements.BackgroundColor = color;
 
-            // Save to activity feed.
-            await activity.SaveAsync();
+            //// Save to activity feed.
+            //await activity.SaveAsync();
 
-            // Create a session, which indicates that the user is engaged
-            // in the activity.
-            _currentSession?.Dispose();
+            //// Create a session, which indicates that the user is engaged
+            //// in the activity.
+            //_currentSession?.Dispose();
 
-            _currentSession = activity.CreateSession();
+            //_currentSession = activity.CreateSession();
 
         }
 

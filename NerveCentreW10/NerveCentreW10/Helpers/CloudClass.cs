@@ -1,5 +1,6 @@
-﻿using Microsoft.Azure.Storage;
-using Microsoft.Azure.Storage.Blob;
+﻿using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Specialized;
+using Azure.Storage.Sas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,32 +11,43 @@ namespace HeartCentreW104.Helpers
 {
     public class CloudClass
     {
+
         public string GetBlobSasUri(string cloudBlockBlob)
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=thegoofyanatomist2;AccountKey=vSPtuUJeF61Zqn7byU2PNHCn+WQB6NygFUN8eixUqrHXemX3qw4fdvilRmE27TYWue3sP1tcXFZ3MmAxqVJLOg==;EndpointSuffix=core.windows.net");
+            string storedPolicyName = null;
+            string containerName = "diagramscontainer2";
+            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=thegoofyanatomist2;AccountKey=vSPtuUJeF61Zqn7byU2PNHCn+WQB6NygFUN8eixUqrHXemX3qw4fdvilRmE27TYWue3sP1tcXFZ3MmAxqVJLOg==;EndpointSuffix=core.windows.net";
 
-            //Create the blob client object.
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            var blobClient = new BlobClient(storageConnectionString, containerName, cloudBlockBlob);
+            // Check whether this BlobClient object has been authorized with Shared Key.
+            if (blobClient.CanGenerateSasUri)
+            {
+                // Create a SAS token that's valid for one hour.
+                BlobSasBuilder sasBuilder = new BlobSasBuilder()
+                {
+                    BlobContainerName = blobClient.GetParentBlobContainerClient().Name,
+                    BlobName = blobClient.Name,
+                    Resource = "b"
+                };
 
-            //Get a reference to a container to use for the sample code, and create it if it does not exist.
-            CloudBlobContainer container = blobClient.GetContainerReference("diagramscontainer2");
+                if (storedPolicyName == null)
+                {
+                    sasBuilder.StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5);
+                    sasBuilder.ExpiresOn = DateTimeOffset.UtcNow.AddHours(2);
+                    sasBuilder.SetPermissions(BlobSasPermissions.Read);
+                }
+                else
+                {
+                    sasBuilder.Identifier = storedPolicyName;
+                }
 
-            //Get a reference to a blob within the container.
-            CloudBlockBlob blob = container.GetBlockBlobReference(cloudBlockBlob);
-
-            //Set the expiry time and permissions for the blob.
-            //In this case, the start time is specified as a few minutes in the past, to mitigate clock skew.
-            //The shared access signature will be valid immediately.
-            SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
-            sasConstraints.SharedAccessStartTime = DateTimeOffset.UtcNow.AddMinutes(-5);
-            sasConstraints.SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddDays(7);
-            sasConstraints.Permissions = SharedAccessBlobPermissions.Read;
-
-            //Generate the shared access signature on the blob, setting the constraints directly on the signature.
-            string sasBlobToken = blob.GetSharedAccessSignature(sasConstraints);
-
-            //Return the URI string for the container, including the SAS token.
-            return blob.Uri + sasBlobToken;
+                string sasUri = blobClient.GenerateSasUri(sasBuilder).ToString();
+                return sasUri;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

@@ -12,8 +12,8 @@
     <DataTemplate x:Key="NotesDataTemplate" x:DataType="data:NotesClass">
         <Grid
             x:Name="MyGrid"
-            Width="300"
-            Height="200"
+            Width="270"
+            Height="270"
             Padding="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
@@ -80,8 +80,8 @@
     <DataTemplate x:Key="SectionDataTemplate" x:DataType="data:SubsectionModel">
         <Grid
             x:Name="MyGrid"
-            Width="300"
-            Height="200"
+            Width="270"
+            Height="270"
             Padding="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
@@ -141,8 +141,8 @@
     <DataTemplate x:Key="QuizListDataTemplate" x:DataType="data:QuizListClass">
         <Grid
             x:Name="MyGrid"
-            Width="300"
-            Height="200"
+            Width="270"
+            Height="270"
             Padding="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
@@ -195,8 +195,8 @@
     <DataTemplate x:Key="InkingZoneDataTemplate">
         <Grid
             x:Name="MyGrid"
-            Width="300"
-            Height="200"
+            Width="270"
+            Height="270"
             Padding="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
@@ -219,12 +219,13 @@
             <Grid
                 x:Name="MyGrid2"
                 Margin="10"
+                Background="White"
                 BorderBrush="#ebebeb"
                 BorderThickness="2">
                 <controls:ImageEx
                     x:Name="MyImage"
                     Source="{Binding InkingZoneImage}"
-                    Stretch="UniformToFill" />
+                    Stretch="Uniform" />
                 <Border
                     x:Name="MyBorder2"
                     MinHeight="80"
@@ -250,8 +251,8 @@
     <DataTemplate x:Key="InkingZoneEditsDataTemplate">
         <Grid
             x:Name="MyGrid"
-            Width="300"
-            Height="200"
+            Width="270"
+            Height="270"
             Padding="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
@@ -295,8 +296,8 @@
     <DataTemplate x:Key="VideoTutorialsDataTemplate" x:DataType="data:VideoTutorialsClass">
         <Grid
             x:Name="MyGrid"
-            Width="300"
-            Height="200"
+            Width="270"
+            Height="270"
             Padding="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
@@ -319,12 +320,13 @@
             <Grid
                 x:Name="MyGrid2"
                 Margin="10"
+                Background="White"
                 BorderBrush="#ebebeb"
                 BorderThickness="2">
                 <controls:ImageEx
                     x:Name="MyImage"
                     Source="{Binding VideoTutorialsThumbnail}"
-                    Stretch="UniformToFill" />
+                    Stretch="Uniform" />
                 <Border
                     x:Name="MyBorder2"
                     MinHeight="80"
@@ -350,8 +352,8 @@
     <DataTemplate x:Key="MoreResources1DataTemplate" x:DataType="data:NotesClass">
         <Grid
             x:Name="MyGrid"
-            Width="300"
-            Height="200"
+            Width="270"
+            Height="270"
             Padding="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
@@ -416,8 +418,8 @@
     <DataTemplate x:Key="MoreResources2DataTemplate" x:DataType="data:MoreResourcesClass">
         <Grid
             x:Name="MyGrid"
-            Width="300"
-            Height="200"
+            Width="270"
+            Height="270"
             Padding="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
@@ -481,8 +483,8 @@
     <DataTemplate x:Key="FavouritesTemplate" x:DataType="data:SubsectionModel">
         <Grid
             x:Name="MyGrid"
-            Width="300"
-            Height="200"
+            Width="270"
+            Height="270"
             Padding="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"

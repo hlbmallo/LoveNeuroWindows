@@ -33,53 +33,11 @@ namespace NerveCentreW10.Views
             this.InitializeComponent();
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var MyClickedItem = (VideoTutorialsClass)e.Parameter;
             MyWebView.Source = MyClickedItem.VideoTutorialsUrl;
             Analytics.TrackEvent(this.GetType().Name + " " + MyClickedItem.VideoTutorialsName);
-
-            // Save complex/large objects 
-            var helper = new RoamingObjectStorageHelper();
-            string keyLargeObject = MyClickedItem.VideoTutorialsPageId;
-
-            var o = new VideoTutorialsClass
-            {
-                VideoTutorialsPageId = MyClickedItem.VideoTutorialsPageId,
-                VideoTutorialsName = MyClickedItem.VideoTutorialsName,
-                VideoTutorialsDescription = MyClickedItem.VideoTutorialsDescription,
-                VideoTutorialsThumbnail = MyClickedItem.VideoTutorialsThumbnail,
-                VideoTutorialsUrl = MyClickedItem.VideoTutorialsUrl,
-            };
-
-            await helper.SaveFileAsync(keyLargeObject, o);
-
-            //this.RegisterElementForConnectedAnimation("key", MyImage);
-
-            // Get channel and create activity.
-            UserActivityChannel channel = UserActivityChannel.GetDefault();
-            UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + o.VideoTutorialsPageId);
-
-            // Set deep-link and properties.
-            activity.ActivationUri = new Uri("loveneuro://" + o.VideoTutorialsPageId);
-            activity.VisualElements.DisplayText = o.VideoTutorialsName;
-
-            // Create and set Adaptive Card.
-            //StorageFile cardFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Bones.json"));
-            //string cardText = await FileIO.ReadTextAsync(cardFile);
-            //activity.VisualElements.Content = AdaptiveCardBuilder.CreateAdaptiveCardFromJson(cardText);
-            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithImage(MyClickedItem.VideoTutorialsName, MyClickedItem.VideoTutorialsDescription, MyClickedItem.VideoTutorialsThumbnail.ToString());
-            Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
-            activity.VisualElements.BackgroundColor = color;
-
-            // Save to activity feed.
-            await activity.SaveAsync();
-
-            // Create a session, which indicates that the user is engaged
-            // in the activity.
-            _currentSession?.Dispose();
-
-            _currentSession = activity.CreateSession();
         }
 
         private void MyWebView_ContentLoading(WebView sender, WebViewContentLoadingEventArgs args)

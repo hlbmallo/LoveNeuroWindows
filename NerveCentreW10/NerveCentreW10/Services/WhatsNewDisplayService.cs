@@ -15,7 +15,7 @@ namespace NerveCentreW10.Services
 
         internal static async Task ShowIfAppropriateAsync()
         {
-            if (SystemInformation.Instance.IsAppUpdated && !shown)
+            if (SystemInformation.IsAppUpdated && !shown)
             {
                 shown = true;
                 var dialog = new WhatsNewDialog();

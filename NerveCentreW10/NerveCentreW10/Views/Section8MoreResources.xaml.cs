@@ -38,34 +38,34 @@ namespace NerveCentreW10.Views
             Analytics.TrackEvent(this.GetType().Name);
             ViewModel = new MoreResourcesViewModel();
             NotesData();
-            GenerateUserActivityOverArching();
+            //GenerateUserActivityOverArching();
         }
 
-        async void GenerateUserActivityOverArching()
-        {
-            await GenerateActivityAsync();
-        }
+        //async void GenerateUserActivityOverArching()
+        //{
+        //    await GenerateActivityAsync();
+        //}
 
-        private async Task GenerateActivityAsync()
-        {
+        //private async Task GenerateActivityAsync()
+        //{
 
-            // Get channel and create activity.
-            UserActivityChannel channel = UserActivityChannel.GetDefault();
-            UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + "section80");
+        //    // Get channel and create activity.
+        //    UserActivityChannel channel = UserActivityChannel.GetDefault();
+        //    UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + "section80");
 
-            activity.ActivationUri = new Uri("loveneuro://" + "section80");
-            activity.VisualElements.DisplayText = "8.0. More Resources";
-            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage("8.0. More Resources");
-            Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
-            activity.VisualElements.BackgroundColor = color;
+        //    activity.ActivationUri = new Uri("loveneuro://" + "section80");
+        //    activity.VisualElements.DisplayText = "8.0. More Resources";
+        //    activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage("8.0. More Resources");
+        //    Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+        //    activity.VisualElements.BackgroundColor = color;
 
-            await activity.SaveAsync();
+        //    await activity.SaveAsync();
 
-            _currentSession?.Dispose();
+        //    _currentSession?.Dispose();
 
-            _currentSession = activity.CreateSession();
+        //    _currentSession = activity.CreateSession();
 
-        }
+        //}
 
         void NotesData()
         {

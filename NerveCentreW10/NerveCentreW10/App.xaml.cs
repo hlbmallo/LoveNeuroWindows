@@ -76,62 +76,62 @@ namespace NerveCentreW10
 
             
 
-            if (args.Kind == ActivationKind.Protocol)
-            {
-                ProtocolActivatedEventArgs uriArgs = args as ProtocolActivatedEventArgs;
+            //if (args.Kind == ActivationKind.Protocol)
+            //{
+            //    ProtocolActivatedEventArgs uriArgs = args as ProtocolActivatedEventArgs;
 
-                if (uriArgs != null)
-                {
-                    var helper = new RoamingObjectStorageHelper();
-                    string keyLargeObject = uriArgs.Uri.Host;
+            //    if (uriArgs != null)
+            //    {
+            //        var helper = new RoamingObjectStorageHelper();
+            //        string keyLargeObject = uriArgs.Uri.Host;
 
-                    if (await helper.FileExistsAsync(keyLargeObject))
-                    {
-                        var subsectionContent = await helper.ReadFileAsync<SubsectionModel>(keyLargeObject);
-                        var quizContent = await helper.ReadFileAsync<QuizListClass>(keyLargeObject);
-                        var videoTutorialsContent = await helper.ReadFileAsync<VideoTutorialsClass>(keyLargeObject);
+            //        if (await helper.FileExistsAsync(keyLargeObject))
+            //        {
+            //            var subsectionContent = await helper.ReadFileAsync<SubsectionModel>(keyLargeObject);
+            //            var quizContent = await helper.ReadFileAsync<QuizListClass>(keyLargeObject);
+            //            var videoTutorialsContent = await helper.ReadFileAsync<VideoTutorialsClass>(keyLargeObject);
 
-                        if (uriArgs.Uri.Host == subsectionContent.PageId)
-                        {
-                            NavigationService.Navigate(typeof(DetailPage), subsectionContent);
-                            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + subsectionContent.Title);
-                        }
-                        else if (uriArgs.Uri.Host == quizContent.QuizId)
-                        {
-                            NavigationService.Navigate(typeof(QuizDetail), quizContent);
-                            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + quizContent.QuizName);
-                        }
-                        else if (uriArgs.Uri.Host == videoTutorialsContent.VideoTutorialsPageId)
-                        {
-                            NavigationService.Navigate(typeof(VideoTutorialsDetail), videoTutorialsContent);
-                            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + videoTutorialsContent.VideoTutorialsName);
-                        }
-                    }
+            //            if (uriArgs.Uri.Host == subsectionContent.PageId)
+            //            {
+            //                NavigationService.Navigate(typeof(DetailPage), subsectionContent);
+            //                Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + subsectionContent.Title);
+            //            }
+            //            else if (uriArgs.Uri.Host == quizContent.QuizId)
+            //            {
+            //                NavigationService.Navigate(typeof(QuizDetail), quizContent);
+            //                Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + quizContent.QuizName);
+            //            }
+            //            else if (uriArgs.Uri.Host == videoTutorialsContent.VideoTutorialsPageId)
+            //            {
+            //                NavigationService.Navigate(typeof(VideoTutorialsDetail), videoTutorialsContent);
+            //                Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + videoTutorialsContent.VideoTutorialsName);
+            //            }
+            //        }
 
-                    else if (uriArgs.Uri.Host == "section60")
-                    {
-                        NavigationService.Navigate(typeof(Section6InkingZoneMenu));
-                        Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "Quizzes Section");
-                    }
-                    else if (uriArgs.Uri.Host == "section80")
-                    {
-                        NavigationService.Navigate(typeof(Section8MoreResources));
-                        Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "More Resources Section");
-                    }
-                    else
-                    {
-                        NavigationService.Navigate(typeof(MainPage));
-                        Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "Default");
-                    }
+            //        else if (uriArgs.Uri.Host == "section60")
+            //        {
+            //            NavigationService.Navigate(typeof(Section6InkingZoneMenu));
+            //            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "Quizzes Section");
+            //        }
+            //        else if (uriArgs.Uri.Host == "section80")
+            //        {
+            //            NavigationService.Navigate(typeof(Section8MoreResources));
+            //            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "More Resources Section");
+            //        }
+            //        else
+            //        {
+            //            NavigationService.Navigate(typeof(MainPage));
+            //            Analytics.TrackEvent(this.GetType().Name + " (Timeline): " + "Default");
+            //        }
 
-                }
+            //    }
 
-                await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
+            //    await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
 
 
-                //Window.Current.Activate();
-                //base.OnActivated(args);
-            }
+                Window.Current.Activate();
+                base.OnActivated(args);
+            
         }
 
         private ActivationService CreateActivationService()

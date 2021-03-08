@@ -13,7 +13,7 @@ namespace NerveCentreW10.Services
 
         internal static async Task ShowIfAppropriateAsync()
         {
-            if (SystemInformation.Instance.IsFirstRun && !shown)
+            if (SystemInformation.IsFirstRun && !shown)
             {
                 shown = true;
                 var dialog = new FirstRunDialog();
