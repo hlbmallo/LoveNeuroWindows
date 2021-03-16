@@ -1,6 +1,8 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
 using Microsoft.Toolkit.Uwp.UI.Controls;
+using NerveCentreW10.Helpers;
 using NerveCentreW10.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,6 +11,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,19 +36,37 @@ namespace NerveCentreW10.Views
             this.InitializeComponent();
         }
 
+
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var helper = new RoamingObjectStorageHelper();
-            if (await helper.FileExistsAsync("obsCollection.txt") == true)
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            if (await storageFolder.FileExistsAsync("obsCollection.txt") == true)
             {
-                saved = await helper.ReadFileAsync<ObservableCollection<QuizScore>>("obsCollection.txt");
+
+                var temp1 = await storageFolder.GetFileAsync("obsCollection.txt");
+                string text = await Windows.Storage.FileIO.ReadTextAsync(temp1);
+                saved = JsonConvert.DeserializeObject<ObservableCollection<QuizScore>>(text);
                 dataGrid.ItemsSource = saved;
             }
             else
             {
                 var obsCollection = new ObservableCollection<QuizScore>();
-                var contentToSaveToFile = await helper.SaveFileAsync("obsCollection.txt", obsCollection);
+                var temp1 = JsonConvert.SerializeObject(obsCollection);
+                var contentToSaveToFile = await storageFolder.WriteTextToFileAsync(temp1, "obsCollection.txt");
             }
+
+
+            //var helper = new LocalObjectStorageHelper(new JsonSerializer());
+            //if (await helper.FileExistsAsync("obsCollection.txt") == true)
+            //{
+            //    saved = await helper.ReadFileAsync<ObservableCollection<QuizScore>>("obsCollection.txt");
+            //    dataGrid.ItemsSource = saved;
+            //}
+            //else
+            //{
+            //    var obsCollection = new ObservableCollection<QuizScore>();
+            //    var contentToSaveToFile = await helper.SaveFileAsync("obsCollection.txt", obsCollection);
+            //}
 
         }
 
@@ -54,7 +75,7 @@ namespace NerveCentreW10.Views
             var item = (sender as FrameworkElement).DataContext as QuizScore;
             saved.Remove(item);
 
-            var helper = new RoamingObjectStorageHelper();
+                        var helper = new LocalObjectStorageHelper(new SystemSerializer());
             await helper.SaveFileAsync("obsCollection.txt", saved);
             dataGrid.ItemsSource = saved;
 

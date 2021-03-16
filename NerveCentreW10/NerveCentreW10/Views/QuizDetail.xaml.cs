@@ -199,7 +199,7 @@ namespace NerveCentreW10.Views
 
         private async void Dialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            var helper = new RoamingObjectStorageHelper();
+                        var helper = new LocalObjectStorageHelper(new SystemSerializer());
             var temp1 = await helper.ReadFileAsync<ObservableCollection<QuizScore>>("obsCollection.txt");
 
             var contentToDeserialise = new QuizScore()
@@ -278,7 +278,7 @@ namespace NerveCentreW10.Views
         {
 
 
-            var helper = new RoamingObjectStorageHelper();
+                        var helper = new LocalObjectStorageHelper(new SystemSerializer());
 
             var checkIfExistsFile = await helper.FileExistsAsync("obsCollection.txt");
             if (checkIfExistsFile == true)

@@ -517,7 +517,7 @@ namespace NerveCentreW10.Views
         // Handles the Click event on the Button on the page and opens the Popup. 
         private async void ShowPopupOffsetClicked(object sender, RoutedEventArgs e)
         {
-            await MajorContentArea.Blur(7, 500, 0).StartAsync();
+            //await MajorContentArea.Blur(7, 500, 0).StartAsync();
             // open the Popup if it isn't open already 
             if (StandardPopup.Visibility == Visibility.Collapsed) { StandardPopup.Visibility = Visibility.Visible; }
         }
@@ -525,13 +525,13 @@ namespace NerveCentreW10.Views
         private async void CloseSavedDialog_Click(object sender, RoutedEventArgs e)
         {
             if (ImFinishedPopup.Visibility == Visibility.Visible) { ImFinishedPopup.Visibility = Visibility.Collapsed; }
-            await MajorContentArea.Blur(0, 500, 0).StartAsync();
+           // await MajorContentArea.Blur(0, 500, 0).StartAsync();
         }
 
         private async void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             StandardPopup.Visibility = Visibility.Collapsed;
-            await MajorContentArea.Blur(0, 500, 0).StartAsync();
+           // await MajorContentArea.Blur(0, 500, 0).StartAsync();
         }
 
         //private void StandardPopup_SizeChanged(object sender, SizeChangedEventArgs e)

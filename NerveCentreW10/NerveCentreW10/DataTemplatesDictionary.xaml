@@ -51,7 +51,6 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     CacheMode="BitmapCache"
-                    CachingStrategy="Internal"
                     IsCacheEnabled="True"
                     Source="{x:Bind NotesImage}"
                     Stretch="Uniform" />
@@ -112,7 +111,6 @@
                     Padding="10"
                     HorizontalAlignment="Stretch"
                     CacheMode="BitmapCache"
-                    CachingStrategy="Internal"
                     IsCacheEnabled="True"
                     Source="{Binding ImageUri1, Converter={StaticResource cloudHelper}}"
                     Stretch="UniformToFill" />

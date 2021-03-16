@@ -28,10 +28,10 @@ namespace NerveCentreW10.Views
     public sealed partial class SettingsPage : Page
     {
         // To get application's name:
-        public string ApplicationName => SystemInformation.ApplicationName;
+        public string ApplicationName => SystemInformation.Instance.ApplicationName;
 
         // To get application's version:
-        public string ApplicationVersion => $"{SystemInformation.ApplicationVersion.Major}.{SystemInformation.ApplicationVersion.Minor}.{SystemInformation.ApplicationVersion.Build}.{SystemInformation.ApplicationVersion.Revision}";
+        public string ApplicationVersion => $"{SystemInformation.Instance.ApplicationVersion.Major}.{SystemInformation.Instance.ApplicationVersion.Minor}.{SystemInformation.Instance.ApplicationVersion.Build}.{SystemInformation.Instance.ApplicationVersion.Revision}";
 
         public SettingsPage()
         {
