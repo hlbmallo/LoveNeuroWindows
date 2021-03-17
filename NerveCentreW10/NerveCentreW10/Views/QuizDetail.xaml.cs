@@ -199,8 +199,11 @@ namespace NerveCentreW10.Views
 
         private async void Dialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-                        var helper = new LocalObjectStorageHelper(new SystemSerializer());
-            var temp1 = await helper.ReadFileAsync<ObservableCollection<QuizScore>>("obsCollection.txt");
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                var temp1 = await storageFolder.GetFileAsync("obsCollection.txt");
+                string temp2 = await Windows.Storage.FileIO.ReadTextAsync(temp1);
+                var temp3 = JsonConvert.DeserializeObject<ObservableCollection<QuizScore>>(temp2);
+
 
             var contentToDeserialise = new QuizScore()
             {
@@ -208,14 +211,13 @@ namespace NerveCentreW10.Views
                 MyDateForThatScore = DateTime.Now,
                 QuizName = Title.Text,
                 MyScoreInPercent = rootobject.Count,
-      
-        };
+            };
 
-            temp1.Add(contentToDeserialise);
+            temp3.Add(contentToDeserialise);
 
+            var temp4 = JsonConvert.SerializeObject(temp3);
+            var contentToSaveToFile = await storageFolder.WriteTextToFileAsync(temp4, "obsCollection.txt");
 
-
-            await helper.SaveFileAsync("obsCollection.txt", temp1);
             OverallScore = 0;
         }
 
@@ -276,22 +278,19 @@ namespace NerveCentreW10.Views
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
-
-                        var helper = new LocalObjectStorageHelper(new SystemSerializer());
-
-            var checkIfExistsFile = await helper.FileExistsAsync("obsCollection.txt");
-            if (checkIfExistsFile == true)
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            if (await storageFolder.FileExistsAsync("obsCollection.txt") == true)
             {
 
             }
             else
             {
                 var obsCollection = new ObservableCollection<QuizScore>();
-                var contentToSaveToFile = await helper.SaveFileAsync("obsCollection.txt", obsCollection);
+                var temp1 = JsonConvert.SerializeObject(obsCollection);
+                var contentToSaveToFile = await storageFolder.WriteTextToFileAsync(temp1, "obsCollection.txt");
             }
 
-            
+
 
         }
 

@@ -190,7 +190,6 @@
     <Compile Include="EventHandlers\Ink\MoveStrokesEventArgs.cs" />
     <Compile Include="EventHandlers\Ink\RemoveEventArgs.cs" />
     <Compile Include="Helpers\AdaptiveCardCreation.cs" />
-    <Compile Include="Helpers\JsonObjectSerializer.cs" />
     <Compile Include="Helpers\CloudClass.cs" />
     <Compile Include="Helpers\CloudClasssVisibilityConverter.cs" />
     <Compile Include="Helpers\FileIOHelper.cs" />

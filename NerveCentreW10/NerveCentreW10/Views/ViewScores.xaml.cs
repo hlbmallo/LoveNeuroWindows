@@ -42,7 +42,6 @@ namespace NerveCentreW10.Views
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
             if (await storageFolder.FileExistsAsync("obsCollection.txt") == true)
             {
-
                 var temp1 = await storageFolder.GetFileAsync("obsCollection.txt");
                 string text = await Windows.Storage.FileIO.ReadTextAsync(temp1);
                 saved = JsonConvert.DeserializeObject<ObservableCollection<QuizScore>>(text);
@@ -75,9 +74,15 @@ namespace NerveCentreW10.Views
             var item = (sender as FrameworkElement).DataContext as QuizScore;
             saved.Remove(item);
 
-                        var helper = new LocalObjectStorageHelper(new SystemSerializer());
-            await helper.SaveFileAsync("obsCollection.txt", saved);
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            var temp1 = JsonConvert.SerializeObject(saved);
+            var contentToSaveToFile = await storageFolder.WriteTextToFileAsync(temp1, "obsCollection.txt");
+
             dataGrid.ItemsSource = saved;
+
+            //var helper = new LocalObjectStorageHelper(new SystemSerializer());
+            //await helper.SaveFileAsync("obsCollection.txt", saved);
+            //dataGrid.ItemsSource = saved;
 
         }
 
