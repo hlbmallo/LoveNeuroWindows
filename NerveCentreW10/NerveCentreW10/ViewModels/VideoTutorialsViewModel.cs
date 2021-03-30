@@ -50,6 +50,14 @@ namespace NerveCentreW10.ViewModels
                 VideoTutorialsThumbnail = cloudclass.GetBlobSasUri("ap5.png"),
                 VideoTutorialsUrl = new Uri("https://www.youtube.com/embed/wHJka2zp0ME"),
             });
+            VideoTutorialsList.Add(new VideoTutorialsClass
+            {
+                VideoTutorialsPageId = "section75",
+                VideoTutorialsName = "The Ventricular System",
+                VideoTutorialsDescription = "A video tutorial that focuses on the ventricular system of the brain and spinal cord, as well as CSF and interventricular connections.",
+                VideoTutorialsThumbnail = cloudclass.GetBlobSasUri("brainventricles.png"),
+                VideoTutorialsUrl = new Uri("https://www.youtube.com/embed/ple7yptOrVU"),
+            });
         }
     }
 }
