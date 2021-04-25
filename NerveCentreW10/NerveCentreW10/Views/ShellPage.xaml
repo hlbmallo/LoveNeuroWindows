@@ -8,7 +8,6 @@
     xmlns:helpers="using:NerveCentreW10.Helpers"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:titlebarextensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:views="using:NerveCentreW10.Views"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     Loaded="OnLoaded"
@@ -56,7 +55,12 @@
                     <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconVideo.png" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
-            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section8MoreResources" Content="8.0. More Resources">
+            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:ClinicalCaseLandingPage" Content="8.0. Clinical Cases">
+                <winui:NavigationViewItem.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconMore.png" />
+                </winui:NavigationViewItem.Icon>
+            </winui:NavigationViewItem>
+            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section8MoreResources" Content="9.0. More Resources">
                 <winui:NavigationViewItem.Icon>
                     <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconMore.png" />
                 </winui:NavigationViewItem.Icon>

@@ -169,7 +169,7 @@
       <Version>7.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.6.0-prerelease.210315002</Version>
+      <Version>2.6.0-prerelease.210405001</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +229,9 @@
     <Compile Include="ViewModels\Section3ViewModel.cs" />
     <Compile Include="ViewModels\Section4ViewModel.cs" />
     <Compile Include="ViewModels\VideoTutorialsViewModel.cs" />
+    <Compile Include="Views\ClinicalCaseLandingPage.xaml.cs">
+      <DependentUpon>ClinicalCaseLandingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailImagePage.xaml.cs">
       <DependentUpon>DetailImagePage.xaml</DependentUpon>
     </Compile>
@@ -341,6 +344,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClinicalCaseLandingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
