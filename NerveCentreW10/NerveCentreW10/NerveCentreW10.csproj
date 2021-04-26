@@ -182,6 +182,8 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Converters\DateFormatConverter.cs" />
     <Compile Include="Converters\PercentageConverter.cs" />
+    <Compile Include="CustomControls\GalleryFlipView.cs" />
+    <Compile Include="CustomControls\GalleryFlipViewItem.cs" />
     <Compile Include="DataTemplatesDictionary.xaml.cs">
       <DependentUpon>DataTemplatesDictionary.xaml</DependentUpon>
     </Compile>
@@ -196,6 +198,7 @@
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\ImagesNavigationHelper.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
+    <Compile Include="Models\ClinicalCaseModel.cs" />
     <Compile Include="Models\InkingZoneClassDetail.cs" />
     <Compile Include="Models\MoreResourcesClass.cs" />
     <Compile Include="Models\NeuroDictionaryModel.cs" />
@@ -220,6 +223,8 @@
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\SampleDataService.cs" />
     <Compile Include="Services\WhatsNewDisplayService.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\ClinicalCaseScenarioPageViewModel.cs" />
     <Compile Include="ViewModels\FavouritesViewModel.cs" />
     <Compile Include="ViewModels\InkingZoneViewModel.cs" />
     <Compile Include="ViewModels\MoreResourcesViewModel.cs" />
@@ -231,6 +236,9 @@
     <Compile Include="ViewModels\VideoTutorialsViewModel.cs" />
     <Compile Include="Views\ClinicalCaseLandingPage.xaml.cs">
       <DependentUpon>ClinicalCaseLandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClinicalCaseScenarioPage.xaml.cs">
+      <DependentUpon>ClinicalCaseScenarioPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailImagePage.xaml.cs">
       <DependentUpon>DetailImagePage.xaml</DependentUpon>
@@ -348,6 +356,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ClinicalCaseLandingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClinicalCaseScenarioPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -546,8 +558,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Quizzes\quiz10boxjson.json" />
-    <None Include="NerveCentreW10_TemporaryKey.pfx" />
-    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

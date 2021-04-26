@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HeartCentreW104.Helpers
+namespace NerveCentreW10.Helpers
 {
     public class CloudClass
     {

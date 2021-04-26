@@ -1,0 +1,111 @@
+﻿<Page
+    x:Class="NerveCentreW10.Views.ClinicalCaseScenarioPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:NerveCentreW10.CustomControls"
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="using:NerveCentreW10.Models"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="using:NerveCentreW10.ViewModels"
+    x:Name="ClinicalCasePage"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <!--<Page.DataContext>
+        <viewmodel:ClinicalCasesScenarioPageViewModel x:Name="viewModel" />
+    </Page.DataContext>-->
+
+    <Page.Resources>
+        <converters:BoolToVisibilityConverter
+            x:Name="BoolToVisibConv"
+            FalseValue="Collapsed"
+            TrueValue="Visible" />
+    </Page.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <controls:GalleryFlipView
+            x:Name="flipView"
+            Grid.Row="0"
+            IsFlipEnabled="False"
+            ItemsSource="{x:Bind viewModel.SubsectionList}"
+            Loaded="GalleryFlipView_Loaded"
+            ManipulationMode="None"
+            ScrollViewer.HorizontalScrollMode="Disabled"
+            ScrollViewer.IsHorizontalScrollChainingEnabled="False"
+            SelectedIndex="{x:Bind viewModel.ItemPosition, Mode=TwoWay}">
+            <controls:GalleryFlipView.ItemTemplate>
+                <DataTemplate x:DataType="data:ClinicalCaseModel">
+                    <StackPanel Margin="10">
+                        <TextBlock
+                            Margin="0,0,0,10"
+                            Style="{StaticResource BodyTextBlockStyle}"
+                            Text="{x:Bind OpeningStatement, Mode=TwoWay}" />
+                        <TextBlock
+                            Margin="0,0,0,10"
+                            FontWeight="Bold"
+                            Style="{StaticResource BodyTextBlockStyle}"
+                            Text="{x:Bind Question, Mode=TwoWay}" />
+                        <StackPanel Margin="0,0,0,10">
+                            <RadioButton Content="{x:Bind Answer1, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedA, Mode=TwoWay}" />
+                            <RadioButton Content="{x:Bind Answer2, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedB, Mode=TwoWay}" />
+                            <RadioButton Content="{x:Bind Answer3, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedC, Mode=TwoWay}" />
+                        </StackPanel>
+                        <Grid>
+                            <TextBlock
+                                Foreground="{Binding myColor, Mode=TwoWay}"
+                                Style="{StaticResource ReasoningStyle1}"
+                                Text="{x:Bind Ans1Reasoning, Mode=TwoWay}"
+                                Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell1, FallbackValue=True}" />
+                            <TextBlock
+                                Foreground="{Binding myColor, Mode=TwoWay}"
+                                Style="{StaticResource ReasoningStyle1}"
+                                Text="{x:Bind Ans2Reasoning, Mode=TwoWay}"
+                                Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell2, FallbackValue=True}" />
+                            <TextBlock
+                                Foreground="{Binding myColor, Mode=TwoWay}"
+                                Style="{StaticResource ReasoningStyle1}"
+                                Text="{x:Bind Ans3Reasoning, Mode=TwoWay}"
+                                Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell3, FallbackValue=True}" />
+                        </Grid>
+
+                    </StackPanel>
+                </DataTemplate>
+            </controls:GalleryFlipView.ItemTemplate>
+        </controls:GalleryFlipView>
+
+        <StackPanel
+            Grid.Row="1"
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <Button
+                Margin="2"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Command="{x:Bind viewModel.SubmitCommand, Mode=TwoWay}"
+                Content="Submit" />
+            <StackPanel Orientation="Horizontal">
+                <Button
+                    Margin="2"
+                    Command="{x:Bind viewModel.ClickedCommandBack, Mode=TwoWay}"
+                    Content="Previous" />
+                <!--<Label
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Style="{StaticResource SubtitleStyle1}"
+                    Text="Swipe to the left for the next question" />-->
+                <Button
+                    Margin="2"
+                    Command="{x:Bind viewModel.ClickedCommand, Mode=TwoWay}"
+                    Content="Next" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

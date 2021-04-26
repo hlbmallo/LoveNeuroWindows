@@ -1,4 +1,4 @@
-﻿using HeartCentreW104.Helpers;
+﻿using NerveCentreW10.Helpers;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -42,5 +42,6 @@ namespace NerveCentreW10.Views
             var videoIntro = new VideoIntro();
             await videoIntro.ShowAsync();
         }
+
     }
 }
