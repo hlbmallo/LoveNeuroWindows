@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls2="using:AppStudio.Uwp.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -37,13 +38,11 @@
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource HeaderTextBlockStyle}"
                         Text="Welcome to Clinical Cases (Preview)" />
-                    <TextBlock
+                    <controls2:HtmlBlock
+                        x:Name="HtmlLabel"
                         Margin="30"
                         HorizontalAlignment="Center"
-                        HorizontalTextAlignment="Center"
-                        Style="{StaticResource BodyTextBlockStyle}"
-                        Text="There are two sets of questions, each with 10 multiple-choice, image-based questions to answer, with one mark awarded per correct answer. For each test, you will have 20 seconds to answer each question. You'll need an internet connection to download the images. The spotter will be automatically scored at the end of the last question. When you're ready, hit 'Start'."
-                        TextWrapping="Wrap" />
+                        Style="{StaticResource HTMLBlockTextStyle1}" />
                     <TextBlock
                         x:Name="internetConnectionStatusText"
                         HorizontalAlignment="Center"

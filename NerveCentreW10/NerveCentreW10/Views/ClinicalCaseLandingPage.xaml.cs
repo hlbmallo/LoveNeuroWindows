@@ -13,6 +13,7 @@ namespace NerveCentreW10.Views
         public ClinicalCaseLandingPage()
         {
             this.InitializeComponent();
+            HtmlLabel.Source = "In this section you will find fictional patients with neurological symptoms.The goal is to answer the 8 questions correctly about the neuroscience underlying their conditions. The questions are not timed.< br />< br /> When you select an answer, tap 'Submit' and this will reveal if you are correct. Then, tap 'Next' to proceed. Tap a clinical case below to get started.";
         }
 
 
