@@ -475,6 +475,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\Icons\iconclinicalcase.png" />
     <Content Include="Assets\Icons\IconTGA.png" />
     <Content Include="Assets\Icons\IconFavourites.png" />
     <Content Include="Assets\Icons\IconCells.png" />
