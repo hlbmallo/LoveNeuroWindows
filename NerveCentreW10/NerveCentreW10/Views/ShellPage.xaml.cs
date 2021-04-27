@@ -54,24 +54,14 @@ namespace NerveCentreW10.Views
 
         private async void TeachingTipsMethods()
         {
-            //var helper = new RoamingObjectStorageHelper();
-            //if (await helper.FileExistsAsync("obsCollection.txt") == true)
+            //if (VersionTracking.IsFirstLaunchEver == true)
             //{
-            //    QuizScores.IsEnabled = true;
+            //    TeachTip1.IsOpen = true;
             //}
             //else
             //{
-            //    QuizScores.IsEnabled = false;
+            //    TeachTip1.IsOpen = false;
             //}
-
-            if (VersionTracking.IsFirstLaunchEver == true)
-            {
-                TeachTip1.IsOpen = true;
-            }
-            else
-            {
-                TeachTip1.IsOpen = false;
-            }
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -156,15 +146,15 @@ namespace NerveCentreW10.Views
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        private void TeachTip1_CloseButtonClick(WinUI.TeachingTip sender, object args)
-        {
-            TeachTip2.IsOpen = true;
-        }
+        //private void TeachTip1_CloseButtonClick(WinUI.TeachingTip sender, object args)
+        //{
+        //    TeachTip2.IsOpen = true;
+        //}
 
-        private void TeachTip2_CloseButtonClick(WinUI.TeachingTip sender, object args)
-        {
-            TeachTip3.IsOpen = true;
-        }
+        //private void TeachTip2_CloseButtonClick(WinUI.TeachingTip sender, object args)
+        //{
+        //    TeachTip3.IsOpen = true;
+        //}
 
 
     }

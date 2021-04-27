@@ -2,15 +2,26 @@
     x:Class="NerveCentreW10.Views.VideoTutorialsDetail"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:NerveCentreW10.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:NerveCentreW10.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Unloaded="Page_Unloaded">
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    Unloaded="Page_Unloaded"
+    mc:Ignorable="d">
 
     <Grid>
-        <WebView x:Name="MyWebView" Margin="10" ContentLoading="MyWebView_ContentLoading" LoadCompleted="MyWebView_LoadCompleted"/>
-        <ProgressRing x:Name="MyProgressRing" Width="70" Height="70" Foreground="#01acff" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <WebView
+            x:Name="MyWebView"
+            Margin="10"
+            ContentLoading="MyWebView_ContentLoading"
+            LoadCompleted="MyWebView_LoadCompleted" />
+        <winui:ProgressRing
+            x:Name="MyProgressRing"
+            Width="70"
+            Height="70"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Foreground="Black" />
     </Grid>
-    
+
 </Page>

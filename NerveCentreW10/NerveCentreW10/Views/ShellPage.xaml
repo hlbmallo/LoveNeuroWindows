@@ -29,7 +29,7 @@
         <winui:NavigationView.MenuItems>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:MainPage" Content="Home">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconHome.png" />
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconhome.png"  />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem
@@ -37,22 +37,22 @@
                 helpers:NavHelper.NavigateTo="views:Notes"
                 Content="1.0. - 4.0. Notes">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconNotes.png" />
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconnotes.png" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section5QuizMenu" Content="5.0. Quizzes">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconQuiz.png" />
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconquiz.png" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section6InkingZoneMenu" Content="6.0. Inking Zone">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconInk.png" />
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconinking.png" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section7VideoTutorialsMenu" Content="7.0. Video Tutorials">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconVideo.png" />
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconvideos.png" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:ClinicalCaseLandingPage" Content="8.0. Clinical Cases">
@@ -62,7 +62,7 @@
             </winui:NavigationViewItem>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section8MoreResources" Content="9.0. More Resources">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconMore.png" />
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconmore.png" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItemSeparator />
@@ -71,7 +71,7 @@
                 helpers:NavHelper.NavigateTo="views:FavouritesPage"
                 Content="Favourites">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/IconFavourites.png" />
+                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconfaves.png" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem
@@ -112,9 +112,8 @@
                     Text="LoveNeuro" />
             </StackPanel>
         </winui:NavigationView.PaneHeader>
-        <Grid>
-            <Frame x:Name="shellFrame" Margin="24,4,24,0" />
-            <winui:TeachingTip
+        <Frame x:Name="shellFrame" Margin="24,4,24,0" />
+        <!--<winui:TeachingTip
                 x:Name="TeachTip1"
                 Title="Sections (1/3)"
                 CloseButtonClick="TeachTip1_CloseButtonClick"
@@ -146,8 +145,7 @@
                         <TextBlock Text="You can now view your saved quiz scores anytime." TextWrapping="Wrap" />
                     </StackPanel>
                 </winui:TeachingTip.Content>
-            </winui:TeachingTip>
-        </Grid>
+            </winui:TeachingTip>-->
     </winui:NavigationView>
 
 </Page>

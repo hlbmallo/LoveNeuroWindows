@@ -1,12 +1,10 @@
-﻿using NerveCentreW10.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Media.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -19,24 +17,16 @@ using Windows.UI.Xaml.Navigation;
 
 namespace NerveCentreW10.Views
 {
-    public sealed partial class VideoIntro : ContentDialog
+    public sealed partial class ClinicalCaseFinishedDialog : ContentDialog
     {
-        public VideoIntro()
+        public ClinicalCaseFinishedDialog()
         {
             this.InitializeComponent();
         }
 
-        private void ContentDialog_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            MyMPE.MediaPlayer.Pause();
-            this.Hide();
+            NerveCentreW10.Services.NavigationService.Frame.GoBack();
         }
-
-        private void ContentDialog_Loaded(object sender, RoutedEventArgs e)
-        {
-            var cloudClass = new CloudClass();
-            MyMPE.Source = MediaSource.CreateFromUri(new Uri(cloudClass.GetBlobSasUri("LoveNeuroAdV2.mp4")));
-        }
-
     }
 }

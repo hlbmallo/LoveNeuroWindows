@@ -3,6 +3,7 @@ using Azure.Storage.Blobs.Models;
 using NerveCentreW10.Commands;
 using NerveCentreW10.Helpers;
 using NerveCentreW10.Models;
+using NerveCentreW10.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Xamarin.Essentials;
 
@@ -252,7 +254,7 @@ namespace NerveCentreW10.ViewModels
             }
         }
 
-            public void ClickedEvent()
+            public async void ClickedEvent()
         {
             ShowViewCell1 = false;
             ShowViewCell2 = false;
@@ -260,7 +262,8 @@ namespace NerveCentreW10.ViewModels
 
             if (ItemPosition == 7)
             {
-
+                var FinishedDialog = new ClinicalCaseFinishedDialog();
+                await FinishedDialog.ShowAsync();
             }
 
             else

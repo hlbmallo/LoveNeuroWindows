@@ -234,6 +234,9 @@
     <Compile Include="ViewModels\Section3ViewModel.cs" />
     <Compile Include="ViewModels\Section4ViewModel.cs" />
     <Compile Include="ViewModels\VideoTutorialsViewModel.cs" />
+    <Compile Include="Views\ClinicalCaseFinishedDialog.xaml.cs">
+      <DependentUpon>ClinicalCaseFinishedDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ClinicalCaseLandingPage.xaml.cs">
       <DependentUpon>ClinicalCaseLandingPage.xaml</DependentUpon>
     </Compile>
@@ -352,6 +355,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClinicalCaseFinishedDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -476,32 +483,34 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Assets\Icons\iconclinicalcase.png" />
+    <Content Include="Assets\Icons\icondict.png" />
+    <Content Include="Assets\Icons\iconexplore.png" />
+    <Content Include="Assets\Icons\iconfaves.png" />
+    <Content Include="Assets\Icons\iconinking.png" />
+    <Content Include="Assets\Icons\iconsettings.png" />
     <Content Include="Assets\Icons\IconTGA.png" />
-    <Content Include="Assets\Icons\IconFavourites.png" />
     <Content Include="Assets\Icons\IconCells.png" />
     <Content Include="Assets\Icons\IconCNS.png" />
     <Content Include="Assets\Icons\IconNeuroDictionary.png" />
     <Content Include="Assets\Icons\IconDisorders.png" />
     <Content Include="Assets\Icons\IconFB.png" />
-    <Content Include="Assets\Icons\FeedbackIcon256.png" />
-    <Content Include="Assets\Icons\FeedbackIcon2562.png" />
-    <Content Include="Assets\Icons\IconHome.png" />
+    <Content Include="Assets\Icons\iconhome.png" />
+    <Content Include="Assets\Icons\iconvideos.png" />
     <Content Include="Assets\Icons\InfoIconx256.png" />
     <Content Include="Assets\Icons\IconInk.png" />
-    <Content Include="Assets\Icons\IconMore.png" />
+    <Content Include="Assets\Icons\iconmore.png" />
     <Content Include="Assets\Icons\IconPNS.png" />
     <Content Include="Assets\Icons\PrivacyIcon256.png" />
     <Content Include="Assets\Icons\QuestionIcon256.png" />
-    <Content Include="Assets\Icons\IconQuiz.png" />
+    <Content Include="Assets\Icons\iconquiz.png" />
     <Content Include="Assets\Icons\RateIcon256.png" />
     <Content Include="Assets\Icons\Read256.png" />
     <Content Include="Assets\Icons\IconRecommendedReading.png" />
     <Content Include="Assets\Icons\SettingsIcon256.png" />
-    <Content Include="Assets\Icons\IconNotes.png" />
+    <Content Include="Assets\Icons\iconnotes.png" />
     <Content Include="Assets\Icons\IconTwitter.png" />
     <Content Include="Assets\Icons\UpdateIcon256.png" />
     <Content Include="Assets\Icons\UpdateIcon3x256.png" />
-    <Content Include="Assets\Icons\IconVideo.png" />
     <Content Include="Assets\Inking\BrachialPlexus.png" />
     <Content Include="Assets\Inking\brainstem.png" />
     <Content Include="Assets\Inking\CerebralCortex.png" />
