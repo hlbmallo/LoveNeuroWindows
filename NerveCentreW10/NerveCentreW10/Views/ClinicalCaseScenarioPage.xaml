@@ -12,9 +12,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <!--<Page.DataContext>
+    <Page.DataContext>
         <viewmodel:ClinicalCasesScenarioPageViewModel x:Name="viewModel" />
-    </Page.DataContext>-->
+    </Page.DataContext>
 
     <Page.Resources>
         <converters:BoolToVisibilityConverter

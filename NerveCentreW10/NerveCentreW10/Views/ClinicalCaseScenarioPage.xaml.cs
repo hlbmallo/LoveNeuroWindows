@@ -23,13 +23,9 @@ namespace NerveCentreW10.Views
     public sealed partial class ClinicalCaseScenarioPage : Page
     {
         //public ViewModels.ClinicalCasesScenarioPageViewModel ViewModel;
-        public ViewModels.ClinicalCasesScenarioPageViewModel viewModel { get; set; } = new ViewModels.ClinicalCasesScenarioPageViewModel();
-
 
         public ClinicalCaseScenarioPage()
         {
-        DataContext = viewModel;
-
         this.InitializeComponent();
             //ViewModel = new ViewModels.ClinicalCasesScenarioPageViewModel();
         }

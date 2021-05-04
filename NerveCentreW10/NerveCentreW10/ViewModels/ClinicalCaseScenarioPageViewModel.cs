@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -22,23 +23,24 @@ namespace NerveCentreW10.ViewModels
 {
     public class ClinicalCasesScenarioPageViewModel : BaseViewModel
     {
-     
+
 
         public RelayCommand ClickedCommand { get; set; }
         public RelayCommand ClickedCommandBack { get; set; }
         //public Command MyPositionChangedCommand { get; set; }
         public RelayCommand SubmitCommand { get; set; }
 
-        private ObservableCollection<ClinicalCaseModel> _sublist1;
+        private ObservableCollection<ClinicalCaseModel> _sublist;
         public ObservableCollection<ClinicalCaseModel> SubsectionList
         {
-            get => _sublist1;
+            get => _sublist;
             set
             {
-                this._sublist1 = value;
+                this._sublist = value;
                 this.OnPropertyChanged("SubsectionList");
             }
         }
+
 
         private bool showviewcell1;
         public bool ShowViewCell1
@@ -121,31 +123,26 @@ namespace NerveCentreW10.ViewModels
                 _ItemPosition = value;
                 OnPropertyChanged("ItemPosition");
             }
-
         }
 
         public ClinicalCasesScenarioPageViewModel()
         {
-            SubsectionList = new ObservableCollection<ClinicalCaseModel>();
 
             ClickedCommand = new RelayCommand(ClickedEvent);
             ClickedCommandBack = new RelayCommand(ClickedBackEvent);
             SubmitCommand = new RelayCommand(SubmitEvent);
-            //MyPositionChangedCommand = new Command(MyPositionChangedEvent);
             Loaded();
         }
 
-        public async void Loaded()
+        public void Loaded()
         {
-            DownloadBlob("clinicalcase1.json");
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync("download.txt");
-            string jsonFromCloud = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-            var rootobject = JsonConvert.DeserializeObject<ObservableCollection<ClinicalCaseModel>>(jsonFromCloud);
-            SubsectionList = rootobject;
+            SubsectionList = new ObservableCollection<ClinicalCaseModel>();
+
+            var myString = ReadFully("clinicalcase1.json");
+            SubsectionList = JsonConvert.DeserializeObject<ObservableCollection<ClinicalCaseModel>>(myString);
         }
 
-        public async void DownloadBlob(string blobUriAndSasToken)
+        public async Task<Stream> DownloadBlob(string blobUriAndSasToken)
         {
             var cloudClass = new CloudClass();
 
@@ -153,10 +150,29 @@ namespace NerveCentreW10.ViewModels
 
             BlobDownloadInfo download = await cloudBlockBlob.DownloadAsync();
 
-            using (FileStream downloadFileStream = File.OpenWrite(FileSystem.AppDataDirectory + "/download.txt"))
+            return download.Content;
+
+
+
+            //using (FileStream fs = File.Create(FileSystem.AppDataDirectory + "/download.txt"))
+            //{
+            //    var lol2 = download.Content.CopyToAsync(fs);
+            //    return fs;
+            //}
+        }
+
+        public static string ReadFully(string blobUriAndSasToken)
+        {
+            var cloudClass = new CloudClass();
+
+            BlobClient cloudBlockBlob = new BlobClient(new Uri(cloudClass.GetBlobSasUri(blobUriAndSasToken)));
+
+            using (var stream = cloudBlockBlob.OpenRead())
             {
-                await download.Content.CopyToAsync(downloadFileStream);
-                downloadFileStream.Close();
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
             }
         }
 
