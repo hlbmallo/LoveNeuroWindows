@@ -71,7 +71,7 @@
                             Background="White"
                             CornerRadius="10">
                             <TextBlock x:Name="Subtitle1" Style="{StaticResource TitleTextBlockStyle}" />
-                            <Border Style="{StaticResource BorderLine1}" />
+                            <!--<Border Style="{StaticResource BorderLine1}" />-->
                             <controls2:HtmlBlock
                                 x:Name="Description1"
                                 Margin="0,0,0,10"
@@ -96,7 +96,7 @@
                                 x:Name="Subtitle2"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}" />
-                            <Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}" />
+                            <!--<Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}" />-->
                             <Border x:Name="MyBorderForImage" Background="White">
                                 <Grid>
                                     <controls:ImageEx
@@ -144,7 +144,7 @@
                                 x:Name="Subtitle3"
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />
-                            <Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />
+                            <!--<Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />-->
                             <Border
                                 x:Name="MyBorderForImage2"
                                 Background="White"
