@@ -273,6 +273,9 @@
     <Compile Include="Views\Notes.xaml.cs">
       <DependentUpon>Notes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PopUpClinical.xaml.cs">
+      <DependentUpon>PopUpClinical.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\QuizDetail.xaml.cs">
       <DependentUpon>QuizDetail.xaml</DependentUpon>
     </Compile>
@@ -409,6 +412,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PopUpClinical.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\QuizDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -485,6 +492,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\Icons\ClinicalNoteIcon.png" />
     <Content Include="Assets\Icons\iconclinicalcase.png" />
     <Content Include="Assets\Icons\icondict.png" />
     <Content Include="Assets\Icons\iconexplore.png" />
@@ -509,6 +517,8 @@
     <Content Include="Assets\Icons\RateIcon256.png" />
     <Content Include="Assets\Icons\Read256.png" />
     <Content Include="Assets\Icons\IconRecommendedReading.png" />
+    <Content Include="Assets\Icons\ResearchNoteIcon.png" />
+    <Content Include="Assets\Icons\RevisionNoteIcon.png" />
     <Content Include="Assets\Icons\SettingsIcon256.png" />
     <Content Include="Assets\Icons\iconnotes.png" />
     <Content Include="Assets\Icons\IconTwitter.png" />

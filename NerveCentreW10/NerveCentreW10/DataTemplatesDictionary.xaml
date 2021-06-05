@@ -39,7 +39,7 @@
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
-                BorderBrush="#ebebeb"
+                BorderBrush="#01acff"
                 BorderThickness="2"
                 CornerRadius="10">
                 <Grid.RowDefinitions>
@@ -53,6 +53,8 @@
                     MaxHeight="80"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
                     CacheMode="BitmapCache"
                     IsCacheEnabled="True"
                     Source="{x:Bind NotesImage}"
@@ -107,7 +109,7 @@
                 x:Name="MyGrid2"
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
-                BorderBrush="#ebebeb"
+                BorderBrush="#01acff"
                 BorderThickness="2"
                 CornerRadius="10">
                 <controls:ImageEx
@@ -170,7 +172,7 @@
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="#ebebeb"
-                BorderBrush="#ebebeb"
+                BorderBrush="#01acff"
                 BorderThickness="2"
                 CornerRadius="10">
                 <StackPanel VerticalAlignment="Center">
@@ -246,7 +248,7 @@
                         VerticalAlignment="Center"
                         FontSize="16"
                         FontWeight="Bold"
-                        Foreground="#2b2b2b"
+                        Foreground="#01acff"
                         Text="{Binding InkingZoneRename}"
                         TextAlignment="Center"
                         TextWrapping="Wrap" />

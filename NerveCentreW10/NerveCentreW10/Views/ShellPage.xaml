@@ -87,6 +87,7 @@
                         <Grid>
                             <TextBlock
                                 Margin="{StaticResource SmallLeftRightMargin}"
+                                Foreground="#01acff"
                                 Style="{ThemeResource TitleTextBlockStyle}"
                                 Text="{Binding}" />
                         </Grid>
@@ -106,6 +107,7 @@
                     VerticalAlignment="Center"
                     FontSize="16"
                     FontWeight="Bold"
+                    Foreground="Black"
                     Text="LoveNeuro" />
             </StackPanel>
         </winui:NavigationView.PaneHeader>

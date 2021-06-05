@@ -33,195 +33,164 @@
                 Padding="20"
                 VerticalAlignment="Top"
                 Orientation="Vertical">
-                <controls:DropShadowPanel
-                    Margin="0,10,10,10"
-                    HorizontalContentAlignment="Stretch"
-                    VerticalContentAlignment="Stretch"
-                    BlurRadius="20"
-                    OffsetX="0"
-                    OffsetY="0"
-                    Opacity="1"
-                    ShadowOpacity=".6"
-                    Color="Black">
-                    <StackPanel
-                        Padding="10"
-                        Background="White"
-                        CornerRadius="10">
-                        <TextBlock
-                            x:Name="Title"
-                            Margin="5"
-                            HorizontalAlignment="Left"
-                            Style="{StaticResource TitleTextBlockStyle}" />
-                    </StackPanel>
-                </controls:DropShadowPanel>
 
-                <StackPanel>
-                    <controls:DropShadowPanel
-                        Margin="10"
-                        HorizontalContentAlignment="Stretch"
-                        VerticalContentAlignment="Stretch"
-                        BlurRadius="20"
-                        OffsetX="0"
-                        OffsetY="0"
-                        Opacity="1"
-                        ShadowOpacity=".6"
-                        Color="Black">
-                        <StackPanel
-                            Padding="10"
-                            Background="White"
-                            CornerRadius="10">
-                            <TextBlock x:Name="Subtitle1" Style="{StaticResource TitleTextBlockStyle}" />
-                            <!--<Border Style="{StaticResource BorderLine1}" />-->
+                <StackPanel
+                    Margin="5"
+                    Padding="10"
+                    Background="White"
+                    BorderBrush="#01acff"
+                    BorderThickness="2"
+                    CornerRadius="10">
+                    <TextBlock
+                        x:Name="Title"
+                        Margin="5"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource TitleTextBlockStyle}" />
+                </StackPanel>
+                <StackPanel
+                    Margin="5"
+                    Padding="10"
+                    Background="White"
+                    BorderBrush="#01acff"
+                    BorderThickness="2"
+                    CornerRadius="10">
+                    <TextBlock x:Name="Subtitle1" Style="{StaticResource TitleTextBlockStyle}" />
+                    <!--<Border Style="{StaticResource BorderLine1}" />-->
+                    <controls2:HtmlBlock
+                        x:Name="Description1"
+                        Margin="0,0,0,10"
+                        Style="{StaticResource HTMLBlockTextStyle1}" />
+                </StackPanel>
+
+
+                <StackPanel
+                    Margin="5"
+                    Padding="10"
+                    Background="White"
+                    BorderBrush="#01acff"
+                    BorderThickness="2"
+                    CornerRadius="10">
+                    <TextBlock
+                        x:Name="Subtitle2"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}" />
+                    <!--<Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}" />-->
+                    <Border x:Name="MyBorderForImage" Background="White">
+                        <Grid>
+                            <controls:ImageEx
+                                x:Name="MyImage"
+                                Height="Auto"
+                                MaxWidth="1000"
+                                MaxHeight="700"
+                                Margin="5"
+                                HorizontalAlignment="Center"
+                                ImageExFailed="MyImage_ImageExFailed"
+                                PlaceholderSource="ms-appx:///Assets/Others/LoadingPlaceholder.png"
+                                PlaceholderStretch="Uniform"
+                                Stretch="Uniform"
+                                Tapped="MyImage_Tapped" />
+                            <TextBlock
+                                Margin="0,0,16,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                FontSize="12"
+                                FontStyle="Italic"
+                                Text="Click or tap to enable zooming" />
+                        </Grid>
+                    </Border>
+                    <controls2:HtmlBlock
+                        x:Name="Description2"
+                        Style="{StaticResource HTMLBlockTextStyle1}"
+                        Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}" />
+                </StackPanel>
+
+                <StackPanel
+                    Margin="5"
+                    Padding="10"
+                    Background="White"
+                    BorderBrush="#01acff"
+                    BorderThickness="2"
+                    CornerRadius="10">
+                    <TextBlock
+                        x:Name="Subtitle3"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />
+                    <!--<Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />-->
+                    <Border
+                        x:Name="MyBorderForImage2"
+                        Background="White"
+                        Visibility="{x:Bind Path=MyClickedImage2, Converter={StaticResource StringVisibilityConverter}}">
+                        <Grid>
+                            <controls:ImageEx
+                                x:Name="MyImage2"
+                                Height="Auto"
+                                MaxWidth="1000"
+                                MaxHeight="700"
+                                Margin="5"
+                                HorizontalAlignment="Center"
+                                ImageExFailed="MyImage2_ImageExFailed"
+                                PlaceholderSource="ms-appx:///Assets/Others/LoadingPlaceholder.png"
+                                PlaceholderStretch="Uniform"
+                                Stretch="Uniform"
+                                Tapped="MyImage2_Tapped" />
+                            <TextBlock
+                                Margin="0,0,16,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                FontSize="12"
+                                FontStyle="Italic"
+                                Text="Click or tap to enable zooming" />
+                        </Grid>
+                    </Border>
+                    <controls2:HtmlBlock
+                        x:Name="Description3"
+                        Style="{StaticResource HTMLBlockTextStyle1}"
+                        Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <controls:Expander
+                        x:Name="ClinicalExpander"
+                        Margin="5"
+                        HorizontalAlignment="Stretch"
+                        Background="#ff7201"
+                        CornerRadius="100"
+                        Visibility="{x:Bind Path=ClinicalExpander.Header, Converter={StaticResource StringVisibilityConverter}}">
+                        <Grid Padding="5" Background="#ebebeb">
                             <controls2:HtmlBlock
-                                x:Name="Description1"
-                                Margin="0,0,0,10"
+                                x:Name="ClinicalExpanderContent"
+                                FontSize="16"
                                 Style="{StaticResource HTMLBlockTextStyle1}" />
-                        </StackPanel>
-                    </controls:DropShadowPanel>
-                    <controls:DropShadowPanel
-                        Margin="10"
-                        HorizontalContentAlignment="Stretch"
-                        VerticalContentAlignment="Stretch"
-                        BlurRadius="20"
-                        OffsetX="0"
-                        OffsetY="0"
-                        Opacity="1"
-                        ShadowOpacity=".6"
-                        Color="Black">
-                        <StackPanel
-                            Padding="10"
-                            Background="White"
-                            CornerRadius="10">
-                            <TextBlock
-                                x:Name="Subtitle2"
-                                Style="{StaticResource TitleTextBlockStyle}"
-                                Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}" />
-                            <!--<Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}" />-->
-                            <Border x:Name="MyBorderForImage" Background="White">
-                                <Grid>
-                                    <controls:ImageEx
-                                        x:Name="MyImage"
-                                        Height="Auto"
-                                        MaxWidth="1000"
-                                        MaxHeight="700"
-                                        Margin="5"
-                                        HorizontalAlignment="Center"
-                                        ImageExFailed="MyImage_ImageExFailed"
-                                        PlaceholderSource="ms-appx:///Assets/Others/LoadingPlaceholder.png"
-                                        PlaceholderStretch="Uniform"
-                                        Stretch="Uniform"
-                                        Tapped="MyImage_Tapped" />
-                                    <TextBlock
-                                        Margin="0,0,16,0"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Top"
-                                        FontSize="12"
-                                        FontStyle="Italic"
-                                        Text="Click or tap to enable zooming" />
-                                </Grid>
-                            </Border>
+                        </Grid>
+                    </controls:Expander>
+                    <controls:Expander
+                        x:Name="ResearchExpander"
+                        Margin="5"
+                        HorizontalAlignment="Stretch"
+                        Background="#ff7201"
+                        CornerRadius="10"
+                        Visibility="{x:Bind Path=ResearchExpander.Header, Converter={StaticResource StringVisibilityConverter}}">
+                        <Grid Padding="5" Background="#ebebeb">
                             <controls2:HtmlBlock
-                                x:Name="Description2"
-                                Style="{StaticResource HTMLBlockTextStyle1}"
-                                Visibility="{x:Bind Path=Subtitle2.Text, Converter={StaticResource StringVisibilityConverter}}" />
-                        </StackPanel>
-                    </controls:DropShadowPanel>
-                    <controls:DropShadowPanel
-                        Margin="10"
-                        HorizontalContentAlignment="Stretch"
-                        VerticalContentAlignment="Stretch"
-                        BlurRadius="20"
-                        OffsetX="0"
-                        OffsetY="0"
-                        Opacity="1"
-                        ShadowOpacity=".6"
-                        Color="Black">
-                        <StackPanel
-                            Padding="10"
-                            Background="White"
-                            CornerRadius="10">
-                            <TextBlock
-                                x:Name="Subtitle3"
-                                Style="{StaticResource TitleTextBlockStyle}"
-                                Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />
-                            <!--<Border Style="{StaticResource BorderLine1}" Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />-->
-                            <Border
-                                x:Name="MyBorderForImage2"
-                                Background="White"
-                                Visibility="{x:Bind Path=MyClickedImage2, Converter={StaticResource StringVisibilityConverter}}">
-                                <Grid>
-                                    <controls:ImageEx
-                                        x:Name="MyImage2"
-                                        Height="Auto"
-                                        MaxWidth="1000"
-                                        MaxHeight="700"
-                                        Margin="5"
-                                        HorizontalAlignment="Center"
-                                        ImageExFailed="MyImage2_ImageExFailed"
-                                        PlaceholderSource="ms-appx:///Assets/Others/LoadingPlaceholder.png"
-                                        PlaceholderStretch="Uniform"
-                                        Stretch="Uniform"
-                                        Tapped="MyImage2_Tapped" />
-                                    <TextBlock
-                                        Margin="0,0,16,0"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Top"
-                                        FontSize="12"
-                                        FontStyle="Italic"
-                                        Text="Click or tap to enable zooming" />
-                                </Grid>
-                            </Border>
+                                x:Name="ResearchExpanderContent"
+                                Background="#2b2b2b"
+                                FontSize="16"
+                                Style="{StaticResource HTMLBlockTextStyle1}" />
+                        </Grid>
+                    </controls:Expander>
+                    <controls:Expander
+                        x:Name="RevisionExpander"
+                        Margin="5"
+                        HorizontalAlignment="Stretch"
+                        Background="#ff7201"
+                        CornerRadius="10"
+                        Visibility="{x:Bind Path=RevisionExpander.Header, Converter={StaticResource StringVisibilityConverter}}">
+                        <Grid Padding="5" Background="#ebebeb">
                             <controls2:HtmlBlock
-                                x:Name="Description3"
-                                Style="{StaticResource HTMLBlockTextStyle1}"
-                                Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />
-                        </StackPanel>
-                    </controls:DropShadowPanel>
-                    <StackPanel Orientation="Vertical">
-                        <controls:Expander
-                            x:Name="ClinicalExpander"
-                            Margin="5"
-                            HorizontalAlignment="Stretch"
-                            Background="#ff7201"
-                            CornerRadius="10"
-                            Visibility="{x:Bind Path=ClinicalExpander.Header, Converter={StaticResource StringVisibilityConverter}}">
-                            <Grid Padding="5" Background="#ebebeb">
-                                <controls2:HtmlBlock
-                                    x:Name="ClinicalExpanderContent"
-                                    FontSize="16"
-                                    Style="{StaticResource HTMLBlockTextStyle1}" />
-                            </Grid>
-                        </controls:Expander>
-                        <controls:Expander
-                            x:Name="ResearchExpander"
-                            Margin="5"
-                            HorizontalAlignment="Stretch"
-                            Background="#ff7201"
-                            CornerRadius="10"
-                            Visibility="{x:Bind Path=ResearchExpander.Header, Converter={StaticResource StringVisibilityConverter}}">
-                            <Grid Padding="5" Background="#ebebeb">
-                                <controls2:HtmlBlock
-                                    x:Name="ResearchExpanderContent"
-                                    Background="#2b2b2b"
-                                    FontSize="16"
-                                    Style="{StaticResource HTMLBlockTextStyle1}" />
-                            </Grid>
-                        </controls:Expander>
-                        <controls:Expander
-                            x:Name="RevisionExpander"
-                            Margin="5"
-                            HorizontalAlignment="Stretch"
-                            Background="#ff7201"
-                            CornerRadius="10"
-                            Visibility="{x:Bind Path=RevisionExpander.Header, Converter={StaticResource StringVisibilityConverter}}">
-                            <Grid Padding="5" Background="#ebebeb">
-                                <controls2:HtmlBlock
-                                    x:Name="RevisionExpanderContent"
-                                    FontSize="16"
-                                    Style="{StaticResource HTMLBlockTextStyle1}" />
-                            </Grid>
-                        </controls:Expander>
-                    </StackPanel>
+                                x:Name="RevisionExpanderContent"
+                                FontSize="16"
+                                Style="{StaticResource HTMLBlockTextStyle1}" />
+                        </Grid>
+                    </controls:Expander>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
@@ -270,6 +239,33 @@
                     Click="FavouritesButton_Click"
                     Content="Add Favourite"
                     Style="{StaticResource ToggleButtonRevealStyle}" />
+                <AppBarSeparator />
+                <Button
+                    x:Name="ClinicalButton"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="Transparent"
+                    Click="ClinicalButton_Click"
+                    Content="Clinical Note"
+                    Style="{StaticResource ButtonRevealStyle}" />
+                <Button
+                    x:Name="ResearchButton"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="Transparent"
+                    Click="ResearchButton_Click"
+                    Content="Research Note"
+                    Style="{StaticResource ButtonRevealStyle}" />
+
+                <Button
+                    x:Name="RevisionButton"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="Transparent"
+                    Click="RevisionButton_Click"
+                    Content="Revision Note"
+                    Style="{StaticResource ButtonRevealStyle}" />
+
             </StackPanel>
         </Grid>
     </Grid>

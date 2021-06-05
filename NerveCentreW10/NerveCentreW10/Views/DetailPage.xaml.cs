@@ -25,7 +25,7 @@ namespace NerveCentreW10.Views
 {
     public sealed partial class DetailPage : Page
     {
-        private UserActivitySession _currentSession;
+        //private UserActivitySession _currentSession;
         public SubsectionModel overall;
         public string MyClickedImage1;
         public string MyClickedImage2;
@@ -305,5 +305,22 @@ namespace NerveCentreW10.Views
                 }
             }
         }
+
+        private async void ClinicalButton_Click(object sender, RoutedEventArgs e)
+        {
+            var clinicalPopUp = new PopUpClinical(overall);
+            await clinicalPopUp.ShowAsync();
+        }
+
+        private void ResearchButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RevisionButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

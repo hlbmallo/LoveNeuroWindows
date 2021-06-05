@@ -12,7 +12,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <controls:ImageEx Background="Black" Source="ms-appx:///Assets/Others/Welcome7.png" />
         <StackPanel
             Grid.Row="1"
             Margin="10"
