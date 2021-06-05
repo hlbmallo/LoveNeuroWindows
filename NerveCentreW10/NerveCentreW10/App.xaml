@@ -92,14 +92,14 @@
             <AcrylicBrush
                 x:Key="NavigationViewDefaultPaneBackground"
                 BackgroundSource="Backdrop"
-                FallbackColor="#ff7201"
-                TintColor="#ff7201"
+                FallbackColor="LightGray"
+                TintColor="LightGray"
                 TintOpacity=".8" />
             <AcrylicBrush
                 x:Key="NavigationViewExpandedPaneBackground"
                 BackgroundSource="HostBackdrop"
-                FallbackColor="#ff7201"
-                TintColor="#ff7201"
+                FallbackColor="LightGray"
+                TintColor="LightGray"
                 TintOpacity=".9" />
 
             <ResourceDictionary.MergedDictionaries>

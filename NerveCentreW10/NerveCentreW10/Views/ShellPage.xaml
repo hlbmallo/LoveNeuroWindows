@@ -20,7 +20,7 @@
     <winui:NavigationView
         x:Name="navigationView"
         Grid.Row="1"
-        Background="{ThemeResource SystemControlBackgroundAltHighBrush}"
+        Background="WhiteSmoke"
         IsBackButtonVisible="Visible"
         IsBackEnabled="{x:Bind IsBackEnabled, Mode=OneWay}"
         IsSettingsVisible="True"
@@ -29,40 +29,37 @@
         <winui:NavigationView.MenuItems>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:MainPage" Content="Home">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconhome.png"  />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE80F;" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
-            <winui:NavigationViewItem
-                x:Name="Notes"
-                helpers:NavHelper.NavigateTo="views:Notes"
-                Content="1.0. - 4.0. Notes">
+            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Notes" Content="1.0. - 4.0. Notes">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconnotes.png" />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8FF;" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section5QuizMenu" Content="5.0. Quizzes">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconquiz.png" />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE897;" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section6InkingZoneMenu" Content="6.0. Inking Zone">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconinking.png" />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70F;" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section7VideoTutorialsMenu" Content="7.0. Video Tutorials">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconvideos.png" />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE714;" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:ClinicalCaseLandingPage" Content="8.0. Clinical Cases">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconclinicalcase.png" />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B7;" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section8MoreResources" Content="9.0. More Resources">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconmore.png" />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE712;" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItemSeparator />
@@ -71,7 +68,7 @@
                 helpers:NavHelper.NavigateTo="views:FavouritesPage"
                 Content="Favourites">
                 <winui:NavigationViewItem.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/Icons/iconfaves.png" />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE734;" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
             <winui:NavigationViewItem
@@ -79,7 +76,7 @@
                 helpers:NavHelper.NavigateTo="views:ViewScores"
                 Content="Quiz Scores">
                 <winui:NavigationViewItem.Icon>
-                    <SymbolIcon Symbol="List" />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE133;" />
                 </winui:NavigationViewItem.Icon>
             </winui:NavigationViewItem>
         </winui:NavigationView.MenuItems>
@@ -112,7 +109,10 @@
                     Text="LoveNeuro" />
             </StackPanel>
         </winui:NavigationView.PaneHeader>
-        <Frame x:Name="shellFrame" Margin="24,4,24,0" />
+        <Frame
+            x:Name="shellFrame"
+            Margin="10"
+            Background="WhiteSmoke" />
         <!--<winui:TeachingTip
                 x:Name="TeachTip1"
                 Title="Sections (1/3)"

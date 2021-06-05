@@ -9,10 +9,9 @@
     Unloaded="Page_Unloaded"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Margin="10" CornerRadius="10">
         <WebView
             x:Name="MyWebView"
-            Margin="10"
             ContentLoading="MyWebView_ContentLoading"
             LoadCompleted="MyWebView_LoadCompleted" />
         <winui:ProgressRing

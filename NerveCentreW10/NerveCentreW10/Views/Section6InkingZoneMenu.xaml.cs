@@ -33,34 +33,34 @@ namespace NerveCentreW10.Views
             inkingZoneViewModel = new InkingZoneViewModel();
             InkingZoneData();
             Analytics.TrackEvent(this.GetType().Name);
-            GenerateUserActivityOverArching();
+            //GenerateUserActivityOverArching();
         }
 
-        async void GenerateUserActivityOverArching()
-        {
-            await GenerateActivityAsync();
-        }
+        //async void GenerateUserActivityOverArching()
+        //{
+        //    await GenerateActivityAsync();
+        //}
 
-        private async Task GenerateActivityAsync()
-        {
+        //private async Task GenerateActivityAsync()
+        //{
 
-            // Get channel and create activity.
-            UserActivityChannel channel = UserActivityChannel.GetDefault();
-            UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + "section60");
+        //    // Get channel and create activity.
+        //    UserActivityChannel channel = UserActivityChannel.GetDefault();
+        //    UserActivity activity = await channel.GetOrCreateUserActivityAsync("ln" + "section60");
 
-            activity.ActivationUri = new Uri("loveneuro://" + "section60");
-            activity.VisualElements.DisplayText = "6.0. Inking Zone";
-            activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage("6.0. Inking Zone");
-            Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
-            activity.VisualElements.BackgroundColor = color;
+        //    activity.ActivationUri = new Uri("loveneuro://" + "section60");
+        //    activity.VisualElements.DisplayText = "6.0. Inking Zone";
+        //    activity.VisualElements.Content = Helpers.AdaptiveCardCreation.CreateAdaptiveCardWithoutImage("6.0. Inking Zone");
+        //    Windows.UI.Color color = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+        //    activity.VisualElements.BackgroundColor = color;
 
-            await activity.SaveAsync();
+        //    await activity.SaveAsync();
 
-            _currentSession?.Dispose();
+        //    _currentSession?.Dispose();
 
-            _currentSession = activity.CreateSession();
+        //    _currentSession = activity.CreateSession();
 
-        }
+        //}
 
 
 

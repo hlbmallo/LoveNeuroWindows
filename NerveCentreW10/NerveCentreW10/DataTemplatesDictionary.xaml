@@ -30,7 +30,7 @@
                 OffsetX="0"
                 OffsetY="0"
                 Opacity="0"
-                ShadowOpacity=".8"
+                ShadowOpacity=".4"
                 Color="Black">
                 <Grid />
             </controls:DropShadowPanel>
@@ -40,7 +40,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="#ebebeb"
-                BorderThickness="2">
+                BorderThickness="2"
+                CornerRadius="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.6*" />
                     <RowDefinition Height="0.4*" />
@@ -98,7 +99,7 @@
                 OffsetX="0"
                 OffsetY="0"
                 Opacity="0"
-                ShadowOpacity=".8"
+                ShadowOpacity=".4"
                 Color="Black">
                 <Grid />
             </controls:DropShadowPanel>
@@ -107,7 +108,8 @@
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 BorderBrush="#ebebeb"
-                BorderThickness="2">
+                BorderThickness="2"
+                CornerRadius="10">
                 <controls:ImageEx
                     x:Name="MyImage"
                     MinHeight="80"
@@ -159,7 +161,7 @@
                 OffsetX="0"
                 OffsetY="0"
                 Opacity="0"
-                ShadowOpacity=".8"
+                ShadowOpacity=".4"
                 Color="Black">
                 <Grid />
             </controls:DropShadowPanel>
@@ -169,7 +171,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="#ebebeb"
                 BorderBrush="#ebebeb"
-                BorderThickness="2">
+                BorderThickness="2"
+                CornerRadius="10">
                 <StackPanel VerticalAlignment="Center">
                     <TextBlock
                         HorizontalAlignment="Center"
@@ -214,7 +217,7 @@
                 OffsetX="0"
                 OffsetY="0"
                 Opacity="0"
-                ShadowOpacity=".8"
+                ShadowOpacity=".4"
                 Color="Black">
                 <Grid />
             </controls:DropShadowPanel>
@@ -224,7 +227,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="#ebebeb"
-                BorderThickness="2">
+                BorderThickness="2"
+                CornerRadius="10">
                 <controls:ImageEx
                     x:Name="MyImage"
                     Source="{Binding InkingZoneImage}"
@@ -271,7 +275,7 @@
                 OffsetX="0"
                 OffsetY="0"
                 Opacity="0"
-                ShadowOpacity=".8"
+                ShadowOpacity=".4"
                 Color="Black">
                 <Grid />
             </controls:DropShadowPanel>
@@ -281,7 +285,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="#ebebeb"
                 BorderBrush="#ebebeb"
-                BorderThickness="2">
+                BorderThickness="2"
+                CornerRadius="10">
                 <StackPanel VerticalAlignment="Center">
                     <TextBlock
                         HorizontalAlignment="Center"
@@ -317,7 +322,7 @@
                 OffsetX="0"
                 OffsetY="0"
                 Opacity="0"
-                ShadowOpacity=".8"
+                ShadowOpacity=".4"
                 Color="Black">
                 <Grid />
             </controls:DropShadowPanel>
@@ -327,7 +332,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="#ebebeb"
-                BorderThickness="2">
+                BorderThickness="2"
+                CornerRadius="10">
                 <controls:ImageEx
                     x:Name="MyImage"
                     Source="{Binding VideoTutorialsThumbnail}"
@@ -374,7 +380,7 @@
                 OffsetX="0"
                 OffsetY="0"
                 Opacity="0"
-                ShadowOpacity=".8"
+                ShadowOpacity=".4"
                 Color="Black">
                 <Grid />
             </controls:DropShadowPanel>
@@ -384,7 +390,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="#ebebeb"
-                BorderThickness="2">
+                BorderThickness="2"
+                CornerRadius="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.6*" />
                     <RowDefinition Height="0.4*" />
@@ -441,7 +448,7 @@
                 OffsetX="0"
                 OffsetY="0"
                 Opacity="0"
-                ShadowOpacity=".8"
+                ShadowOpacity=".4"
                 Color="Black">
                 <Grid />
             </controls:DropShadowPanel>
@@ -451,7 +458,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="#ebebeb"
-                BorderThickness="2">
+                BorderThickness="2"
+                CornerRadius="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.6*" />
                     <RowDefinition Height="0.4*" />
@@ -507,7 +515,7 @@
                 OffsetX="0"
                 OffsetY="0"
                 Opacity="0"
-                ShadowOpacity=".8"
+                ShadowOpacity=".4"
                 Color="Black">
                 <Grid />
             </controls:DropShadowPanel>
@@ -516,7 +524,8 @@
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 BorderBrush="#ebebeb"
-                BorderThickness="2">
+                BorderThickness="2"
+                CornerRadius="10">
                 <controls:ImageEx
                     x:Name="MyImage"
                     MinHeight="80"
