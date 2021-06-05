@@ -135,7 +135,8 @@
             Grid.Row="2"
             Grid.ColumnSpan="2"
             Height="48"
-            Background="{ThemeResource DetailPageCommandbarAcrylic1}">
+            Background="{ThemeResource DetailPageCommandbarAcrylic1}"
+            CornerRadius="10">
             <StackPanel Orientation="Horizontal">
                 <Button
                     x:Name="SubmitButton"
