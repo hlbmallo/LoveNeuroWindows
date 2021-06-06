@@ -133,7 +133,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontSize="16"
-                        FontWeight="Bold"
+                        FontWeight="Normal"
                         Foreground="#2b2b2b"
                         Text="{x:Bind Title}"
                         TextAlignment="Center"
@@ -228,7 +228,7 @@
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
-                BorderBrush="#ebebeb"
+                BorderBrush="#01acff"
                 BorderThickness="2"
                 CornerRadius="10">
                 <controls:ImageEx
@@ -333,7 +333,7 @@
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
-                BorderBrush="#ebebeb"
+                BorderBrush="#01acff"
                 BorderThickness="2"
                 CornerRadius="10">
                 <controls:ImageEx
@@ -525,7 +525,7 @@
                 x:Name="MyGrid2"
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
-                BorderBrush="#ebebeb"
+                BorderBrush="#01acff"
                 BorderThickness="2"
                 CornerRadius="10">
                 <controls:ImageEx

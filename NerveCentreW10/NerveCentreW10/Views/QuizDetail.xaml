@@ -60,74 +60,84 @@
             VerticalAlignment="Center"
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Center"
-            Background="#ebebeb"
+            Background="WhiteSmoke"
             CornerRadius="10"
             ItemsSource="{x:Bind rootobject, Mode=TwoWay}">
             <FlipView.ItemTemplate>
                 <DataTemplate x:DataType="data:QuizClass">
-                    <Border
-                        Margin="20"
-                        HorizontalAlignment="Stretch"
-                        Background="White"
-                        CornerRadius="10">
-                        <StackPanel CornerRadius="10" Style="{StaticResource StackPanelForQuestions}">
-                            <TextBlock
-                                x:Name="QQ"
-                                Style="{StaticResource QuestionTextStyle}"
-                                Text="{Binding QTEXT, Mode=TwoWay}"
-                                TextWrapping="WrapWholeWords" />
-                            <RadioButton
-                                x:Name="QA"
-                                Content="{Binding QA, Mode=TwoWay}"
-                                IsChecked="{Binding QAIsActive, Mode=TwoWay}" />
-                            <RadioButton
-                                x:Name="QB"
-                                Content="{Binding QB, Mode=TwoWay}"
-                                IsChecked="{Binding QBIsActive, Mode=TwoWay}" />
-                            <RadioButton
-                                x:Name="QC"
-                                Content="{Binding QC, Mode=TwoWay}"
-                                IsChecked="{Binding QCIsActive, Mode=TwoWay}" />
-                            <RadioButton
-                                x:Name="QD"
-                                Content="{Binding QD, Mode=TwoWay}"
-                                IsChecked="{Binding QDIsActive, Mode=TwoWay}" />
-                            <Border
-                                Height="1"
-                                HorizontalAlignment="Stretch"
-                                Background="Black"
-                                Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
-                            <TextBlock
-                                x:Name="QCORRECT"
-                                FontSize="40"
-                                FontWeight="Bold"
-                                Foreground="{x:Bind QCOLOR, Mode=TwoWay}"
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="{Binding QCORRECT, Mode=TwoWay}"
-                                Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
+                    <controls:DropShadowPanel
+                        x:Name="MyDropShadow"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        BlurRadius="20"
+                        OffsetX="0"
+                        OffsetY="0"
+                        ShadowOpacity=".3"
+                        Color="Black">
+                        <Border
+                            Margin="10"
+                            HorizontalAlignment="Stretch"
+                            Background="WhiteSmoke"
+                            CornerRadius="10">
+                            <StackPanel CornerRadius="10" Style="{StaticResource StackPanelForQuestions}">
+                                <TextBlock
+                                    x:Name="QQ"
+                                    Style="{StaticResource QuestionTextStyle}"
+                                    Text="{Binding QTEXT, Mode=TwoWay}"
+                                    TextWrapping="WrapWholeWords" />
+                                <RadioButton
+                                    x:Name="QA"
+                                    Content="{Binding QA, Mode=TwoWay}"
+                                    IsChecked="{Binding QAIsActive, Mode=TwoWay}" />
+                                <RadioButton
+                                    x:Name="QB"
+                                    Content="{Binding QB, Mode=TwoWay}"
+                                    IsChecked="{Binding QBIsActive, Mode=TwoWay}" />
+                                <RadioButton
+                                    x:Name="QC"
+                                    Content="{Binding QC, Mode=TwoWay}"
+                                    IsChecked="{Binding QCIsActive, Mode=TwoWay}" />
+                                <RadioButton
+                                    x:Name="QD"
+                                    Content="{Binding QD, Mode=TwoWay}"
+                                    IsChecked="{Binding QDIsActive, Mode=TwoWay}" />
+                                <Border
+                                    Height="1"
+                                    HorizontalAlignment="Stretch"
+                                    Background="Black"
+                                    Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
+                                <TextBlock
+                                    x:Name="QCORRECT"
+                                    FontSize="40"
+                                    FontWeight="Bold"
+                                    Foreground="{x:Bind QCOLOR, Mode=TwoWay}"
+                                    Style="{StaticResource TextBlockForCorrect}"
+                                    Text="{Binding QCORRECT, Mode=TwoWay}"
+                                    Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
 
-                            <!--<TextBlock
+                                <!--<TextBlock
                                 x:Name="ANSANDREA"
                                 FontWeight="Bold"
                                 Style="{StaticResource TextBlockForCorrect}"
                                 Text="Answer and Reasoning:"
                                 Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}" />-->
 
-                            <TextBlock
-                                FontWeight="Bold"
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="Answer and Reasoning:"
-                                Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
-                            <TextBlock
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="{x:Bind ANS, Mode=OneWay}"
-                                Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
-                            <TextBlock
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="{x:Bind REA, Mode=OneWay}"
-                                Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
-                        </StackPanel>
-                    </Border>
+                                <TextBlock
+                                    FontWeight="Bold"
+                                    Style="{StaticResource TextBlockForCorrect}"
+                                    Text="Answer and Reasoning:"
+                                    Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
+                                <TextBlock
+                                    Style="{StaticResource TextBlockForCorrect}"
+                                    Text="{x:Bind ANS, Mode=OneWay}"
+                                    Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
+                                <TextBlock
+                                    Style="{StaticResource TextBlockForCorrect}"
+                                    Text="{x:Bind REA, Mode=OneWay}"
+                                    Visibility="{x:Bind ANSIsVisible, Mode=OneWay}" />
+                            </StackPanel>
+                        </Border>
+                    </controls:DropShadowPanel>
                 </DataTemplate>
             </FlipView.ItemTemplate>
         </FlipView>

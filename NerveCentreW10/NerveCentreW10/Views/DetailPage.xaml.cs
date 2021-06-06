@@ -64,12 +64,12 @@ namespace NerveCentreW10.Views
                 ShareImage2Button.Visibility = Visibility.Visible;
             }
 
-            ClinicalExpander.Header = MyClickedItem.Popup1Title;
-            ClinicalExpanderContent.Source = MyClickedItem.Popup1Content;
-            ResearchExpander.Header = MyClickedItem.Popup2Title;
-            ResearchExpanderContent.Source = MyClickedItem.Popup2Content;
-            RevisionExpander.Header = MyClickedItem.Popup3Title;
-            RevisionExpanderContent.Source = MyClickedItem.Popup3Content;
+            //ClinicalExpander.Header = MyClickedItem.Popup1Title;
+            //ClinicalExpanderContent.Source = MyClickedItem.Popup1Content;
+            //ResearchExpander.Header = MyClickedItem.Popup2Title;
+            //ResearchExpanderContent.Source = MyClickedItem.Popup2Content;
+            //RevisionExpander.Header = MyClickedItem.Popup3Title;
+            //RevisionExpanderContent.Source = MyClickedItem.Popup3Content;
 
             Analytics.TrackEvent(this.GetType().Name + " " + MyClickedItem.Title);
 
@@ -312,14 +312,16 @@ namespace NerveCentreW10.Views
             await clinicalPopUp.ShowAsync();
         }
 
-        private void ResearchButton_Click(object sender, RoutedEventArgs e)
+        private async void ResearchButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var clinicalPopUp = new PopUpResearch(overall);
+            await clinicalPopUp.ShowAsync();
         }
 
-        private void RevisionButton_Click(object sender, RoutedEventArgs e)
+        private async void RevisionButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var clinicalPopUp = new PopUpRevision(overall);
+            await clinicalPopUp.ShowAsync();
         }
 
     }

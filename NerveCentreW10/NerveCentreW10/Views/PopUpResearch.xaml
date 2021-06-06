@@ -1,11 +1,10 @@
 ﻿<ContentDialog
-    x:Class="NerveCentreW10.Views.PopUpClinical"
+    x:Class="NerveCentreW10.Views.PopUpResearch"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:controls1="using:AppStudio.Uwp.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:NerveCentreW10.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     CloseButtonClick="ContentDialog_CloseButtonClick"
     CloseButtonText="Close"
@@ -15,7 +14,7 @@
         <controls:ImageEx
             Width="100"
             Height="150"
-            Source="ms-appx:///Assets/Icons/iconclinical.png" />
-        <controls1:HtmlBlock x:Name="ClinicalText" />
+            Source="ms-appx:///Assets/Icons/iconresearch.png" />
+        <controls1:HtmlBlock x:Name="ResearchText" />
     </StackPanel>
 </ContentDialog>

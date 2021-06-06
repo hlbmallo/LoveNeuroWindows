@@ -43,8 +43,9 @@
                     CornerRadius="10">
                     <TextBlock
                         x:Name="Title"
-                        Margin="5"
+                        Margin="0"
                         HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
                         Style="{StaticResource TitleTextBlockStyle}" />
                 </StackPanel>
                 <StackPanel
@@ -147,7 +148,7 @@
                         Style="{StaticResource HTMLBlockTextStyle1}"
                         Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}" />
                 </StackPanel>
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <!--<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <controls:Expander
                         x:Name="ClinicalExpander"
                         Margin="5"
@@ -191,7 +192,7 @@
                                 Style="{StaticResource HTMLBlockTextStyle1}" />
                         </Grid>
                     </controls:Expander>
-                </StackPanel>
+                </StackPanel>-->
             </StackPanel>
         </ScrollViewer>
 
@@ -247,7 +248,8 @@
                     Background="Transparent"
                     Click="ClinicalButton_Click"
                     Content="Clinical Note"
-                    Style="{StaticResource ButtonRevealStyle}" />
+                    Style="{StaticResource ButtonRevealStyle}"
+                    Visibility="{x:Bind Path=overall.Popup1Title, Converter={StaticResource StringVisibilityConverter}}" />
                 <Button
                     x:Name="ResearchButton"
                     HorizontalAlignment="Stretch"
@@ -255,7 +257,9 @@
                     Background="Transparent"
                     Click="ResearchButton_Click"
                     Content="Research Note"
-                    Style="{StaticResource ButtonRevealStyle}" />
+                    Style="{StaticResource ButtonRevealStyle}"
+                    Visibility="{x:Bind Path=overall.Popup2Title, Converter={StaticResource StringVisibilityConverter}}" />
+
 
                 <Button
                     x:Name="RevisionButton"
@@ -264,7 +268,9 @@
                     Background="Transparent"
                     Click="RevisionButton_Click"
                     Content="Revision Note"
-                    Style="{StaticResource ButtonRevealStyle}" />
+                    Style="{StaticResource ButtonRevealStyle}"
+                    Visibility="{x:Bind Path=overall.Popup3Title, Converter={StaticResource StringVisibilityConverter}}" />
+
 
             </StackPanel>
         </Grid>
