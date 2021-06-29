@@ -12,6 +12,9 @@
     mc:Ignorable="d">
 
     <StackPanel>
-        <TextBlock Text="In this Clinical Case, the patient suffered from Brown-Sequard syndrome after an extreme fall. Brown-Sequard develops when the left or right side of the spinal cord is transected. Well done on completing the questions. Now, hit the 'Back' button to go back to the main menu." TextWrapping="Wrap" />
+        <TextBlock
+            x:Name="MyTextBlock"
+            Style="{StaticResource BodyTextBlockStyle}"
+            TextWrapping="Wrap" />
     </StackPanel>
 </ContentDialog>

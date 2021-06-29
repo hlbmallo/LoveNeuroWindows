@@ -38,7 +38,7 @@
                     Margin="5"
                     Padding="10"
                     Background="White"
-                    BorderBrush="#01acff"
+                    BorderBrush="Black"
                     BorderThickness="2"
                     CornerRadius="10">
                     <TextBlock
@@ -52,7 +52,7 @@
                     Margin="5"
                     Padding="10"
                     Background="White"
-                    BorderBrush="#01acff"
+                    BorderBrush="Black"
                     BorderThickness="2"
                     CornerRadius="10">
                     <TextBlock x:Name="Subtitle1" Style="{StaticResource TitleTextBlockStyle}" />
@@ -68,7 +68,7 @@
                     Margin="5"
                     Padding="10"
                     Background="White"
-                    BorderBrush="#01acff"
+                    BorderBrush="Black"
                     BorderThickness="2"
                     CornerRadius="10">
                     <TextBlock
@@ -109,7 +109,7 @@
                     Margin="5"
                     Padding="10"
                     Background="White"
-                    BorderBrush="#01acff"
+                    BorderBrush="Black"
                     BorderThickness="2"
                     CornerRadius="10">
                     <TextBlock

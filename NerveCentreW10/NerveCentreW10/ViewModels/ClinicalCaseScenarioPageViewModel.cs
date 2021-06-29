@@ -41,6 +41,7 @@ namespace NerveCentreW10.ViewModels
             }
         }
 
+        public string MyParam { get; private set; }
 
         private bool showviewcell1;
         public bool ShowViewCell1
@@ -127,19 +128,25 @@ namespace NerveCentreW10.ViewModels
 
         public ClinicalCasesScenarioPageViewModel()
         {
-
             ClickedCommand = new RelayCommand(ClickedEvent);
             ClickedCommandBack = new RelayCommand(ClickedBackEvent);
             SubmitCommand = new RelayCommand(SubmitEvent);
-            Loaded();
         }
 
-        public void Loaded()
+        public void LoadedCase1()
         {
             SubsectionList = new ObservableCollection<ClinicalCaseModel>();
-
             var myString = ReadFully("clinicalcase1.json");
             SubsectionList = JsonConvert.DeserializeObject<ObservableCollection<ClinicalCaseModel>>(myString);
+            MyParam = "case1";
+        }
+
+        public void LoadedCase2()
+        {
+            SubsectionList = new ObservableCollection<ClinicalCaseModel>();
+            var myString = ReadFully("clinicalcase2.json");
+            SubsectionList = JsonConvert.DeserializeObject<ObservableCollection<ClinicalCaseModel>>(myString);
+            MyParam = "case2";
         }
 
         public async Task<Stream> DownloadBlob(string blobUriAndSasToken)
@@ -278,7 +285,7 @@ namespace NerveCentreW10.ViewModels
 
             if (ItemPosition == 7)
             {
-                var FinishedDialog = new ClinicalCaseFinishedDialog();
+                var FinishedDialog = new ClinicalCaseFinishedDialog(MyParam);
                 await FinishedDialog.ShowAsync();
             }
 

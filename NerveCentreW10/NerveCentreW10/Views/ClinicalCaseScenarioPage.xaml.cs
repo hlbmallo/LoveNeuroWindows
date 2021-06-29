@@ -26,8 +26,22 @@ namespace NerveCentreW10.Views
 
         public ClinicalCaseScenarioPage()
         {
-        this.InitializeComponent();
+            this.InitializeComponent();
             //ViewModel = new ViewModels.ClinicalCasesScenarioPageViewModel();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            var parameter = (string)e.Parameter;
+            if (parameter == "case1")
+            {
+                viewModel.LoadedCase1();
+            }
+            else if(parameter == "case2")
+            {
+                viewModel.LoadedCase2();
+            }
         }
 
         private void GalleryFlipView_Loaded(object sender, RoutedEventArgs e)

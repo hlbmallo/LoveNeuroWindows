@@ -1,5 +1,6 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using Microsoft.Toolkit.Uwp.Helpers;
+using NerveCentreW10.Styles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -17,6 +19,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.Essentials;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,6 +36,8 @@ namespace NerveCentreW10.Views
         // To get application's version:
         public string ApplicationVersion => $"{SystemInformation.Instance.ApplicationVersion.Major}.{SystemInformation.Instance.ApplicationVersion.Minor}.{SystemInformation.Instance.ApplicationVersion.Build}.{SystemInformation.Instance.ApplicationVersion.Revision}";
 
+        public AppSettings appSettings = new AppSettings();
+
         public SettingsPage()
         {
             this.InitializeComponent();
@@ -45,7 +50,7 @@ namespace NerveCentreW10.Views
 
         private async void RateButton_Click(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://review/?ProductId=9NBLGGGZLR7B"));
+            await Windows.System.Launcher.LaunchUriAsync(new Uri($"ms-windows-store://review/?ProductId=9NBLGGGZLR7B"));
         }
 
         private async void EmailSupport_Click(object sender, RoutedEventArgs e)
@@ -77,7 +82,55 @@ namespace NerveCentreW10.Views
 
         private async void PrivacyPolicyLink_Click(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("https://www.thegoofyanatomist.com/privacy-policies"));
+            await Windows.System.Launcher.LaunchUriAsync(new Uri("https://www.thegoofyanatomist.com/privacy-policies"));
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            //ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            //string localValue = (string)localSettings.Values["thefontsize"];
+
+            //if (localValue == null || localValue == "small")
+            //{
+            //    Style style = Application.Current.Resources["SmallStyle"] as Style;
+            //    label1.Style = style;
+
+            //    SmallFont.IsChecked = true;
+            //}
+            //else if (localValue == "medium")
+            //{
+            //    appSettings.AppFontSize = 20;
+
+            //    MediumFont.IsChecked = true;
+            //}
+            //else if (localValue == "large")
+            //{
+            //    appSettings.AppFontSize = 24;
+
+            //    LargeFont.IsChecked = true;
+            //}
+        }
+
+        private void SmallFont_Checked(object sender, RoutedEventArgs e)
+        {            
+
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values["thefontsize"] = "small";
+            appSettings.AppFontSize = 16;
+        }
+
+        private void MediumFont_Checked(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values["thefontsize"] = "medium";
+            appSettings.AppFontSize = 20;
+        }
+
+        private void LargeFont_Checked(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values["thefontsize"] = "large";
+            appSettings.AppFontSize = 24;
         }
     }
 }

@@ -7,11 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="ContentArea">
+    <Grid x:Name="ContentArea" Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <controls:ImageEx CornerRadius="10" Source="ms-appx:///Assets/Others/Welcome7.png" />
+        </Grid>
         <StackPanel
             Grid.Row="1"
             Margin="10"

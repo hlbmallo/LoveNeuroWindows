@@ -65,18 +65,19 @@
             ItemsSource="{x:Bind rootobject, Mode=TwoWay}">
             <FlipView.ItemTemplate>
                 <DataTemplate x:DataType="data:QuizClass">
+                    <Grid>
                     <controls:DropShadowPanel
-                        x:Name="MyDropShadow"
-                        HorizontalAlignment="Center"
+                        x:Name="MyDropShadow" Margin="10"
+                        HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
-                        BlurRadius="20"
+                        BlurRadius="20" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                         OffsetX="0"
                         OffsetY="0"
                         ShadowOpacity=".3"
                         Color="Black">
                         <Border
-                            Margin="10"
-                            HorizontalAlignment="Stretch"
+
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"
                             Background="WhiteSmoke"
                             CornerRadius="10">
                             <StackPanel CornerRadius="10" Style="{StaticResource StackPanelForQuestions}">
@@ -138,6 +139,7 @@
                             </StackPanel>
                         </Border>
                     </controls:DropShadowPanel>
+                    </Grid>
                 </DataTemplate>
             </FlipView.ItemTemplate>
         </FlipView>

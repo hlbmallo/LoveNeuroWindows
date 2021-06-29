@@ -7,9 +7,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="using:NerveCentreW10.Models"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewmodel="using:NerveCentreW10.ViewModels"
+    xmlns:viewmodel="using:NerveCentreW10.ViewModels" xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
     x:Name="ClinicalCasePage"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -31,7 +30,7 @@
         <controls:GalleryFlipView
             x:Name="flipView"
             Grid.Row="0"
-            Background="#e7e7e7"
+            Background="WhiteSmoke"
             CornerRadius="10"
             IsFlipEnabled="False"
             ItemsSource="{x:Bind viewModel.SubsectionList}"
@@ -42,40 +41,58 @@
             SelectedIndex="{x:Bind viewModel.ItemPosition, Mode=TwoWay}">
             <controls:GalleryFlipView.ItemTemplate>
                 <DataTemplate x:DataType="data:ClinicalCaseModel">
-                    <StackPanel Margin="10">
-                        <TextBlock
+                    <Grid>
+                        <controls1:DropShadowPanel
+                        x:Name="MyDropShadow" Margin="10"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        BlurRadius="20" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                        OffsetX="0"
+                        OffsetY="0"
+                        ShadowOpacity=".3"
+                        Color="Black">
+                            <Border
+
+                            HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                            Background="WhiteSmoke"
+                            CornerRadius="10">
+                                <StackPanel Margin="10">
+                                    <TextBlock
                             Margin="0,0,0,10"
                             Style="{StaticResource BodyTextBlockStyle}"
                             Text="{x:Bind OpeningStatement, Mode=TwoWay}" />
-                        <TextBlock
+                                    <TextBlock
                             Margin="0,0,0,10"
                             FontWeight="Bold"
                             Style="{StaticResource BodyTextBlockStyle}"
                             Text="{x:Bind Question, Mode=TwoWay}" />
-                        <StackPanel Margin="0,0,0,10">
-                            <RadioButton Content="{x:Bind Answer1, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedA, Mode=TwoWay}" />
-                            <RadioButton Content="{x:Bind Answer2, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedB, Mode=TwoWay}" />
-                            <RadioButton Content="{x:Bind Answer3, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedC, Mode=TwoWay}" />
-                        </StackPanel>
-                        <Grid>
-                            <TextBlock
+                                    <StackPanel Margin="0,0,0,10">
+                                        <RadioButton Content="{x:Bind Answer1, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedA, Mode=TwoWay}" />
+                                        <RadioButton Content="{x:Bind Answer2, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedB, Mode=TwoWay}" />
+                                        <RadioButton Content="{x:Bind Answer3, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedC, Mode=TwoWay}" />
+                                    </StackPanel>
+                                    <Grid>
+                                        <TextBlock
                                 Foreground="{Binding myColor, Mode=TwoWay}"
                                 Style="{StaticResource ReasoningStyle1}"
                                 Text="{x:Bind Ans1Reasoning, Mode=TwoWay}"
                                 Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell1, FallbackValue=True}" />
-                            <TextBlock
+                                        <TextBlock
                                 Foreground="{Binding myColor, Mode=TwoWay}"
                                 Style="{StaticResource ReasoningStyle1}"
                                 Text="{x:Bind Ans2Reasoning, Mode=TwoWay}"
                                 Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell2, FallbackValue=True}" />
-                            <TextBlock
+                                        <TextBlock
                                 Foreground="{Binding myColor, Mode=TwoWay}"
                                 Style="{StaticResource ReasoningStyle1}"
                                 Text="{x:Bind Ans3Reasoning, Mode=TwoWay}"
                                 Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell3, FallbackValue=True}" />
-                        </Grid>
+                                    </Grid>
 
-                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </controls1:DropShadowPanel>
+                    </Grid>
                 </DataTemplate>
             </controls:GalleryFlipView.ItemTemplate>
         </controls:GalleryFlipView>

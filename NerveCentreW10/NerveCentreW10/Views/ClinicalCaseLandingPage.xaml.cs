@@ -19,7 +19,12 @@ namespace NerveCentreW10.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ClinicalCaseScenarioPage));
+            Frame.Navigate(typeof(ClinicalCaseScenarioPage), "case1");
+        }
+
+        private void Case2_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ClinicalCaseScenarioPage), "case2");
         }
     }
 }

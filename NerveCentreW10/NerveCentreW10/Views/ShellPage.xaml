@@ -86,7 +86,7 @@
                     <DataTemplate>
                         <Grid>
                             <TextBlock
-                                Margin="{StaticResource SmallLeftRightMargin}"
+                                Margin="-14,0,0,0"
                                 Foreground="Black"
                                 Style="{ThemeResource TitleTextBlockStyle}"
                                 Text="{Binding}" />
@@ -96,7 +96,7 @@
             </behaviors:NavigationViewHeaderBehavior>
         </i:Interaction.Behaviors>
         <winui:NavigationView.PaneHeader>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                 <controls:ImageEx
                     Width="30"
                     Height="30"
@@ -114,7 +114,7 @@
         <Frame
             x:Name="shellFrame"
             Margin="10"
-            Background="WhiteSmoke" />
+            Background="Transparent" />
         <!--<winui:TeachingTip
                 x:Name="TeachTip1"
                 Title="Sections (1/3)"

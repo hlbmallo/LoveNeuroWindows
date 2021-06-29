@@ -10,6 +10,7 @@ using NerveCentreW10.Services;
 using NerveCentreW10.Views;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -38,6 +39,7 @@ namespace NerveCentreW10
             //VersionTracking.Track();
             // Deferred execution until used. Check https://msdn.microsoft.com/library/dd642331(v=vs.110).aspx for further info on Lazy<T> class.
             _activationService = new Lazy<ActivationService>(CreateActivationService);
+
         }
 
         protected override async void OnLaunched(LaunchActivatedEventArgs args)
@@ -50,6 +52,12 @@ namespace NerveCentreW10
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
 
+            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+            // Set active window colors
+            titleBar.ButtonBackgroundColor = Windows.UI.Colors.WhiteSmoke;
+
+
             Windows.UI.Color NCBlue = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#01acff");
             Windows.UI.Color NCOrange = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
             App.Current.Resources["SystemControlHighlightListAccentLowBrush"] = new SolidColorBrush(NCOrange);
@@ -59,6 +67,42 @@ namespace NerveCentreW10
             await Singleton<DevCenterNotificationsService>.Instance.InitializeAsync();
 
             VersionTracking.Track();
+
+            //FontSizeChecker();
+
+        }
+
+        public void FontSizeChecker()
+        {
+            //ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            //string localValue = (string)localSettings.Values["thefontsize"];
+
+            //if(localValue == null || localValue == "small")
+            //{
+            //    Application.Current.Resources["thefontsizeresource"] = 16.0;
+            //}
+            //else if (localValue == null || localValue == "medium")
+            //{
+            //    Application.Current.Resources["thefontsizeresource"] = 20.0;
+            //}
+            //else if (localValue == null || localValue == "large")
+            //{
+            //    Application.Current.Resources["thefontsizeresource"] = 24.0;
+            //}
+
+
+            //if (localValue == 16)
+            //{
+            //    Application.Current.Resources["MyFontSize2"] = 16;
+            //}
+            //else if (localValue == 16)
+            //{
+            //    Application.Current.Resources["MyFontSize2"] = 20;
+            //}
+            //else if (localValue == 16)
+            //{
+            //    Application.Current.Resources["MyFontSize2"] = 24;
+            //}
         }
 
         protected override async void OnActivated(IActivatedEventArgs args)
@@ -67,6 +111,8 @@ namespace NerveCentreW10
 
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
+
+
 
             Windows.UI.Color NCBlue = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#01acff");
             Windows.UI.Color NCOrange = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");

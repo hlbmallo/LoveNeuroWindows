@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio" IgnorableNamespaces="uap mp genTemplate">
-  <Identity Name="40377TheGoofyAnatomist.NEUROSCIENCE" Publisher="CN=F6F6E9F0-E611-4606-9873-B0A9FA400E59" Version="10.28.0.0" />
+  <Identity Name="40377TheGoofyAnatomist.NEUROSCIENCE" Publisher="CN=F6F6E9F0-E611-4606-9873-B0A9FA400E59" Version="10.28.1.0" />
   <mp:PhoneIdentity PhoneProductId="f7dae745-1896-477a-b8ea-b2ec02036b6b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>LoveNeuro</DisplayName>
