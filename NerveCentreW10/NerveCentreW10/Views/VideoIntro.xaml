@@ -16,5 +16,6 @@
     <MediaPlayerElement
         x:Name="MyMPE"
         Margin="10"
-        AreTransportControlsEnabled="True" />
+        AreTransportControlsEnabled="True"
+        RequestedTheme="Light" />
 </ContentDialog>

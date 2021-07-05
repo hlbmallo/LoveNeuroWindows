@@ -24,19 +24,15 @@
                 Margin="5"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Background="#f77201"
                 Click="Button_Click"
-                Content="Play Intro Video"
-                Style="{StaticResource ButtonRevealStyle}" />
+                Content="Play Intro Video" />
             <Button
                 x:Name="RateAndReviewButton"
                 Margin="5"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
-                Background="#f77201"
                 Click="RateAndReviewButton_Click"
-                Content="Rate and Review"
-                Style="{StaticResource ButtonRevealStyle}" />
+                Content="Rate and Review" />
         </StackPanel>
 
 

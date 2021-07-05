@@ -10,7 +10,7 @@
     NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
-    <Pivot>
+    <Pivot Margin="15,0,0,0">
         <PivotItem Header="Templates">
             <GridView
                 x:Name="GridView1"

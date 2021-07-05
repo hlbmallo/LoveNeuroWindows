@@ -43,14 +43,12 @@
             Margin="10"
             HorizontalAlignment="Center"
             Click="Button_Click"
-            Content="Case No. 1: Extreme Fall"
-            Style="{StaticResource NewButtonStyle}" />
+            Content="Case No. 1: Extreme Fall" />
         <Button
             x:Name="Case2"
             Margin="10"
             HorizontalAlignment="Center"
             Click="Case2_Click"
-            Content="Case No. 2: Tremor Presentation"
-            Style="{StaticResource NewButtonStyle}" />
+            Content="Case No. 2: Tremor Presentation" />
     </StackPanel>
 </Page>

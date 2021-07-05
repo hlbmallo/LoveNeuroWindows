@@ -26,8 +26,8 @@
     <ScrollViewer>
         <StackPanel>
             <TextBlock TextWrapping="WrapWholeWords">
-                <Run FontWeight="Bold">Introducing Clinical Case 2</Run><LineBreak />
-                <Run>Try out the second Clinical Case in Section 8! Remember though, this section is currently in preview and I hope to expand it in the future.</Run><LineBreak /><LineBreak />
+                <Run FontWeight="Bold">It's starting to look like Windows 11...</Run><LineBreak />
+                <Run>Massive visual refresh within the app!</Run><LineBreak /><LineBreak />
                 <Run>Also, if you have a moment, I'd really love to hear your thoughts on LoveNeuro. Just click or tap below to leave a review in the Microsoft Store. Thanks very much!</Run><LineBreak />
             </TextBlock>
             <HyperlinkButton

@@ -113,7 +113,7 @@
         </winui:NavigationView.PaneHeader>
         <Frame
             x:Name="shellFrame"
-            Margin="10"
+            Margin="18"
             Background="Transparent" />
         <!--<winui:TeachingTip
                 x:Name="TeachTip1"
