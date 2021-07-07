@@ -6,11 +6,11 @@
     xmlns:local="using:NerveCentreW10.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    Unloaded="Page_Unloaded"
     mc:Ignorable="d">
 
     <Grid Margin="10" CornerRadius="10">
-        <WebView
+        <MediaPlayerElement x:Name="MyMPE" AreTransportControlsEnabled="True" />
+        <!--<WebView
             x:Name="MyWebView"
             ContentLoading="MyWebView_ContentLoading"
             LoadCompleted="MyWebView_LoadCompleted" />
@@ -20,7 +20,7 @@
             Height="70"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Foreground="Black" />
+            Foreground="Black" />-->
     </Grid>
 
 </Page>

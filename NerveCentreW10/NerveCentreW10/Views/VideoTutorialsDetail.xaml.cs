@@ -1,5 +1,6 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using Microsoft.Toolkit.Uwp.Helpers;
+using NerveCentreW10.Helpers;
 using NerveCentreW10.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.UserActivities;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,8 +28,6 @@ namespace NerveCentreW10.Views
     /// </summary>
     public sealed partial class VideoTutorialsDetail : Page
     {
-        private UserActivitySession _currentSession;
-
         public VideoTutorialsDetail()
         {
             this.InitializeComponent();
@@ -35,24 +35,30 @@ namespace NerveCentreW10.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            var cloudClass = new CloudClass();
             var MyClickedItem = (VideoTutorialsClass)e.Parameter;
-            MyWebView.Source = MyClickedItem.VideoTutorialsUrl;
+            //MyWebView.Source = MyClickedItem.VideoTutorialsUrl;
+            MyMPE.Source = MediaSource.CreateFromUri(new Uri(cloudClass.GetBlobSasUri(MyClickedItem.VideoTutorialsFileName)));
             Analytics.TrackEvent(this.GetType().Name + " " + MyClickedItem.VideoTutorialsName);
         }
 
-        private void MyWebView_ContentLoading(WebView sender, WebViewContentLoadingEventArgs args)
-        {
-            MyProgressRing.IsActive = true;
-        }
+        //private void MyWebView_ContentLoading(WebView sender, WebViewContentLoadingEventArgs args)
+        //{
+        //    MyProgressRing.IsActive = true;
+        //    MyProgressRing.IsEnabled = true;
+        //    MyProgressRing.Visibility = Visibility.Visible;
+        //}
 
-        private void MyWebView_LoadCompleted(object sender, NavigationEventArgs e)
-        {
-            MyProgressRing.IsActive = false;
-        }
+        //private void MyWebView_LoadCompleted(object sender, NavigationEventArgs e)
+        //{
+        //    MyProgressRing.IsActive = false;
+        //    MyProgressRing.IsEnabled = false;
+        //    MyProgressRing.Visibility = Visibility.Collapsed;
+        //}
 
-        private void Page_Unloaded(object sender, RoutedEventArgs e)
-        {
-            MyWebView.Source = new Uri("about:blank");
-        }
+        //private void Page_Unloaded(object sender, RoutedEventArgs e)
+        //{
+        //    MyWebView.Source = new Uri("about:blank");
+        //}
     }
 }
