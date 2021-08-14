@@ -1,16 +1,18 @@
-﻿using NerveCentreW10.Helpers;
-using Microsoft.AppCenter.Analytics;
-
-using NerveCentreW10.Models;
-using NerveCentreW10.ViewModels;
+﻿using Microsoft.AppCenter.Analytics;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using Windows.ApplicationModel.UserActivities;
-using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
+using NerveCentreW10.Models;
+using Microsoft.Toolkit.Uwp.UI;
+using Windows.Storage;
+using NerveCentreW10.ViewModels;
+using System.Numerics;
+using System.Collections.ObjectModel;
+using Windows.Storage.FileProperties;
+using Newtonsoft.Json;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,7 +27,7 @@ namespace NerveCentreW10.Views
 
         InkingZoneViewModel inkingZoneViewModel;
         IReadOnlyList<StorageFile> itemsList;
-        UserActivitySession _currentSession;
+        FrameworkElement preElement = null;
 
         public Section6InkingZoneMenu()
         {
@@ -66,154 +68,135 @@ namespace NerveCentreW10.Views
 
         void InkingZoneData()
         {
-            CloudClass cloudclass = new CloudClass();
-
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Basic Neuron",
                 InkingZoneRename = "Basic Neuron",
-                InkingZoneImage = "ms-appx:///Assets/Inking/Neuron.png",
+                InkingZoneImage = "Neuron.png",
                 InkingZoneDescription = "This diagram shows a typical multipolar neuron. Features of note include:<ul><li>Cell body</li><li>Axon</li><li>Nucleus</li><li>Dendrites</li><li>K+ and Na+ ion channels</li><li>Na+/K+ ATPase pump</li><li>Presynaptic terminal</li><li>Vesicles containing neurotransmitter</li></ul>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Resting Membrane Potential",
                 InkingZoneRename = " Resting Membrane Potential",
-                InkingZoneImage = "ms-appx:///Assets/Inking/rmpforink.png",
+                InkingZoneImage = "rmpforink.png",
                 InkingZoneDescription = "Resting Membrane Potential",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Synapse",
                 InkingZoneRename = "Synapse",
-                InkingZoneImage = "ms-appx:///Assets/Inking/Synapse.png",
+                InkingZoneImage = "Synapse.png",
                 InkingZoneDescription = "This diagram shows a typical synapse. Features of note include:<ul><li>Presynaptic neuron</li><li>Postsynaptic neuron</li><li>Presynaptic terminal</li><li>Vesicles (containing neurotransmitter molecules)</li><li>Calcium ion channels and calcium ions</li><li>Synaptic cleft</li><li>Neurotransmitter receptors</li><li>Sodium ion channels and sodium ions</li></ul>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Reflex Arc",
                 InkingZoneRename = "Reflex Arc",
-                InkingZoneImage = "ms-appx:///Assets/Inking/ReflexArc.png",
+                InkingZoneImage = "reflexarc.png",
                 InkingZoneDescription = "Reflex Arc",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Lateral Aspect of the Brain",
                 InkingZoneRename = "Lateral Aspect of the Brain",
-                InkingZoneImage = "ms-appx:///Assets/Inking/LateralBrain5.png",
+                InkingZoneImage = "LateralBrain5.png",
                 InkingZoneDescription = "This diagram shows the lateral aspect of the brain. Features of note include:<ul><li>The four lobes of the cerebral cortex (frontal, parietal, occipital, temporal)</li><li>Cerebellum</li><li>Pons</li><li>Medulla oblongata</li></ul>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Medial Aspect of the Brain",
                 InkingZoneRename = "Medial Aspect of the Brain",
-                InkingZoneImage = "ms-appx:///Assets/Inking/MedialBrain.png",
+                InkingZoneImage = "MedialBrain.png",
                 InkingZoneDescription = "This diagram shows the medial aspect of the brain. Features of note include:<ul><li>The four lobes of the cerebral cortex (frontal, parietal, occipital, temporal)</li><li>Cerebellum</li><li>Brainstem (midbrain, pons, medulla oblongata)</li><li>Thalamus</li><li>Hypothalamus</li><li>Corpus callosum</li><li>Pituitary gland</li>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Brachial Plexus",
                 InkingZoneRename = "Brachial Plexus",
-                InkingZoneImage = "ms-appx:///Assets/Inking/BrachialPlexus.png",
+                InkingZoneImage = "BrachialPlexus.png",
                 InkingZoneDescription = "This diagram shows the brachial plexus and its main branches, including:<ul><li>Musculocutaneous nerve</li><li>Radial nerve</li><li>Ulnar nerve</li><li>Median nerve</li><li>Axillary nerve</li><li>Long thoracic nerve</li></ul>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Circle of Willis",
                 InkingZoneRename = "Circle of Willis",
-                InkingZoneImage = "ms-appx:///Assets/Inking/CircleOfWillis.png",
+                InkingZoneImage = "CircleOfWillis.png",
                 InkingZoneDescription = "This diagram shows the circle of Willis at the base of the brain. Features of note include:<ul><li>1. Anterior cerebral artery</li><li>2. Anterior communicating artery</li><li>3. Internal carotid artery</li><li>4. Middle cerebral artery</li><li>5. Posterior communicating artery</li><li>6. Posterior cerebral artery</li><li>7. Superior cerebellar artery</li><li>8. Basilar artery</li><li>9. Pontine branch</li><li>10. Anterior inferior cerebellar artery</li><li>11. Posterior inferior cerebellar artery</li><li>12. Vertebral artery</li><li>13. Anterior spinal artery</li><li>14. Posterior spinal artery</li></ul><ul><li>A. Frontal lobe</li><li>B. Olfactory bulb</li><li>C. Optic chiasm</li><li>D. Temporal lobe</li><li>E. Midbrain</li><li>F. Mamillary bodies</li><li>G. Pons</li><li>H. Cerebellum</li><li>I. Medulla</li></ul>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Spinal Cord Divisions",
                 InkingZoneRename = "Spinal Cord Divisions",
-                InkingZoneImage = "ms-appx:///Assets/Inking/SpinalCordDivisions.png",
+                InkingZoneImage = "SpinalCordDivisions.png",
                 InkingZoneDescription = "This diagram shows the divisions of the spinal cord. Features of note include:<ul><li>Medulla oblongata</li><li>Cervical division of the spinal cord</li><li>Thoracic division of the spinal cord</li><li>Lumbar division of the spinal cord</li><li>Sacral division of the spinal cord</li><li>Coccygeal division of the spinal cord</li><li>Vertebral column (specifically, vertebral bodies and spinous processes)</li><li>Spinal cord proper</li><li>Conus medullaris</li><li>Cauda equina</li></ul>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Cerebral Cortex",
                 InkingZoneRename = "Cerebral Cortex",
-                InkingZoneImage = "ms-appx:///Assets/Inking/CerebralCortex.png",
+                InkingZoneImage = "CerebralCortex.png",
                 InkingZoneDescription = "This diagram shows the main functional areas of the cerebral cortex. Features of note include:<ul><li>Primary motor cortex (precentral gyrus)</li><li>Central sulcus</li><li>Primary somatosensory cortex (postcentral gyrus)</li><li>Sensory association cortex</li><li>Primary visual cortex</li><li>Visual association cortex</li><li>Wernicke's area</li><li>Primary auditory cortex</li><li>Temporal gyri (superior, middle and inferior)</li><li>Lateral sulcus</li><li>Broca's area</li><li>Prefrontal cortex</li><li>Premotor cortex</li></ul>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Ventricles of the Brain",
                 InkingZoneRename = "Ventricles of the Brain",
-                InkingZoneImage = "ms-appx:///Assets/Inking/Ventricles.png",
+                InkingZoneImage = "Ventricles.png",
                 InkingZoneDescription = "This diagram shows the ventricles of the brain. Features of note include:<ul><li>Lateral ventricles (left and right)</li><li>Interventricular foramen</li><li>Third ventricle</li><li>Cerebral aqueduct</li><li>Fourth ventricle</li><li>Central canal of the spinal cord</li><li>Lateral apertures (left and right)</li><li>Median aperture</li></ul>",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Coronal Section with Basal Ganglia and Corpus Callosum",
                 InkingZoneRename = " Coronal Section with Basal Ganglia",
-                InkingZoneImage = "ms-appx:///Assets/Inking/CoronalSection.png",
+                InkingZoneImage = "CoronalSection.png",
                 InkingZoneDescription = "This diagram shows a coronal section of the human brain with the basal ganglia, lateral and third ventricles and thalamus shown.",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Brainstem (Anterior)",
                 InkingZoneRename = " Brainstem (Anterior)",
-                InkingZoneImage = "ms-appx:///Assets/Inking/brainstem.png",
+                InkingZoneImage = "brainstem.png",
                 InkingZoneDescription = "brainstem",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Spinal Cord Cross-Section",
                 InkingZoneRename = " Spinal Cord Cross-Section",
-                InkingZoneImage = "ms-appx:///Assets/Inking/spinalcrosssection.png",
+                InkingZoneImage = "spinalcrosssection.png",
                 InkingZoneDescription = "Spinal Cord Cross-Section",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Spinal Tracts Matching Exercise",
                 InkingZoneRename = "Spinal Tracts Matching Exercise",
-                InkingZoneImage = "ms-appx:///Assets/Inking/MatchingExercise.png",
+                InkingZoneImage = "MatchingExercise.png",
                 InkingZoneDescription = "This diagram shows the spinal tracts. Try matching the tract names with their functions.",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "Ventricles Matching Exercise",
                 InkingZoneRename = " Ventricles Matching Exercise",
-                InkingZoneImage = "ms-appx:///Assets/Inking/definitionmatch.png",
+                InkingZoneImage = "definitionmatch.png",
                 InkingZoneDescription = "Ventricles Matching Exercise",
             });
             InkingZoneList.Add(new InkingZoneClassDetail
             {
                 InkingZoneTitle = "HPA Axis",
                 InkingZoneRename = " HPA Axis",
-                InkingZoneImage = "ms-appx:///Assets/Inking/CortisolDiagram.png",
+                InkingZoneImage = "cortisolink.png",
                 InkingZoneDescription = "Ventricles Matching Exercise",
             });
         }
 
         private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //var MyClickedItem = e.ClickedItem as InkingZoneClassDetail;
-            //string json = JsonConvert.SerializeObject(MyClickedItem);
-            //string json2 = JsonConvert.SerializeObject(inkingZoneViewModel);
+            var MyClickedItem = (InkingZoneClassDetail)e.ClickedItem;
 
-            //Dictionary<string, string> newDictionary = new Dictionary<string, string>();
-            //newDictionary.Add("json", json);
-            //newDictionary.Add("json2", json2);
-            //Frame.Navigate(typeof(InkingZoneDetail), newDictionary);
-
-            var MyClickedItem = (InkingZoneClassDetail)e.ClickedItem as InkingZoneClassDetail;
-
-            Frame.Navigate(typeof(InkingZoneDetail), MyClickedItem);
-
-            //var myList = new List<string>()
-            //{
-            //   json,
-            //   json2,
-            //};
-
-            //Frame.Navigate(typeof(InkingZoneDetail), myList);
+            Frame.Navigate(typeof(InkingZoneDetail2), MyClickedItem);
         }
 
-        private void GridViewInkingStrokes_ItemClick(object sender, ItemClickEventArgs e)
+        private async void GridViewInkingStrokes_ItemClick(object sender, ItemClickEventArgs e)
         {
 
             //var MyClickedItem = e.ClickedItem as InkingZoneClassDetail;
@@ -226,8 +209,10 @@ namespace NerveCentreW10.Views
             //Frame.Navigate(typeof(InkingZoneDetail), newDictionary);
 
             var MyClickedItem = (StorageFile)e.ClickedItem;
+            var readFromStorageFile = await FileIO.ReadTextAsync(MyClickedItem);
+            var deserializedContent = JsonConvert.DeserializeObject<InkingZoneClassDetail>(readFromStorageFile);
 
-            Frame.Navigate(typeof(InkingZoneDetail), MyClickedItem);
+            Frame.Navigate(typeof(InkingZoneDetail2EditOnly), deserializedContent);
         }
 
         private async void DeleteItemButton_Click(object sender, RoutedEventArgs e)
@@ -295,62 +280,66 @@ namespace NerveCentreW10.Views
 
         }
 
+        public StorageItemThumbnail thumbnail;
+
         private async void GridViewInkingStrokes_Loaded(object sender, RoutedEventArgs e)
         {
-            //if (await ApplicationData.Current.LocalFolder.FileExistsAsync("myconfig.json") == true)
-            //{
-            //    var file = await ApplicationData.Current.LocalFolder.GetFileAsync("myconfig.json");
-            //    string id = await FileIO.ReadTextAsync(file);
-            //    var cramp = JsonConvert.DeserializeObject<ObservableCollection<InkingZoneClassDetail>>(id);
-            //    GridViewInkingStrokes.ItemsSource = cramp;
-            //}
-
-            //else
-            //{
-            //    var file2 = await ApplicationData.Current.LocalFolder.CreateFileAsync("myconfig.json", CreationCollisionOption.ReplaceExisting);
-
-            //}
-
-
-            //var RoamingObjectStorageHelper = new RoamingObjectStorageHelper();
-            //string keyLargeObject = "large";
-            //var result = RoamingObjectStorageHelper.ReadFileAsync<ObservableCollection<InkingZoneClassDetail>>(keyLargeObject);
-            //GridViewInkingStrokes.ItemsSource = result;
-
-
-
-            //var RoamingObjectStorageHelper = new RoamingObjectStorageHelper();
-            //RoamingObjectStorageHelper. = ApplicationData.Current.LocalFolder;
-            //StorageFolder subFolder = await RoamingObjectStorageHelper.Folder.CreateFolderAsync("NerveCentreInk", CreationCollisionOption.OpenIfExists);
-            //IReadOnlyList<IStorageItem> itemsList = await subFolder.GetItemsAsync();
-
-
-
-            StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("TestFolder", CreationCollisionOption.OpenIfExists);
+            StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("InkingFolder", CreationCollisionOption.OpenIfExists);
             itemsList = await appFolder.GetFilesAsync();
-
-            //itemsList = await appFolder.GetFilesAsync();
-            //foreach (StorageFile item in itemsList)
-            //{
-            //    if (item == null)
-            //    {
-
-            //    }
-
-            //    else
-            //    {
-            //        string zoo = await FileIO.ReadTextAsync(item);
-            //        var yell = JsonConvert.DeserializeObject<InkingZoneClassDetail>(zoo);
-            //    }
-
-
-
-            //}
-
             GridViewInkingStrokes.ItemsSource = itemsList;
 
 
-        }
+
+
+            //StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("InkFolder", CreationCollisionOption.OpenIfExists);
+            //itemsList = await appFolder.GetFilesAsync();
+
+            //foreach (StorageFile file in itemsList)
+            //{
+            //    // Get thumbnail
+            //    const uint requestedSize = 500;
+            //    const ThumbnailMode thumbnailMode = ThumbnailMode.PicturesView;
+            //    const ThumbnailOptions thumbnailOptions = ThumbnailOptions.UseCurrentScale;
+            //    thumbnail = await file.GetThumbnailAsync(thumbnailMode, requestedSize, thumbnailOptions);
+            //}
+            //    GridViewInkingStrokes.ItemsSource = itemsList;
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("TestFolder", CreationCollisionOption.OpenIfExists);
+        //itemsList = await appFolder.GetFilesAsync();
+
+
+
+        //GridViewInkingStrokes.ItemsSource = itemsList;
+
+
+    }
 
         private void MyGrid_RightTapped(object sender, Windows.UI.Xaml.Input.RightTappedRoutedEventArgs e)
         {
@@ -383,6 +372,97 @@ namespace NerveCentreW10.Views
                 await a.DeleteAsync();
                 GridViewInkingStrokes_Loaded(sender, e);
             };
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InkingZoneDetail2));
+        }
+
+        private void MyInkingGrid_PointerCanceled(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+            var control = preElement.FindDescendant("MyGrid2");
+            AnimationBuilder.Create().Scale(to: new Vector2(1.00f), duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+
+            var control2 = preElement.FindDescendant("MyDropShadow");
+            AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
+
+            var control3 = preElement.FindDescendant("DeleteButton");
+            AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
+
+        }
+
+        private void MyInkingGrid_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+            var control = preElement.FindDescendant("MyGrid2");
+            AnimationBuilder.Create().Scale(to: new Vector2(1.00f), duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+
+            var control2 = preElement.FindDescendant("MyDropShadow");
+            AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
+
+            var control3 = preElement.FindDescendant("DeleteButton");
+            AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
+
+        }
+
+        private void MyInkingGrid_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+            var control = preElement.FindDescendant("MyGrid2");
+            AnimationBuilder.Create().Scale(to: new Vector2(1.04f), duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+
+            var control2 = preElement.FindDescendant("MyDropShadow");
+            AnimationBuilder.Create().Opacity(to: (0.4f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
+
+            var control3 = preElement.FindDescendant("DeleteButton");
+            AnimationBuilder.Create().Opacity(from: (0f), to: (1f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
+        }
+
+        private void MyInkingGrid_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+            var control = preElement.FindDescendant("MyGrid2");
+            AnimationBuilder.Create().Scale(to: new Vector2(1.00f), duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+
+            var control2 = preElement.FindDescendant("MyDropShadow");
+            AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
+
+            var control3 = preElement.FindDescendant("DeleteButton");
+            AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
+        }
+
+        private void MyInkingGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+
+        }
+
+        private void MyInkingGrid_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            preElement = sender as FrameworkElement;
+
+            var control = preElement.FindDescendant("MyGrid2");
+            AnimationBuilder.Create().Scale(to: new Vector2(1.00f), duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+
+            var control2 = preElement.FindDescendant("MyDropShadow");
+            AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
+
+            var control3 = preElement.FindDescendant("DeleteButton");
+            AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
+        }
+
+        private async void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            var a = ((FrameworkElement)e.OriginalSource).DataContext as StorageFile;
+            await a.DeleteAsync();
+            GridViewInkingStrokes_Loaded(sender, e);
+
         }
     }
 }

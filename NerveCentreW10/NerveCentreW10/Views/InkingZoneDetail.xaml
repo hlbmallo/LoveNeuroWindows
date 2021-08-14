@@ -15,7 +15,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="52" />
-                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <StackPanel
@@ -47,8 +47,8 @@
                     <!--<AppBarButton HorizontalAlignment="Right" Icon="Upload" Label="Load Ink" Click="LoadInkStrokes_Click"/>-->
                     <!--<AppBarButton HorizontalAlignment="Right" Icon="Download" Label="Save Ink" Click="SaveInkStrokes_Click"/>-->
                     <AppBarButton
-                        Click="ShowPopupOffsetClicked"
-                        Content="Show Popup (using Offset)"
+                        x:Name="SaveAsInkStrokesButton"
+                        Click="SaveAsInkStrokesButton_Click"
                         Icon="SaveLocal"
                         Label="Save as Ink Strokes" />
                 </CommandBar>
@@ -122,18 +122,20 @@
                         x:Name="MyInkCanvas"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch" />
+
+
                 </Grid>
             </ScrollViewer>
 
-            <Grid x:Name="DirectPrintContainer" Visibility="Collapsed">
+            <!--<Grid x:Name="DirectPrintContainer" Visibility="Collapsed">
                 <StackPanel x:Name="PrintableContent">
                     <Image x:Name="MyImagePreview" Grid.Row="2" />
                 </StackPanel>
             </Grid>
-            <Grid x:Name="Container" />
+            <Grid x:Name="Container" />-->
         </Grid>
 
-        <Grid
+        <!--<Grid
             x:Name="StandardPopup"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -189,7 +191,7 @@
                         Content="I'm finished" />
                 </StackPanel>
             </Border>
-        </Grid>
+        </Grid>-->
 
     </Grid>
 

@@ -14,6 +14,9 @@ namespace NerveCentreW10.Models
 {
     public class InkingZoneClassDetail
     {
+        [JsonProperty("InkingZoneId")]
+        public string InkingZoneId { get; set; }
+
         [JsonProperty("InkingZoneTitle")]
         public string InkingZoneTitle { get; set; }
 
@@ -28,6 +31,16 @@ namespace NerveCentreW10.Models
 
         [JsonProperty("InkingZoneBytes")]
         public byte[] InkingZoneBytes { get; set; }
+
+        [JsonProperty("InkingZoneDate")]
+        public DateTime InkingZoneDate { get; set; }
+
+        [JsonProperty("InkingZoneEdits")]
+        public string InkingZoneEdits { get; set; }
+
+        [JsonProperty("InkingZoneImageUrl")]
+        public string InkingZoneImageName { get; set; }
+
 
 
     }

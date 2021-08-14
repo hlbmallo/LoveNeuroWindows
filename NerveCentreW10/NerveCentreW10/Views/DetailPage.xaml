@@ -232,6 +232,7 @@
                     Click="ShareImage2Button_Click"
                     Content="Diagram 2"
                     Style="{StaticResource ButtonRevealStyle}" />
+                <AppBarSeparator />
                 <ToggleButton
                     x:Name="FavouritesButton"
                     HorizontalAlignment="Stretch"

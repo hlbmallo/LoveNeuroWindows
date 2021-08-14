@@ -25,14 +25,14 @@ namespace NerveCentreW10.ViewModels
                 MoreResourcesLinkOut1 = new Uri("https://thegoofyanatomist.com/"),
                 MoreResourcesLinkOut2 = new Uri("https://thegoofyanatomist.com/"),
             });
-            MoreResourcesList.Add(new MoreResourcesClass
-            {
-                MoreResourcesName = "Facebook (@thegoofyanatomist)",
-                MoreResourcesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconFB.png")),
-                //MoreResourcesLinkOut1 = new Uri("fb://profile/291588604660331"),
-                MoreResourcesLinkOut1 = new Uri("https://www.facebook.com/thegoofyanatomist/"),
-                MoreResourcesLinkOut2 = new Uri("https://www.facebook.com/thegoofyanatomist/"),
-            });
+            //MoreResourcesList.Add(new MoreResourcesClass
+            //{
+            //    MoreResourcesName = "Facebook (@thegoofyanatomist)",
+            //    MoreResourcesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconFB.png")),
+            //    //MoreResourcesLinkOut1 = new Uri("fb://profile/291588604660331"),
+            //    MoreResourcesLinkOut1 = new Uri("https://www.facebook.com/thegoofyanatomist/"),
+            //    MoreResourcesLinkOut2 = new Uri("https://www.facebook.com/thegoofyanatomist/"),
+            //});
             MoreResourcesList.Add(new MoreResourcesClass
             {
                 MoreResourcesName = "Twitter (@goofy_anatomist)",

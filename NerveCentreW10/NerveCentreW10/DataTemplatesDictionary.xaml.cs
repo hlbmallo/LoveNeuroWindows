@@ -100,5 +100,7 @@ namespace NerveCentreW10
             //    preElement = sender as FrameworkElement;
 
         }
+
+       
     }
 }

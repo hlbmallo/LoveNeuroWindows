@@ -103,7 +103,7 @@ namespace NerveCentreW10.Views
 
             var item = navigationView.MenuItems
                             .OfType<WinUI.NavigationViewItem>()
-                            .First(menuItem => (string)menuItem.Content == (string)args.InvokedItem);
+                            .FirstOrDefault(menuItem => (string)menuItem.Content == (string)args.InvokedItem);
             var pageType = item.GetValue(NavHelper.NavigateToProperty) as Type;
             NavigationService.Navigate(pageType);
         }

@@ -53,8 +53,8 @@ namespace NerveCentreW10.Views
             pointerDeviceService = new InkPointerDeviceService(MyInkCanvas);
             touchInkingButton.IsChecked = true;
             mouseInkingButton.IsChecked = true;
-            if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.FrameworkElement", "AllowFocususeracOnInteraction"))
-                InkRenameBox.AllowFocusOnInteraction = true;
+            //if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.FrameworkElement", "AllowFocususeracOnInteraction"))
+            //    InkRenameBox.AllowFocusOnInteraction = true;
             Analytics.TrackEvent(this.GetType().Name);
         }
 
@@ -242,28 +242,28 @@ namespace NerveCentreW10.Views
             }
         }
 
-        public async void PrintButton_Click(object sender, RoutedEventArgs e)
-        {
-            StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("PrintImageFolder", CreationCollisionOption.ReplaceExisting);
-            StorageFile printFile = await folder.CreateFileAsync("printFile.png", CreationCollisionOption.ReplaceExisting);
-            await Save_InkedImagetoFile(printFile);
-            var stream = await printFile.OpenReadAsync();
-            var bitmapImage = new BitmapImage();
-            bitmapImage.SetSource(stream);
-            MyImagePreview.Source = bitmapImage;
+        //public async void PrintButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("PrintImageFolder", CreationCollisionOption.ReplaceExisting);
+        //    StorageFile printFile = await folder.CreateFileAsync("printFile.png", CreationCollisionOption.ReplaceExisting);
+        //    await Save_InkedImagetoFile(printFile);
+        //    var stream = await printFile.OpenReadAsync();
+        //    var bitmapImage = new BitmapImage();
+        //    bitmapImage.SetSource(stream);
+        //    MyImagePreview.Source = bitmapImage;
 
-            if (DirectPrintContainer.Children.Contains(PrintableContent))
-            {
-                DirectPrintContainer.Children.Remove(PrintableContent);
-            }
+        //    if (DirectPrintContainer.Children.Contains(PrintableContent))
+        //    {
+        //        DirectPrintContainer.Children.Remove(PrintableContent);
+        //    }
 
-            printHelper = new PrintHelper(Container);
-            printHelper.AddFrameworkElementToPrint(PrintableContent);
-            printHelper.OnPrintCanceled += PrintHelper_OnPrintCanceled;
-            printHelper.OnPrintSucceeded += PrintHelper_OnPrintSucceeded;
-            await printHelper.ShowPrintUIAsync("LoveNeuro Print");
-            await folder.DeleteAsync(StorageDeleteOption.PermanentDelete);
-        }
+        //    printHelper = new PrintHelper(Container);
+        //    printHelper.AddFrameworkElementToPrint(PrintableContent);
+        //    printHelper.OnPrintCanceled += PrintHelper_OnPrintCanceled;
+        //    printHelper.OnPrintSucceeded += PrintHelper_OnPrintSucceeded;
+        //    await printHelper.ShowPrintUIAsync("LoveNeuro Print");
+        //    await folder.DeleteAsync(StorageDeleteOption.PermanentDelete);
+        //}
 
         private void ReleasePrintHelper()
         {
@@ -426,11 +426,85 @@ namespace NerveCentreW10.Views
 
         private async void InkRenameConfirm_Click(object sender, RoutedEventArgs e)
         {
-            //if (localSettings.Values["Scramble"] != null)
-            //{
-            //    var id = localSettings.Values["Scramble"] as string;
-            //    inkingZoneViewModel = JsonConvert.DeserializeObject<InkingZoneViewModel>(id);
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("serious.txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
 
+            IRandomAccessStream stream = await sampleFile.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
+
+    
+
+            using (IOutputStream outputStream = stream.GetOutputStreamAt(0))
+            {
+                await MyInkCanvas.InkPresenter.StrokeContainer.SaveAsync(outputStream);
+                await outputStream.FlushAsync();
+            }
+
+            byte[] bytes = new byte[stream.Size];
+
+
+            var buffer = await stream.ReadAsync(bytes.AsBuffer(), (uint)stream.Size, InputStreamOptions.None);
+            var bytes2 = buffer.ToArray();
+
+            stream.Dispose();
+
+
+            var appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("TestFolder", CreationCollisionOption.OpenIfExists);
+
+            var o = new InkingZoneClassDetail
+            {
+                InkingZoneRename = "sometext",
+                InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource.ToString(),
+                InkingZoneBytes = bytes2,
+            };
+
+            string json = JsonConvert.SerializeObject(o);
+
+            //StorageFile shred = await appFolder.CreateFileAsync(InkRenameBox.Text);
+            //await FileIO.WriteTextAsync(shred, json);
+
+        }
+
+        // Handles the Click event on the Button inside the Popup control and 
+        // closes the Popup. 
+        //private async void ClosePopupClicked(object sender, RoutedEventArgs e)
+        //{
+        //    // if the Popup is open, then close it 
+        //    if (StandardPopup.IsOpen) { StandardPopup.IsOpen = false; }
+
+        //    await MajorContentArea.Blur(0, 1500, 0).StartAsync();
+        //}
+
+
+
+
+        private async void SaveAsInkStrokesButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+            var dialog = new ContentDialog();
+            dialog.Title = "Save you ink strokes?";
+            dialog.PrimaryButtonText = "Save";
+            dialog.SecondaryButtonText = "Don't Save";
+            dialog.CloseButtonText = "Cancel";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new TextBox()
+            {
+                Name = "myTextBox",
+                PlaceholderText = "Give the file a name",
+            };
+            dialog.PrimaryButtonClick += Dialog_PrimaryButtonClick;
+            await dialog.ShowAsync();
+
+
+
+
+
+
+
+        }
+
+        private async void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
             Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("serious.txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
 
@@ -455,83 +529,20 @@ namespace NerveCentreW10.Views
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            //var RoamingObjectStorageHelper = new Microsoft.Toolkit.Uwp.Helpers.RoamingObjectStorageHelper();
-            //string filePath = RoamingObjectStorageHelper.FileExistsAsync().Path;
-
-            //string keyLargeObject = InkRenameBox.Text;
-
-            //var o = new InkingZoneClassDetail
-            //{
-            //    InkingZoneRename = InkRenameBox.Text,
-            //    InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource,
-            //    InkingZoneBytes = bytes2,
-            //};
-
-            //await RoamingObjectStorageHelper.SaveFileAsync(filePath + keyLargeObject, o);
-
-
-
-
-            //
-
             var appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("TestFolder", CreationCollisionOption.OpenIfExists);
 
             var o = new InkingZoneClassDetail
             {
-                InkingZoneRename = InkRenameBox.Text,
+                InkingZoneRename = "dd",
                 InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource.ToString(),
                 InkingZoneBytes = bytes2,
             };
 
             string json = JsonConvert.SerializeObject(o);
 
-            StorageFile shred = await appFolder.CreateFileAsync(InkRenameBox.Text);
+            StorageFile shred = await appFolder.CreateFileAsync("dd");
             await FileIO.WriteTextAsync(shred, json);
 
-            if (StandardPopup.Visibility == Visibility.Visible) { StandardPopup.Visibility = Visibility.Collapsed; }
-            ImFinishedPopup.Visibility = Visibility.Visible;
-        }
-
-        // Handles the Click event on the Button inside the Popup control and 
-        // closes the Popup. 
-        //private async void ClosePopupClicked(object sender, RoutedEventArgs e)
-        //{
-        //    // if the Popup is open, then close it 
-        //    if (StandardPopup.IsOpen) { StandardPopup.IsOpen = false; }
-
-        //    await MajorContentArea.Blur(0, 1500, 0).StartAsync();
-        //}
-
-        // Handles the Click event on the Button on the page and opens the Popup. 
-        private async void ShowPopupOffsetClicked(object sender, RoutedEventArgs e)
-        {
-            //await MajorContentArea.Blur(7, 500, 0).StartAsync();
-            // open the Popup if it isn't open already 
-            if (StandardPopup.Visibility == Visibility.Collapsed) { StandardPopup.Visibility = Visibility.Visible; }
-        }
-
-        private async void CloseSavedDialog_Click(object sender, RoutedEventArgs e)
-        {
-            if (ImFinishedPopup.Visibility == Visibility.Visible) { ImFinishedPopup.Visibility = Visibility.Collapsed; }
-           // await MajorContentArea.Blur(0, 500, 0).StartAsync();
-        }
-
-        private async void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            StandardPopup.Visibility = Visibility.Collapsed;
-           // await MajorContentArea.Blur(0, 500, 0).StartAsync();
         }
 
         //private void StandardPopup_SizeChanged(object sender, SizeChangedEventArgs e)
