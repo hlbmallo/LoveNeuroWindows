@@ -23,7 +23,10 @@
         </AppBar>
     </Page.BottomAppBar>
 
-    <syncfusion:SfImageEditor x:Name="MyIE" ImageSaved="MyIE_ImageSaved">
+    <syncfusion:SfImageEditor
+        x:Name="MyIE"
+        ImageSaved="MyIE_ImageSaved"
+        ImageSaving="MyIE_ImageSaving">
         <syncfusion:SfImageEditor.ToolbarSettings>
             <syncfusion:ToolbarSettings HeaderToolbarHeight="0" />
         </syncfusion:SfImageEditor.ToolbarSettings>
