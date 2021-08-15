@@ -172,7 +172,7 @@
                 x:Name="MyGrid2"
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
-                Background="#ebebeb"
+                Background="White"
                 BorderBrush="Black"
                 BorderThickness="2"
                 CornerRadius="10">

@@ -8,6 +8,7 @@ using NerveCentreW10.Helpers;
 using NerveCentreW10.Models;
 using NerveCentreW10.Services;
 using NerveCentreW10.Views;
+using Syncfusion.Licensing;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
@@ -31,6 +32,8 @@ namespace NerveCentreW10
 
         public App()
         {
+            SyncfusionLicenseProvider.RegisterLicense("NDgyMDI4QDMxMzkyZTMyMmUzME05U2kyYnJYK3ZtOGtHUWI1bmR6SzRrL0VlR1BBbjV3RE1yRmFIUVloYk09;NDgyMDI5QDMxMzkyZTMyMmUzMG5TSnBvb3BkbkhIVzVyRFU3UTZ1SW5RQnRRQVAyVmE5aUpvMjhvWnZSOFE9");
+
             InitializeComponent();
 
             // TODO WTS: Add your app in the app center and set your secret here. More at https://docs.microsoft.com/en-us/appcenter/sdk/getting-started/uwp
@@ -54,8 +57,8 @@ namespace NerveCentreW10
 
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
 
-            // Set active window colors
-            titleBar.ButtonBackgroundColor = Windows.UI.Colors.WhiteSmoke;
+            //// Set active window colors
+            //titleBar.ButtonBackgroundColor = Windows.UI.Colors.WhiteSmoke;
 
 
             Windows.UI.Color NCBlue = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#01acff");
@@ -114,11 +117,11 @@ namespace NerveCentreW10
 
 
 
-            Windows.UI.Color NCBlue = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#01acff");
-            Windows.UI.Color NCOrange = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
-            App.Current.Resources["SystemControlHighlightListAccentLowBrush"] = new SolidColorBrush(NCOrange);
-            App.Current.Resources["SystemControlHighlightListAccentMediumBrush"] = new SolidColorBrush(NCBlue);
-            App.Current.Resources["SystemControlHighlightAltAccentBrush"] = new SolidColorBrush(NCBlue);
+            //Windows.UI.Color NCBlue = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#01acff");
+            //Windows.UI.Color NCOrange = Microsoft.Toolkit.Uwp.Helpers.ColorHelper.ToColor("#ff7201");
+            //App.Current.Resources["SystemControlHighlightListAccentLowBrush"] = new SolidColorBrush(NCOrange);
+            //App.Current.Resources["SystemControlHighlightListAccentMediumBrush"] = new SolidColorBrush(NCBlue);
+            //App.Current.Resources["SystemControlHighlightAltAccentBrush"] = new SolidColorBrush(NCBlue);
 
             
 

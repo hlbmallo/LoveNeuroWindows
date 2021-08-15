@@ -9,26 +9,36 @@
     xmlns:syncfusion="using:Syncfusion.UI.Xaml.ImageEditor"
     mc:Ignorable="d">
 
-    <Page.BottomAppBar>
-        <AppBar IsOpen="True">
-            <AppBar.Content>
-                <StackPanel Orientation="Horizontal">
-                    <AppBarButton Click="Save_Click" Content="Save" />
-                    <AppBarButton
-                        x:Name="SaveAsInkStrokesButton"
-                        Click="SaveAsInkStrokesButton_Click"
-                        Content="Save Ink Strokes" />
-                </StackPanel>
-            </AppBar.Content>
-        </AppBar>
-    </Page.BottomAppBar>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-    <syncfusion:SfImageEditor
-        x:Name="MyIE"
-        ImageSaved="MyIE_ImageSaved"
-        ImageSaving="MyIE_ImageSaving">
-        <syncfusion:SfImageEditor.ToolbarSettings>
-            <syncfusion:ToolbarSettings HeaderToolbarHeight="0" />
-        </syncfusion:SfImageEditor.ToolbarSettings>
-    </syncfusion:SfImageEditor>
+        <StackPanel
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Margin="2"
+                Click="Save_Click"
+                Content="Save" />
+            <Button
+                x:Name="SaveAsInkStrokesButton"
+                Margin="2"
+                Click="SaveAsInkStrokesButton_Click"
+                Content="Save Ink Strokes" />
+        </StackPanel>
+
+        <syncfusion:SfImageEditor
+            x:Name="MyIE"
+            Grid.Row="1"
+            CornerRadius="10"
+            ImageSaved="MyIE_ImageSaved"
+            ImageSaving="MyIE_ImageSaving">
+            <syncfusion:SfImageEditor.ToolbarSettings>
+                <syncfusion:ToolbarSettings HeaderToolbarHeight="0" />
+            </syncfusion:SfImageEditor.ToolbarSettings>
+        </syncfusion:SfImageEditor>
+    </Grid>
 </Page>

@@ -150,6 +150,9 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Licensing">
+      <Version>19.2.0.55</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.SfImageEditor.UWP">
       <Version>19.2.0.55</Version>
     </PackageReference>
@@ -236,6 +239,7 @@
     <Compile Include="ViewModels\InkingZoneViewModel.cs" />
     <Compile Include="ViewModels\MoreResourcesViewModel.cs" />
     <Compile Include="ViewModels\NotesViewModel.cs" />
+    <Compile Include="ViewModels\QuizDetailViewModel.cs" />
     <Compile Include="ViewModels\Section1ViewModel.cs" />
     <Compile Include="ViewModels\Section2ViewModel.cs" />
     <Compile Include="ViewModels\Section3ViewModel.cs" />

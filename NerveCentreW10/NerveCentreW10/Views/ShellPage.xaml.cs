@@ -156,6 +156,5 @@ namespace NerveCentreW10.Views
         //    TeachTip3.IsOpen = true;
         //}
 
-
     }
 }

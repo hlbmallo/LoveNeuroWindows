@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     CloseButtonClick="ContentDialog_CloseButtonClick"
     CloseButtonText="Close"
+    CornerRadius="10"
     mc:Ignorable="d">
 
     <StackPanel>
