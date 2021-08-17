@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml;
 
 namespace NerveCentreW10.Models
 {
@@ -22,10 +23,8 @@ namespace NerveCentreW10.Models
         public bool QBIsActive { get; set; }
         public bool QCIsActive { get; set; }
         public bool QDIsActive { get; set; }
-        public bool ANSIsVisible { get; set; }
+        public Visibility ANSIsVisible { get; set; }
         public string QCORRECT { get; set; }
-        public SolidColorBrush QCOLOR { get; set; }
-
     }
 
     //public class RootObject

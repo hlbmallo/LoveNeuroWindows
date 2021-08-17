@@ -25,6 +25,9 @@
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="IsItemClickEnabled" Value="True" />
                 <Setter Property="animations:ItemsReorderAnimation.Duration" Value="300" />
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
             </Style>
 
             <Style x:Key="GridViewItemStyle1" TargetType="GridViewItem">
@@ -40,11 +43,12 @@
 
             <Style x:Key="TitleTextBlockStyle" TargetType="TextBlock">
                 <Setter Property="FontWeight" Value="Bold" />
-                <Setter Property="Margin" Value="0,1,0,18" />
+                <!--<Setter Property="Margin" Value="0,1,0,18" />-->
                 <Setter Property="Foreground" Value="Black" />
                 <Setter Property="FontSize" Value="30" />
-                <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="HorizontalTextAlignment" Value="Left" />
             </Style>
 
             <Style x:Key="BorderLine1" TargetType="Border">

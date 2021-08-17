@@ -14,6 +14,7 @@ using System.Linq;
 using Windows.UI;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.Essentials;
 
 namespace NerveCentreW10.ViewModels
 {
@@ -26,6 +27,7 @@ namespace NerveCentreW10.ViewModels
         public int OverallScore;
         public QuizListClass mySubsection { get; set; }
         public ObservableCollection<QuizScore> quizScores { get; set; }
+        //public ObservableCollection<QuizClass> rootobject { get;set; }
         private ObservableCollection<QuizClass> _rootobject;
         public ObservableCollection<QuizClass> rootobject
         {
@@ -40,26 +42,25 @@ namespace NerveCentreW10.ViewModels
             }
         }
 
-        private int mySelectedIndex;
-        public int MySelectedIndex
-        {
-            get { return this.mySelectedIndex; }
-            set
-            {
-                if (this.mySelectedIndex != value)
-                {
-                    this.mySelectedIndex = value;
-                    this.OnPropertyChanged("MySelectedIndex");
-                }
-            }
-        }
+        //private bool qGlyph;
+        //public bool QGlyph
+        //{
+        //    get { return this.qGlyph; }
+        //    set
+        //    {
+        //        if (this.qGlyph != value)
+        //        {
+        //            this.qGlyph = value;
+        //            this.OnPropertyChanged("QGlyph");
+        //        }
+        //    }
+        //}
 
         public QuizDetailViewModel()
         {
             ViewScoresCommand = new RelayCommand(ViewScoresEvent);
-               NextCommand = new RelayCommand(NextEvent);
-            PrevCommand = new RelayCommand(PrevEvent);
             SubmitButtonCommand = new RelayCommand(SubmitButtonEvent);
+            
         }
 
         private void ViewScoresEvent()
@@ -67,38 +68,31 @@ namespace NerveCentreW10.ViewModels
             NavigationService.Navigate(typeof(ViewScores));
         }
 
-        private void NextEvent()
-        {
-            if (MySelectedIndex == 9)
-            {
-
-            }
-            else
-            {
-                MySelectedIndex += 1;
-            }
-        }
-
-        private void PrevEvent()
-        {
-            if (MySelectedIndex == 0)
-            {
-
-            }
-            else
-            {
-                MySelectedIndex -= 1;
-            }
-        }
-
         public void OnNavTo(NavigationEventArgs e)
         {
+            ObservableCollection<QuizClass> roobject = new ObservableCollection<QuizClass>();
             CloudClass cloudClass = new CloudClass();
             var MyClickedItem = (QuizListClass)e.Parameter;
             mySubsection = QuizzesObsCollectionClass.QuizListList.FirstOrDefault(m => m.QuizId == Uri.UnescapeDataString(MyClickedItem.QuizId));
-            var jsonFromCloud = ReadFully(mySubsection.QuizFile);
-            var temp1 = JsonConvert.DeserializeObject<ObservableCollection<QuizClass>>(jsonFromCloud);
-            rootobject = temp1;
+
+            BlobClient cloudBlockBlob = new BlobClient(new Uri(cloudClass.GetBlobSasUri(mySubsection.QuizFile)));
+
+            var filename = "lnw.json";
+            var path = Path.Combine(FileSystem.CacheDirectory, filename);
+
+            var tempStream = new MemoryStream();
+            var downloadedBlob = cloudBlockBlob.DownloadTo(tempStream);
+
+            using (var fileStream = File.Create(path))
+            {
+                tempStream.Seek(0, SeekOrigin.Begin);
+                tempStream.CopyTo(fileStream);
+            }
+
+            var contentToBeRead = File.ReadAllText(path);
+
+            rootobject = JsonConvert.DeserializeObject<ObservableCollection<QuizClass>>(contentToBeRead);
+
             if (mySubsection.QuizImage == null)
             {
                 //Grid.SetColumnSpan(MyListView, 2);
@@ -109,20 +103,17 @@ namespace NerveCentreW10.ViewModels
             }
         }
 
-        public static string ReadFully(string blobUriAndSasToken)
-        {
-            var cloudClass = new CloudClass();
+        //public static string ReadFully(string blobUriAndSasToken)
+        //{
 
-            BlobClient cloudBlockBlob = new BlobClient(new Uri(cloudClass.GetBlobSasUri(blobUriAndSasToken)));
-
-            using (var stream = cloudBlockBlob.OpenReadAsync().Result)
-            {
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    return reader.ReadToEnd();
-                }
-            }
-        }
+            //using (var stream = cloudBlockBlob.OpenReadAsync().Result)
+            //{
+            //    using (StreamReader reader = new StreamReader(stream))
+            //    {
+            //        return reader.ReadToEnd();
+            //    }
+            //}
+        //}
 
         
 
@@ -143,53 +134,38 @@ namespace NerveCentreW10.ViewModels
 
         private async void SubmitButtonEvent()
         {
-            MySelectedIndex = 0;
-
             foreach (QuizClass item in rootobject)
             {
-
                 if (item.QA == item.ANS && item.QAIsActive == true)
                 {
                     OverallScore += 1;
                     item.QCORRECT = "Correct";
-                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
-                    item.ANSIsVisible = true;
-
                 }
 
                 else if (item.QB == item.ANS && item.QBIsActive == true)
                 {
                     OverallScore += 1;
                     item.QCORRECT = "Correct";
-                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
-                    item.ANSIsVisible = true;
-
                 }
 
                 else if (item.QC == item.ANS && item.QCIsActive == true)
                 {
                     OverallScore += 1;
                     item.QCORRECT = "Correct";
-                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
-                    item.ANSIsVisible = true;
-
                 }
 
                 else if (item.QD == item.ANS && item.QDIsActive == true)
                 {
                     OverallScore += 1;
                     item.QCORRECT = "Correct";
-                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Green);
-                    item.ANSIsVisible = true;
-
                 }
                 else
                 {
                     item.QCORRECT = "Incorrect";
-                    item.QCOLOR = new Windows.UI.Xaml.Media.SolidColorBrush(Colors.Red);
-                    item.ANSIsVisible = true;
-
                 }
+
+                item.ANSIsVisible = Windows.UI.Xaml.Visibility.Visible;
+
             }
 
 
@@ -215,7 +191,7 @@ namespace NerveCentreW10.ViewModels
             {
                 MyScore = OverallScore,
                 MyDateForThatScore = DateTime.Now,
-                QuizName = mySubsection.QuizName,
+                QuizName = mySubsection.QuizNumber + ". " + mySubsection.QuizName,
                 MyScoreInPercent = rootobject.Count,
             };
 

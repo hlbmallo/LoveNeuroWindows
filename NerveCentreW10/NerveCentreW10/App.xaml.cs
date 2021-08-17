@@ -52,10 +52,16 @@ namespace NerveCentreW10
                 await ActivationService.ActivateAsync(args);
             }
 
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
             CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
 
-            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            //CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            //coreTitleBar.ExtendViewIntoTitleBar = true;
+
+            //var titleBar = ApplicationView.GetForCurrentView().TitleBar;
 
             //// Set active window colors
             //titleBar.ButtonBackgroundColor = Windows.UI.Colors.WhiteSmoke;

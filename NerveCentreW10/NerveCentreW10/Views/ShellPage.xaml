@@ -26,7 +26,9 @@
         IsBackButtonVisible="Visible"
         IsBackEnabled="{x:Bind IsBackEnabled, Mode=OneWay}"
         IsSettingsVisible="True"
+        IsTitleBarAutoPaddingEnabled="True"
         ItemInvoked="OnItemInvoked"
+        PaneDisplayMode="Auto"
         SelectedItem="{x:Bind Selected, Mode=OneWay}">
         <winui:NavigationView.MenuItems>
             <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:MainPage" Content="Home">
@@ -88,8 +90,7 @@
                     <DataTemplate>
                         <Grid>
                             <TextBlock
-                                Margin="-14,0,0,0"
-                                HorizontalAlignment="Center"
+                                HorizontalAlignment="Left"
                                 Foreground="Black"
                                 Style="{ThemeResource TitleTextBlockStyle}"
                                 Text="{Binding}" />

@@ -12,7 +12,6 @@
 
     <GridView
         x:Name="GridView1"
-        animations:ItemsReorderAnimation.Duration="00:00:00.5"
         ItemClick="GridView1_ItemClick"
         ItemContainerStyle="{StaticResource GridViewItemStyle1}"
         ItemTemplate="{StaticResource SectionDataTemplate}"

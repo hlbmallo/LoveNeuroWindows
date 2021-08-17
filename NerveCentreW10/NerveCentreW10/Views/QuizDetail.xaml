@@ -7,7 +7,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="using:NerveCentreW10.Models"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:viewModels="using:NerveCentreW10.ViewModels"
+    x:Name="QuizDetailPage"
     Loaded="Page_Loaded"
     mc:Ignorable="d">
 
@@ -16,6 +18,10 @@
             x:Key="BoolToVisibilityConverter"
             FalseValue="Collapsed"
             TrueValue="Visible" />
+        <converters:StringVisibilityConverter
+            x:Key="stringVisConverter"
+            EmptyValue="Collapsed"
+            NotEmptyValue="Visible" />
     </Page.Resources>
 
     <Page.DataContext>
@@ -49,105 +55,92 @@
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Source="{Binding mySubsection.QuizImage, Converter={StaticResource cloudHelper}, FallbackValue=Wide310x150Logo.png}" />
+            Source="{Binding mySubsection.QuizImage, Converter={StaticResource cloudHelper}}" />
 
-
-        <FlipView
+        <ListView
             x:Name="MyListView"
             Grid.Row="1"
             Grid.RowSpan="1"
             Grid.Column="0"
-            Margin="0,0,0,64"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Center"
             Background="Transparent"
             CornerRadius="10"
-            ItemsSource="{Binding rootobject, Mode=TwoWay}"
-            SelectedIndex="{Binding MySelectedIndex}">
-            <FlipView.ItemTemplate>
+            ItemsSource="{x:Bind vM.rootobject, Mode=TwoWay}"
+            SelectionMode="None">
+            <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:QuizClass">
-                    <ScrollViewer>
-                        <controls:DropShadowPanel
-                            x:Name="MyDropShadow"
-                            Margin="10"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            BlurRadius="20"
-                            CornerRadius="10"
-                            OffsetX="0"
-                            OffsetY="0"
-                            ShadowOpacity=".3"
-                            Color="Black">
-                            <Border
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Background="White"
-                                CornerRadius="10">
-                                <StackPanel CornerRadius="10" Style="{StaticResource StackPanelForQuestions}">
-                                    <TextBlock
-                                        x:Name="QQ"
-                                        Style="{StaticResource QuestionTextStyle}"
-                                        Text="{Binding QTEXT, Mode=TwoWay}"
-                                        TextWrapping="WrapWholeWords" />
-                                    <RadioButton
-                                        x:Name="QA"
-                                        Content="{Binding QA, Mode=TwoWay}"
-                                        IsChecked="{Binding QAIsActive, Mode=TwoWay}" />
-                                    <RadioButton
-                                        x:Name="QB"
-                                        Content="{Binding QB, Mode=TwoWay}"
-                                        IsChecked="{Binding QBIsActive, Mode=TwoWay}" />
-                                    <RadioButton
-                                        x:Name="QC"
-                                        Content="{Binding QC, Mode=TwoWay}"
-                                        IsChecked="{Binding QCIsActive, Mode=TwoWay}" />
-                                    <RadioButton
-                                        x:Name="QD"
-                                        Content="{Binding QD, Mode=TwoWay}"
-                                        IsChecked="{Binding QDIsActive, Mode=TwoWay}" />
-                                    <Border
-                                        Height="1"
-                                        HorizontalAlignment="Stretch"
-                                        Background="Black"
-                                        Visibility="{Binding ANSIsVisible, Mode=TwoWay}" />
-                                    <TextBlock
-                                        x:Name="QCORRECT"
-                                        FontSize="40"
-                                        FontWeight="Bold"
-                                        Foreground="{x:Bind QCOLOR, Mode=TwoWay}"
-                                        Style="{StaticResource TextBlockForCorrect}"
-                                        Text="{Binding QCORRECT, Mode=TwoWay}"
-                                        Visibility="{Binding ANSIsVisible, Mode=TwoWay}" />
 
-                                    <!--<TextBlock
-                                x:Name="ANSANDREA"
+                    <Border
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Background="White"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="10">
+                        <StackPanel CornerRadius="10" Style="{StaticResource StackPanelForQuestions}">
+                            <TextBlock
+                                x:Name="QQ"
+                                Style="{StaticResource QuestionTextStyle}"
+                                Text="{Binding QTEXT, Mode=TwoWay}"
+                                TextWrapping="WrapWholeWords" />
+                            <RadioButton
+                                x:Name="QA"
+                                Content="{Binding QA, Mode=TwoWay}"
+                                IsChecked="{Binding QAIsActive, Mode=TwoWay}" />
+                            <RadioButton
+                                x:Name="QB"
+                                Content="{Binding QB, Mode=TwoWay}"
+                                IsChecked="{Binding QBIsActive, Mode=TwoWay}" />
+                            <RadioButton
+                                x:Name="QC"
+                                Content="{Binding QC, Mode=TwoWay}"
+                                IsChecked="{Binding QCIsActive, Mode=TwoWay}" />
+                            <RadioButton
+                                x:Name="QD"
+                                Content="{Binding QD, Mode=TwoWay}"
+                                IsChecked="{Binding QDIsActive, Mode=TwoWay}" />
+                            <Border
+                                Height="1"
+                                Margin="2"
+                                HorizontalAlignment="Stretch"
+                                Background="Black"
+                                Visibility="{Binding ANSIsVisible, Mode=TwoWay}" />
+                            <TextBlock
+                                x:Name="QCORRECT"
+                                FontSize="40"
                                 FontWeight="Bold"
                                 Style="{StaticResource TextBlockForCorrect}"
-                                Text="Answer and Reasoning:"
-                                Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}" />-->
+                                Text="{x:Bind QCORRECT, Mode=TwoWay}"
+                                Visibility="{Binding ANSIsVisible, Mode=TwoWay}" />
 
-                                    <TextBlock
-                                        FontWeight="Bold"
-                                        Style="{StaticResource TextBlockForCorrect}"
-                                        Text="Answer and Reasoning:"
-                                        Visibility="{Binding ANSIsVisible, Mode=TwoWay}" />
-                                    <TextBlock
-                                        Style="{StaticResource TextBlockForCorrect}"
-                                        Text="{x:Bind ANS, Mode=OneWay}"
-                                        Visibility="{Binding ANSIsVisible, Mode=TwoWay}" />
-                                    <TextBlock
-                                        Style="{StaticResource TextBlockForCorrect}"
-                                        Text="{x:Bind REA, Mode=OneWay}"
-                                        Visibility="{Binding ANSIsVisible, Mode=TwoWay}" />
-                                </StackPanel>
-                            </Border>
-                        </controls:DropShadowPanel>
-                    </ScrollViewer>
+                            <!--<TextBlock
+                                    x:Name="ANSANDREA"
+                                    FontWeight="Bold"
+                                    Style="{StaticResource TextBlockForCorrect}"
+                                    Text="Answer and Reasoning:"
+                                    Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}" />-->
+
+                            <TextBlock
+                                FontWeight="Bold"
+                                Style="{StaticResource TextBlockForCorrect}"
+                                Text="Answer and Reasoning"
+                                Visibility="{Binding ANSIsVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            <TextBlock
+                                Style="{StaticResource TextBlockForCorrect}"
+                                Text="{Binding ANS, Mode=TwoWay}"
+                                Visibility="{Binding ANSIsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            <TextBlock
+                                Style="{StaticResource TextBlockForCorrect}"
+                                Text="{Binding REA, Mode=TwoWay}"
+                                Visibility="{Binding ANSIsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        </StackPanel>
+                    </Border>
                 </DataTemplate>
-            </FlipView.ItemTemplate>
-        </FlipView>
+            </ListView.ItemTemplate>
+        </ListView>
         <Grid
             Grid.Row="2"
             Grid.Column="0"
@@ -156,14 +149,12 @@
             Background="{ThemeResource DetailPageCommandbarAcrylic1}"
             CornerRadius="10">
             <StackPanel Orientation="Horizontal">
-                <Button
+                <ToggleButton
                     x:Name="SubmitButton"
-                    HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     Background="Transparent"
                     Command="{Binding SubmitButtonCommand}"
-                    Content="Score and Reveal Answers"
-                    Style="{StaticResource ButtonRevealStyle}" />
+                    Content="Score and Reveal/Hide Answers" />
                 <!--<ToggleButton
                     x:Name="RevealHideAnswersButton"
                     HorizontalAlignment="Stretch"
@@ -181,7 +172,7 @@
                     Command="{Binding ViewScoresCommand}"
                     Content="View Scores"
                     Style="{StaticResource ButtonRevealStyle}" />
-                <AppBarSeparator />
+                <!--<AppBarSeparator />
                 <Button
                     x:Name="PreviousButton"
                     HorizontalAlignment="Stretch"
@@ -198,7 +189,7 @@
                     Background="Transparent"
                     Command="{Binding NextCommand, Mode=TwoWay}"
                     Content="Next"
-                    Style="{StaticResource ButtonRevealStyle}" />
+                    Style="{StaticResource ButtonRevealStyle}" />-->
 
             </StackPanel>
         </Grid>
