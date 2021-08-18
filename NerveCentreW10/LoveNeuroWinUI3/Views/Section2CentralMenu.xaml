@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="LoveNeuroWinUI3.Views.Section2CentralMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:LoveNeuroWinUI3.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    CacheMode="BitmapCache"
+    NavigationCacheMode="Enabled"
+    mc:Ignorable="d">
+
+    <GridView
+        x:Name="GridView1"
+        animations:ItemsReorderAnimation.Duration="00:00:00.5"
+        ItemClick="GridView1_ItemClick"
+        ItemContainerStyle="{StaticResource GridViewItemStyle1}"
+        ItemTemplate="{StaticResource SectionDataTemplate}"
+        ItemsSource="{x:Bind ViewModel.SubsectionList}"
+        Style="{StaticResource GridViewStyle1}" />
+
+</Page>

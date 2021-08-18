@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="LoveNeuroWinUI3.Views.Section8MoreResources"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:LoveNeuroWinUI3.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+
+        <StackPanel Margin="23">
+
+            <TextBlock
+                x:Name="Subtitle1"
+                Style="{StaticResource TitleTextBlockStyle}"
+                Text="More In-App Resources" />
+            <Border Style="{StaticResource BorderLine1}" />
+
+            <GridView
+                x:Name="GridView1"
+                Grid.Row="0"
+                animations:ItemsReorderAnimation.Duration="00:00:00.5"
+                ItemClick="GridView1_ItemClick"
+                ItemContainerStyle="{StaticResource GridViewItemStyle1}"
+                ItemTemplate="{StaticResource MoreResources1DataTemplate}"
+                Style="{StaticResource GridViewStyle1}" />
+
+            <TextBlock
+                x:Name="Subtitle2"
+                Style="{StaticResource TitleTextBlockStyle}"
+                Text="More Resources By The Goofy Anatomist" />
+            <Border Style="{StaticResource BorderLine1}" />
+
+            <GridView
+                x:Name="GridView2"
+                Grid.Row="1"
+                animations:ItemsReorderAnimation.Duration="00:00:00.5"
+                ItemClick="GridView2_ItemClick"
+                ItemContainerStyle="{StaticResource GridViewItemStyle1}"
+                ItemTemplate="{StaticResource MoreResources2DataTemplate}"
+                ItemsSource="{x:Bind ViewModel.MoreResourcesList}"
+                Style="{StaticResource GridViewStyle1}" />
+
+        </StackPanel>
+
+    </ScrollViewer>
+
+</Page>

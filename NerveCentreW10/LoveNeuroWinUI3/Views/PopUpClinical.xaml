@@ -1,0 +1,22 @@
+﻿<ContentDialog
+    x:Class="LoveNeuroWinUI3.Views.PopUpClinical"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls1="using:AppStudio.Uwp.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:LoveNeuroWinUI3.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    CloseButtonClick="ContentDialog_CloseButtonClick"
+    CloseButtonText="Close"
+    CornerRadius="10"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <controls:ImageEx
+            Width="100"
+            Height="150"
+            Source="ms-appx:///Assets/Icons/iconclinical.png" />
+        <controls1:HtmlBlock x:Name="ClinicalText" />
+    </StackPanel>
+</ContentDialog>

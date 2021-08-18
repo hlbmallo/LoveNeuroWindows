@@ -1,0 +1,286 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>LoveNeuroWinUI3</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x86;x64;arm64</Platforms>
+    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <UseWinUI>true</UseWinUI>
+  </PropertyGroup>
+
+  <!-- Workaround for https://github.com/dotnet/sdk/issues/17890 -->
+  <PropertyGroup>
+    <NoWarn>CA1416, $(NoWarn)</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="DataTemplatesDictionary.xaml" />
+    <None Remove="Views\ClinicalCaseFinishedDialog.xaml" />
+    <None Remove="Views\ClinicalCaseLandingPage.xaml" />
+    <None Remove="Views\ClinicalCaseScenarioPage.xaml" />
+    <None Remove="Views\DetailImagePage.xaml" />
+    <None Remove="Views\DetailImagePage2.xaml" />
+    <None Remove="Views\DetailPage.xaml" />
+    <None Remove="Views\FavouritesPage.xaml" />
+    <None Remove="Views\FirstRunDialog.xaml" />
+    <None Remove="Views\InkingZoneDetail.xaml" />
+    <None Remove="Views\InkingZoneDetail2.xaml" />
+    <None Remove="Views\InkingZoneDetail2EditOnly.xaml" />
+    <None Remove="Views\MainPage.xaml" />
+    <None Remove="Views\NeuroDictionary.xaml" />
+    <None Remove="Views\Notes.xaml" />
+    <None Remove="Views\PopUpClinical.xaml" />
+    <None Remove="Views\PopUpResearch.xaml" />
+    <None Remove="Views\PopUpRevision.xaml" />
+    <None Remove="Views\QuizDetail.xaml" />
+    <None Remove="Views\RecommendedReading.xaml" />
+    <None Remove="Views\SaveInkContentDialog.xaml" />
+    <None Remove="Views\Section1CellsMenu.xaml" />
+    <None Remove="Views\Section2CentralMenu.xaml" />
+    <None Remove="Views\Section3PeripheralMenu.xaml" />
+    <None Remove="Views\Section4DisordersMenu.xaml" />
+    <None Remove="Views\Section5QuizMenu.xaml" />
+    <None Remove="Views\Section6InkingZoneMenu.xaml" />
+    <None Remove="Views\Section7VideoTutorialsMenu.xaml" />
+    <None Remove="Views\Section8MoreResources.xaml" />
+    <None Remove="Views\SettingsPage.xaml" />
+    <None Remove="Views\VideoIntro.xaml" />
+    <None Remove="Views\VideoTutorialsDetail.xaml" />
+    <None Remove="Views\ViewScores.xaml" />
+    <None Remove="Views\WhatsNewDialog.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.9.1" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="7.0.3" />
+    <PackageReference Include="CommunityToolkit.WinUI" Version="7.0.3" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI" Version="7.0.3" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.0.3" />
+    <PackageReference Include="Microsoft.AppCenter" Version="4.3.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.3.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.3.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+    <PackageReference Include="Microsoft.ProjectReunion" Version="0.8.1" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.0.4" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.0-pre2" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-us\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoveNeuroWinUI3.Core\LoveNeuroWinUI3.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="DataTemplatesDictionary.xaml.cs">
+      <DependentUpon>DataTemplatesDictionary.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ClinicalCaseFinishedDialog.xaml.cs">
+      <DependentUpon>ClinicalCaseFinishedDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ClinicalCaseLandingPage.xaml.cs">
+      <DependentUpon>ClinicalCaseLandingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ClinicalCaseScenarioPage.xaml.cs">
+      <DependentUpon>ClinicalCaseScenarioPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DetailImagePage.xaml.cs">
+      <DependentUpon>DetailImagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DetailImagePage2.xaml.cs">
+      <DependentUpon>DetailImagePage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\DetailPage.xaml.cs">
+      <DependentUpon>DetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\FavouritesPage.xaml.cs">
+      <DependentUpon>FavouritesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\FirstRunDialog.xaml.cs">
+      <DependentUpon>FirstRunDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\InkingZoneDetail.xaml.cs">
+      <DependentUpon>InkingZoneDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\InkingZoneDetail2.xaml.cs">
+      <DependentUpon>InkingZoneDetail2.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\InkingZoneDetail2EditOnly.xaml.cs">
+      <DependentUpon>InkingZoneDetail2EditOnly.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NeuroDictionary.xaml.cs">
+      <DependentUpon>NeuroDictionary.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Notes.xaml.cs">
+      <DependentUpon>Notes.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PopUpClinical.xaml.cs">
+      <DependentUpon>PopUpClinical.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PopUpResearch.xaml.cs">
+      <DependentUpon>PopUpResearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PopUpRevision.xaml.cs">
+      <DependentUpon>PopUpRevision.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\QuizDetail.xaml.cs">
+      <DependentUpon>QuizDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecommendedReading.xaml.cs">
+      <DependentUpon>RecommendedReading.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SaveInkContentDialog.xaml.cs">
+      <DependentUpon>SaveInkContentDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Section1CellsMenu.xaml.cs">
+      <DependentUpon>Section1CellsMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Section2CentralMenu.xaml.cs">
+      <DependentUpon>Section2CentralMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Section3PeripheralMenu.xaml.cs">
+      <DependentUpon>Section3PeripheralMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Section4DisordersMenu.xaml.cs">
+      <DependentUpon>Section4DisordersMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Section5QuizMenu.xaml.cs">
+      <DependentUpon>Section5QuizMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Section6InkingZoneMenu.xaml.cs">
+      <DependentUpon>Section6InkingZoneMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Section7VideoTutorialsMenu.xaml.cs">
+      <DependentUpon>Section7VideoTutorialsMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Section8MoreResources.xaml.cs">
+      <DependentUpon>Section8MoreResources.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\VideoIntro.xaml.cs">
+      <DependentUpon>VideoIntro.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\VideoTutorialsDetail.xaml.cs">
+      <DependentUpon>VideoTutorialsDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ViewScores.xaml.cs">
+      <DependentUpon>ViewScores.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WhatsNewDialog.xaml.cs">
+      <DependentUpon>WhatsNewDialog.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="DataTemplatesDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ClinicalCaseFinishedDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ClinicalCaseLandingPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ClinicalCaseScenarioPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DetailImagePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DetailImagePage2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DetailPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FavouritesPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FirstRunDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\InkingZoneDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\InkingZoneDetail2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\InkingZoneDetail2EditOnly.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NeuroDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Notes.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PopUpClinical.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PopUpResearch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PopUpRevision.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\QuizDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RecommendedReading.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SaveInkContentDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Section1CellsMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Section2CentralMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Section3PeripheralMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Section4DisordersMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Section5QuizMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Section6InkingZoneMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Section7VideoTutorialsMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Section8MoreResources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\VideoIntro.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\VideoTutorialsDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewScores.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WhatsNewDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

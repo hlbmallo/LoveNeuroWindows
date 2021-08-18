@@ -1,0 +1,113 @@
+﻿<Page
+    x:Class="LoveNeuroWinUI3.Views.Section6InkingZoneMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:converters="using:LoveNeuroWinUI3.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:data="using:LoveNeuroWinUI3.Models"
+    xmlns:local="using:LoveNeuroWinUI3.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:storage="using:Windows.Storage"
+    xmlns:storage1="using:Windows.Storage.FileProperties"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    NavigationCacheMode="Enabled"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:ThumbnailToImageConverter x:Key="ttic" />
+    </Page.Resources>
+
+    <Pivot Margin="15,0,0,0">
+        <!--<PivotItem Header="Templates">
+            <GridView
+                x:Name="GridView1"
+                ItemClick="GridView1_ItemClick"
+                ItemContainerStyle="{StaticResource GridViewItemStyle1}"
+                ItemTemplate="{StaticResource InkingZoneDataTemplate}"
+                ItemsSource="{x:Bind InkingZoneList}"
+                Style="{StaticResource GridViewStyle1}" />
+        </PivotItem>-->
+        <PivotItem Header="Templates">
+            <GridView
+                x:Name="GridView1"
+                animations:ItemsReorderAnimation.Duration="00:00:00.5"
+                ItemClick="GridView1_ItemClick"
+                ItemContainerStyle="{StaticResource GridViewItemStyle1}"
+                ItemTemplate="{StaticResource InkingZoneDataTemplate}"
+                ItemsSource="{x:Bind InkingZoneList}"
+                Style="{StaticResource GridViewStyle1}" />
+        </PivotItem>
+        <PivotItem Header="My Custom Inking">
+            <GridView
+                x:Name="GridViewInkingStrokes"
+                animations:ItemsReorderAnimation.Duration="00:00:00.5"
+                IsItemClickEnabled="True"
+                ItemClick="GridViewInkingStrokes_ItemClick"
+                ItemContainerStyle="{StaticResource GridViewItemStyle1}"
+                Loaded="GridViewInkingStrokes_Loaded"
+                RightTapped="MyGrid_RightTapped"
+                Style="{StaticResource GridViewStyle1}">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="storage:StorageFile">
+                        <Grid
+                            x:Name="MyInkingGrid"
+                            Width="270"
+                            Height="270"
+                            Padding="10"
+                            PointerCanceled="MyInkingGrid_PointerCanceled"
+                            PointerCaptureLost="MyInkingGrid_PointerCaptureLost"
+                            PointerEntered="MyInkingGrid_PointerEntered"
+                            PointerExited="MyInkingGrid_PointerExited"
+                            PointerPressed="MyInkingGrid_PointerPressed"
+                            PointerReleased="MyInkingGrid_PointerReleased">
+                            <controls:DropShadowPanel
+                                x:Name="MyDropShadow"
+                                HorizontalContentAlignment="Stretch"
+                                VerticalContentAlignment="Stretch"
+                                BlurRadius="20"
+                                OffsetX="0"
+                                OffsetY="0"
+                                Opacity="0"
+                                ShadowOpacity=".4"
+                                Color="Black">
+                                <Grid />
+                            </controls:DropShadowPanel>
+                            <Grid
+                                x:Name="MyGrid2"
+                                Margin="10"
+                                ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                                Background="#ebebeb"
+                                BorderBrush="Black"
+                                BorderThickness="2"
+                                CornerRadius="10">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Foreground="#2b2b2b"
+                                    Text="{Binding Name}"
+                                    TextAlignment="Center"
+                                    TextWrapping="Wrap" />
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                    <Button
+                                        x:Name="DeleteButton"
+                                        Margin="5"
+                                        Click="DeleteButton_Click"
+                                        Opacity="0">
+                                        <Button.Content>
+                                            <SymbolIcon Symbol="Delete" />
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </PivotItem>
+    </Pivot>
+
+</Page>
