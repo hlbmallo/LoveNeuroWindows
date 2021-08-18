@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:converters2="using:NerveCentreW10.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="using:NerveCentreW10.Models"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -22,6 +23,7 @@
             x:Key="stringVisConverter"
             EmptyValue="Collapsed"
             NotEmptyValue="Visible" />
+        <converters2:CloudDataConverter x:Name="CDConverter" />
     </Page.Resources>
 
     <Page.DataContext>
@@ -55,7 +57,7 @@
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Source="{Binding mySubsection.QuizImage, Converter={StaticResource cloudHelper}}" />
+            Source="{Binding MyClickedItem.QuizImage, Converter={StaticResource cloudHelper}}" />
 
         <ListView
             x:Name="MyListView"
@@ -68,10 +70,10 @@
             VerticalContentAlignment="Center"
             Background="Transparent"
             CornerRadius="10"
-            ItemsSource="{x:Bind vM.rootobject, Mode=TwoWay}"
+            ItemsSource="{Binding rootobject, Mode=TwoWay}"
             SelectionMode="None">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="data:QuizClass">
+                <DataTemplate>
 
                     <Border
                         HorizontalAlignment="Stretch"
@@ -107,35 +109,33 @@
                                 Margin="2"
                                 HorizontalAlignment="Stretch"
                                 Background="Black"
-                                Visibility="{Binding ANSIsVisible, Mode=TwoWay}" />
+                                Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                             <TextBlock
-                                x:Name="QCORRECT"
                                 FontSize="40"
                                 FontWeight="Bold"
+                                Foreground="{Binding QCOLOR, Mode=TwoWay}"
                                 Style="{StaticResource TextBlockForCorrect}"
-                                Text="{x:Bind QCORRECT, Mode=TwoWay}"
-                                Visibility="{Binding ANSIsVisible, Mode=TwoWay}" />
-
+                                Text="{Binding QCORRECT, Mode=TwoWay}"
+                                Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            <TextBlock
+                                FontWeight="Bold"
+                                Style="{StaticResource TextBlockForCorrect}"
+                                Text="Answer and Reasoning"
+                                Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            <TextBlock
+                                Style="{StaticResource TextBlockForCorrect}"
+                                Text="{Binding ANS, Mode=TwoWay}"
+                                Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            <TextBlock
+                                Style="{StaticResource TextBlockForCorrect}"
+                                Text="{Binding REA, Mode=TwoWay}"
+                                Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                             <!--<TextBlock
                                     x:Name="ANSANDREA"
                                     FontWeight="Bold"
                                     Style="{StaticResource TextBlockForCorrect}"
                                     Text="Answer and Reasoning:"
                                     Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}" />-->
-
-                            <TextBlock
-                                FontWeight="Bold"
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="Answer and Reasoning"
-                                Visibility="{Binding ANSIsVisible, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            <TextBlock
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="{Binding ANS, Mode=TwoWay}"
-                                Visibility="{Binding ANSIsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            <TextBlock
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="{Binding REA, Mode=TwoWay}"
-                                Visibility="{Binding ANSIsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                         </StackPanel>
                     </Border>
                 </DataTemplate>
@@ -153,8 +153,8 @@
                     x:Name="SubmitButton"
                     VerticalAlignment="Stretch"
                     Background="Transparent"
-                    Command="{Binding SubmitButtonCommand}"
-                    Content="Score and Reveal/Hide Answers" />
+                    Content="Score and Reveal/Hide Answers"
+                    IsChecked="{Binding}" />
                 <!--<ToggleButton
                     x:Name="RevealHideAnswersButton"
                     HorizontalAlignment="Stretch"

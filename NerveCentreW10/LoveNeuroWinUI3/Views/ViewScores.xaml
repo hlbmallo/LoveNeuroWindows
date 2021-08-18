@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:conv="using:LoveNeuroWinUI3.Converters"
+    xmlns:conv1="clr-namespace:LoveNeuroWinUI3.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="using:LoveNeuroWinUI3.Models"
     xmlns:local="using:LoveNeuroWinUI3.Views"
@@ -12,8 +13,8 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <conv:DateFormatConverter x:Name="DateToStringFormatConverter" />
-        <conv:PercentageConverter x:Name="PercentageConverter" />
+        <conv1:DateFormatConverter x:Name="DateToStringFormatConverter" />
+        <conv1:PercentageConverter x:Name="PercentageConverter" />
     </Page.Resources>
 
     <!--<Page.Resources>

@@ -42,5 +42,14 @@ namespace NerveCentreW10.Views
         {
             vM.LoadedPage();
         }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SubmitButton.IsChecked == true)
+            {
+            vM.SubmitButtonEvent();
+
+            }
+        }
     }
 }
