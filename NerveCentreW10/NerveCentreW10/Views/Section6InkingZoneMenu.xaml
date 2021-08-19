@@ -19,7 +19,7 @@
         <converters:ThumbnailToImageConverter x:Key="ttic" />
     </Page.Resources>
 
-    <Pivot Margin="15,0,0,0">
+    <Pivot Margin="30,0,0,0">
         <!--<PivotItem Header="Templates">
             <GridView
                 x:Name="GridView1"

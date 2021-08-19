@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Linq;
+using AppStudio.Uwp.Controls;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
@@ -7,6 +8,7 @@ using Microsoft.Toolkit.Uwp.Helpers;
 using NerveCentreW10.Helpers;
 using NerveCentreW10.Models;
 using NerveCentreW10.Services;
+using NerveCentreW10.Styles;
 using NerveCentreW10.Views;
 using Syncfusion.Licensing;
 using Windows.ApplicationModel.Activation;
@@ -16,6 +18,7 @@ using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Xamarin.Essentials;
 
@@ -29,7 +32,7 @@ namespace NerveCentreW10
         {
             get { return _activationService.Value; }
         }
-
+        
         public App()
         {
             SyncfusionLicenseProvider.RegisterLicense("NDgyMDI4QDMxMzkyZTMyMmUzME05U2kyYnJYK3ZtOGtHUWI1bmR6SzRrL0VlR1BBbjV3RE1yRmFIUVloYk09;NDgyMDI5QDMxMzkyZTMyMmUzMG5TSnBvb3BkbkhIVzVyRFU3UTZ1SW5RQnRRQVAyVmE5aUpvMjhvWnZSOFE9");
@@ -47,6 +50,7 @@ namespace NerveCentreW10
 
         protected override async void OnLaunched(LaunchActivatedEventArgs args)
         {
+
             if (!args.PrelaunchActivated)
             {
                 await ActivationService.ActivateAsync(args);
@@ -83,21 +87,21 @@ namespace NerveCentreW10
 
         public void FontSizeChecker()
         {
-            //ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-            //string localValue = (string)localSettings.Values["thefontsize"];
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            string localValue = (string)localSettings.Values["thefontsize"];
 
-            //if(localValue == null || localValue == "small")
-            //{
-            //    Application.Current.Resources["thefontsizeresource"] = 16.0;
-            //}
-            //else if (localValue == null || localValue == "medium")
-            //{
-            //    Application.Current.Resources["thefontsizeresource"] = 20.0;
-            //}
-            //else if (localValue == null || localValue == "large")
-            //{
-            //    Application.Current.Resources["thefontsizeresource"] = 24.0;
-            //}
+            if (localValue == null || localValue == "small")
+            {
+                Style style = (Style)App.Current.Resources["HTMLBlockTextStyle1"];
+            }
+            else if (localValue == null || localValue == "medium")
+            {
+                Application.Current.Resources["MyFontSize2"] = 20;
+            }
+            else if (localValue == null || localValue == "large")
+            {
+                Application.Current.Resources["MyFontSize2"] = 24;
+            }
 
 
             //if (localValue == 16)

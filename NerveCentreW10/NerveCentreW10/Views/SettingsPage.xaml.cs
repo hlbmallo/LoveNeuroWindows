@@ -36,8 +36,6 @@ namespace NerveCentreW10.Views
         // To get application's version:
         public string ApplicationVersion => $"{SystemInformation.Instance.ApplicationVersion.Major}.{SystemInformation.Instance.ApplicationVersion.Minor}.{SystemInformation.Instance.ApplicationVersion.Build}.{SystemInformation.Instance.ApplicationVersion.Revision}";
 
-        public AppSettings appSettings = new AppSettings();
-
         public SettingsPage()
         {
             this.InitializeComponent();
@@ -85,52 +83,49 @@ namespace NerveCentreW10.Views
             await Windows.System.Launcher.LaunchUriAsync(new Uri("https://www.thegoofyanatomist.com/privacy-policies"));
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            //ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-            //string localValue = (string)localSettings.Values["thefontsize"];
+        //private void Page_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        //    string localValue = (string)localSettings.Values["thefontsize"];
 
-            //if (localValue == null || localValue == "small")
-            //{
-            //    Style style = Application.Current.Resources["SmallStyle"] as Style;
-            //    label1.Style = style;
-
-            //    SmallFont.IsChecked = true;
-            //}
-            //else if (localValue == "medium")
-            //{
-            //    appSettings.AppFontSize = 20;
-
-            //    MediumFont.IsChecked = true;
-            //}
-            //else if (localValue == "large")
-            //{
-            //    appSettings.AppFontSize = 24;
-
-            //    LargeFont.IsChecked = true;
-            //}
-        }
+        //    if (localValue == null || localValue == "small")
+        //    {
+        //        var lol = Application.Current.Resources.ThemeDictionaries.ContainsKey("BigFont");
+                
+        //        SmallFont.IsChecked = true;
+        //    }
+        //    else if (localValue == "medium")
+        //    {
+        //        Application.Current.Resources["MyFontSize2"] = 20;
+        //        MediumFont.IsChecked = true;
+        //    }
+        //    else if (localValue == "large")
+        //    {
+        //        Application.Current.Resources["MyFontSize2"] = 24;
+        //        LargeFont.IsChecked = true;
+        //    }
+        //}
 
         private void SmallFont_Checked(object sender, RoutedEventArgs e)
         {            
 
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["thefontsize"] = "small";
-            appSettings.AppFontSize = 16;
+            Application.Current.Resources["MyFontSize2"] = 16;
         }
 
         private void MediumFont_Checked(object sender, RoutedEventArgs e)
         {
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["thefontsize"] = "medium";
-            appSettings.AppFontSize = 20;
+            Application.Current.Resources["MyFontSize2"] = 20;
         }
 
         private void LargeFont_Checked(object sender, RoutedEventArgs e)
         {
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["thefontsize"] = "large";
-            appSettings.AppFontSize = 24;
+            Application.Current.Resources["MyFontSize2"] = 24;
         }
     }
 }

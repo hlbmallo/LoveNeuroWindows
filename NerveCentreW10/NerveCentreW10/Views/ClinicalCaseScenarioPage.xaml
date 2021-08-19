@@ -43,59 +43,48 @@
             <controls:GalleryFlipView.ItemTemplate>
                 <DataTemplate x:DataType="data:ClinicalCaseModel">
                     <Grid>
-                        <controls1:DropShadowPanel
-                            x:Name="MyDropShadow"
-                            Margin="10"
+                        <Border
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Center"
-                            HorizontalContentAlignment="Stretch"
-                            VerticalContentAlignment="Stretch"
-                            BlurRadius="20"
-                            OffsetX="0"
-                            OffsetY="0"
-                            ShadowOpacity=".3"
-                            Color="Black">
-                            <Border
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Center"
-                                Background="WhiteSmoke"
-                                CornerRadius="10">
-                                <StackPanel Margin="10">
-                                    <TextBlock
-                                        Margin="0,0,0,10"
-                                        Style="{StaticResource BodyTextBlockStyle}"
-                                        Text="{x:Bind OpeningStatement, Mode=TwoWay}" />
-                                    <TextBlock
-                                        Margin="0,0,0,10"
-                                        FontWeight="Bold"
-                                        Style="{StaticResource BodyTextBlockStyle}"
-                                        Text="{x:Bind Question, Mode=TwoWay}" />
-                                    <StackPanel Margin="0,0,0,10">
-                                        <RadioButton Content="{x:Bind Answer1, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedA, Mode=TwoWay}" />
-                                        <RadioButton Content="{x:Bind Answer2, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedB, Mode=TwoWay}" />
-                                        <RadioButton Content="{x:Bind Answer3, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedC, Mode=TwoWay}" />
-                                    </StackPanel>
-                                    <Grid>
-                                        <TextBlock
-                                            Foreground="{Binding myColor, Mode=TwoWay}"
-                                            Style="{StaticResource ReasoningStyle1}"
-                                            Text="{x:Bind Ans1Reasoning, Mode=TwoWay}"
-                                            Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell1, FallbackValue=True}" />
-                                        <TextBlock
-                                            Foreground="{Binding myColor, Mode=TwoWay}"
-                                            Style="{StaticResource ReasoningStyle1}"
-                                            Text="{x:Bind Ans2Reasoning, Mode=TwoWay}"
-                                            Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell2, FallbackValue=True}" />
-                                        <TextBlock
-                                            Foreground="{Binding myColor, Mode=TwoWay}"
-                                            Style="{StaticResource ReasoningStyle1}"
-                                            Text="{x:Bind Ans3Reasoning, Mode=TwoWay}"
-                                            Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell3, FallbackValue=True}" />
-                                    </Grid>
-
+                            Background="WhiteSmoke"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                            <StackPanel Margin="10">
+                                <TextBlock
+                                    Margin="0,0,0,10"
+                                    Style="{StaticResource BodyTextBlockStyle}"
+                                    Text="{x:Bind OpeningStatement, Mode=TwoWay}" />
+                                <TextBlock
+                                    Margin="0,0,0,10"
+                                    FontWeight="Bold"
+                                    Style="{StaticResource BodyTextBlockStyle}"
+                                    Text="{x:Bind Question, Mode=TwoWay}" />
+                                <StackPanel Margin="0,0,0,10">
+                                    <RadioButton Content="{x:Bind Answer1, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedA, Mode=TwoWay}" />
+                                    <RadioButton Content="{x:Bind Answer2, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedB, Mode=TwoWay}" />
+                                    <RadioButton Content="{x:Bind Answer3, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedC, Mode=TwoWay}" />
                                 </StackPanel>
-                            </Border>
-                        </controls1:DropShadowPanel>
+                                <Grid>
+                                    <TextBlock
+                                        Foreground="{Binding myColor, Mode=TwoWay}"
+                                        Style="{StaticResource ReasoningStyle1}"
+                                        Text="{x:Bind Ans1Reasoning, Mode=TwoWay}"
+                                        Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell1, FallbackValue=True}" />
+                                    <TextBlock
+                                        Foreground="{Binding myColor, Mode=TwoWay}"
+                                        Style="{StaticResource ReasoningStyle1}"
+                                        Text="{x:Bind Ans2Reasoning, Mode=TwoWay}"
+                                        Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell2, FallbackValue=True}" />
+                                    <TextBlock
+                                        Foreground="{Binding myColor, Mode=TwoWay}"
+                                        Style="{StaticResource ReasoningStyle1}"
+                                        Text="{x:Bind Ans3Reasoning, Mode=TwoWay}"
+                                        Visibility="{Binding ElementName=ClinicalCasePage, Path=DataContext.ShowViewCell3, FallbackValue=True}" />
+                                </Grid>
+
+                            </StackPanel>
+                        </Border>
                     </Grid>
                 </DataTemplate>
             </controls:GalleryFlipView.ItemTemplate>
@@ -131,5 +120,25 @@
                     Content="Next" />
             </StackPanel>
         </StackPanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates">
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1000" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="flipView.Margin" Value="100,0,100,80" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="flipView.Margin" Value="0,0,0,80" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

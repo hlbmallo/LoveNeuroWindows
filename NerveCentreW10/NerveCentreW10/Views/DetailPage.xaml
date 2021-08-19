@@ -118,7 +118,7 @@
                     <Border
                         x:Name="MyBorderForImage2"
                         Background="White"
-                        Visibility="{x:Bind Path=MyClickedImage2, Converter={StaticResource StringVisibilityConverter}}">
+                        Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}">
                         <Grid>
                             <controls:ImageEx
                                 x:Name="MyImage2"

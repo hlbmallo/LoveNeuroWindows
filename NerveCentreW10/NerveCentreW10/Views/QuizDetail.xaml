@@ -5,6 +5,7 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:converters2="using:NerveCentreW10.Converters"
+    xmlns:converters3="using:NerveCentreW10.Helpers"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="using:NerveCentreW10.Models"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -23,14 +24,16 @@
             x:Key="stringVisConverter"
             EmptyValue="Collapsed"
             NotEmptyValue="Visible" />
-        <converters2:CloudDataConverter x:Name="CDConverter" />
+        <converters3:CloudClasssVisibilityConverter x:Key="cloudHelper" />
+        <converters3:QuizNameConverter x:Key="QuizNameConverter" />
+
     </Page.Resources>
 
     <Page.DataContext>
         <viewModels:QuizDetailViewModel x:Name="vM" />
     </Page.DataContext>
 
-    <Grid>
+    <Grid Margin="40,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -48,7 +51,7 @@
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Style="{StaticResource TitleTextBlockStyle}"
-            Text="{Binding mySubsection.QuizName}" />
+            Text="{Binding mySubsection, Converter={StaticResource QuizNameConverter}}" />
 
         <controls:ImageEx
             x:Name="MyImage"
@@ -57,7 +60,7 @@
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Source="{Binding MyClickedItem.QuizImage, Converter={StaticResource cloudHelper}}" />
+            Source="{Binding mySubsection.QuizImage, Converter={StaticResource cloudHelper}}" />
 
         <ListView
             x:Name="MyListView"
@@ -74,70 +77,76 @@
             SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
-
-                    <Border
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Center"
-                        Background="White"
-                        BorderBrush="Black"
-                        BorderThickness="2"
-                        CornerRadius="10">
-                        <StackPanel CornerRadius="10" Style="{StaticResource StackPanelForQuestions}">
-                            <TextBlock
-                                x:Name="QQ"
-                                Style="{StaticResource QuestionTextStyle}"
-                                Text="{Binding QTEXT, Mode=TwoWay}"
-                                TextWrapping="WrapWholeWords" />
-                            <RadioButton
-                                x:Name="QA"
-                                Content="{Binding QA, Mode=TwoWay}"
-                                IsChecked="{Binding QAIsActive, Mode=TwoWay}" />
-                            <RadioButton
-                                x:Name="QB"
-                                Content="{Binding QB, Mode=TwoWay}"
-                                IsChecked="{Binding QBIsActive, Mode=TwoWay}" />
-                            <RadioButton
-                                x:Name="QC"
-                                Content="{Binding QC, Mode=TwoWay}"
-                                IsChecked="{Binding QCIsActive, Mode=TwoWay}" />
-                            <RadioButton
-                                x:Name="QD"
-                                Content="{Binding QD, Mode=TwoWay}"
-                                IsChecked="{Binding QDIsActive, Mode=TwoWay}" />
-                            <Border
-                                Height="1"
-                                Margin="2"
+                    <Grid HorizontalAlignment="Stretch">
+                        <Border
+                            Margin="10"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Background="White"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                            <StackPanel
                                 HorizontalAlignment="Stretch"
-                                Background="Black"
-                                Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            <TextBlock
-                                FontSize="40"
-                                FontWeight="Bold"
-                                Foreground="{Binding QCOLOR, Mode=TwoWay}"
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="{Binding QCORRECT, Mode=TwoWay}"
-                                Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            <TextBlock
-                                FontWeight="Bold"
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="Answer and Reasoning"
-                                Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            <TextBlock
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="{Binding ANS, Mode=TwoWay}"
-                                Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            <TextBlock
-                                Style="{StaticResource TextBlockForCorrect}"
-                                Text="{Binding REA, Mode=TwoWay}"
-                                Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-                            <!--<TextBlock
+                                CornerRadius="10"
+                                Style="{StaticResource StackPanelForQuestions}">
+                                <TextBlock
+                                    x:Name="QQ"
+                                    Style="{StaticResource QuestionTextStyle}"
+                                    Text="{Binding QTEXT, Mode=TwoWay}"
+                                    TextWrapping="WrapWholeWords" />
+                                <RadioButton
+                                    x:Name="QA"
+                                    Content="{Binding QA, Mode=TwoWay}"
+                                    IsChecked="{Binding QAIsActive, Mode=TwoWay}" />
+                                <RadioButton
+                                    x:Name="QB"
+                                    Content="{Binding QB, Mode=TwoWay}"
+                                    IsChecked="{Binding QBIsActive, Mode=TwoWay}" />
+                                <RadioButton
+                                    x:Name="QC"
+                                    Content="{Binding QC, Mode=TwoWay}"
+                                    IsChecked="{Binding QCIsActive, Mode=TwoWay}" />
+                                <RadioButton
+                                    x:Name="QD"
+                                    Content="{Binding QD, Mode=TwoWay}"
+                                    IsChecked="{Binding QDIsActive, Mode=TwoWay}" />
+                                <Border
+                                    Height="1"
+                                    Margin="10"
+                                    HorizontalAlignment="Stretch"
+                                    Background="Black"
+                                    Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    FontSize="40"
+                                    FontWeight="Bold"
+                                    Foreground="{Binding QCOLOR, Mode=TwoWay}"
+                                    Style="{StaticResource TextBlockForCorrect}"
+                                    Text="{Binding QCORRECT, Mode=TwoWay}"
+                                    Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                <TextBlock
+                                    FontWeight="Bold"
+                                    Style="{StaticResource TextBlockForCorrect}"
+                                    Text="Answer and Reasoning"
+                                    Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                <TextBlock
+                                    Style="{StaticResource TextBlockForCorrect}"
+                                    Text="{Binding ANS, Mode=TwoWay}"
+                                    Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                <TextBlock
+                                    Style="{StaticResource TextBlockForCorrect}"
+                                    Text="{Binding REA, Mode=TwoWay}"
+                                    Visibility="{Binding IsChecked, ElementName=SubmitButton, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                                <!--<TextBlock
                                     x:Name="ANSANDREA"
                                     FontWeight="Bold"
                                     Style="{StaticResource TextBlockForCorrect}"
                                     Text="Answer and Reasoning:"
                                     Visibility="{Binding IsChecked, ElementName=RevealHideAnswersButton, Converter={StaticResource BoolToVisibilityConverter}}" />-->
-                        </StackPanel>
-                    </Border>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

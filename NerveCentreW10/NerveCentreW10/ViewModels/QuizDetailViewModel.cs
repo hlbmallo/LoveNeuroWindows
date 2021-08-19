@@ -98,9 +98,9 @@ namespace NerveCentreW10.ViewModels
         {
             CloudClass cloudClass = new CloudClass();
 
-           // mySubsection = QuizzesObsCollectionClass.QuizListList.FirstOrDefault(m => m.QuizId == Uri.UnescapeDataString(MyClickedItem.QuizId));
+            mySubsection = QuizzesObsCollectionClass.QuizListList.FirstOrDefault(m => m.QuizId == Uri.UnescapeDataString(MyClickedItem.QuizId));
 
-            BlobClient cloudBlockBlob = new BlobClient(new Uri(cloudClass.GetBlobSasUri(MyClickedItem.QuizFile)));
+            BlobClient cloudBlockBlob = new BlobClient(new Uri(cloudClass.GetBlobSasUri(mySubsection.QuizFile)));
 
             var filename = "lnw.json";
             var path = Path.Combine(FileSystem.CacheDirectory, filename);
@@ -118,13 +118,9 @@ namespace NerveCentreW10.ViewModels
 
             rootobject = JsonConvert.DeserializeObject<ObservableCollection<QuizClass>>(contentToBeRead);
 
-            if (MyClickedItem.QuizImage == null)
+            if (mySubsection.QuizImage == null)
             {
                 //Grid.SetColumnSpan(MyListView, 2);
-            }
-            else
-            {
-                //MyImage.Source = cloudClass.GetBlobSasUri(vM.mySubsection.QuizImage);
             }
 
             //foreach (QuizClass item in rootobject)
@@ -162,7 +158,7 @@ namespace NerveCentreW10.ViewModels
             }
         }
 
-        public void SubmitButtonEvent()
+        public async void SubmitButtonEvent()
         {
             var green = new SolidColorBrush(Colors.Green);
             var red = new SolidColorBrush(Colors.Red);

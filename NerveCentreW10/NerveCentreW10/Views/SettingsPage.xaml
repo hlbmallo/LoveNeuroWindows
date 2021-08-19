@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:NerveCentreW10.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Loaded="Page_Loaded"
     mc:Ignorable="d">
 
     <ScrollViewer Grid.Row="1">
@@ -16,38 +15,16 @@
             <StackPanel Padding="0,20,0,30">
                 <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="About" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock
-                        Padding="2"
-                        FontSize="16"
-                        FontWeight="Bold"
-                        Text="App Name: " />
-                    <TextBlock
-                        x:Name="AppName"
-                        Padding="2"
-                        FontSize="16" />
+                    <TextBlock Style="{StaticResource TextBlockStyle1}" Text="App Name: " />
+                    <TextBlock x:Name="AppName" Style="{StaticResource TextBlockStyle1}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock
-                        Padding="2"
-                        FontSize="16"
-                        FontWeight="Bold"
-                        Text="App Version: " />
-                    <TextBlock
-                        x:Name="AppVersion"
-                        Padding="2"
-                        FontSize="16" />
+                    <TextBlock Style="{StaticResource TextBlockStyle1}" Text="App Version: " />
+                    <TextBlock x:Name="AppVersion" Style="{StaticResource TextBlockStyle1}" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <TextBlock
-                        x:Name="AppIconsBy"
-                        Padding="2"
-                        FontSize="16"
-                        FontWeight="Bold"
-                        Text="App Icons By: " />
-                    <controls2:HtmlBlock
-                        x:Name="AppIconsList"
-                        Padding="2"
-                        FontSize="16" />
+                    <TextBlock x:Name="AppIconsBy" Text="App Icons By: " />
+                    <controls2:HtmlBlock x:Name="AppIconsList" Style="{StaticResource TextBlockStyle1}" />
                 </StackPanel>
             </StackPanel>
 
@@ -56,11 +33,9 @@
                 <HyperlinkButton x:Name="RateButton" Click="RateButton_Click">
                     <HyperlinkButton.Content>
                         <TextBlock
-                            Padding="2"
-                            FontSize="16"
                             Foreground="#ff7201"
-                            Text="Rate and review LoveNeuro"
-                            TextWrapping="Wrap" />
+                            Style="{StaticResource TextBlockStyle1}"
+                            Text="Rate and review LoveNeuro" />
                     </HyperlinkButton.Content>
                 </HyperlinkButton>
             </StackPanel>

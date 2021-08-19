@@ -208,6 +208,7 @@
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\ImagesNavigationHelper.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
+    <Compile Include="Helpers\QuizNameConverter.cs" />
     <Compile Include="Models\ClinicalCaseModel.cs" />
     <Compile Include="Models\InkingZoneClassDetail.cs" />
     <Compile Include="Models\MoreResourcesClass.cs" />

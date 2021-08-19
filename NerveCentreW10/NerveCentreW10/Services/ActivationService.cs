@@ -26,6 +26,9 @@ namespace NerveCentreW10.Services
             _defaultNavItem = defaultNavItem;
         }
 
+        public static bool IsLightThemeEnabled => Theme == ElementTheme.Light;
+        public static ElementTheme Theme { get; set; }
+
         public async Task ActivateAsync(object activationArgs)
         {
             if (IsInteractive(activationArgs))
