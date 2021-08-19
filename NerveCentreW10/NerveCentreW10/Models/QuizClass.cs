@@ -7,11 +7,20 @@ using System.Drawing;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace NerveCentreW10.Models
 {
-    public class QuizClass
+    public class QuizClass : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    
         public string QTEXT { get; set; }
         public string QA { get; set; }
         public string QB { get; set; }
@@ -24,7 +33,41 @@ namespace NerveCentreW10.Models
         public bool QCIsActive { get; set; }
         public bool QDIsActive { get; set; }
         public bool ANSIsVisible { get; set; }
-        public string QCORRECT { get; set; }
-        public SolidColorBrush QCOLOR { get; set; }
+        private string _QCORRECT;
+        public string QCORRECT
+        {
+
+            get
+            {
+                return _QCORRECT;
+            }
+
+            set
+            {
+                if (_QCORRECT != value)
+                {
+                    _QCORRECT = value;
+                    OnPropertyChanged("QCORRECT");
+                }
+            }
+        }
+        private SolidColorBrush _QCOLOR;
+        public SolidColorBrush QCOLOR
+        {
+
+            get
+            {
+                return _QCOLOR;
+            }
+
+            set
+            {
+                if (_QCOLOR != value)
+                {
+                    _QCOLOR = value;
+                    OnPropertyChanged("QCOLOR");
+                }
+            }
+        }
     }
 }

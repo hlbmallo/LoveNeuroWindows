@@ -153,8 +153,9 @@
                     x:Name="SubmitButton"
                     VerticalAlignment="Stretch"
                     Background="Transparent"
+                    Click="SubmitButton_Click"
                     Content="Score and Reveal/Hide Answers"
-                    IsChecked="{Binding}" />
+                    IsChecked="{Binding IsCorrOrIncorr, Mode=TwoWay}" />
                 <!--<ToggleButton
                     x:Name="RevealHideAnswersButton"
                     HorizontalAlignment="Stretch"

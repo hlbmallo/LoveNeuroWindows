@@ -8,9 +8,11 @@ using NerveCentreW10.Services;
 using NerveCentreW10.Views;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -55,8 +57,25 @@ namespace NerveCentreW10.ViewModels
             }
         }
 
+        private bool _IsCorrOrIncorr;
+        public bool IsCorrOrIncorr
+        {
+            get { return _IsCorrOrIncorr; }
+            set
+            {
+                if (_IsCorrOrIncorr != value)
+                {
+                    _IsCorrOrIncorr = value;
+                    OnPropertyChanged("IsCorrOrIncorr");
+                }
+            }
+        }
+
+
         public QuizDetailViewModel()
         {
+            IsCorrOrIncorr = false;
+
             ViewScoresCommand = new RelayCommand(ViewScoresEvent);
             SubmitButtonCommand = new RelayCommand(SubmitButtonEvent);            
         }
@@ -148,6 +167,8 @@ namespace NerveCentreW10.ViewModels
             var green = new SolidColorBrush(Colors.Green);
             var red = new SolidColorBrush(Colors.Red);
 
+            IsCorrOrIncorr = true;
+
             foreach (QuizClass item in rootobject)
             {
                 if (item.QA == item.ANS && item.QAIsActive == true)
@@ -181,20 +202,19 @@ namespace NerveCentreW10.ViewModels
                 {
                     item.QCORRECT = "Incorrect";
                     item.QCOLOR = red;               
-
                 }
-                item.ANSIsVisible = true;
 
+                
             }
 
 
-            //var dialog = new ContentDialog();
-            //dialog.Content = "Your overall score is: " + OverallScore;
-            //dialog.PrimaryButtonText = "Ok";
-            //dialog.SecondaryButtonText = "Save score";
-            //dialog.PrimaryButtonCommand = new RelayCommand(PrimaryButtonEvent);
-            //dialog.SecondaryButtonCommand = new RelayCommand(SecondaryButtonEvent);
-            //await dialog.ShowAsync();
+            var dialog = new ContentDialog();
+            dialog.Content = "Your overall score is: " + OverallScore;
+            dialog.PrimaryButtonText = "Ok";
+            dialog.SecondaryButtonText = "Save score";
+            dialog.PrimaryButtonCommand = new RelayCommand(PrimaryButtonEvent);
+            dialog.SecondaryButtonCommand = new RelayCommand(SecondaryButtonEvent);
+            await dialog.ShowAsync();
 
         }
 
