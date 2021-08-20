@@ -20,6 +20,18 @@
             HorizontalAlignment="Center"
             Orientation="Horizontal">
             <Button
+                x:Name="UndoButton"
+                Margin="2"
+                Click="UndoButton_Click"
+                Content="Undo" />
+            <Button
+                x:Name="RedoButton"
+                Margin="2"
+                Click="RedoButton_Click"
+                Content="Redo" />
+
+            <AppBarSeparator />
+            <Button
                 Margin="2"
                 Click="Save_Click"
                 Content="Save" />

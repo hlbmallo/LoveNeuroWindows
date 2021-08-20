@@ -19,7 +19,7 @@
         <converters:ThumbnailToImageConverter x:Key="ttic" />
     </Page.Resources>
 
-    <Pivot Margin="30,0,0,0">
+    <Pivot>
         <!--<PivotItem Header="Templates">
             <GridView
                 x:Name="GridView1"
@@ -37,9 +37,10 @@
                 ItemContainerStyle="{StaticResource GridViewItemStyle1}"
                 ItemTemplate="{StaticResource InkingZoneDataTemplate}"
                 ItemsSource="{x:Bind InkingZoneList}"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
                 Style="{StaticResource GridViewStyle1}" />
         </PivotItem>
-        <PivotItem Header="My Custom Inking">
+        <PivotItem Header="My Saved Annotations">
             <GridView
                 x:Name="GridViewInkingStrokes"
                 animations:ItemsReorderAnimation.Duration="00:00:00.5"

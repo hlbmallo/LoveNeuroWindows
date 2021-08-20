@@ -32,6 +32,8 @@ namespace NerveCentreW10.Views
     public sealed partial class InkingZoneDetail2 : Page
     {
         public string inkingZoneImageName { get; set; }
+        public ContentDialog dialog;
+        public ContentDialog contentDialog2;
 
         public InkingZoneDetail2()
         {
@@ -72,61 +74,83 @@ namespace NerveCentreW10.Views
 
         private async void MyIE_ImageSaving(object sender, Syncfusion.UI.Xaml.ImageEditor.ImageSavingEventArgs args)
         {
-            args.Cancel = true;
-            var myDialog = await UserDialogs.Instance.PromptAsync(new PromptConfig
-            {
-                InputType = InputType.Default,
-                CancelText = "Cancel",
-                IsCancellable = true,
-                Placeholder = "Give your annotation a name",
-                OkText = "Save",
-                Title = "Save",
-            });
+            //args.Cancel = true;
+            //var myDialog = await UserDialogs.Instance.PromptAsync(new PromptConfig
+            //{
+            //    InputType = InputType.Default,
+            //    CancelText = "Cancel",
+            //    IsCancellable = true,
+            //    Placeholder = "Give your annotation a name",
+            //    OkText = "Save",
+            //    Title = "Save",
+            //});
 
-            if (myDialog.Ok && !string.IsNullOrWhiteSpace(myDialog.Text))
-            {
-                args.FileName = myDialog.Text;
-            }
+            dialog = new ContentDialog();
+            dialog.Title = "Save your annotation as an image?";
+            dialog.PrimaryButtonText = "Save";
+            dialog.SecondaryButtonText = "Don't Save";
+            dialog.CloseButtonText = "Cancel";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.PrimaryButtonClick += Dialog_PrimaryButtonClick;
 
-
-                //    var lol = args.Stream;
-
-                //    var memoryStream2 = new MemoryStream();
-                //    lol.CopyTo(memoryStream2);
-                //    myOverallBytes = memoryStream2.ToArray();
+            await dialog.ShowAsync();
 
 
+            //if (myDialog.Ok && !string.IsNullOrWhiteSpace(myDialog.Text))
+            //{
+            //    args.FileName = myDialog.Text;
+            //}
 
 
-                //    var tempFlashCardTallStructure = new InkingZoneClassDetail
-                //    {
-                //        InkingZoneId = new Guid().ToString(),
-                //        InkingZoneTitle = myDialog.Text,
-                //        InkingZoneBytes = myOverallBytes,
-                //        InkingZoneDate = DateTime.Now,
-                //    };
+            //    var lol = args.Stream;
 
-                //    var serializedContent = JsonConvert.SerializeObject(tempFlashCardTallStructure);
-
-                //    StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("InkFolder", CreationCollisionOption.OpenIfExists);
-                //    StorageFile storageFile = await appFolder.CreateFileAsync(myDialog.Text + ".txt");
-                //    await FileIO.WriteTextAsync(storageFile, serializedContent);
+            //    var memoryStream2 = new MemoryStream();
+            //    lol.CopyTo(memoryStream2);
+            //    myOverallBytes = memoryStream2.ToArray();
 
 
-                //}
-            }
 
-        private async void MyIE_ImageSaved(object sender, Syncfusion.UI.Xaml.ImageEditor.ImageSavedEventArgs args)
+
+            //    var tempFlashCardTallStructure = new InkingZoneClassDetail
+            //    {
+            //        InkingZoneId = new Guid().ToString(),
+            //        InkingZoneTitle = myDialog.Text,
+            //        InkingZoneBytes = myOverallBytes,
+            //        InkingZoneDate = DateTime.Now,
+            //    };
+
+            //    var serializedContent = JsonConvert.SerializeObject(tempFlashCardTallStructure);
+
+            //    StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("InkFolder", CreationCollisionOption.OpenIfExists);
+            //    StorageFile storageFile = await appFolder.CreateFileAsync(myDialog.Text + ".txt");
+            //    await FileIO.WriteTextAsync(storageFile, serializedContent);
+
+
+            //}
+        }
+
+
+        private async void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            var contentDialog = new ContentDialog();
-            contentDialog.Content = new TextBlock()
+            dialog.Hide();
+            contentDialog2 = new ContentDialog();
+            contentDialog2.Title = "Saved";
+            contentDialog2.PrimaryButtonText = "Ok";
+            contentDialog2.DefaultButton = ContentDialogButton.Primary;
+            contentDialog2.PrimaryButtonClick += ContentDialog2_PrimaryButtonClick; ;
+
+            contentDialog2.Content = new TextBlock()
             {
-                Text = "Your diagram has been saved at: " + args.Location,
+                Text = "Your diagram has been saved at: This PC >> Pictures >> Saved Pictures",
                 TextWrapping = TextWrapping.Wrap,
             };
 
-            await contentDialog.ShowAsync();
-            
+            await contentDialog2.ShowAsync();
+        }
+
+        private void ContentDialog2_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            contentDialog2.Hide();
         }
 
         private async void SaveAsInkStrokesButton_Click(object sender, RoutedEventArgs e)
@@ -173,6 +197,16 @@ namespace NerveCentreW10.Views
                 File.WriteAllText(appFolder.Path + "\\" + myDialog.Text + ".txt", serializedContent);
 
             }
+        }
+
+        private void UndoButton_Click(object sender, RoutedEventArgs e)
+        {
+            MyIE.Undo();
+        }
+
+        private void RedoButton_Click(object sender, RoutedEventArgs e)
+        {
+            MyIE.Redo();
         }
     }
 }

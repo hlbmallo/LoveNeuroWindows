@@ -90,6 +90,7 @@
                     <DataTemplate>
                         <Grid>
                             <TextBlock
+                                Margin="0"
                                 HorizontalAlignment="Left"
                                 Foreground="Black"
                                 Style="{ThemeResource TitleTextBlockStyle}"
