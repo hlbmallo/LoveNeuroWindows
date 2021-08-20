@@ -30,6 +30,10 @@ namespace NerveCentreW10.Views
             {
                 MyTextBlock.Text = "In this Clinical Case, the patient suffered from Parkinson's disease. In this neurodegenerative disease, dopaminergic neurons connecting the substantia nigra and putamen die, leading to tremor, bradykinesia and dystonia. Well done on completing the questions. Now, hit the 'Back' button to go back to the main menu.";
             }
+            else if (MyParam == "case3")
+            {
+                MyTextBlock.Text = "In this Clinical Case, the patient suffered from a clot-type infarct stroke in the middle cerebral artery. Because this artery supplies Broca's area and the lateral part of M1, symptoms of slurred speech and a drooping mouth were observed. Alteplase was administered because the patient fell within the lysis window and the patient's symptoms resolved. Well done on completing the questions. Now, hit the 'Back' button to go back to the main menu.";
+            }
         }
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

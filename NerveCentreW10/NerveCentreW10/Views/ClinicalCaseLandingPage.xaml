@@ -50,5 +50,11 @@
             HorizontalAlignment="Center"
             Click="Case2_Click"
             Content="Case No. 2: Tremor Presentation" />
+        <Button
+            x:Name="Case3"
+            Margin="10"
+            HorizontalAlignment="Center"
+            Click="Case3_Click"
+            Content="Case No. 3: Drooping Face" />
     </StackPanel>
 </Page>

@@ -149,6 +149,14 @@ namespace NerveCentreW10.ViewModels
             MyParam = "case2";
         }
 
+        public void LoadedCase3()
+        {
+            SubsectionList = new ObservableCollection<ClinicalCaseModel>();
+            var myString = ReadFully("clinicalcase3.json");
+            SubsectionList = JsonConvert.DeserializeObject<ObservableCollection<ClinicalCaseModel>>(myString);
+            MyParam = "case3";
+        }
+
         public async Task<Stream> DownloadBlob(string blobUriAndSasToken)
         {
             var cloudClass = new CloudClass();

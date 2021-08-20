@@ -42,6 +42,10 @@ namespace NerveCentreW10.Views
             {
                 viewModel.LoadedCase2();
             }
+            else if (parameter == "case3")
+            {
+                viewModel.LoadedCase3();
+            }
         }
 
         private void GalleryFlipView_Loaded(object sender, RoutedEventArgs e)
