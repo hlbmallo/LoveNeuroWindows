@@ -10,7 +10,43 @@
     mc:Ignorable="d">
 
     <Grid>
-        <syncfusion:SfImageEditor x:Name="MyIE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                x:Name="UndoButton"
+                Margin="2"
+                Click="UndoButton_Click"
+                Content="Undo" />
+            <Button
+                x:Name="RedoButton"
+                Margin="2"
+                Click="RedoButton_Click"
+                Content="Redo" />
+
+            <AppBarSeparator />
+            <Button
+                Margin="2"
+                Click="Save_Click"
+                Content="Save" />
+            <Button
+                x:Name="SaveAsInkStrokesButton"
+                Margin="2"
+                Click="SaveAsInkStrokesButton_Click"
+                Content="Save Ink Strokes" />
+        </StackPanel>
+
+        <syncfusion:SfImageEditor
+            x:Name="MyIE"
+            Grid.Row="1"
+            CornerRadius="10"
+            ImageSaving="MyIE_ImageSaving">
             <syncfusion:SfImageEditor.ToolbarSettings>
                 <syncfusion:ToolbarSettings HeaderToolbarHeight="0" />
             </syncfusion:SfImageEditor.ToolbarSettings>

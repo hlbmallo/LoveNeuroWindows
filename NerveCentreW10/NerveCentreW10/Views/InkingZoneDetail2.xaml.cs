@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -49,7 +50,7 @@ namespace NerveCentreW10.Views
             //Navigation Parameter Assigning
             var param = e.Parameter as InkingZoneClassDetail;
             var cloudClass = new CloudClass();
-            inkingZoneImageName = param.InkingZoneImage;
+            inkingZoneImageName = param.InkingZoneImageName;
             var imageFromCloud = cloudClass.GetBlobSasUri(inkingZoneImageName);
             var stream = GetStreamFromUrl(imageFromCloud);
             IRandomAccessStream randomAccessStream = stream.AsRandomAccessStream();
@@ -153,21 +154,44 @@ namespace NerveCentreW10.Views
             contentDialog2.Hide();
         }
 
+        public async Task<bool> IsFilePresent(string fileName)
+        {
+            var storageFolder = await ApplicationData.Current.LocalFolder.GetFolderAsync("InkingFolder");
+            var trying = await storageFolder.TryGetItemAsync(fileName);
+            return trying != null;
+        }
+
+        public ContentDialog myDialog;
+        public TextBox textBox;
+        public TextBlock textBlock;
+
         private async void SaveAsInkStrokesButton_Click(object sender, RoutedEventArgs e)
         {
 
-            var myDialog = await UserDialogs.Instance.PromptAsync(new PromptConfig
-            {
-                InputType = InputType.Default,
-                CancelText = "Cancel",
-                IsCancellable = true,
-                Placeholder = "Give your ink strokes a name",
-                OkText = "Save",
-                Title = "Save",                
-            });
+            textBox = new TextBox();
+            textBox.PlaceholderText = "Give your annotation a name here";
+            textBox.TextChanged += TextBox_TextChanged;
+            textBlock = new TextBlock();
+            textBlock.Text = "Name already exists - please change";
+            StackPanel stack = new StackPanel();
+            stack.Children.Add(textBox);
+            stack.Children.Add(textBlock);
 
-            if (myDialog.Ok && !string.IsNullOrWhiteSpace(myDialog.Text))
+            myDialog = new ContentDialog();
+            myDialog.Title = "Saved";
+            myDialog.PrimaryButtonText = "Ok";
+            myDialog.DefaultButton = ContentDialogButton.Primary;
+            myDialog.PrimaryButtonClick += ContentDialog2_PrimaryButtonClick; ;
+            myDialog.Content = stack;
+
+            await myDialog.ShowAsync();
+
+
+
+
             {
+                //if (myDialog.Ok && !string.IsNullOrWhiteSpace())
+                //{
 
 
 
@@ -186,16 +210,26 @@ namespace NerveCentreW10.Views
 
                 var o = new InkingZoneClassDetail()
                 {
+                    InkingZoneDate = DateTime.Now,
                     InkingZoneEdits = text,
-                    InkingZoneTitle = myDialog.Text,
+                    InkingZoneTitle = textBox.Text,
                     InkingZoneId = new Guid().ToString(),
                     InkingZoneImageName = inkingZoneImageName,
                 };
 
                 var serializedContent = JsonConvert.SerializeObject(o);
                 StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("InkingFolder", CreationCollisionOption.OpenIfExists);
-                File.WriteAllText(appFolder.Path + "\\" + myDialog.Text + ".txt", serializedContent);
+                File.WriteAllText(appFolder.Path + "\\" + textBox.Text + ".txt", serializedContent);
 
+            }
+        }
+
+        private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //File name duplicate check
+            if (await IsFilePresent(textBox.Text) == true)
+            {
+                textBlock.Visibility = Visibility.Visible;
             }
         }
 

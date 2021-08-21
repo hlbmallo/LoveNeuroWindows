@@ -73,10 +73,10 @@ namespace NerveCentreW10.Views
 
             if (e.Parameter is InkingZoneClassDetail)
             {
-                var xenon = e.Parameter as InkingZoneClassDetail;
-                MyImage.Source = new BitmapImage(new Uri(xenon.InkingZoneImage));
-                Title.Text = xenon.InkingZoneRename;
-                myclickeditem = xenon;
+                //var xenon = e.Parameter as InkingZoneClassDetail;
+                //MyImage.Source = new BitmapImage(new Uri(xenon.InkingZoneImage));
+                //Title.Text = xenon.InkingZoneRename;
+                //myclickeditem = xenon;
             }
             //inkingZoneClassDetail = (InkingZoneClassDetail)e.Parameter;
 
@@ -125,16 +125,16 @@ namespace NerveCentreW10.Views
 
                 //var result = await RoamingObjectStorageHelper.ReadFileAsync<InkingZoneClassDetail>("/NerveCentreInk/" + storageFile.Name);
 
-                Title.Text = yell.InkingZoneRename;
-                MyImage.Source = new BitmapImage(new Uri(yell.InkingZoneImage));
-                byte[] bytes = yell.InkingZoneBytes;
-                var stream = ConvertTo(bytes).Result;
-                using (var inputStream = stream.GetInputStreamAt(0))
-                {
-                    await MyInkCanvas.InkPresenter.StrokeContainer.LoadAsync(inputStream);
-                }
+                //Title.Text = yell.InkingZoneRename;
+                //MyImage.Source = new BitmapImage(new Uri(yell.InkingZoneImage));
+                //byte[] bytes = yell.InkingZoneBytes;
+                //var stream = ConvertTo(bytes).Result;
+                //using (var inputStream = stream.GetInputStreamAt(0))
+                //{
+                //    await MyInkCanvas.InkPresenter.StrokeContainer.LoadAsync(inputStream);
+                //}
 
-                stream.Dispose();
+                //stream.Dispose();
 
             }
 
@@ -452,9 +452,9 @@ namespace NerveCentreW10.Views
 
             var o = new InkingZoneClassDetail
             {
-                InkingZoneRename = "sometext",
-                InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource.ToString(),
-                InkingZoneBytes = bytes2,
+                //InkingZoneRename = "sometext",
+                //InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource.ToString(),
+                //InkingZoneBytes = bytes2,
             };
 
             string json = JsonConvert.SerializeObject(o);
@@ -533,9 +533,9 @@ namespace NerveCentreW10.Views
 
             var o = new InkingZoneClassDetail
             {
-                InkingZoneRename = "dd",
-                InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource.ToString(),
-                InkingZoneBytes = bytes2,
+                //InkingZoneRename = "dd",
+                //InkingZoneImage = ((BitmapImage)MyImage.Source).UriSource.ToString(),
+                //InkingZoneBytes = bytes2,
             };
 
             string json = JsonConvert.SerializeObject(o);

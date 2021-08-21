@@ -17,6 +17,7 @@
 
     <Page.Resources>
         <converters:ThumbnailToImageConverter x:Key="ttic" />
+        <converters:InkingNameConverter x:Key="inc" />
     </Page.Resources>
 
     <Pivot>
@@ -89,7 +90,7 @@
                                     FontSize="16"
                                     FontWeight="Bold"
                                     Foreground="#2b2b2b"
-                                    Text="{Binding Name}"
+                                    Text="{Binding DisplayName}"
                                     TextAlignment="Center"
                                     TextWrapping="Wrap" />
                                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">

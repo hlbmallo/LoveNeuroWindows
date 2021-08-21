@@ -232,7 +232,7 @@
                 BorderBrush="Black"
                 BorderThickness="2"
                 CornerRadius="10">
-                <controls:ImageEx x:Name="MyImage" Source="{Binding InkingZoneImage, Converter={StaticResource cloudHelper}}" />
+                <controls:ImageEx x:Name="MyImage" Source="{Binding InkingZoneImageName, Converter={StaticResource cloudHelper}}" />
                 <Border
                     x:Name="MyBorder2"
                     MinHeight="80"
@@ -247,7 +247,7 @@
                         FontSize="16"
                         FontWeight="Bold"
                         Foreground="Black"
-                        Text="{Binding InkingZoneRename}"
+                        Text="{Binding InkingZoneTitle}"
                         TextAlignment="Center"
                         TextWrapping="Wrap" />
                 </Border>
