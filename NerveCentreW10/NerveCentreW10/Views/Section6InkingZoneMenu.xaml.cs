@@ -194,6 +194,7 @@ namespace NerveCentreW10.Views
                     Title = "Delete your saved annotation?",
                     PrimaryButtonText = "Delete",
                     CloseButtonText = "Cancel",
+                    CloseButtonCommand = new RelayCommand(() => DismissEvent()),
                     DefaultButton = ContentDialogButton.Primary,
                     PrimaryButtonCommand = new RelayCommand(() => DeleteEvent(a)),
                 };
@@ -201,6 +202,12 @@ namespace NerveCentreW10.Views
                 await dialog.ShowAsync();
             };
         }
+
+        private void DismissEvent()
+        {
+            dialog.Hide();
+        }
+    
 
         private async void DeleteEvent(StorageFile a)
         {
