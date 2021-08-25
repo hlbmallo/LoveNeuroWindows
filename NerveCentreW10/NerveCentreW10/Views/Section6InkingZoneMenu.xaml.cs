@@ -13,6 +13,8 @@ using System.Numerics;
 using System.Collections.ObjectModel;
 using Windows.Storage.FileProperties;
 using Newtonsoft.Json;
+using Windows.UI.Xaml.Navigation;
+using NerveCentreW10.Commands;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -155,14 +157,20 @@ namespace NerveCentreW10.Views
 
         public StorageItemThumbnail thumbnail;
 
-        private async void GridViewInkingStrokes_Loaded(object sender, RoutedEventArgs e)
+        private void GridViewInkingStrokes_Loaded(object sender, RoutedEventArgs e)
+        {
+            loaded1();
+        }
+
+        public async void loaded1()
         {
             StorageFolder appFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("InkingFolder", CreationCollisionOption.OpenIfExists);
             itemsList = await appFolder.GetFilesAsync();
             GridViewInkingStrokes.ItemsSource = itemsList;
-    }
+        }
 
-        private void MyGrid_RightTapped(object sender, Windows.UI.Xaml.Input.RightTappedRoutedEventArgs e)
+
+        private async void MyGrid_RightTapped(object sender, Windows.UI.Xaml.Input.RightTappedRoutedEventArgs e)
         {
             // Prepare MenuFlyout
             MenuFlyout myFlyout = new MenuFlyout();
@@ -175,13 +183,32 @@ namespace NerveCentreW10.Views
             // Attach deleteItem click event handler
             deleteItem.Click += async (sender2, args) =>
             {
+
                 GridView gridView = (GridView)sender;
                 myFlyout.ShowAt(gridView, e.GetPosition(gridView));
                 var a = ((FrameworkElement)e.OriginalSource).DataContext as StorageFile;
-                await a.DeleteAsync();
-                GridViewInkingStrokes_Loaded(sender, e);
+
+
+                dialog = new DeleteContentDialog(a)
+                {
+                    Title = "Delete your saved annotation?",
+                    PrimaryButtonText = "Delete",
+                    CloseButtonText = "Cancel",
+                    DefaultButton = ContentDialogButton.Primary,
+                    PrimaryButtonCommand = new RelayCommand(() => DeleteEvent(a)),
+                };
+
+                await dialog.ShowAsync();
             };
         }
+
+        private async void DeleteEvent(StorageFile a)
+        {
+            await a.DeleteAsync();
+            loaded1();
+
+        }
+    
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -265,25 +292,14 @@ namespace NerveCentreW10.Views
             AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
         }
 
-        public StorageFile param;
-
-        private async void DeleteButton_Click(object sender, RoutedEventArgs e)
-        {
-            dialog = new ContentDialog();
-            dialog.Title = "Delete your saved annotation?";
-            dialog.PrimaryButtonText = "Delete";
-            dialog.CloseButtonText = "Cancel";
-            dialog.DefaultButton = ContentDialogButton.Primary;
-            dialog.PrimaryButtonClick += Dialog_PrimaryButtonClick;
-            param = e.OriginalSource as StorageFile;
-
-            await dialog.ShowAsync();
-        }
-
         private async void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            await param.DeleteAsync();
-            GridViewInkingStrokes_Loaded(sender, e);
+            //GridView gridView = (GridView)sender;
+            //myFlyout.ShowAt(gridView, e.GetPosition(gridView));
+            //var a = ((FrameworkElement)e.OriginalSource).DataContext as StorageFile;
+
+            //await a.DeleteAsync();
+            //loaded1();
         }
     }
 }

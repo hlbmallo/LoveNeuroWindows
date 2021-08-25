@@ -151,10 +151,10 @@
       <Version>13.0.1</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Licensing">
-      <Version>19.2.0.56</Version>
+      <Version>19.2.0.57</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.SfImageEditor.UWP">
-      <Version>19.2.0.56</Version>
+      <Version>19.2.0.57</Version>
     </PackageReference>
     <PackageReference Include="WindowsAppStudio.Uwp">
       <Version>1.5.3</Version>
@@ -247,6 +247,7 @@
     <Compile Include="ViewModels\Section2ViewModel.cs" />
     <Compile Include="ViewModels\Section3ViewModel.cs" />
     <Compile Include="ViewModels\Section4ViewModel.cs" />
+    <Compile Include="ViewModels\Section6InkingZoneMenuViewModel.cs" />
     <Compile Include="ViewModels\VideoTutorialsViewModel.cs" />
     <Compile Include="Views\ClinicalCaseFinishedDialog.xaml.cs">
       <DependentUpon>ClinicalCaseFinishedDialog.xaml</DependentUpon>
@@ -256,6 +257,9 @@
     </Compile>
     <Compile Include="Views\ClinicalCaseScenarioPage.xaml.cs">
       <DependentUpon>ClinicalCaseScenarioPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeleteContentDialog.xaml.cs">
+      <DependentUpon>DeleteContentDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailImagePage.xaml.cs">
       <DependentUpon>DetailImagePage.xaml</DependentUpon>
@@ -401,6 +405,10 @@
     <Page Include="Views\ClinicalCaseScenarioPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DeleteContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DetailImagePage.xaml">
       <SubType>Designer</SubType>

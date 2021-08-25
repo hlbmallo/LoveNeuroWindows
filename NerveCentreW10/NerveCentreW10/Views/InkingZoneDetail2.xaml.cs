@@ -181,7 +181,7 @@ namespace NerveCentreW10.Views
             myDialog.Title = "Saved";
             myDialog.PrimaryButtonText = "Ok";
             myDialog.DefaultButton = ContentDialogButton.Primary;
-            myDialog.PrimaryButtonClick += ContentDialog2_PrimaryButtonClick; ;
+            myDialog.PrimaryButtonClick += MyDialog_PrimaryButtonClick; ; ;
             myDialog.Content = stack;
 
             await myDialog.ShowAsync();
@@ -222,6 +222,11 @@ namespace NerveCentreW10.Views
                 File.WriteAllText(appFolder.Path + "\\" + textBox.Text + ".txt", serializedContent);
 
             }
+        }
+
+        private void MyDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            myDialog.Hide();
         }
 
         private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
