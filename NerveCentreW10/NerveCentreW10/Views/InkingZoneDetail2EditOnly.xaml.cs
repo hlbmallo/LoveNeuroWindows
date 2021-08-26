@@ -97,7 +97,7 @@ namespace NerveCentreW10.Views
 
             contentDialog2.Content = new TextBlock()
             {
-                Text = "Your diagram has been saved at: This PC >> Pictures >> Saved Pictures",
+                Text = "Your diagram has been saved at: This PC >> Pictures >> Saved Pictures >> LoveNeuro",
                 TextWrapping = TextWrapping.Wrap,
             };
 

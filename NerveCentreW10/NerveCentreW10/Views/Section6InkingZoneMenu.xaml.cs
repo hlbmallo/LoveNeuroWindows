@@ -232,8 +232,8 @@ namespace NerveCentreW10.Views
             var control2 = preElement.FindDescendant("MyDropShadow");
             AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
 
-            var control3 = preElement.FindDescendant("DeleteButton");
-            AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
+            //var control3 = preElement.FindDescendant("DeleteButton");
+            //AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
 
         }
 
@@ -247,8 +247,8 @@ namespace NerveCentreW10.Views
             var control2 = preElement.FindDescendant("MyDropShadow");
             AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
 
-            var control3 = preElement.FindDescendant("DeleteButton");
-            AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
+            //var control3 = preElement.FindDescendant("DeleteButton");
+            //AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
 
         }
 
@@ -262,8 +262,8 @@ namespace NerveCentreW10.Views
             var control2 = preElement.FindDescendant("MyDropShadow");
             AnimationBuilder.Create().Opacity(to: (0.4f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
 
-            var control3 = preElement.FindDescendant("DeleteButton");
-            AnimationBuilder.Create().Opacity(from: (0f), to: (1f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
+            //var control3 = preElement.FindDescendant("DeleteButton");
+            //AnimationBuilder.Create().Opacity(from: (0f), to: (1f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
         }
 
         private void MyInkingGrid_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -276,8 +276,8 @@ namespace NerveCentreW10.Views
             var control2 = preElement.FindDescendant("MyDropShadow");
             AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
 
-            var control3 = preElement.FindDescendant("DeleteButton");
-            AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
+            //var control3 = preElement.FindDescendant("DeleteButton");
+            //AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
         }
 
         private void MyInkingGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -295,8 +295,8 @@ namespace NerveCentreW10.Views
             var control2 = preElement.FindDescendant("MyDropShadow");
             AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
 
-            var control3 = preElement.FindDescendant("DeleteButton");
-            AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
+            //var control3 = preElement.FindDescendant("DeleteButton");
+            //AnimationBuilder.Create().Opacity(from: (1f), to: (0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control3);
         }
 
         private async void Dialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

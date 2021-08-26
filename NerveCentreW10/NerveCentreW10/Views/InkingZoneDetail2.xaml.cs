@@ -142,7 +142,7 @@ namespace NerveCentreW10.Views
 
             contentDialog2.Content = new TextBlock()
             {
-                Text = "Your diagram has been saved at: This PC >> Pictures >> Saved Pictures",
+                Text = "Your diagram has been saved at: This PC >> Pictures >> Saved Pictures >> LoveNeuro",
                 TextWrapping = TextWrapping.Wrap,
             };
 
@@ -172,6 +172,7 @@ namespace NerveCentreW10.Views
             textBox.PlaceholderText = "Give your annotation a name here";
             textBox.TextChanged += TextBox_TextChanged;
             textBlock = new TextBlock();
+            textBlock.Visibility = Visibility.Collapsed;
             textBlock.Text = "Name already exists - please change";
             StackPanel stack = new StackPanel();
             stack.Children.Add(textBox);
@@ -231,10 +232,15 @@ namespace NerveCentreW10.Views
 
         private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
             //File name duplicate check
             if (await IsFilePresent(textBox.Text) == true)
             {
                 textBlock.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                textBlock.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -246,6 +252,11 @@ namespace NerveCentreW10.Views
         private void RedoButton_Click(object sender, RoutedEventArgs e)
         {
             MyIE.Redo();
+        }
+
+        private void ShareButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

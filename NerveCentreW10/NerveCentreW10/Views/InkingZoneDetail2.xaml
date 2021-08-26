@@ -29,7 +29,6 @@
                 Margin="2"
                 Click="RedoButton_Click"
                 Content="Redo" />
-
             <AppBarSeparator />
             <Button
                 Margin="2"

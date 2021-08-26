@@ -94,7 +94,7 @@
                                     Text="{Binding DisplayName}"
                                     TextAlignment="Center"
                                     TextWrapping="Wrap" />
-                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                <!--<StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
                                     <Button
                                         x:Name="DeleteButton"
                                         Margin="5"
@@ -103,7 +103,7 @@
                                             <SymbolIcon Symbol="Delete" />
                                         </Button.Content>
                                     </Button>
-                                </StackPanel>
+                                </StackPanel>-->
                             </Grid>
                         </Grid>
                     </DataTemplate>
