@@ -157,7 +157,7 @@ namespace NerveCentreW10.Views
         public async Task<bool> IsFilePresent(string fileName)
         {
             var storageFolder = await ApplicationData.Current.LocalFolder.GetFolderAsync("InkingFolder");
-            var trying = await storageFolder.TryGetItemAsync(fileName);
+            var trying = await storageFolder.TryGetItemAsync(fileName + ".txt");
             return trying != null;
         }
 
