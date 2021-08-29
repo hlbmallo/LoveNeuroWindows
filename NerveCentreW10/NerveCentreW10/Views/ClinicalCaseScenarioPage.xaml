@@ -46,24 +46,33 @@
                         <Border
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Center"
-                            Background="WhiteSmoke"
+                            Background="White"
                             BorderBrush="Black"
                             BorderThickness="2"
                             CornerRadius="10">
                             <StackPanel Margin="10">
                                 <TextBlock
                                     Margin="0,0,0,10"
-                                    Style="{StaticResource BodyTextBlockStyle}"
+                                    Style="{StaticResource TextBlockStyle1}"
                                     Text="{x:Bind OpeningStatement, Mode=TwoWay}" />
                                 <TextBlock
                                     Margin="0,0,0,10"
                                     FontWeight="Bold"
-                                    Style="{StaticResource BodyTextBlockStyle}"
+                                    Style="{StaticResource TextBlockStyle1}"
                                     Text="{x:Bind Question, Mode=TwoWay}" />
                                 <StackPanel Margin="0,0,0,10">
-                                    <RadioButton Content="{x:Bind Answer1, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedA, Mode=TwoWay}" />
-                                    <RadioButton Content="{x:Bind Answer2, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedB, Mode=TwoWay}" />
-                                    <RadioButton Content="{x:Bind Answer3, Mode=TwoWay}" IsChecked="{x:Bind IsCheckedC, Mode=TwoWay}" />
+                                    <RadioButton
+                                        Content="{x:Bind Answer1, Mode=TwoWay}"
+                                        FontSize="17"
+                                        IsChecked="{x:Bind IsCheckedA, Mode=TwoWay}" />
+                                    <RadioButton
+                                        Content="{x:Bind Answer2, Mode=TwoWay}"
+                                        FontSize="17"
+                                        IsChecked="{x:Bind IsCheckedB, Mode=TwoWay}" />
+                                    <RadioButton
+                                        Content="{x:Bind Answer3, Mode=TwoWay}"
+                                        FontSize="17"
+                                        IsChecked="{x:Bind IsCheckedC, Mode=TwoWay}" />
                                 </StackPanel>
                                 <Grid>
                                     <TextBlock

@@ -79,6 +79,7 @@
                 <Setter Property="Margin" Value="0,10,0,0" />
                 <Setter Property="Foreground" Value="Black" />
                 <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="FontSize" Value="17" />
             </Style>
 
             <Style x:Key="StackPanelForQuestions" TargetType="StackPanel">
@@ -88,6 +89,7 @@
             <Style x:Key="QuestionTextStyle" TargetType="TextBlock">
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter Property="Margin" Value="0,0,0,10" />
+                <Setter Property="FontSize" Value="17" />
             </Style>
 
 
@@ -95,6 +97,7 @@
                 <Setter Property="FontWeight" Value="Bold" />
                 <Setter Property="Margin" Value="0,0,0,10" />
                 <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="FontSize" Value="17" />
             </Style>
 
             <AcrylicBrush

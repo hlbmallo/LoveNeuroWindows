@@ -35,6 +35,7 @@ namespace NerveCentreW10.Views
         public string inkingZoneImageName { get; set; }
         public ContentDialog dialog;
         public ContentDialog contentDialog2;
+        public ContentDialog contentDialog3;
 
         public InkingZoneDetail2()
         {
@@ -225,21 +226,41 @@ namespace NerveCentreW10.Views
             }
         }
 
-        private void MyDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private async void MyDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             myDialog.Hide();
+            contentDialog3 = new ContentDialog();
+            contentDialog3.Title = "Saved";
+            contentDialog3.PrimaryButtonText = "Ok";
+            contentDialog3.DefaultButton = ContentDialogButton.Primary;
+            contentDialog3.PrimaryButtonClick += ContentDialog3_PrimaryButtonClick; ;
+
+            contentDialog3.Content = new TextBlock()
+            {
+                Text = "Go back a screen to view your saved ink strokes in the 'My Saved Annotations' gallery.",
+                TextWrapping = TextWrapping.Wrap,
+            };
+
+            await contentDialog3.ShowAsync();
+        }
+
+        private void ContentDialog3_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            contentDialog3.Hide();
         }
 
         private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
             //File name duplicate check
             if (await IsFilePresent(textBox.Text) == true)
             {
+                myDialog.IsPrimaryButtonEnabled = false;
                 textBlock.Visibility = Visibility.Visible;
             }
             else
             {
+                myDialog.IsPrimaryButtonEnabled = true;
                 textBlock.Visibility = Visibility.Collapsed;
             }
         }

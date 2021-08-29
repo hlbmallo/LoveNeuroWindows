@@ -24,7 +24,7 @@
             FontWeight="Bold"
             HorizontalTextAlignment="Center"
             Style="{StaticResource HeaderTextBlockStyle}"
-            Text="Welcome to Clinical Cases (Preview)" />
+            Text="Welcome to Clinical Cases" />
         <controls2:HtmlBlock
             x:Name="HtmlLabel"
             Margin="30"
