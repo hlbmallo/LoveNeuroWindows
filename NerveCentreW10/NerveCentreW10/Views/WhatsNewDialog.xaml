@@ -27,8 +27,8 @@
     <ScrollViewer>
         <StackPanel>
             <TextBlock TextWrapping="WrapWholeWords">
-                <Run FontWeight="Bold">It's starting to look like Windows 11...</Run><LineBreak />
-                <Run>Massive visual refresh within the app!</Run><LineBreak /><LineBreak />
+                <Run FontWeight="Bold">It's starting to look like Windows 11...and a new inking experience</Run><LineBreak />
+                <Run>Massive visual refresh within the app, as well as a new inking experience, similar to that on mobile devices.</Run><LineBreak /><LineBreak />
                 <Run>Also, if you have a moment, I'd really love to hear your thoughts on LoveNeuro. Just click or tap below to leave a review in the Microsoft Store. Thanks very much!</Run><LineBreak />
             </TextBlock>
             <HyperlinkButton

@@ -19,7 +19,7 @@
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <PackageCertificateKeyFile>
     </PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>FA159FDFC5771648363864AE5D5944344326A4A5</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>34870EE6133953C4EE6477E9B8355EDEB5C85205</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
@@ -178,7 +178,7 @@
       <Version>7.1.0-preview1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.7.0-prerelease.210816001</Version>
+      <Version>2.7.0-prerelease.210827001</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -596,7 +596,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Quizzes\quiz10boxjson.json" />
-    <None Include="NerveCentreW10_TemporaryKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

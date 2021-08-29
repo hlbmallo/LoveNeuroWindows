@@ -21,19 +21,17 @@
             HorizontalAlignment="Center"
             Orientation="Horizontal">
             <Button
-                Margin="5"
-                HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Click="Button_Click"
-                Content="Play Intro Video" />
+                Content="Play Intro Video"
+                Style="{StaticResource ButtonStyle1}" />
             <Button
                 x:Name="RateAndReviewButton"
-                Margin="5"
-                HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Background="#ff7201"
                 Click="RateAndReviewButton_Click"
-                Content="Rate and Review" />
+                Content="Rate and Review"
+                Style="{StaticResource ButtonStyle1}" />
         </StackPanel>
 
 

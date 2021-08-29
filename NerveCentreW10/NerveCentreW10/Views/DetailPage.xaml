@@ -245,7 +245,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MyStack.Margin" Value="100,0,100,80" />
-                        <Setter Target="MyStack2.Margin" Value="100,0,100,80" />
+                        <Setter Target="MyStack2.Margin" Value="100,0,100,0" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -254,7 +254,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MyStack.Margin" Value="0,0,0,80" />
-                        <Setter Target="MyStack2.Margin" Value="0,0,0,80" />
+                        <Setter Target="MyStack2.Margin" Value="0,0,0,0" />
 
                     </VisualState.Setters>
                 </VisualState>
