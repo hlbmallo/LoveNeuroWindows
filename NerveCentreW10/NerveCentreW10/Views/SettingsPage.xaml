@@ -24,7 +24,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock x:Name="AppIconsBy" Text="App Icons By: " />
-                    <controls2:HtmlBlock x:Name="AppIconsList" Style="{StaticResource TextBlockStyle1}" />
+                    <controls2:HtmlBlock x:Name="AppIconsList" Style="{StaticResource HTMLBlockTextStyle1}" />
                 </StackPanel>
             </StackPanel>
 
