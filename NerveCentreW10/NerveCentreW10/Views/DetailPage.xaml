@@ -6,7 +6,6 @@
     xmlns:controls2="using:AppStudio.Uwp.Controls"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:NerveCentreW10.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Loaded="Page_Loaded"
     mc:Ignorable="d">
@@ -21,7 +20,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="48" />
+            <RowDefinition Height="56" />
         </Grid.RowDefinitions>
 
         <ScrollViewer
@@ -118,7 +117,7 @@
                     <Border
                         x:Name="MyBorderForImage2"
                         Background="White"
-                        Visibility="{x:Bind Path=Subtitle3.Text, Converter={StaticResource StringVisibilityConverter}}">
+                        Visibility="{x:Bind Path=MyImage2.Source, Converter={StaticResource StringVisibilityConverter}}">
                         <Grid>
                             <controls:ImageEx
                                 x:Name="MyImage2"
@@ -153,90 +152,94 @@
         </ScrollViewer>
 
 
-        <ScrollViewer
+        <Grid
             x:Name="MyStack2"
             Grid.Row="1"
-            Height="48"
+            Height="52"
             Background="{ThemeResource DetailPageCommandbarAcrylic1}"
-            CornerRadius="5"
-            HorizontalScrollBarVisibility="Auto"
-            HorizontalScrollMode="Enabled"
-            IsHorizontalScrollChainingEnabled="True"
-            VerticalScrollMode="Disabled">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock
-                    Padding="10,0,10,0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center"
-                    FontWeight="Bold"
-                    Text="Share:" />
-                <Button
-                    x:Name="ShareTextButton"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Background="Transparent"
-                    Click="ShareTextButton_Click"
-                    Content="Text"
-                    Style="{StaticResource ButtonRevealStyle}" />
-                <Button
-                    x:Name="ShareImage1Button"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Background="Transparent"
-                    Click="ShareImage1Button_Click"
-                    Content="Diagram 1"
-                    Style="{StaticResource ButtonRevealStyle}" />
-                <Button
-                    x:Name="ShareImage2Button"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Background="Transparent"
-                    Click="ShareImage2Button_Click"
-                    Content="Diagram 2"
-                    Style="{StaticResource ButtonRevealStyle}" />
-                <AppBarSeparator />
-                <ToggleButton
-                    x:Name="FavouritesButton"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Background="Transparent"
-                    Click="FavouritesButton_Click"
-                    Content="Add Favourite"
-                    Style="{StaticResource ToggleButtonRevealStyle}" />
-                <AppBarSeparator />
-                <Button
-                    x:Name="ClinicalButton"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Background="Transparent"
-                    Click="ClinicalButton_Click"
-                    Content="Clinical Note"
-                    Style="{StaticResource ButtonRevealStyle}"
-                    Visibility="{x:Bind Path=overall.Popup1Title, Converter={StaticResource StringVisibilityConverter}}" />
-                <Button
-                    x:Name="ResearchButton"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Background="Transparent"
-                    Click="ResearchButton_Click"
-                    Content="Research Note"
-                    Style="{StaticResource ButtonRevealStyle}"
-                    Visibility="{x:Bind Path=overall.Popup2Title, Converter={StaticResource StringVisibilityConverter}}" />
+            BorderBrush="Black"
+            BorderThickness="2"
+            CornerRadius="10">
+            <ScrollViewer
+                HorizontalScrollBarVisibility="Auto"
+                HorizontalScrollMode="Enabled"
+                IsHorizontalScrollChainingEnabled="True"
+                VerticalScrollMode="Disabled">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        Padding="10,0,10,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        FontWeight="Bold"
+                        Text="Share:" />
+                    <Button
+                        x:Name="ShareTextButton"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="Transparent"
+                        Click="ShareTextButton_Click"
+                        Content="Text"
+                        Style="{StaticResource ButtonRevealStyle}" />
+                    <Button
+                        x:Name="ShareImage1Button"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="Transparent"
+                        Click="ShareImage1Button_Click"
+                        Content="Diagram 1"
+                        Style="{StaticResource ButtonRevealStyle}" />
+                    <Button
+                        x:Name="ShareImage2Button"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="Transparent"
+                        Click="ShareImage2Button_Click"
+                        Content="Diagram 2"
+                        Style="{StaticResource ButtonRevealStyle}" />
+                    <AppBarSeparator />
+                    <ToggleButton
+                        x:Name="FavouritesButton"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="Transparent"
+                        Click="FavouritesButton_Click"
+                        Content="Add Favourite"
+                        Style="{StaticResource ToggleButtonRevealStyle}" />
+                    <AppBarSeparator />
+                    <Button
+                        x:Name="ClinicalButton"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="Transparent"
+                        Click="ClinicalButton_Click"
+                        Content="Clinical Note"
+                        Style="{StaticResource ButtonRevealStyle}"
+                        Visibility="{x:Bind Path=overall.Popup1Title, Converter={StaticResource StringVisibilityConverter}}" />
+                    <Button
+                        x:Name="ResearchButton"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="Transparent"
+                        Click="ResearchButton_Click"
+                        Content="Research Note"
+                        Style="{StaticResource ButtonRevealStyle}"
+                        Visibility="{x:Bind Path=overall.Popup2Title, Converter={StaticResource StringVisibilityConverter}}" />
 
 
-                <Button
-                    x:Name="RevisionButton"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Background="Transparent"
-                    Click="RevisionButton_Click"
-                    Content="Revision Note"
-                    Style="{StaticResource ButtonRevealStyle}"
-                    Visibility="{x:Bind Path=overall.Popup3Title, Converter={StaticResource StringVisibilityConverter}}" />
+                    <Button
+                        x:Name="RevisionButton"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="Transparent"
+                        Click="RevisionButton_Click"
+                        Content="Revision Note"
+                        Style="{StaticResource ButtonRevealStyle}"
+                        Visibility="{x:Bind Path=overall.Popup3Title, Converter={StaticResource StringVisibilityConverter}}" />
 
 
-            </StackPanel>
-        </ScrollViewer>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="CommonStates">
                 <VisualState>

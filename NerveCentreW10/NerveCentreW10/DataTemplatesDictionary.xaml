@@ -7,37 +7,40 @@
     xmlns:data="using:NerveCentreW10.Models"
     xmlns:data2="using:NerveCentreW10.ViewModels"
     xmlns:helpers="using:NerveCentreW10.Helpers"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI">
 
+
+    <ui:AttachedDropShadow
+        x:Key="CommonShadow"
+        BlurRadius="10"
+        Offset="4"
+        Color="Aqua" />
+
     <helpers:CloudClasssVisibilityConverter x:Key="cloudHelper" />
+    <media:AttachedCardShadow
+        x:Name="CustomShadow1"
+        BlurRadius="20"
+        Offset="4"
+        Color="Red" />
+
 
     <DataTemplate x:Key="NotesDataTemplate" x:DataType="data:NotesClass">
         <Grid
             x:Name="MyGrid"
             Width="270"
             Height="270"
-            Padding="10"
+            Margin="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
             PointerEntered="MyGrid_PointerEntered"
             PointerExited="MyGrid_PointerExited"
             PointerPressed="MyGrid_PointerPressed"
             PointerReleased="MyGrid_PointerReleased">
-            <controls:DropShadowPanel
-                x:Name="MyDropShadow"
-                HorizontalContentAlignment="Stretch"
-                VerticalContentAlignment="Stretch"
-                BlurRadius="20"
-                OffsetX="0"
-                OffsetY="0"
-                Opacity="0"
-                ShadowOpacity=".4"
-                Color="Black">
-                <Grid />
-            </controls:DropShadowPanel>
             <Grid
                 x:Name="MyGrid2"
                 Margin="10"
+                ui:Effects.Shadow="{StaticResource CommonShadow}"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="Black"

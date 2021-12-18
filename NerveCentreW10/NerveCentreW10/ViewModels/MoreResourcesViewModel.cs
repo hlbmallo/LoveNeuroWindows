@@ -22,8 +22,8 @@ namespace NerveCentreW10.ViewModels
             {
                 MoreResourcesName = "The Goofy Anatomist Website",
                 MoreResourcesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconTGA.png")),
-                MoreResourcesLinkOut1 = new Uri("https://thegoofyanatomist.com/"),
-                MoreResourcesLinkOut2 = new Uri("https://thegoofyanatomist.com/"),
+                MoreResourcesLinkOut1 = new Uri("https://thegoofyanatomist.weebly.com/"),
+                MoreResourcesLinkOut2 = new Uri("https://thegoofyanatomist.weebly.com/"),
             });
             //MoreResourcesList.Add(new MoreResourcesClass
             //{

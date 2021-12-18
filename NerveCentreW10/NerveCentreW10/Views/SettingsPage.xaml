@@ -10,7 +10,7 @@
 
     <ScrollViewer Grid.Row="1">
 
-        <StackPanel>
+        <StackPanel Margin="35">
 
             <StackPanel Padding="0,20,0,30">
                 <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="About" />
@@ -23,7 +23,10 @@
                     <TextBlock x:Name="AppVersion" Style="{StaticResource TextBlockStyle1}" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <TextBlock x:Name="AppIconsBy" Text="App Icons By: " />
+                    <TextBlock
+                        x:Name="AppIconsBy"
+                        Style="{StaticResource TextBlockStyle1}"
+                        Text="App Icons By: " />
                     <controls2:HtmlBlock x:Name="AppIconsList" Style="{StaticResource HTMLBlockTextStyle1}" />
                 </StackPanel>
             </StackPanel>

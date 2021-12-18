@@ -39,10 +39,7 @@ namespace NerveCentreW10
             preElement = sender as FrameworkElement;
 
             var control = preElement.FindDescendant("MyGrid2");
-            AnimationBuilder.Create().Scale(to: new Vector2(1.04f), duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
-
-            var control2 = preElement.FindDescendant("MyDropShadow");
-            AnimationBuilder.Create().Opacity(to: (0.4f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
+            AnimationBuilder.Create().Translation(Axis.Y, to:-10, duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
         }
 
         private void MyGrid_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -50,10 +47,7 @@ namespace NerveCentreW10
             preElement = sender as FrameworkElement;
 
             var control = preElement.FindDescendant("MyGrid2");
-            AnimationBuilder.Create().Scale(to: new Vector2(1.00f), duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
-
-            var control2 = preElement.FindDescendant("MyDropShadow");
-            AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
+            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
 
             //    preElement = sender as FrameworkElement;
 
@@ -70,10 +64,7 @@ namespace NerveCentreW10
             preElement = sender as FrameworkElement;
 
             var control = preElement.FindDescendant("MyGrid2");
-            AnimationBuilder.Create().Scale(to: new Vector2(1.0f), duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
-
-            var control2 = preElement.FindDescendant("MyDropShadow");
-            AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
+            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
         }
 
         private void MyGrid_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
@@ -81,10 +72,7 @@ namespace NerveCentreW10
             preElement = sender as FrameworkElement;
 
             var control = preElement.FindDescendant("MyGrid2");
-            AnimationBuilder.Create().Scale(to: new Vector2(1.0f), duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
-
-            var control2 = preElement.FindDescendant("MyDropShadow");
-            AnimationBuilder.Create().Opacity(to: (0.0f), duration: TimeSpan.FromMilliseconds(500)).StartAsync(control2);
+            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
         }
 
         private void MyGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -92,7 +80,7 @@ namespace NerveCentreW10
             preElement = sender as FrameworkElement;
 
             var control = preElement.FindDescendant("MyGrid2");
-            AnimationBuilder.Create().Scale(to: new Vector2(1.02f), duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+            AnimationBuilder.Create().Translation(Axis.Y, to: -10, duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
         }
 
         private void MyGrid_PointerReleased(object sender, PointerRoutedEventArgs e)

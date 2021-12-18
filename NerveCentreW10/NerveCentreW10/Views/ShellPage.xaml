@@ -8,135 +8,167 @@
     xmlns:helpers="using:NerveCentreW10.Helpers"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:views="using:NerveCentreW10.Views"
-    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    winui:BackdropMaterial.ApplyToRootOrPageBackground="True"
-    Loaded="OnLoaded"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
     <Page.Resources>
         <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="Black" />
         <!--<SolidColorBrush x:Key="NavigationViewContentBackground" Color="LightGreen" />-->
+        <CornerRadius x:Key="NavigationViewContentGridCornerRadius">0</CornerRadius>
+        <!--  This top margin is the height of the custom TitleBar  -->
+        <Thickness x:Key="NavigationViewContentMargin">0</Thickness>
+        <Thickness x:Key="NavigationViewContentGridBorderThickness">0</Thickness>
+        <SolidColorBrush x:Key="NavigationViewContentBackground" Color="Transparent" />
+
     </Page.Resources>
 
-    <winui:NavigationView
-        x:Name="navigationView"
-        Grid.Row="1"
-        Background="WhiteSmoke"
-        IsBackButtonVisible="Visible"
-        IsBackEnabled="{x:Bind IsBackEnabled, Mode=OneWay}"
-        IsSettingsVisible="True"
-        IsTitleBarAutoPaddingEnabled="True"
-        ItemInvoked="OnItemInvoked"
-        PaneDisplayMode="Auto"
-        SelectedItem="{x:Bind Selected, Mode=OneWay}">
-        <winui:NavigationView.MenuItems>
-            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:MainPage" Content="Home">
-                <winui:NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE80F;" />
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Notes" Content="1.0. - 4.0. Notes">
-                <winui:NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8FF;" />
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section5QuizMenu" Content="5.0. Quizzes">
-                <winui:NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE897;" />
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section6InkingZoneMenu" Content="6.0. Inking Zone">
-                <winui:NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70F;" />
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section7VideoTutorialsMenu" Content="7.0. Video Tutorials">
-                <winui:NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE714;" />
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:ClinicalCaseLandingPage" Content="8.0. Clinical Cases">
-                <winui:NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B7;" />
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem helpers:NavHelper.NavigateTo="views:Section8MoreResources" Content="9.0. More Resources">
-                <winui:NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE712;" />
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItemSeparator />
-            <winui:NavigationViewItem
-                x:Name="Favourites"
-                helpers:NavHelper.NavigateTo="views:FavouritesPage"
-                Content="Favourites">
-                <winui:NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE734;" />
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-            <winui:NavigationViewItem
-                x:Name="QuizScores"
-                helpers:NavHelper.NavigateTo="views:ViewScores"
-                Content="Quiz Scores">
-                <winui:NavigationViewItem.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE133;" />
-                </winui:NavigationViewItem.Icon>
-            </winui:NavigationViewItem>
-        </winui:NavigationView.MenuItems>
-        <i:Interaction.Behaviors>
-            <behaviors:NavigationViewHeaderBehavior DefaultHeader="{x:Bind Selected.Content, Mode=OneWay}">
-                <behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <TextBlock
-                                Margin="0"
-                                HorizontalAlignment="Left"
-                                Foreground="Black"
-                                Style="{ThemeResource TitleTextBlockStyle}"
-                                Text="{Binding}" />
-                        </Grid>
-                    </DataTemplate>
-                </behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
-            </behaviors:NavigationViewHeaderBehavior>
-        </i:Interaction.Behaviors>
-        <winui:NavigationView.PaneHeader>
-            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                <controls:ImageEx
-                    Width="30"
-                    Height="30"
-                    Margin="8"
-                    Source="ms-appx:///Assets/Others/HeaderLogo.png" />
-                <TextBlock
-                    Padding="14,0,0,0"
+    <Grid>
+        <Border
+            x:Name="AppTitleBar"
+            Height="40"
+            Margin="48,8,0,0"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            Canvas.ZIndex="1"
+            IsHitTestVisible="True">
+            <StackPanel Orientation="Horizontal">
+                <Image
+                    x:Name="AppFontIcon"
+                    Width="16"
+                    Height="16"
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    FontSize="16"
-                    FontWeight="Bold"
-                    Foreground="Black"
+                    Source="ms-appx:///Assets/Square44x44Logo.scale-150.png" />
+                <TextBlock
+                    x:Name="AppTitle"
+                    Margin="12,0,0,0"
+                    VerticalAlignment="Center"
                     Text="LoveNeuro" />
             </StackPanel>
-        </winui:NavigationView.PaneHeader>
-        <winui:NavigationView.Content>
-            <Frame
-                x:Name="shellFrame"
-                Margin="18"
-                Background="Transparent" />
-        </winui:NavigationView.Content>
+        </Border>
+        <muxc:NavigationView
+            x:Name="NavView"
+            AlwaysShowHeader="True"
+            BackRequested="NavView_BackRequested"
+            Canvas.ZIndex="0"
+            IsTitleBarAutoPaddingEnabled="False"
+            ItemInvoked="NavView_ItemInvoked"
+            Loaded="NavView_Loaded">
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem Content="Home" Tag="s0">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE80F;" />
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="1.0. - 4.0. Notes" Tag="s1">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8FF;" />
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="5.0. Quizzes" Tag="s5">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE897;" />
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="6.0. Inking Zone" Tag="s6">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70F;" />
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="7.0. Video Tutorials" Tag="s7">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE714;" />
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="8.0. Clinical Cases" Tag="s8">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B7;" />
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem Content="9.0. More Resources" Tag="s9">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE712;" />
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItemSeparator />
+                <muxc:NavigationViewItem
+                    x:Name="Favourites"
+                    Content="Favourites"
+                    Tag="fav">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE734;" />
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+                <muxc:NavigationViewItem
+                    x:Name="QuizScores"
+                    Content="Quiz Scores"
+                    Tag="sco">
+                    <muxc:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE133;" />
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
+            </muxc:NavigationView.MenuItems>
 
-        <!--<winui:TeachingTip
+            <Frame
+                x:Name="ContentFrame"
+                Margin="10"
+                Padding="10"
+                Background="White"
+                BorderBrush="LightGray"
+                BorderThickness="1"
+                CornerRadius="20"
+                IsTabStop="True"
+                NavigationFailed="ContentFrame_NavigationFailed" />
+
+            <muxc:NavigationView.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontWeight="SemiLight"
+                        Text="{Binding}" />
+                </DataTemplate>
+            </muxc:NavigationView.HeaderTemplate>
+
+        </muxc:NavigationView>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{x:Bind NavViewCompactModeThresholdWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  Remove the next 3 lines for left-only navigation.  -->
+                        <Setter Target="NavView.PaneDisplayMode" Value="Top" />
+                        <Setter Target="NavViewSearchBox.Width" Value="200" />
+                        <Setter Target="MainPagesHeader.Visibility" Value="Collapsed" />
+                        <!--  Leave the next line for left-only navigation.  -->
+                        <Setter Target="ContentFrame.Padding" Value="24,0,24,24" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>
+
+<!--<muxc:TeachingTip
                 x:Name="TeachTip1"
                 Title="Sections (1/3)"
                 CloseButtonClick="TeachTip1_CloseButtonClick"
                 IsLightDismissEnabled="False"
                 PreferredPlacement="Right"
                 Target="{x:Bind Notes}">
-                <winui:TeachingTip.Content>
+                <muxc:TeachingTip.Content>
                     <StackPanel>
                         <TextBlock Text="Access notes, quizzes, the Inking Zone and video tutorials using the menu on the left." TextWrapping="Wrap" />
                     </StackPanel>
-                </winui:TeachingTip.Content>
-            </winui:TeachingTip>
-            <winui:TeachingTip
+                </muxc:TeachingTip.Content>
+            </muxc:TeachingTip>
+            <muxc:TeachingTip
                 x:Name="TeachTip2"
                 Title="Favourites (2/3)"
                 CloseButtonClick="TeachTip2_CloseButtonClick"
@@ -144,17 +176,15 @@
                 IsLightDismissEnabled="False"
                 PreferredPlacement="Right"
                 Target="{x:Bind Favourites}" />
-            <winui:TeachingTip
+            <muxc:TeachingTip
                 x:Name="TeachTip3"
                 Title="Scores Galore (3/3)"
                 IsLightDismissEnabled="False"
                 PreferredPlacement="Right"
                 Target="{x:Bind QuizScores}">
-                <winui:TeachingTip.Content>
+                <muxc:TeachingTip.Content>
                     <StackPanel>
                         <TextBlock Text="You can now view your saved quiz scores anytime." TextWrapping="Wrap" />
                     </StackPanel>
-                </winui:TeachingTip.Content>
-            </winui:TeachingTip>-->
-    </winui:NavigationView>
-</Page>
+                </muxc:TeachingTip.Content>
+            </muxc:TeachingTip>-->

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -7,154 +8,303 @@ using NerveCentreW10.Helpers;
 using NerveCentreW10.Services;
 using Windows.ApplicationModel.Core;
 using Windows.System;
+using Windows.UI;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Xamarin.Essentials;
-using WinUI = Microsoft.UI.Xaml.Controls;
+using muxc = Microsoft.UI.Xaml.Controls;
 
 namespace NerveCentreW10.Views
 {
     // TODO WTS: Change the icons and titles for all NavigationViewItems in ShellPage.xaml.
-    public sealed partial class ShellPage : Page, INotifyPropertyChanged
+    public sealed partial class ShellPage : Page
     {
-        private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
-        private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
-
-        private bool _isBackEnabled;
-        private WinUI.NavigationViewItem _selected;
-
-        public bool IsBackEnabled
-        {
-            get { return _isBackEnabled; }
-            set { Set(ref _isBackEnabled, value); }
-        }
-
-        public WinUI.NavigationViewItem Selected
-        {
-            get { return _selected; }
-            set { Set(ref _selected, value); }
-        }
-
+        // Add "using" for WinUI controls.
         public ShellPage()
         {
             InitializeComponent();
-            DataContext = this;
-            Initialize();
+
+            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+
+            // Hide default title bar.
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+            UpdateTitleBarLayout(coreTitleBar);
+
+            // Set XAML element as a draggable region.
+            Window.Current.SetTitleBar(AppTitleBar);
+
+            // Register a handler for when the size of the overlaid caption control changes.
+            // For example, when the app moves to a screen with a different DPI.
+            coreTitleBar.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
+
+            // Register a handler for when the title bar visibility changes.
+            // For example, when the title bar is invoked in full screen mode.
+            coreTitleBar.IsVisibleChanged += CoreTitleBar_IsVisibleChanged;
+
+            //Register a handler for when the window changes focus
+            Window.Current.Activated += Current_Activated;
         }
 
-        private void Initialize()
+        private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
         {
-            NavigationService.Frame = shellFrame;
-            NavigationService.Navigated += Frame_Navigated;
-            navigationView.BackRequested += OnBackRequested;
-            TeachingTipsMethods();
+            UpdateTitleBarLayout(sender);
         }
 
-        private async void TeachingTipsMethods()
+        private void UpdateTitleBarLayout(CoreApplicationViewTitleBar coreTitleBar)
         {
-            //if (VersionTracking.IsFirstLaunchEver == true)
-            //{
-            //    TeachTip1.IsOpen = true;
-            //}
-            //else
-            //{
-            //    TeachTip1.IsOpen = false;
-            //}
+            // Update title bar control size as needed to account for system size changes.
+            AppTitleBar.Height = coreTitleBar.Height;
+
+            // Ensure the custom title bar does not overlap window caption controls
+            Thickness currMargin = AppTitleBar.Margin;
+            AppTitleBar.Margin = new Thickness(currMargin.Left, currMargin.Top, coreTitleBar.SystemOverlayRightInset, currMargin.Bottom);
         }
 
-        private void OnLoaded(object sender, RoutedEventArgs e)
+        private void CoreTitleBar_IsVisibleChanged(CoreApplicationViewTitleBar sender, object args)
         {
-            // Keyboard accelerators are added here to avoid showing 'Alt + left' tooltip on the page.
-            // More info on tracking issue https://github.com/Microsoft/microsoft-ui-xaml/issues/8
-            KeyboardAccelerators.Add(_altLeftKeyboardAccelerator);
-            KeyboardAccelerators.Add(_backKeyboardAccelerator);
-        }
-
-        private void Frame_Navigated(object sender, NavigationEventArgs e)
-        {
-            IsBackEnabled = NavigationService.CanGoBack;
-
-            if (e.SourcePageType == typeof(SettingsPage))
+            if (sender.IsVisible)
             {
-                Selected = navigationView.SettingsItem as Microsoft.UI.Xaml.Controls.NavigationViewItem;
-                return;
+                AppTitleBar.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AppTitleBar.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        // Update the TitleBar based on the inactive/active state of the app
+        private void Current_Activated(object sender, Windows.UI.Core.WindowActivatedEventArgs e)
+        {
+            SolidColorBrush defaultForegroundBrush = (SolidColorBrush)Application.Current.Resources["TextFillColorPrimaryBrush"];
+            SolidColorBrush inactiveForegroundBrush = (SolidColorBrush)Application.Current.Resources["TextFillColorDisabledBrush"];
+
+            if (e.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
+            {
+                AppTitle.Foreground = inactiveForegroundBrush;
+            }
+            else
+            {
+                AppTitle.Foreground = defaultForegroundBrush;
+            }
+        }
+
+        // Update the TitleBar content layout depending on NavigationView DisplayMode
+        private void NavigationViewControl_DisplayModeChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewDisplayModeChangedEventArgs args)
+        {
+            const int topIndent = 16;
+            const int expandedIndent = 48;
+            int minimalIndent = 104;
+
+            // If the back button is not visible, reduce the TitleBar content indent.
+            if (NavView.IsBackButtonVisible.Equals(Microsoft.UI.Xaml.Controls.NavigationViewBackButtonVisible.Collapsed))
+            {
+                minimalIndent = 48;
             }
 
-            Selected = navigationView.MenuItems
-                            .OfType<WinUI.NavigationViewItem>()
-                            .FirstOrDefault(menuItem => IsMenuItemForPageType(menuItem, e.SourcePageType));
-        }
+            Thickness currMargin = AppTitleBar.Margin;
 
-        private bool IsMenuItemForPageType(WinUI.NavigationViewItem menuItem, Type sourcePageType)
-        {
-            var pageType = menuItem.GetValue(NavHelper.NavigateToProperty) as Type;
-            return pageType == sourcePageType;
-        }
-
-        private void OnItemInvoked(WinUI.NavigationView sender, WinUI.NavigationViewItemInvokedEventArgs args)
-        {
-            if (args.IsSettingsInvoked)
+            // Set the TitleBar margin dependent on NavigationView display mode
+            if (sender.PaneDisplayMode == Microsoft.UI.Xaml.Controls.NavigationViewPaneDisplayMode.Top)
             {
-                NavigationService.Navigate(typeof(SettingsPage));
-                return;
+                AppTitleBar.Margin = new Thickness(topIndent, currMargin.Top, currMargin.Right, currMargin.Bottom);
             }
-
-            var item = navigationView.MenuItems
-                            .OfType<WinUI.NavigationViewItem>()
-                            .FirstOrDefault(menuItem => (string)menuItem.Content == (string)args.InvokedItem);
-            var pageType = item.GetValue(NavHelper.NavigateToProperty) as Type;
-            NavigationService.Navigate(pageType);
-        }
-
-        private void OnBackRequested(WinUI.NavigationView sender, WinUI.NavigationViewBackRequestedEventArgs args)
-        {
-            NavigationService.GoBack();
-        }
-
-        private static KeyboardAccelerator BuildKeyboardAccelerator(VirtualKey key, VirtualKeyModifiers? modifiers = null)
-        {
-            var keyboardAccelerator = new KeyboardAccelerator() { Key = key };
-            if (modifiers.HasValue)
+            else if (sender.DisplayMode == Microsoft.UI.Xaml.Controls.NavigationViewDisplayMode.Minimal)
             {
-                keyboardAccelerator.Modifiers = modifiers.Value;
+                AppTitleBar.Margin = new Thickness(minimalIndent, currMargin.Top, currMargin.Right, currMargin.Bottom);
             }
-
-            keyboardAccelerator.Invoked += OnKeyboardAcceleratorInvoked;
-            return keyboardAccelerator;
-        }
-
-        private static void OnKeyboardAcceleratorInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
-        {
-            var result = NavigationService.GoBack();
-            args.Handled = result;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
-        {
-            if (Equals(storage, value))
+            else
             {
-                return;
+                AppTitleBar.Margin = new Thickness(expandedIndent, currMargin.Top, currMargin.Right, currMargin.Bottom);
             }
-
-            storage = value;
-            OnPropertyChanged(propertyName);
         }
 
-        private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        private double NavViewCompactModeThresholdWidth { get { return NavView.CompactModeThresholdWidth; } }
 
-        //private void TeachTip1_CloseButtonClick(WinUI.TeachingTip sender, object args)
-        //{
-        //    TeachTip2.IsOpen = true;
-        //}
+        private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
+        {
+            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+        }
 
-        //private void TeachTip2_CloseButtonClick(WinUI.TeachingTip sender, object args)
-        //{
-        //    TeachTip3.IsOpen = true;
-        //}
+        // List of ValueTuple holding the Navigation Tag and the relative Navigation Page
+        private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
+        {
+            ("s0", typeof(MainPage)),
+            ("s1", typeof(Notes)),
+            ("s5", typeof(Section5QuizMenu)),
+            ("s6", typeof(Section6InkingZoneMenu)),
+            ("s7", typeof(Section7VideoTutorialsMenu)),
+            ("s8", typeof(ClinicalCaseLandingPage)),
+            ("s9", typeof(Section8MoreResources)),
+            ("fav", typeof(FavouritesPage)),
+            ("sco", typeof(ViewScores)),
+        };
 
+        private void NavView_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Add handler for ContentFrame navigation.
+            ContentFrame.Navigated += On_Navigated;
+
+            // NavView doesn't load any page by default, so load home page.
+            NavView.SelectedItem = NavView.MenuItems[0];
+            // If navigation occurs on SelectionChanged, this isn't needed.
+            // Because we use ItemInvoked to navigate, we need to call Navigate
+            // here to load the home page.
+            NavView_Navigate("s0", new Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo());
+
+            // Listen to the window directly so the app responds
+            // to accelerator keys regardless of which element has focus.
+            Window.Current.CoreWindow.Dispatcher.AcceleratorKeyActivated +=
+                CoreDispatcher_AcceleratorKeyActivated;
+
+            Window.Current.CoreWindow.PointerPressed += CoreWindow_PointerPressed;
+
+            SystemNavigationManager.GetForCurrentView().BackRequested += System_BackRequested;
+        }
+
+        private void NavView_ItemInvoked(muxc.NavigationView sender,
+                                         muxc.NavigationViewItemInvokedEventArgs args)
+        {
+            if (args.IsSettingsInvoked == true)
+            {
+                NavView_Navigate("settings", args.RecommendedNavigationTransitionInfo);
+            }
+            else if (args.InvokedItemContainer != null)
+            {
+                var navItemTag = args.InvokedItemContainer.Tag.ToString();
+                NavView_Navigate(navItemTag, args.RecommendedNavigationTransitionInfo);
+            }
+        }
+
+        // NavView_SelectionChanged is not used in this example, but is shown for completeness.
+        // You will typically handle either ItemInvoked or SelectionChanged to perform navigation,
+        // but not both.
+        private void NavView_SelectionChanged(muxc.NavigationView sender,
+                                              muxc.NavigationViewSelectionChangedEventArgs args)
+        {
+            if (args.IsSettingsSelected == true)
+            {
+                NavView_Navigate("settings", args.RecommendedNavigationTransitionInfo);
+            }
+            else if (args.SelectedItemContainer != null)
+            {
+                var navItemTag = args.SelectedItemContainer.Tag.ToString();
+                NavView_Navigate(navItemTag, args.RecommendedNavigationTransitionInfo);
+            }
+        }
+
+        private void NavView_Navigate(
+            string navItemTag,
+            Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo transitionInfo)
+        {
+            Type _page = null;
+            if (navItemTag == "settings")
+            {
+                _page = typeof(SettingsPage);
+            }
+            else
+            {
+                var item = _pages.FirstOrDefault(p => p.Tag.Equals(navItemTag));
+                _page = item.Page;
+            }
+            // Get the page type before navigation so you can prevent duplicate
+            // entries in the backstack.
+            var preNavPageType = ContentFrame.CurrentSourcePageType;
+
+            // Only navigate if the selected page isn't currently loaded.
+            if (!(_page is null) && !Type.Equals(preNavPageType, _page))
+            {
+                ContentFrame.Navigate(_page, null, transitionInfo);
+            }
+        }
+
+        private void NavView_BackRequested(muxc.NavigationView sender,
+                                           muxc.NavigationViewBackRequestedEventArgs args)
+        {
+            TryGoBack();
+        }
+
+        private void CoreDispatcher_AcceleratorKeyActivated(CoreDispatcher sender, AcceleratorKeyEventArgs e)
+        {
+            // When Alt+Left are pressed navigate back
+            if (e.EventType == CoreAcceleratorKeyEventType.SystemKeyDown
+                && e.VirtualKey == VirtualKey.Left
+                && e.KeyStatus.IsMenuKeyDown == true
+                && !e.Handled)
+            {
+                e.Handled = TryGoBack();
+            }
+        }
+
+        private void System_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (!e.Handled)
+            {
+                e.Handled = TryGoBack();
+            }
+        }
+
+        private void CoreWindow_PointerPressed(CoreWindow sender, PointerEventArgs e)
+        {
+            // Handle mouse back button.
+            if (e.CurrentPoint.Properties.IsXButton1Pressed)
+            {
+                e.Handled = TryGoBack();
+            }
+        }
+
+        private bool TryGoBack()
+        {
+            if (!ContentFrame.CanGoBack)
+                return false;
+
+            // Don't go back if the nav pane is overlayed.
+            if (NavView.IsPaneOpen &&
+                (NavView.DisplayMode == muxc.NavigationViewDisplayMode.Compact ||
+                 NavView.DisplayMode == muxc.NavigationViewDisplayMode.Minimal))
+                return false;
+
+            ContentFrame.GoBack();
+            return true;
+        }
+
+        private void On_Navigated(object sender, NavigationEventArgs e)
+        {
+            NavView.IsBackEnabled = ContentFrame.CanGoBack;
+
+            if (ContentFrame.SourcePageType == typeof(SettingsPage))
+            {
+                // SettingsItem is not part of NavView.MenuItems, and doesn't have a Tag.
+                NavView.SelectedItem = (muxc.NavigationViewItem)NavView.SettingsItem;
+                NavView.Header = "Settings";
+            }
+            else if (ContentFrame.SourcePageType != null)
+            {
+                var item = _pages.FirstOrDefault(p => p.Page == e.SourcePageType);
+
+                try
+                {
+                    NavView.SelectedItem = NavView.MenuItems
+                        .OfType<muxc.NavigationViewItem>()
+                        .First(n => n.Tag.Equals(item.Tag));
+
+                }
+                catch
+                {
+                    ContentFrame.Navigate(item.Page, null, new CommonNavigationTransitionInfo());
+                }
+                NavView.Header =
+                    ((muxc.NavigationViewItem)NavView.SelectedItem)?.Content?.ToString();
+            }
+        }
     }
 }
