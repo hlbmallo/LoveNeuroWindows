@@ -76,13 +76,8 @@ namespace NerveCentreW10.ViewModels
         {
             IsCorrOrIncorr = false;
 
-            ViewScoresCommand = new RelayCommand(ViewScoresEvent);
+            //ViewScoresCommand = new RelayCommand(ViewScoresEvent);
             SubmitButtonCommand = new RelayCommand(SubmitButtonEvent);            
-        }
-
-        private void ViewScoresEvent()
-        {
-            NavigationService.Navigate(typeof(ViewScores));
         }
 
         public QuizListClass MyClickedItem;

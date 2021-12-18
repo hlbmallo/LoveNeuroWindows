@@ -33,7 +33,7 @@
         <viewModels:QuizDetailViewModel x:Name="vM" />
     </Page.DataContext>
 
-    <Grid Margin="40,0,0,0">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -50,6 +50,7 @@
             Grid.RowSpan="1"
             Grid.Column="0"
             Grid.ColumnSpan="2"
+            Margin="24,10,0,10"
             Style="{StaticResource TitleTextBlockStyle}"
             Text="{Binding mySubsection, Converter={StaticResource QuizNameConverter}}" />
 
@@ -179,7 +180,7 @@
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     Background="Transparent"
-                    Command="{Binding ViewScoresCommand}"
+                    Click="ViewScoresButton_Click"
                     Content="View Scores"
                     Style="{StaticResource ButtonRevealStyle}" />
                 <!--<AppBarSeparator />

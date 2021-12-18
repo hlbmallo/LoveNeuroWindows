@@ -5,6 +5,7 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea" Margin="5">
@@ -13,7 +14,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <controls:ImageEx CornerRadius="10" Source="ms-appx:///Assets/Others/Welcome7.png" />
+            <controls:ImageEx CornerRadius="10" Source="ms-appx:///Assets/LN1.png" />
         </Grid>
         <StackPanel
             Grid.Row="1"
@@ -33,7 +34,19 @@
                 Content="Rate and Review"
                 Style="{StaticResource ButtonStyle1}" />
         </StackPanel>
-
+        <muxc:TeachingTip
+            x:Name="TeachTip1"
+            Title="Sections (1/3)"
+            CloseButtonClick="TeachTip1_CloseButtonClick"
+            IsLightDismissEnabled="True"
+            PreferredPlacement="Right"
+            Target="{x:Bind RateAndReviewButton}">
+            <muxc:TeachingTip.Content>
+                <StackPanel>
+                    <TextBlock Text="Access notes, quizzes, the Inking Zone and video tutorials using the menu on the left." TextWrapping="Wrap" />
+                </StackPanel>
+            </muxc:TeachingTip.Content>
+        </muxc:TeachingTip>
 
     </Grid>
 </Page>

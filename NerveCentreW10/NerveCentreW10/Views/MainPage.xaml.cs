@@ -48,5 +48,10 @@ namespace NerveCentreW10.Views
         {
             await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://review/?ProductId=9NBLGGGZLR7B"));
         }
+
+        private void TeachTip1_CloseButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
+        {
+
+        }
     }
 }

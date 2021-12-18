@@ -51,5 +51,10 @@ namespace NerveCentreW10.Views
 
             }
         }
+
+        private void ViewScoresButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ViewScores));
+        }
     }
 }

@@ -39,7 +39,6 @@
                 ItemContainerStyle="{StaticResource GridViewItemStyle1}"
                 ItemTemplate="{StaticResource InkingZoneDataTemplate}"
                 ItemsSource="{x:Bind InkingZoneList}"
-                ScrollViewer.VerticalScrollBarVisibility="Auto"
                 Style="{StaticResource GridViewStyle1}" />
         </PivotItem>
         <PivotItem Header="My Saved Annotations">
