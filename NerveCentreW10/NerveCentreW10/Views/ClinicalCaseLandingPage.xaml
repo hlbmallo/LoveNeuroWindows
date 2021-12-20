@@ -39,19 +39,42 @@
             Text="It looks like you're not connected to the internet. Please reconnect to start the test."
             Visibility="Collapsed" />
 
-        <Button
-            Click="Button_Click"
-            Content="Case No. 1: Extreme Fall"
-            Style="{StaticResource ButtonStyle1}" />
-        <Button
-            x:Name="Case2"
-            Click="Case2_Click"
-            Content="Case No. 2: Tremor Presentation"
-            Style="{StaticResource ButtonStyle1}" />
-        <Button
-            x:Name="Case3"
-            Click="Case3_Click"
-            Content="Case No. 3: Drooping Face"
-            Style="{StaticResource ButtonStyle1}" />
+        <StackPanel x:Name="MyStack" HorizontalAlignment="Center">
+            <Button
+                Click="Button_Click"
+                Content="Case No. 1: Extreme Fall"
+                Style="{StaticResource ButtonStyle1}" />
+            <Button
+                x:Name="Case2"
+                Click="Case2_Click"
+                Content="Case No. 2: Tremor Presentation"
+                Style="{StaticResource ButtonStyle1}" />
+            <Button
+                x:Name="Case3"
+                Click="Case3_Click"
+                Content="Case No. 3: Drooping Face"
+                Style="{StaticResource ButtonStyle1}" />
+
+        </StackPanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MyStack.Orientation" Value="Horizontal" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MyStack.Orientation" Value="Vertical" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </StackPanel>
 </Page>

@@ -15,6 +15,9 @@
             x:Key="StringVisibilityConverter"
             EmptyValue="Collapsed"
             NotEmptyValue="Visible" />
+        <Style x:Key="ButtonDetailPageStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="17" />
+        </Style>
     </Page.Resources>
 
     <Grid>
@@ -170,6 +173,7 @@
                         Padding="10,0,10,0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
+                        FontSize="17"
                         FontWeight="Bold"
                         Text="Share:" />
                     <Button
@@ -179,7 +183,7 @@
                         Background="Transparent"
                         Click="ShareTextButton_Click"
                         Content="Text"
-                        Style="{StaticResource ButtonRevealStyle}" />
+                        Style="{StaticResource ButtonDetailPageStyle}" />
                     <Button
                         x:Name="ShareImage1Button"
                         HorizontalAlignment="Stretch"
@@ -187,7 +191,7 @@
                         Background="Transparent"
                         Click="ShareImage1Button_Click"
                         Content="Diagram 1"
-                        Style="{StaticResource ButtonRevealStyle}" />
+                        Style="{StaticResource ButtonDetailPageStyle}" />
                     <Button
                         x:Name="ShareImage2Button"
                         HorizontalAlignment="Stretch"
@@ -195,7 +199,7 @@
                         Background="Transparent"
                         Click="ShareImage2Button_Click"
                         Content="Diagram 2"
-                        Style="{StaticResource ButtonRevealStyle}" />
+                        Style="{StaticResource ButtonDetailPageStyle}" />
                     <AppBarSeparator />
                     <ToggleButton
                         x:Name="FavouritesButton"
@@ -204,6 +208,7 @@
                         Background="Transparent"
                         Click="FavouritesButton_Click"
                         Content="Add Favourite"
+                        FontSize="17"
                         Style="{StaticResource ToggleButtonRevealStyle}" />
                     <AppBarSeparator />
                     <Button
@@ -213,7 +218,7 @@
                         Background="Transparent"
                         Click="ClinicalButton_Click"
                         Content="Clinical Note"
-                        Style="{StaticResource ButtonRevealStyle}"
+                        Style="{StaticResource ButtonDetailPageStyle}"
                         Visibility="{x:Bind Path=overall.Popup1Title, Converter={StaticResource StringVisibilityConverter}}" />
                     <Button
                         x:Name="ResearchButton"
@@ -222,7 +227,7 @@
                         Background="Transparent"
                         Click="ResearchButton_Click"
                         Content="Research Note"
-                        Style="{StaticResource ButtonRevealStyle}"
+                        Style="{StaticResource ButtonDetailPageStyle}"
                         Visibility="{x:Bind Path=overall.Popup2Title, Converter={StaticResource StringVisibilityConverter}}" />
 
 
@@ -233,7 +238,7 @@
                         Background="Transparent"
                         Click="RevisionButton_Click"
                         Content="Revision Note"
-                        Style="{StaticResource ButtonRevealStyle}"
+                        Style="{StaticResource ButtonDetailPageStyle}"
                         Visibility="{x:Bind Path=overall.Popup3Title, Converter={StaticResource StringVisibilityConverter}}" />
 
 

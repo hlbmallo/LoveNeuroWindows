@@ -36,7 +36,7 @@
                 <HyperlinkButton x:Name="RateButton" Click="RateButton_Click">
                     <HyperlinkButton.Content>
                         <TextBlock
-                            Foreground="#ff7201"
+                            Foreground="#01acff"
                             Style="{StaticResource TextBlockStyle1}"
                             Text="Rate and review LoveNeuro" />
                     </HyperlinkButton.Content>
@@ -50,7 +50,7 @@
                         <TextBlock
                             Padding="2"
                             FontSize="16"
-                            Foreground="#ff7201"
+                            Foreground="#01acff"
                             Text="Email a Neuroscience Question"
                             TextWrapping="Wrap" />
                     </HyperlinkButton.Content>
@@ -60,7 +60,7 @@
                         <TextBlock
                             Padding="2"
                             FontSize="16"
-                            Foreground="#ff7201"
+                            Foreground="#01acff"
                             Text="Email a Correction/Idea"
                             TextWrapping="Wrap" />
                     </HyperlinkButton.Content>
@@ -70,7 +70,7 @@
                         <TextBlock
                             Padding="2"
                             FontSize="16"
-                            Foreground="#ff7201"
+                            Foreground="#01acff"
                             Text="Privacy Policy"
                             TextWrapping="Wrap" />
                     </HyperlinkButton.Content>

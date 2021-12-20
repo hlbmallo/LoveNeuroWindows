@@ -38,6 +38,7 @@ namespace NerveCentreW10.Views
             inkingZoneViewModel = new InkingZoneViewModel();
             InkingZoneData();
             Analytics.TrackEvent(this.GetType().Name);
+            TeachTip1.IsOpen = true;
         }
 
         void InkingZoneData()

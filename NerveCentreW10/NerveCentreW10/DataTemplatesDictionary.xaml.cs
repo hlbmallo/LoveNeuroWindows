@@ -37,17 +37,13 @@ namespace NerveCentreW10
         private void MyGrid_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             preElement = sender as FrameworkElement;
-
-            var control = preElement.FindDescendant("MyGrid2");
-            AnimationBuilder.Create().Translation(Axis.Y, to:-10, duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+            AnimationBuilder.Create().Translation(Axis.Y, to:-10, duration: TimeSpan.FromMilliseconds(200)).StartAsync(preElement);
         }
 
         private void MyGrid_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             preElement = sender as FrameworkElement;
-
-            var control = preElement.FindDescendant("MyGrid2");
-            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(preElement);
 
             //    preElement = sender as FrameworkElement;
 
@@ -62,25 +58,19 @@ namespace NerveCentreW10
         private void MyGrid_PointerCanceled(object sender, PointerRoutedEventArgs e)
         {
             preElement = sender as FrameworkElement;
-
-            var control = preElement.FindDescendant("MyGrid2");
-            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(preElement);
         }
 
         private void MyGrid_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
         {
             preElement = sender as FrameworkElement;
-
-            var control = preElement.FindDescendant("MyGrid2");
-            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(preElement);
         }
 
         private void MyGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             preElement = sender as FrameworkElement;
-
-            var control = preElement.FindDescendant("MyGrid2");
-            AnimationBuilder.Create().Translation(Axis.Y, to: -10, duration: TimeSpan.FromMilliseconds(200)).StartAsync(control);
+            AnimationBuilder.Create().Translation(Axis.Y, to: -10, duration: TimeSpan.FromMilliseconds(200)).StartAsync(preElement);
         }
 
         private void MyGrid_PointerReleased(object sender, PointerRoutedEventArgs e)

@@ -119,7 +119,6 @@
             CloseButtonContent="x"
             Content="Choose a diagram to annotate here."
             IsLightDismissEnabled="True"
-            IsOpen="True"
             PreferredPlacement="Top"
             Target="{x:Bind TemplatesHeader}" />
     </Grid>
