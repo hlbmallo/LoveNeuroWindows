@@ -10,6 +10,7 @@
     xmlns:data="using:NerveCentreW10.Models"
     xmlns:local="using:NerveCentreW10.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc1="using:Microsoft.UI.Xaml.Controls"
     xmlns:storage="using:Windows.Storage"
     xmlns:storage1="using:Windows.Storage.FileProperties"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
@@ -21,8 +22,9 @@
         <converters:InkingNameConverter x:Key="inc" />
     </Page.Resources>
 
-    <Pivot>
-        <!--<PivotItem Header="Templates">
+    <Grid>
+        <Pivot>
+            <!--<PivotItem Header="Templates">
             <GridView
                 x:Name="GridView1"
                 ItemClick="GridView1_ItemClick"
@@ -31,69 +33,69 @@
                 ItemsSource="{x:Bind InkingZoneList}"
                 Style="{StaticResource GridViewStyle1}" />
         </PivotItem>-->
-        <PivotItem Header="Templates">
-            <GridView
-                x:Name="GridView1"
-                animations:ItemsReorderAnimation.Duration="00:00:00.5"
-                ItemClick="GridView1_ItemClick"
-                ItemContainerStyle="{StaticResource GridViewItemStyle1}"
-                ItemTemplate="{StaticResource InkingZoneDataTemplate}"
-                ItemsSource="{x:Bind InkingZoneList}"
-                Style="{StaticResource GridViewStyle1}" />
-        </PivotItem>
-        <PivotItem Header="My Saved Annotations">
-            <GridView
-                x:Name="GridViewInkingStrokes"
-                animations:ItemsReorderAnimation.Duration="00:00:00.5"
-                IsItemClickEnabled="True"
-                ItemClick="GridViewInkingStrokes_ItemClick"
-                ItemContainerStyle="{StaticResource GridViewItemStyle1}"
-                Loaded="GridViewInkingStrokes_Loaded"
-                RightTapped="MyGrid_RightTapped"
-                Style="{StaticResource GridViewStyle1}">
-                <GridView.ItemTemplate>
-                    <DataTemplate x:DataType="storage:StorageFile">
-                        <Grid
-                            x:Name="MyInkingGrid"
-                            Width="270"
-                            Height="270"
-                            Padding="10"
-                            PointerCanceled="MyInkingGrid_PointerCanceled"
-                            PointerCaptureLost="MyInkingGrid_PointerCaptureLost"
-                            PointerEntered="MyInkingGrid_PointerEntered"
-                            PointerExited="MyInkingGrid_PointerExited"
-                            PointerPressed="MyInkingGrid_PointerPressed"
-                            PointerReleased="MyInkingGrid_PointerReleased">
-                            <controls:DropShadowPanel
-                                x:Name="MyDropShadow"
-                                HorizontalContentAlignment="Stretch"
-                                VerticalContentAlignment="Stretch"
-                                BlurRadius="20"
-                                OffsetX="0"
-                                OffsetY="0"
-                                Opacity="0"
-                                ShadowOpacity=".4"
-                                Color="Black">
-                                <Grid />
-                            </controls:DropShadowPanel>
+            <PivotItem x:Name="TemplatesHeader" Header="Templates">
+                <GridView
+                    x:Name="GridView1"
+                    animations:ItemsReorderAnimation.Duration="00:00:00.5"
+                    ItemClick="GridView1_ItemClick"
+                    ItemContainerStyle="{StaticResource GridViewItemStyle1}"
+                    ItemTemplate="{StaticResource InkingZoneDataTemplate}"
+                    ItemsSource="{x:Bind InkingZoneList}"
+                    Style="{StaticResource GridViewStyle1}" />
+            </PivotItem>
+            <PivotItem Header="My Saved Annotations">
+                <GridView
+                    x:Name="GridViewInkingStrokes"
+                    animations:ItemsReorderAnimation.Duration="00:00:00.5"
+                    IsItemClickEnabled="True"
+                    ItemClick="GridViewInkingStrokes_ItemClick"
+                    ItemContainerStyle="{StaticResource GridViewItemStyle1}"
+                    Loaded="GridViewInkingStrokes_Loaded"
+                    RightTapped="MyGrid_RightTapped"
+                    Style="{StaticResource GridViewStyle1}">
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="storage:StorageFile">
                             <Grid
-                                x:Name="MyGrid2"
-                                Margin="10"
-                                ui:VisualExtensions.NormalizedCenterPoint="0.5"
-                                Background="#ebebeb"
-                                BorderBrush="Black"
-                                BorderThickness="2"
-                                CornerRadius="10">
-                                <TextBlock
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    FontSize="16"
-                                    FontWeight="Bold"
-                                    Foreground="#2b2b2b"
-                                    Text="{Binding DisplayName}"
-                                    TextAlignment="Center"
-                                    TextWrapping="Wrap" />
-                                <!--<StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                x:Name="MyInkingGrid"
+                                Width="270"
+                                Height="270"
+                                Padding="10"
+                                PointerCanceled="MyInkingGrid_PointerCanceled"
+                                PointerCaptureLost="MyInkingGrid_PointerCaptureLost"
+                                PointerEntered="MyInkingGrid_PointerEntered"
+                                PointerExited="MyInkingGrid_PointerExited"
+                                PointerPressed="MyInkingGrid_PointerPressed"
+                                PointerReleased="MyInkingGrid_PointerReleased">
+                                <controls:DropShadowPanel
+                                    x:Name="MyDropShadow"
+                                    HorizontalContentAlignment="Stretch"
+                                    VerticalContentAlignment="Stretch"
+                                    BlurRadius="20"
+                                    OffsetX="0"
+                                    OffsetY="0"
+                                    Opacity="0"
+                                    ShadowOpacity=".4"
+                                    Color="Black">
+                                    <Grid />
+                                </controls:DropShadowPanel>
+                                <Grid
+                                    x:Name="MyGrid2"
+                                    Margin="10"
+                                    ui:VisualExtensions.NormalizedCenterPoint="0.5"
+                                    Background="#ebebeb"
+                                    BorderBrush="Black"
+                                    BorderThickness="1"
+                                    CornerRadius="10">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        Foreground="#2b2b2b"
+                                        Text="{Binding DisplayName}"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap" />
+                                    <!--<StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
                                     <Button
                                         x:Name="DeleteButton"
                                         Margin="5"
@@ -103,12 +105,22 @@
                                         </Button.Content>
                                     </Button>
                                 </StackPanel>-->
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-            </GridView>
-        </PivotItem>
-    </Pivot>
-
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </PivotItem>
+        </Pivot>
+        <muxc1:TeachingTip
+            x:Name="TeachTip1"
+            Title="Annotate (1/2)"
+            CloseButtonClick="TeachTip1_CloseButtonClick"
+            CloseButtonContent="x"
+            Content="Choose a diagram to annotate here."
+            IsLightDismissEnabled="True"
+            IsOpen="True"
+            PreferredPlacement="Top"
+            Target="{x:Bind TemplatesHeader}" />
+    </Grid>
 </Page>

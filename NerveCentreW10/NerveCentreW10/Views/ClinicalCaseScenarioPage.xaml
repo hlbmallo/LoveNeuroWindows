@@ -48,7 +48,7 @@
                             VerticalAlignment="Center"
                             Background="White"
                             BorderBrush="Black"
-                            BorderThickness="2"
+                            BorderThickness="1"
                             CornerRadius="10">
                             <StackPanel Margin="10">
                                 <TextBlock

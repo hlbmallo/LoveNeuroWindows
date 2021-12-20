@@ -39,6 +39,7 @@
                 <TextBlock
                     x:Name="AppTitle"
                     Margin="12,0,0,0"
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Text="LoveNeuro" />
             </StackPanel>
@@ -51,43 +52,52 @@
             IsTitleBarAutoPaddingEnabled="False"
             ItemInvoked="NavView_ItemInvoked"
             Loaded="NavView_Loaded">
+            <!--<muxc:NavigationView.PaneHeader>
+                <TextBlock
+                    Margin="5"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="18"
+                    FontWeight="SemiBold"
+                    Text="LoveNeuro" />
+            </muxc:NavigationView.PaneHeader>-->
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem
                     x:Name="Home"
                     Content="Home"
                     Tag="s0">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE80F;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE80F;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItem Content="1.0. - 4.0. Notes" Tag="s1">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8FF;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe70b;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItem Content="5.0. Quizzes" Tag="s5">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE897;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE897;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItem Content="6.0. Inking Zone" Tag="s6">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE70F;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE70F;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItem Content="7.0. Video Tutorials" Tag="s7">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE714;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE714;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItem Content="8.0. Clinical Cases" Tag="s8">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8B7;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE8B7;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItem Content="9.0. More Resources" Tag="s9">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE712;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE712;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItemSeparator />
@@ -96,7 +106,7 @@
                     Content="Favourites"
                     Tag="fav">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE734;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE734;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
                 <muxc:NavigationViewItem
@@ -104,7 +114,7 @@
                     Content="Quiz Scores"
                     Tag="sco">
                     <muxc:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE133;" />
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE133;" />
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
             </muxc:NavigationView.MenuItems>
@@ -123,6 +133,7 @@
             <muxc:NavigationView.HeaderTemplate>
                 <DataTemplate>
                     <TextBlock
+                        Margin="-30,0,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         FontWeight="SemiLight"
@@ -178,6 +189,7 @@
                         <Setter Target="MainPagesHeader.Visibility" Value="Collapsed" />-->
                         <!--  Leave the next line for left-only navigation.  -->
                         <Setter Target="ContentFrame.Padding" Value="24,0,24,24" />
+                        <!--<Setter Target="AppFontIcon.Visibility" Value="Visible" />-->
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

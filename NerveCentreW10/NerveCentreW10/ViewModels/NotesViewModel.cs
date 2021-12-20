@@ -15,25 +15,25 @@ namespace NerveCentreW10.ViewModels
             NotesList.Add(new NotesClass
             {
                 NotesTitle = "Section 1.0. At The Cellular Level",
-                NotesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconCells.png")),
+                NotesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/iconcells.png")),
                 NotesLink = typeof(Section1CellsMenu),
             });
             NotesList.Add(new NotesClass
             {
                 NotesTitle = "Section 2.0. The Central Nervous System",
-                NotesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconCNS.png")),
+                NotesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/iconcns.png")),
                 NotesLink = typeof(Section2CentralMenu),
             });
             NotesList.Add(new NotesClass
             {
                 NotesTitle = "Section 3.0. The Peripheral Nervous System",
-                NotesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconPNS.png")),
+                NotesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/iconpns.png")),
                 NotesLink = typeof(Section3PeripheralMenu),
             });
             NotesList.Add(new NotesClass
             {
                 NotesTitle = "Section 4.0. Neurological Disorders",
-                NotesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/IconDisorders.png")),
+                NotesImage = new BitmapImage(new Uri("ms-appx:///Assets/Icons/icondisorders.png")),
                 NotesLink = typeof(Section4DisordersMenu),
             });
         }

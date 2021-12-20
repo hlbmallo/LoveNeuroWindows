@@ -550,14 +550,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\Icons\iconcells.png" />
     <Content Include="Assets\Icons\iconclinical.png" />
+    <Content Include="Assets\Icons\iconcns.png" />
+    <Content Include="Assets\Icons\icondisorders.png" />
+    <Content Include="Assets\Icons\iconpns.png" />
     <Content Include="Assets\Icons\iconrevision.png" />
     <Content Include="Assets\Icons\IconTGA.png" />
-    <Content Include="Assets\Icons\IconCells.png" />
-    <Content Include="Assets\Icons\IconCNS.png" />
     <Content Include="Assets\Icons\IconNeuroDictionary.png" />
-    <Content Include="Assets\Icons\IconDisorders.png" />
-    <Content Include="Assets\Icons\IconPNS.png" />
     <Content Include="Assets\Icons\IconRecommendedReading.png" />
     <Content Include="Assets\Icons\iconresearch.png" />
     <Content Include="Assets\Icons\SettingsIcon256.png" />
@@ -569,10 +569,9 @@
     <Content Include="Assets\LargeTile.scale-400.png" />
     <Content Include="Assets\LN1.png" />
     <Content Include="Assets\Others\ErrorPlaceholder.png" />
-    <Content Include="Assets\Others\FirstRunDialogLoveNeuroNo1.png" />
+    <Content Include="Assets\Others\LN6.png" />
     <Content Include="Assets\Others\LoadingPlaceholder.png" />
     <Content Include="Assets\Others\HeaderLogo.png" />
-    <Content Include="Assets\Others\Welcome7.png" />
     <Content Include="Assets\Quizzes\quiz8image.png" />
     <Content Include="Assets\Quizzes\quiz7image.png" />
     <Content Include="Assets\Quizzes\quiz6image.png" />

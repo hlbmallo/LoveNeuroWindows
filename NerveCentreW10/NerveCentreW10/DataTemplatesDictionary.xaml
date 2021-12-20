@@ -44,17 +44,17 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="10">
+                BorderThickness="1"
+                CornerRadius="20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.6*" />
-                    <RowDefinition Height="0.4*" />
+                    <RowDefinition Height="0.7*" />
+                    <RowDefinition Height="0.3*" />
                 </Grid.RowDefinitions>
 
                 <controls:ImageEx
                     x:Name="MyImage"
                     Grid.Row="0"
-                    MaxHeight="80"
+                    MaxHeight="110"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     HorizontalContentAlignment="Center"
@@ -114,8 +114,8 @@
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="10">
+                BorderThickness="1"
+                CornerRadius="20">
                 <controls:ImageEx
                     x:Name="MyImage"
                     MinHeight="80"
@@ -177,8 +177,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="10">
+                BorderThickness="1"
+                CornerRadius="20">
                 <StackPanel VerticalAlignment="Center">
                     <TextBlock
                         HorizontalAlignment="Center"
@@ -233,8 +233,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="10">
+                BorderThickness="1"
+                CornerRadius="20">
                 <controls:ImageEx x:Name="MyImage" Source="{Binding InkingZoneImageName, Converter={StaticResource cloudHelper}}" />
                 <Border
                     x:Name="MyBorder2"
@@ -290,8 +290,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="10">
+                BorderThickness="1"
+                CornerRadius="20">
                 <controls:ImageEx
                     x:Name="MyImage"
                     Source="{Binding VideoTutorialsThumbnail}"
@@ -348,8 +348,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="10">
+                BorderThickness="1"
+                CornerRadius="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.6*" />
                     <RowDefinition Height="0.4*" />
@@ -416,8 +416,8 @@
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 Background="White"
                 BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="10">
+                BorderThickness="1"
+                CornerRadius="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.6*" />
                     <RowDefinition Height="0.4*" />
@@ -482,8 +482,8 @@
                 Margin="10"
                 ui:VisualExtensions.NormalizedCenterPoint="0.5"
                 BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="10">
+                BorderThickness="1"
+                CornerRadius="20">
                 <controls:ImageEx
                     x:Name="MyImage"
                     MinHeight="80"

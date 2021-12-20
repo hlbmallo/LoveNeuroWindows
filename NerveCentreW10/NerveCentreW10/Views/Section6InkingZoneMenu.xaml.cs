@@ -308,6 +308,11 @@ namespace NerveCentreW10.Views
             //await a.DeleteAsync();
             //loaded1();
         }
+
+        private void TeachTip1_CloseButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
+        {
+
+        }
     }
 }
 
