@@ -52,14 +52,16 @@
                             CornerRadius="10">
                             <StackPanel Margin="10">
                                 <TextBlock
-                                    Margin="0,0,0,10" TextWrapping="Wrap"
+                                    Margin="0,0,0,10"
                                     Style="{StaticResource TextBlockStyle1}"
-                                    Text="{x:Bind OpeningStatement, Mode=TwoWay}" />
+                                    Text="{x:Bind OpeningStatement, Mode=TwoWay}"
+                                    TextWrapping="Wrap" />
                                 <TextBlock
                                     Margin="0,0,0,10"
-                                    FontWeight="Bold" TextWrapping="Wrap"
+                                    FontWeight="Bold"
                                     Style="{StaticResource TextBlockStyle1}"
-                                    Text="{x:Bind Question, Mode=TwoWay}" />
+                                    Text="{x:Bind Question, Mode=TwoWay}"
+                                    TextWrapping="Wrap" />
                                 <StackPanel Margin="0,0,0,10">
                                     <RadioButton
                                         Content="{x:Bind Answer1, Mode=TwoWay}"
@@ -109,7 +111,7 @@
                 Margin="2"
                 HorizontalAlignment="Center"
                 HorizontalContentAlignment="Center"
-                Background="#ff7201"
+                Background="Turquoise"
                 Command="{x:Bind viewModel.SubmitCommand, Mode=TwoWay}"
                 Content="Submit" />
             <StackPanel Orientation="Horizontal">

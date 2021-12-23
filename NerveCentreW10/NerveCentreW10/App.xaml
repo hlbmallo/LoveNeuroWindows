@@ -93,6 +93,7 @@
                 <Setter Property="BorderBrush" Value="Black" />
                 <Setter Property="FontSize" Value="17" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Background" Value="Turquoise" />
             </Style>
 
             <Style x:Key="QuestionTextStyle" TargetType="TextBlock">
@@ -112,8 +113,8 @@
             <AcrylicBrush
                 x:Key="DetailPageCommandbarAcrylic1"
                 BackgroundSource="Backdrop"
-                FallbackColor="#d7d7d7"
-                TintColor="#d7d7d7"
+                FallbackColor="Turquoise"
+                TintColor="Turquoise"
                 TintOpacity="0.45" />
             <AcrylicBrush
                 x:Key="GridViewAcrylic1"
@@ -134,6 +135,10 @@
                 TintColor="LightGray"
                 TintOpacity=".9" />-->
 
+            <SolidColorBrush x:Key="PivotHeaderItemSelectedPipeFill" Color="Turquoise" />
+            <SolidColorBrush x:Key="ToggleButtonRevealBackground" Color="Turquoise" />
+            <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="Turquoise" />
+
             <ResourceDictionary.MergedDictionaries>
 
                 <ResourceDictionary Source="/Styles/_Colors.xaml" />
@@ -151,13 +156,13 @@
 
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">
-                    <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="#01acff" />
+                    <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="Turquoise" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Dark">
-                    <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="#01acff" />
+                    <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="Turquoise" />
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Light">
-                    <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="#01acff" />
+                    <SolidColorBrush x:Key="SystemControlHighlightAccentBrush" Color="Turquoise" />
                 </ResourceDictionary>
 
             </ResourceDictionary.ThemeDictionaries>

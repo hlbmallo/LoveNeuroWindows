@@ -60,7 +60,8 @@
                 Padding="10"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Background="Transparent">
+                Background="Turquoise">
+
                 <TextBlock
                     x:Name="MyTextBlock"
                     HorizontalAlignment="Center"
@@ -113,7 +114,9 @@
                 Padding="10"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Bottom"
-                Background="{StaticResource GridViewAcrylic1}">
+                Background="Turquoise">
+
+
                 <TextBlock
                     x:Name="MyTextBlock"
                     HorizontalAlignment="Center"
@@ -151,7 +154,7 @@
                     VerticalAlignment="Center"
                     FontSize="17"
                     FontWeight="Normal"
-                    Foreground="#01acff"
+                    Foreground="Turquoise"
                     Text="{x:Bind QuizNumber}"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
@@ -200,7 +203,7 @@
                 Padding="10"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Bottom"
-                Background="{StaticResource GridViewAcrylic1}">
+                Background="Turquoise">
                 <TextBlock
                     x:Name="MyTextBlock"
                     HorizontalAlignment="Center"
@@ -250,7 +253,7 @@
                 Padding="10"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Bottom"
-                Background="{StaticResource GridViewAcrylic1}">
+                Background="Turquoise">
                 <TextBlock
                     x:Name="MyTextBlock"
                     HorizontalAlignment="Center"
@@ -300,7 +303,7 @@
                 Padding="10"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Background="Transparent">
+                Background="Turquoise">
                 <TextBlock
                     x:Name="MyTextBlock"
                     HorizontalAlignment="Center"
@@ -351,7 +354,7 @@
                 Padding="10"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Background="{StaticResource GridViewAcrylic1}">
+                Background="Turquoise">
                 <TextBlock
                     x:Name="MyTextBlock"
                     HorizontalAlignment="Center"
@@ -402,7 +405,7 @@
                 Padding="10"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Bottom"
-                Background="{StaticResource GridViewAcrylic1}">
+                Background="Turquoise">
                 <TextBlock
                     x:Name="MyTextBlock"
                     HorizontalAlignment="Center"

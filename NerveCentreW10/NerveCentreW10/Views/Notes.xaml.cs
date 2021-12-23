@@ -1,9 +1,11 @@
 ﻿using Microsoft.AppCenter.Analytics;
+using NerveCentreW10.Helpers;
 using NerveCentreW10.Models;
 using NerveCentreW10.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -23,6 +25,12 @@ namespace NerveCentreW10.Views
             this.InitializeComponent();
             Analytics.TrackEvent(this.GetType().Name);
             ViewModel = new NotesViewModel();
+            //var cloudClass = new CloudClass();
+            //this.Background = new ImageBrush
+            //{
+            //    ImageSource = new BitmapImage(new Uri(cloudClass.GetBlobSasUri("LN3.png")))
+            //};
+
         }
 
         private void GridView1_ItemClick(object sender, ItemClickEventArgs e)

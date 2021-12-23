@@ -17,6 +17,7 @@
             NotEmptyValue="Visible" />
         <Style x:Key="ButtonDetailPageStyle" TargetType="Button">
             <Setter Property="FontSize" Value="17" />
+            <Setter Property="BorderBrush" Value="Transparent" />
         </Style>
     </Page.Resources>
 
