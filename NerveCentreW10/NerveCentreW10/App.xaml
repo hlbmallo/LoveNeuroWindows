@@ -138,6 +138,8 @@
             <SolidColorBrush x:Key="PivotHeaderItemSelectedPipeFill" Color="Turquoise" />
             <SolidColorBrush x:Key="ToggleButtonRevealBackground" Color="Turquoise" />
             <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="Turquoise" />
+            <Color x:Key="SystemAccentColor">Turquoise</Color>
+            <!--  Your accent color  -->
 
             <ResourceDictionary.MergedDictionaries>
 

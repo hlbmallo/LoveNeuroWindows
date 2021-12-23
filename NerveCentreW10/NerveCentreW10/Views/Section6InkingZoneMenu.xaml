@@ -112,7 +112,7 @@
                 </GridView>
             </PivotItem>
         </Pivot>
-        <muxc1:TeachingTip
+        <!--<muxc1:TeachingTip
             x:Name="TeachTip1"
             Title="Annotate (1/2)"
             CloseButtonClick="TeachTip1_CloseButtonClick"
@@ -120,6 +120,6 @@
             Content="Choose a diagram to annotate here."
             IsLightDismissEnabled="True"
             PreferredPlacement="Top"
-            Target="{x:Bind TemplatesHeader}" />
+            Target="{x:Bind TemplatesHeader}" />-->
     </Grid>
 </Page>

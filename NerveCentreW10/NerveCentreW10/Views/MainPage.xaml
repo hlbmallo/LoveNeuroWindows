@@ -29,7 +29,7 @@
             <controls:ImageEx
                 x:Name="welcomeImage"
                 CornerRadius="20"
-                Stretch="Uniform" />
+                Stretch="UniformToFill" />
         </Grid>
         <Grid
             Grid.Row="1"

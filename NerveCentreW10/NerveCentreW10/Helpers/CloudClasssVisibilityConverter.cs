@@ -28,11 +28,9 @@ namespace NerveCentreW10.Helpers
             else
             {
                 var imageSource = new BitmapImage();
-                imageSource.UriSource = new Uri("https://thegoofyanatomist.weebly.com/uploads/3/0/9/9/30995885/editor/monochrome-on-transparent.png?1626979715");
+                imageSource.UriSource = new Uri("ms-appx:///Assets/Others/LN19.png");
                 return imageSource;
             }
-       
-            
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
