@@ -1,6 +1,8 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using NerveCentreW10.Models;
 using NerveCentreW10.ViewModels;
+using System;
+using System.Net.NetworkInformation;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
@@ -22,10 +24,28 @@ namespace NerveCentreW10.Views
             ViewModel = new VideoTutorialsViewModel();
         }
 
-        private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
+        private async void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var MyClickedItem = (VideoTutorialsClass)e.ClickedItem;
-            Frame.Navigate(typeof(VideoTutorialsDetail), MyClickedItem, new DrillInNavigationTransitionInfo());
+            bool isNetworkConnected = NetworkInterface.GetIsNetworkAvailable();
+            if (isNetworkConnected == true)
+            {
+                var MyClickedItem = (VideoTutorialsClass)e.ClickedItem;
+                Frame.Navigate(typeof(VideoTutorialsDetail), MyClickedItem, new DrillInNavigationTransitionInfo());
+            }
+            else
+            {
+                var dialog = new ContentDialog();
+                dialog.Title = "Error: No Internet Connection";
+                dialog.Content = "Looks like you're not connected to the Internet at the moment. Once you've reconnected, try clicking this video tutorial again.";
+                dialog.CloseButtonText = "Close";
+                dialog.CloseButtonClick += Dialog_CloseButtonClick;
+                await dialog.ShowAsync();
+            }
+        }
+
+        private void Dialog_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            Frame.GoBack();
         }
     }
 }

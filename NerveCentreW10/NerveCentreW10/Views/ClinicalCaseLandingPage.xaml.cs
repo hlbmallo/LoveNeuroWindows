@@ -1,5 +1,8 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using System.Net.NetworkInformation;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -17,19 +20,62 @@ namespace NerveCentreW10.Views
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ClinicalCaseScenarioPage), "case1");
+            bool isNetworkConnected = NetworkInterface.GetIsNetworkAvailable();
+            if (isNetworkConnected == true)
+            {
+                Frame.Navigate(typeof(ClinicalCaseScenarioPage), "case1", new DrillInNavigationTransitionInfo());
+            }
+            else
+            {
+                var dialog = new ContentDialog();
+                dialog.Title = "Error: No Internet Connection";
+                dialog.Content = "Looks like you're not connected to the Internet at the moment. Once you've reconnected, try clicking this Clinical Case again.";
+                dialog.CloseButtonText = "Close";
+                dialog.CloseButtonClick += Dialog_CloseButtonClick;
+                await dialog.ShowAsync();
+            }
         }
 
-        private void Case2_Click(object sender, RoutedEventArgs e)
+        private void Dialog_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            Frame.Navigate(typeof(ClinicalCaseScenarioPage), "case2");
+            Frame.GoBack();
         }
 
-        private void Case3_Click(object sender, RoutedEventArgs e)
+        private async void Case2_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ClinicalCaseScenarioPage), "case3");
+            bool isNetworkConnected = NetworkInterface.GetIsNetworkAvailable();
+            if (isNetworkConnected == true)
+            {
+                Frame.Navigate(typeof(ClinicalCaseScenarioPage), "case2", new DrillInNavigationTransitionInfo());
+            }
+            else
+            {
+                var dialog = new ContentDialog();
+                dialog.Title = "Error: No Internet Connection";
+                dialog.Content = "Looks like you're not connected to the Internet at the moment. Once you've reconnected, try clicking this Clinical Case again.";
+                dialog.CloseButtonText = "Close";
+                dialog.CloseButtonClick += Dialog_CloseButtonClick;
+                await dialog.ShowAsync();
+            }
+        }
+        private async void Case3_Click(object sender, RoutedEventArgs e)
+        {
+            bool isNetworkConnected = NetworkInterface.GetIsNetworkAvailable();
+            if (isNetworkConnected == true)
+            {
+                Frame.Navigate(typeof(ClinicalCaseScenarioPage), "case3", new DrillInNavigationTransitionInfo());
+            }
+            else
+            {
+                var dialog = new ContentDialog();
+                dialog.Title = "Error: No Internet Connection";
+                dialog.Content = "Looks like you're not connected to the Internet at the moment. Once you've reconnected, try clicking this Clinical Case again.";
+                dialog.CloseButtonText = "Close";
+                dialog.CloseButtonClick += Dialog_CloseButtonClick;
+                await dialog.ShowAsync();
+            }
         }
     }
 }

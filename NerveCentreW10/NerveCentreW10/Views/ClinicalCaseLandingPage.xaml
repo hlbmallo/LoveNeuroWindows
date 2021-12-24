@@ -21,7 +21,6 @@
         CornerRadius="10">
         <TextBlock
             HorizontalAlignment="Center"
-            FontWeight="Bold"
             HorizontalTextAlignment="Center"
             Style="{StaticResource HeaderTextBlockStyle}"
             Text="Welcome to Clinical Cases" />
@@ -34,7 +33,7 @@
             x:Name="internetConnectionStatusText"
             HorizontalAlignment="Center"
             FontWeight="Bold"
-            Foreground="#ff7201"
+            Foreground="Turquoise"
             HorizontalTextAlignment="Center"
             Text="It looks like you're not connected to the internet. Please reconnect to start the test."
             Visibility="Collapsed" />

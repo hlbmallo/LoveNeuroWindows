@@ -8,7 +8,7 @@
     Title="Completed"
     CornerRadius="10"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    PrimaryButtonText="Back"
+    PrimaryButtonText="Close"
     mc:Ignorable="d">
 
     <StackPanel>

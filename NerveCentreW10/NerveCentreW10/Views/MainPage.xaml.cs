@@ -8,6 +8,7 @@ using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.Essentials;
 
 namespace NerveCentreW10.Views
 {
@@ -19,6 +20,7 @@ namespace NerveCentreW10.Views
             CloudClass cloudClass = new CloudClass();
             welcomeImage.Source = cloudClass.GetBlobSasUri("LN15.png");
             welcomeImage2.Source = cloudClass.GetBlobSasUri("LN16.png");
+            loaded2();
 
             //welcomeText.Source = "This educational app has been designed by a student, for students, with the aim of teaching neuroscience in a clear, concise and easy - to - understand way.I'd love to hear what you think about LoveNeuro, so please feel free to rate and review the app in the Microsoft Store. Thanks for your support.<br/>";
         }
@@ -51,12 +53,7 @@ namespace NerveCentreW10.Views
 
         private async void RateAndReviewButton_Click(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://review/?ProductId=9NBLGGGZLR7B"));
-        }
-
-        private void TeachTip1_CloseButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
-        {
-
+            await Windows.System.Launcher.LaunchUriAsync(new Uri($"ms-windows-store://review/?ProductId=9NBLGGGZLR7B"));
         }
 
         private void MyMPE_Loaded(object sender, RoutedEventArgs e)
@@ -68,6 +65,40 @@ namespace NerveCentreW10.Views
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             MyMPE.MediaPlayer.Pause();
+        }
+
+        void loaded2()
+        {
+            var prefs = Preferences.Get("firstlaunch", true);
+
+            if (prefs == true)//should be true for release version.
+            {
+                if (VersionTracking.IsFirstLaunchEver == true)//should be true for release version.
+                {
+                    Preferences.Set("firstlaunch", true);
+                    TeachTip1.IsOpen = true;
+                    Preferences.Set("firstlaunch", false);
+                };
+            }
+            else
+            {
+                TeachTip1.IsOpen = false;
+            }
+        }
+
+        private void TeachTip1_CloseButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
+        {
+
+        }
+
+        private void welcomeImage_ImageExFailed(object sender, Microsoft.Toolkit.Uwp.UI.Controls.ImageExFailedEventArgs e)
+        {
+            welcomeImage.Source = "ms-appx:///Assets/Others/ErrorPlaceholder.png";
+        }
+
+        private void welcomeImage2_ImageExFailed(object sender, Microsoft.Toolkit.Uwp.UI.Controls.ImageExFailedEventArgs e)
+        {
+            welcomeImage2.Source = "ms-appx:///Assets/Others/ErrorPlaceholder.png";
         }
     }
 }

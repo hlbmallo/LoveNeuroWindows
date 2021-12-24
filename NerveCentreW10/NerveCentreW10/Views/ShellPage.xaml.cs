@@ -29,11 +29,6 @@ namespace NerveCentreW10.Views
         public ShellPage()
         {
             InitializeComponent();
-
-            //if(VersionTracking.IsFirstLaunchForCurrentVersion == true)
-            //{
-                //TeachTip1.IsOpen = true;
-            //}
             
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
 
@@ -59,10 +54,10 @@ namespace NerveCentreW10.Views
             //Register a handler for when the window changes focus
             Window.Current.Activated += Current_Activated;
 
-            Loaded();
+            Loaded2();
         }
 
-        async void Loaded()
+        async void Loaded2()
         {
             await FirstRunDisplayService.ShowIfAppropriateAsync();
             await WhatsNewDisplayService.ShowIfAppropriateAsync();
@@ -318,18 +313,6 @@ namespace NerveCentreW10.Views
                 NavView.Header =
                     ((muxc.NavigationViewItem)NavView.SelectedItem)?.Content?.ToString();
             }
-        }
-
-        private void TeachTip1_CloseButtonClick(muxc.TeachingTip sender, object args)
-        {
-            TeachTip1.IsOpen = false;
-            TeachTip2.IsOpen = true;
-        }
-
-        private void TeachTip2_CloseButtonClick(muxc.TeachingTip sender, object args)
-        {
-            TeachTip2.IsOpen = false;
-            TeachTip3.IsOpen = true;
         }
     }
 }

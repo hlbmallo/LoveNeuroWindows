@@ -112,7 +112,7 @@ namespace NerveCentreW10.Views
         //    GridView1.ItemsSource = QuizListList;
         //}
 
-        private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
+        private async void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
             bool isNetworkConnected = NetworkInterface.GetIsNetworkAvailable();
             if (isNetworkConnected == true)
@@ -122,8 +122,18 @@ namespace NerveCentreW10.Views
             }
             else
             {
-                UserDialogs.Instance.Alert("Looks like you're not connected to the Internet at the moment. Once you've reconnected, try clicking this quiz again.", "No Internet Connection","Ok");
+                var dialog = new ContentDialog();
+                dialog.Title = "Error: No Internet Connection";
+                dialog.Content = "Looks like you're not connected to the Internet at the moment. Once you've reconnected, try clicking this quiz again.";
+                dialog.CloseButtonText = "Close";
+                dialog.CloseButtonClick += Dialog_CloseButtonClick;
+                await dialog.ShowAsync();
             }
+        }
+
+        private void Dialog_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            Frame.GoBack();
         }
 
         private void ViewScoresButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

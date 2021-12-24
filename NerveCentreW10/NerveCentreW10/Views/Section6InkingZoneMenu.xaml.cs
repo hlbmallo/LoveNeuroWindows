@@ -15,6 +15,8 @@ using Windows.Storage.FileProperties;
 using Newtonsoft.Json;
 using Windows.UI.Xaml.Navigation;
 using NerveCentreW10.Commands;
+using Windows.UI.Xaml.Media.Animation;
+using System.Net.NetworkInformation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -130,11 +132,29 @@ namespace NerveCentreW10.Views
             });
         }
 
-        private void GridView1_ItemClick(object sender, ItemClickEventArgs e)
+        private async void GridView1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var MyClickedItem = (InkingZoneClassDetail)e.ClickedItem;
+            bool isNetworkConnected = NetworkInterface.GetIsNetworkAvailable();
+            if (isNetworkConnected == true)
+            {
+                var MyClickedItem = (InkingZoneClassDetail)e.ClickedItem;
 
-            Frame.Navigate(typeof(InkingZoneDetail2), MyClickedItem);
+                Frame.Navigate(typeof(InkingZoneDetail2), MyClickedItem, new DrillInNavigationTransitionInfo());
+            }
+            else
+            {
+                var dialog = new ContentDialog();
+                dialog.Title = "Error: No Internet Connection";
+                dialog.Content = "Looks like you're not connected to the Internet at the moment. Once you've reconnected, try clicking this inking template again.";
+                dialog.CloseButtonText = "Close";
+                dialog.CloseButtonClick += Dialog_CloseButtonClick;
+                await dialog.ShowAsync();
+            }
+        }
+
+        private void Dialog_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            Frame.GoBack();
         }
 
         private async void GridViewInkingStrokes_ItemClick(object sender, ItemClickEventArgs e)
