@@ -45,7 +45,7 @@
         <syncfusion:SfImageEditor
             x:Name="MyIE"
             Grid.Row="1"
-            CornerRadius="10"
+            CornerRadius="20"
             ImageSaving="MyIE_ImageSaving">
             <syncfusion:SfImageEditor.ToolbarSettings>
                 <syncfusion:ToolbarSettings HeaderToolbarHeight="0" />

@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="345"
     d:DesignWidth="550"
-    CornerRadius="10"
+    CornerRadius="20"
     PrimaryButtonText="Ok"
     mc:Ignorable="d">
     <ContentDialog.TitleTemplate>

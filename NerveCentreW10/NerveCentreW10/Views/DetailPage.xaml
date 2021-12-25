@@ -42,7 +42,7 @@
                     Background="White"
                     BorderBrush="Black"
                     BorderThickness="1"
-                    CornerRadius="10">
+                    CornerRadius="20">
                     <TextBlock
                         x:Name="Title"
                         Margin="0"
@@ -55,7 +55,7 @@
                     Background="White"
                     BorderBrush="Black"
                     BorderThickness="1"
-                    CornerRadius="10">
+                    CornerRadius="20">
                     <TextBlock x:Name="Subtitle1" Style="{StaticResource TitleTextBlockStyle}" />
                     <!--<Border Style="{StaticResource BorderLine1}" />-->
                     <controls2:HtmlBlock
@@ -71,7 +71,7 @@
                     Background="White"
                     BorderBrush="Black"
                     BorderThickness="1"
-                    CornerRadius="10">
+                    CornerRadius="20">
                     <TextBlock
                         x:Name="Subtitle2"
                         Style="{StaticResource TitleTextBlockStyle}"
@@ -112,7 +112,7 @@
                     Background="White"
                     BorderBrush="Black"
                     BorderThickness="1"
-                    CornerRadius="10">
+                    CornerRadius="20">
                     <TextBlock
                         x:Name="Subtitle3"
                         Style="{StaticResource TitleTextBlockStyle}"
@@ -163,7 +163,7 @@
             Background="{ThemeResource DetailPageCommandbarAcrylic1}"
             BorderBrush="Black"
             BorderThickness="1"
-            CornerRadius="10">
+            CornerRadius="20">
             <ScrollViewer
                 HorizontalScrollBarVisibility="Auto"
                 HorizontalScrollMode="Enabled"

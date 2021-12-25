@@ -6,7 +6,7 @@
     xmlns:local="using:NerveCentreW10.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Completed"
-    CornerRadius="10"
+    CornerRadius="20"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     PrimaryButtonText="Close"
     mc:Ignorable="d">

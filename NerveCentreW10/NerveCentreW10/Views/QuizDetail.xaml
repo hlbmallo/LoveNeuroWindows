@@ -73,7 +73,7 @@
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Center"
             Background="Transparent"
-            CornerRadius="10"
+            CornerRadius="20"
             ItemsSource="{Binding rootobject, Mode=TwoWay}"
             SelectionMode="None">
             <ListView.ItemTemplate>
@@ -86,10 +86,10 @@
                             Background="White"
                             BorderBrush="Black"
                             BorderThickness="1"
-                            CornerRadius="10">
+                            CornerRadius="20">
                             <StackPanel
                                 HorizontalAlignment="Stretch"
-                                CornerRadius="10"
+                                CornerRadius="20"
                                 Style="{StaticResource StackPanelForQuestions}">
                                 <TextBlock
                                     x:Name="QQ"
@@ -157,7 +157,7 @@
             Grid.ColumnSpan="2"
             Height="48"
             Background="{ThemeResource DetailPageCommandbarAcrylic1}"
-            CornerRadius="10">
+            CornerRadius="20">
             <StackPanel Orientation="Horizontal">
                 <ToggleButton
                     x:Name="SubmitButton"

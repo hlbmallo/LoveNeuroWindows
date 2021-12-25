@@ -85,7 +85,7 @@
                                     Background="#ebebeb"
                                     BorderBrush="Black"
                                     BorderThickness="1"
-                                    CornerRadius="10">
+                                    CornerRadius="20">
                                     <TextBlock
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
