@@ -16,6 +16,6 @@
             Width="100"
             Height="150"
             Source="ms-appx:///Assets/Icons/iconresearch.png" />
-        <controls1:HtmlBlock x:Name="ResearchText" />
+        <controls1:HtmlBlock x:Name="ResearchText" Style="{StaticResource HTMLBlockTextStyle1}"/>
     </StackPanel>
 </ContentDialog>

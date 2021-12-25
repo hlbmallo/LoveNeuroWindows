@@ -17,6 +17,6 @@
             Width="100"
             Height="150"
             Source="ms-appx:///Assets/Icons/iconrevision.png" />
-        <controls1:HtmlBlock x:Name="RevisionText" />
+        <controls1:HtmlBlock x:Name="RevisionText" Style="{StaticResource HTMLBlockTextStyle1}" />
     </StackPanel>
 </ContentDialog>

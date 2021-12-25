@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="Black" />
+        <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="Turquoise" />
         <!--<SolidColorBrush x:Key="NavigationViewContentBackground" Color="LightGreen" />-->
         <CornerRadius x:Key="NavigationViewContentGridCornerRadius">0</CornerRadius>
         <!--  This top margin is the height of the custom TitleBar  -->
