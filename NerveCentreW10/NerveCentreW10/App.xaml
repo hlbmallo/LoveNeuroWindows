@@ -6,6 +6,7 @@
     xmlns:controls2="using:AppStudio.Uwp.Controls"
     xmlns:core="clr-namespaceTongue Tiedystem;assembly=mscorlib"
     xmlns:local="using:NerveCentreW10"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:styles="using:NerveCentreW10.Styles">
 
     <Application.Resources>
@@ -139,6 +140,8 @@
             <SolidColorBrush x:Key="ToggleButtonRevealBackground" Color="Turquoise" />
             <Color x:Key="SystemAccentColor">Turquoise</Color>
             <!--  Your accent color  -->
+
+
 
             <ResourceDictionary.MergedDictionaries>
 

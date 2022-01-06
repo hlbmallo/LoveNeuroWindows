@@ -158,10 +158,10 @@
       <Version>13.0.1</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Licensing">
-      <Version>19.4.0.38</Version>
+      <Version>19.4.0.41</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.SfImageEditor.UWP">
-      <Version>19.4.0.38</Version>
+      <Version>19.4.0.41</Version>
     </PackageReference>
     <PackageReference Include="WindowsAppStudio.Uwp">
       <Version>1.5.3</Version>
@@ -548,7 +548,9 @@
     <Compile Include="Helpers\ResourceExtensions.cs" />
     <Compile Include="Helpers\Singleton.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Icons\iconcells.png" />
     <Content Include="Assets\Icons\iconclinical.png" />

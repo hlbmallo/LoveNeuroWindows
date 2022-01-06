@@ -2,10 +2,8 @@
     x:Class="NerveCentreW10.DataTemplatesDictionary"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:data="using:NerveCentreW10.Models"
-    xmlns:data2="using:NerveCentreW10.ViewModels"
     xmlns:helpers="using:NerveCentreW10.Helpers"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI">
@@ -13,10 +11,10 @@
     <helpers:CloudClasssVisibilityConverter x:Key="cloudHelper" />
     <media:AttachedCardShadow
         x:Name="CustomShadow1"
-        BlurRadius="40"
+        BlurRadius="60"
         CornerRadius="20"
-        Offset="10"
-        Color="Black" />
+        Offset="4"
+        Color="Turquoise" />
 
 
     <DataTemplate x:Key="NotesDataTemplate" x:DataType="data:NotesClass">
@@ -25,7 +23,6 @@
             Width="270"
             Height="270"
             Margin="10"
-            ui:Effects.Shadow="{StaticResource CustomShadow1}"
             Background="White"
             BorderBrush="Black"
             BorderThickness="1"
