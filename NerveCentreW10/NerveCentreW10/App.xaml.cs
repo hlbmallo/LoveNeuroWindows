@@ -36,7 +36,7 @@ namespace NerveCentreW10
         
         public App()
         {
-            SyncfusionLicenseProvider.RegisterLicense("NTQ5NjU0QDMxMzkyZTM0MmUzMEZpanN2ak1zeWpNcEx3aWlrcEd3aDJQVk4xS09JS1dOWHpGU3ljSlVUdVE9");
+            SyncfusionLicenseProvider.RegisterLicense("NTY1OTI0QDMxMzkyZTM0MmUzMG9EZXNkQmc2eGFydkp2aERyRmF6SXc4NkZlbTZmTU5OazVRS29VOTBQd0k9;NTY1OTI1QDMxMzkyZTM0MmUzMGNJRWNzNnF2bkZSMVp1ZTRhVTN2OEhiY2JiZ3duYi8wSVZrNFB4aHpub289");
 
             InitializeComponent();
 
