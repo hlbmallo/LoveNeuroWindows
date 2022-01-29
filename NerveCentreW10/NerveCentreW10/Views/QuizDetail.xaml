@@ -87,10 +87,7 @@
                             BorderBrush="Black"
                             BorderThickness="1"
                             CornerRadius="20">
-                            <StackPanel
-                                HorizontalAlignment="Stretch"
-                                CornerRadius="20"
-                                Style="{StaticResource StackPanelForQuestions}">
+                            <StackPanel HorizontalAlignment="Stretch" Style="{StaticResource StackPanelForQuestions}">
                                 <TextBlock
                                     x:Name="QQ"
                                     Style="{StaticResource QuestionTextStyle}"
