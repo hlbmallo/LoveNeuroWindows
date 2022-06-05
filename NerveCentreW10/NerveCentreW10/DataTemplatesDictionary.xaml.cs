@@ -37,40 +37,32 @@ namespace NerveCentreW10
         private void MyGrid_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             preElement = sender as FrameworkElement;
-            AnimationBuilder.Create().Translation(Axis.Y, to:-10, duration: TimeSpan.FromMilliseconds(200)).StartAsync(preElement);
+            AnimationBuilder.Create().Scale(1.05, 1, null, TimeSpan.FromMilliseconds(400), null, EasingType.Quintic).CenterPoint(Axis.X, preElement.Width/2).CenterPoint(Axis.Y, preElement.Height/2).StartAsync(preElement);
         }
 
         private void MyGrid_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             preElement = sender as FrameworkElement;
-            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(preElement);
+            AnimationBuilder.Create().Scale(1, 1.05, null, TimeSpan.FromMilliseconds(400), null, EasingType.Quintic).CenterPoint(Axis.X, preElement.Width / 2).CenterPoint(Axis.Y, preElement.Height / 2).StartAsync(preElement);
 
-            //    preElement = sender as FrameworkElement;
-
-            //    var control = preElement.FindDescendant("MyGrid2");
-            //    control.Scale(centerX: 150f, centerY: 100f, scaleX: 1.0f, scaleY: 1.0f,
-            //                duration: 200, delay: 0, easingType: EasingType.Default).Start();
-
-            //    var control2 = preElement.FindDescendant("MyDropShadow");
-            //    control2.Fade(value: 0.0f, duration: 500, delay: 0).Start();
         }
 
         private void MyGrid_PointerCanceled(object sender, PointerRoutedEventArgs e)
         {
             preElement = sender as FrameworkElement;
-            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(preElement);
+            AnimationBuilder.Create().Scale(1, 1.05, null, TimeSpan.FromMilliseconds(400), null, EasingType.Quintic).CenterPoint(Axis.X, preElement.Width / 2).CenterPoint(Axis.Y, preElement.Height / 2).StartAsync(preElement);
         }
 
         private void MyGrid_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
         {
             preElement = sender as FrameworkElement;
-            AnimationBuilder.Create().Translation(Axis.Y, to: 0, duration: TimeSpan.FromMilliseconds(200)).StartAsync(preElement);
+            AnimationBuilder.Create().Scale(1, 1.05, null, TimeSpan.FromMilliseconds(400), null, EasingType.Quintic).CenterPoint(Axis.X, preElement.Width / 2).CenterPoint(Axis.Y, preElement.Height / 2).StartAsync(preElement);
         }
 
         private void MyGrid_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             preElement = sender as FrameworkElement;
-            AnimationBuilder.Create().Translation(Axis.Y, to: -10, duration: TimeSpan.FromMilliseconds(200)).StartAsync(preElement);
+            AnimationBuilder.Create().Scale(1.07, 1.05, null, TimeSpan.FromMilliseconds(400), null, EasingType.Quintic).CenterPoint(Axis.X, preElement.Width / 2).CenterPoint(Axis.Y, preElement.Height / 2).StartAsync(preElement);
         }
 
         private void MyGrid_PointerReleased(object sender, PointerRoutedEventArgs e)

@@ -114,9 +114,9 @@
             <AcrylicBrush
                 x:Key="DetailPageCommandbarAcrylic1"
                 BackgroundSource="Backdrop"
-                FallbackColor="Turquoise"
-                TintColor="Turquoise"
-                TintOpacity="0.45" />
+                FallbackColor="White"
+                TintColor="White"
+                TintOpacity="0.75" />
             <AcrylicBrush
                 x:Key="GridViewAcrylic1"
                 BackgroundSource="Backdrop"

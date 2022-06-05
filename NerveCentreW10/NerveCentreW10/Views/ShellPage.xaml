@@ -48,7 +48,7 @@
             x:Name="NavView"
             AlwaysShowHeader="True"
             BackRequested="NavView_BackRequested"
-            Canvas.ZIndex="0"
+            Canvas.ZIndex="0" BorderBrush="Transparent" BorderThickness="0"
             IsTitleBarAutoPaddingEnabled="False"
             ItemInvoked="NavView_ItemInvoked"
             Loaded="NavView_Loaded">
@@ -123,9 +123,6 @@
                 x:Name="ContentFrame"
                 Margin="10"
                 Padding="10"
-                Background="White"
-                BorderBrush="LightGray"
-                BorderThickness="1"
                 CornerRadius="20"
                 IsTabStop="True"
                 NavigationFailed="ContentFrame_NavigationFailed" />
@@ -133,7 +130,7 @@
             <muxc:NavigationView.HeaderTemplate>
                 <DataTemplate>
                     <TextBlock
-                        Margin="-30,0,0,0"
+                        Margin="0,0,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         FontWeight="SemiLight"

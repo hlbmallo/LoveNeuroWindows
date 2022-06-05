@@ -64,6 +64,11 @@ namespace NerveCentreW10.Views
                 ShareImage2Button.Visibility = Visibility.Visible;
             }
 
+            if (MyClickedItem.Description3 == "")
+            {
+                Stack3.Visibility = Visibility.Collapsed;
+            }
+
             //ClinicalExpander.Header = MyClickedItem.Popup1Title;
             //ClinicalExpanderContent.Source = MyClickedItem.Popup1Content;
             //ResearchExpander.Header = MyClickedItem.Popup2Title;

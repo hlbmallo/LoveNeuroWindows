@@ -20,26 +20,23 @@
     <DataTemplate x:Key="NotesDataTemplate" x:DataType="data:NotesClass">
         <Grid
             x:Name="MyGrid"
-            Width="270"
-            Height="270"
-            Margin="10"
-            Background="White"
-            BorderBrush="Black"
-            BorderThickness="1"
-            CornerRadius="20"
+            Width="350"
+            Height="250"
+            Background="Transparent"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
             PointerEntered="MyGrid_PointerEntered"
             PointerExited="MyGrid_PointerExited"
             PointerPressed="MyGrid_PointerPressed"
             PointerReleased="MyGrid_PointerReleased">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.7*" />
-                <RowDefinition Height="0.3*" />
-            </Grid.RowDefinitions>
 
+            <Grid Margin="10" Padding="10" CornerRadius="10" Background="White" BorderBrush="LightGray" BorderThickness="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.7*" />
+                    <RowDefinition Height="0.3*" />
+                </Grid.RowDefinitions>
 
-            <controls:ImageEx
+                <controls:ImageEx
                 x:Name="MyImage"
                 Grid.Row="0"
                 MaxHeight="110"
@@ -50,168 +47,223 @@
                 CacheMode="BitmapCache"
                 IsCacheEnabled="True"
                 Source="{x:Bind NotesImage}"
-                Stretch="Uniform" />
-            <Border
+                Stretch="Uniform">
+                    <!--<ui:Effects.Shadow>
+                        <media:AttachedCardShadow CornerRadius="10" BlurRadius="7" Opacity="0.5"
+                                    Offset="0,0"/>
+                    </ui:Effects.Shadow>-->
+                </controls:ImageEx>
+                <Border
                 x:Name="MyBorder2"
-                Grid.Row="1"
-                Padding="10"
+                Grid.Row="1" Margin="5"
+                Padding="5" CornerRadius="10"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Background="Turquoise">
-
-                <TextBlock
+                    <TextBlock
                     x:Name="MyTextBlock"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="17"
                     FontWeight="Normal"
-                    Foreground="#2b2b2b"
+                    Foreground="White"
                     Text="{x:Bind NotesTitle}"
                     TextAlignment="Center"
-                    TextWrapping="Wrap" />
-            </Border>
+                    TextWrapping="Wrap"/>
+
+                    <ui:Effects.Shadow>
+                        <media:AttachedCardShadow CornerRadius="10" BlurRadius="7" Opacity="0.5"
+                                    Offset="0,0"/>
+                    </ui:Effects.Shadow>
+
+                </Border>
+                <ui:Effects.Shadow>
+                    <media:AttachedCardShadow CornerRadius="10" BlurRadius="7" Opacity="0.5"
+                                    Offset="0,0"/>
+                </ui:Effects.Shadow>
+            </Grid>
+
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="SectionDataTemplate" x:DataType="data:SubsectionModel">
         <Grid
             x:Name="MyGrid"
-            Width="270"
-            Height="270"
-            Margin="10"
-            ui:Effects.Shadow="{StaticResource CustomShadow1}"
-            Background="White"
-            BorderBrush="Black"
-            BorderThickness="1"
-            CornerRadius="20"
+            Width="350"
+            Height="250"
+            Background="Transparent"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
             PointerEntered="MyGrid_PointerEntered"
             PointerExited="MyGrid_PointerExited"
             PointerPressed="MyGrid_PointerPressed"
             PointerReleased="MyGrid_PointerReleased">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.7*" />
-                <RowDefinition Height="0.3*" />
-            </Grid.RowDefinitions>
-            <controls:ImageEx
+
+            <Grid Margin="10" Padding="10" CornerRadius="10" Background="White" BorderBrush="LightGray" BorderThickness="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.7*" />
+                    <RowDefinition Height="0.3*" />
+                </Grid.RowDefinitions>
+
+                <controls:ImageEx
                 x:Name="MyImage"
-                Grid.RowSpan="2"
-                MinHeight="80"
-                Padding="10"
-                HorizontalAlignment="Stretch"
+                Grid.Row="0"
+                MaxHeight="110"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
                 CacheMode="BitmapCache"
                 IsCacheEnabled="True"
                 Source="{Binding ImageUri1, Converter={StaticResource cloudHelper}}"
-                Stretch="UniformToFill" />
-            <Border
+                Stretch="Uniform">
+                    <!--<ui:Effects.Shadow>
+                        <media:AttachedCardShadow CornerRadius="10" BlurRadius="7" Opacity="0.5"
+                                    Offset="0,0"/>
+                    </ui:Effects.Shadow>-->
+                </controls:ImageEx>
+                <Border
                 x:Name="MyBorder2"
-                Grid.Row="1"
-                MinHeight="80"
-                Padding="10"
+                Grid.Row="1" Margin="5"
+                Padding="5" CornerRadius="10"
                 HorizontalAlignment="Stretch"
-                VerticalAlignment="Bottom"
+                VerticalAlignment="Stretch"
                 Background="Turquoise">
-
-
-                <TextBlock
+                    <TextBlock
                     x:Name="MyTextBlock"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="17"
                     FontWeight="Normal"
-                    Foreground="#2b2b2b"
+                    Foreground="White"
                     Text="{x:Bind Title}"
                     TextAlignment="Center"
-                    TextWrapping="Wrap" />
-            </Border>
+                    TextWrapping="Wrap"/>
+
+                    <ui:Effects.Shadow>
+                        <media:AttachedCardShadow CornerRadius="10" BlurRadius="7" Opacity="0.5"
+                                    Offset="0,0"/>
+                    </ui:Effects.Shadow>
+
+                </Border>
+                <ui:Effects.Shadow>
+                    <media:AttachedCardShadow CornerRadius="10" BlurRadius="7" Opacity="0.5"
+                                    Offset="0,0"/>
+                </ui:Effects.Shadow>
+            </Grid>
+
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="QuizListDataTemplate" x:DataType="data:QuizListClass">
+        
         <Grid
             x:Name="MyGrid"
-            Width="270"
-            Height="270"
-            Margin="10"
-            ui:Effects.Shadow="{StaticResource CustomShadow1}"
-            Background="White"
-            BorderBrush="Black"
-            BorderThickness="1"
-            CornerRadius="20"
+            Width="350"
+            Height="250"
+Background="Transparent"
+            CornerRadius="10"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
             PointerEntered="MyGrid_PointerEntered"
             PointerExited="MyGrid_PointerExited"
             PointerPressed="MyGrid_PointerPressed"
             PointerReleased="MyGrid_PointerReleased">
-            <StackPanel VerticalAlignment="Center">
-                <TextBlock
+            <Grid Margin="10" Padding="10" CornerRadius="10" Background="White" BorderBrush="LightGray" BorderThickness="2">
+
+                <Border
+                x:Name="MyBorder2"
+                CornerRadius="10" Margin="10" Padding="10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                Background="Turquoise">
+                    <StackPanel>
+                        <TextBlock
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="17"
-                    FontWeight="Normal"
-                    Foreground="Turquoise"
+                    FontWeight="Bold"
+                    Foreground="White"
                     Text="{x:Bind QuizNumber}"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
-                <TextBlock
+                        <TextBlock
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="17"
                     FontWeight="Normal"
-                    Foreground="#2b2b2b"
+                    Foreground="White"
                     Text="{x:Bind QuizName}"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
-            </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="InkingZoneDataTemplate">
         <Grid
             x:Name="MyGrid"
-            Width="270"
-            Height="270"
-            Margin="10"
-            ui:Effects.Shadow="{StaticResource CustomShadow1}"
-            Background="White"
-            BorderBrush="Black"
-            BorderThickness="1"
-            CornerRadius="20"
+            Width="350"
+            Height="250"
+            Background="Transparent"
             PointerCanceled="MyGrid_PointerCanceled"
             PointerCaptureLost="MyGrid_PointerCaptureLost"
             PointerEntered="MyGrid_PointerEntered"
             PointerExited="MyGrid_PointerExited"
             PointerPressed="MyGrid_PointerPressed"
             PointerReleased="MyGrid_PointerReleased">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.7*" />
-                <RowDefinition Height="0.3*" />
-            </Grid.RowDefinitions>
-            <controls:ImageEx
+
+            <Grid Margin="10" Padding="10" CornerRadius="10" Background="White" BorderBrush="LightGray" BorderThickness="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.7*" />
+                    <RowDefinition Height="0.3*" />
+                </Grid.RowDefinitions>
+
+                <controls:ImageEx
                 x:Name="MyImage"
-                Grid.RowSpan="2"
-                Source="{Binding InkingZoneImageName, Converter={StaticResource cloudHelper}}" />
-            <Border
+                Grid.Row="0"
+                MaxHeight="110"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                CacheMode="BitmapCache"
+                IsCacheEnabled="True"
+                Source="{Binding InkingZoneImageName, Converter={StaticResource cloudHelper}}"
+                Stretch="Uniform">
+                </controls:ImageEx>
+                <Border
                 x:Name="MyBorder2"
-                Grid.Row="1"
-                MinHeight="80"
-                Padding="10"
+                Grid.Row="1" Margin="5"
+                Padding="5" CornerRadius="10"
                 HorizontalAlignment="Stretch"
-                VerticalAlignment="Bottom"
+                VerticalAlignment="Stretch"
                 Background="Turquoise">
-                <TextBlock
+                    <TextBlock
                     x:Name="MyTextBlock"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="17"
                     FontWeight="Normal"
-                    Foreground="Black"
+                    Foreground="White"
                     Text="{Binding InkingZoneTitle}"
                     TextAlignment="Center"
-                    TextWrapping="Wrap" />
-            </Border>
+                    TextWrapping="Wrap"/>
+
+                    <ui:Effects.Shadow>
+                        <media:AttachedCardShadow CornerRadius="10" BlurRadius="7" Opacity="0.5"
+                                    Offset="0,0"/>
+                    </ui:Effects.Shadow>
+
+                </Border>
+                <ui:Effects.Shadow>
+                    <media:AttachedCardShadow CornerRadius="10" BlurRadius="7" Opacity="0.5"
+                                    Offset="0,0"/>
+                </ui:Effects.Shadow>
+            </Grid>
+
         </Grid>
     </DataTemplate>
 
