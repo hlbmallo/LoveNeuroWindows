@@ -19,7 +19,7 @@ namespace NerveCentreW10.Views
             InitializeComponent();
             CloudClass cloudClass = new CloudClass();
             welcomeImage.Source = cloudClass.GetBlobSasUri("LN31.png");
-            welcomeImage2.Source = cloudClass.GetBlobSasUri("LN16.png");
+            //welcomeImage2.Source = cloudClass.GetBlobSasUri("LN16.png");
             loaded2();
 
             //welcomeText.Source = "This educational app has been designed by a student, for students, with the aim of teaching neuroscience in a clear, concise and easy - to - understand way.I'd love to hear what you think about LoveNeuro, so please feel free to rate and review the app in the Microsoft Store. Thanks for your support.<br/>";
@@ -98,7 +98,7 @@ namespace NerveCentreW10.Views
 
         private void welcomeImage2_ImageExFailed(object sender, Microsoft.Toolkit.Uwp.UI.Controls.ImageExFailedEventArgs e)
         {
-            welcomeImage2.Source = "ms-appx:///Assets/Others/ErrorPlaceholder.png";
+            //welcomeImage2.Source = "ms-appx:///Assets/Others/ErrorPlaceholder.png";
         }
     }
 }

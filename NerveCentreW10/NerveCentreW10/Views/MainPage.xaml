@@ -10,10 +10,10 @@
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea" Margin="5">
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="0.5*" />
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*" />
             <RowDefinition Height="0.5*" />
@@ -46,7 +46,7 @@
                 Loaded="MyMPE_Loaded"
                 RequestedTheme="Default" />
         </Grid>
-        <Grid
+        <!--<Grid
             Grid.Row="1"
             Grid.RowSpan="1"
             Grid.Column="1"
@@ -59,7 +59,7 @@
                 ImageExFailed="welcomeImage2_ImageExFailed"
                 PlaceholderSource="ms-appx:///Assets/Others/LoadingPlaceholder.png"
                 Stretch="Uniform" />
-        </Grid>
+        </Grid>-->
 
         <muxc:TeachingTip
             x:Name="TeachTip1"

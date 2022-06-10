@@ -42,7 +42,7 @@
             SelectedIndex="{x:Bind viewModel.ItemPosition, Mode=TwoWay}">
             <controls:GalleryFlipView.ItemTemplate>
                 <DataTemplate x:DataType="data:ClinicalCaseModel">
-                    <Grid>
+                    <Grid Margin="10" Padding="10">
                         <Border
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Center"
