@@ -38,22 +38,27 @@
             Text="It looks like you're not connected to the internet. Please reconnect to start the test."
             Visibility="Collapsed" />
 
-        <StackPanel x:Name="MyStack" HorizontalAlignment="Center">
+        <StackPanel
+            x:Name="MyStack"
+            Margin="10"
+            HorizontalAlignment="Center">
             <Button
+                HorizontalAlignment="Center"
                 Click="Button_Click"
-                Content="Case No. 1: Extreme Fall"
-                Style="{StaticResource ButtonStyle1}" />
+                Content="Case No. 1: Extreme Fall" />
+            <AppBarSeparator Padding="5" />
             <Button
                 x:Name="Case2"
+                HorizontalAlignment="Center"
                 Click="Case2_Click"
-                Content="Case No. 2: Tremor Presentation"
-                Style="{StaticResource ButtonStyle1}" />
+                Content="Case No. 2: Tremor Presentation" />
+            <AppBarSeparator Padding="5" />
+
             <Button
                 x:Name="Case3"
+                HorizontalAlignment="Center"
                 Click="Case3_Click"
-                Content="Case No. 3: Drooping Face"
-                Style="{StaticResource ButtonStyle1}" />
-
+                Content="Case No. 3: Drooping Face" />
         </StackPanel>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>

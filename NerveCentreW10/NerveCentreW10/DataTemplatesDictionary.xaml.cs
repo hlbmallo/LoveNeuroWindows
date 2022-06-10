@@ -22,6 +22,8 @@ using Newtonsoft.Json;
 using Windows.Storage;
 using NerveCentreW10.ViewModels;
 using System.Numerics;
+using Microsoft.Toolkit.Uwp.UI.Media;
+using Windows.UI.Composition;
 
 namespace NerveCentreW10
 {

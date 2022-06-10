@@ -152,9 +152,11 @@
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Height="48"
+            Height="52"
             Background="{ThemeResource DetailPageCommandbarAcrylic1}"
-            CornerRadius="20">
+            BorderBrush="LightGray"
+            BorderThickness="2"
+            CornerRadius="10">
             <StackPanel Orientation="Horizontal">
                 <ToggleButton
                     x:Name="SubmitButton"
@@ -162,7 +164,9 @@
                     Background="Transparent"
                     Click="SubmitButton_Click"
                     Content="Score and Reveal/Hide Answers"
-                    IsChecked="{Binding IsCorrOrIncorr, Mode=TwoWay}" />
+                    CornerRadius="10"
+                    IsChecked="{Binding IsCorrOrIncorr, Mode=TwoWay}"
+                    Style="{StaticResource ToggleButtonRevealStyle}" />
                 <!--<ToggleButton
                     x:Name="RevealHideAnswersButton"
                     HorizontalAlignment="Stretch"

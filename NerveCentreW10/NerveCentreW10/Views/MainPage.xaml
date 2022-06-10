@@ -27,10 +27,10 @@
             CornerRadius="20">
             <controls:ImageEx
                 x:Name="welcomeImage"
+                HorizontalAlignment="Left"
                 CornerRadius="20"
                 ImageExFailed="welcomeImage_ImageExFailed"
-                PlaceholderSource="ms-appx:///Assets/Others/LoadingPlaceholder.png"
-                Stretch="UniformToFill" />
+                Stretch="Uniform" />
         </Grid>
         <Grid
             Grid.Row="1"

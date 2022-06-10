@@ -569,6 +569,7 @@
     <Content Include="Assets\LargeTile.scale-150.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\LN30.png" />
     <Content Include="Assets\Others\ErrorPlaceholder.png" />
     <Content Include="Assets\Others\LN19.png" />
     <Content Include="Assets\Others\LoadingPlaceholder.png" />
